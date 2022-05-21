@@ -207,7 +207,6 @@ comment:
   tips:
     - 若您想及时得到回复提醒，也可以去B站私信我哦
     - 如果较为紧急，建议添加微信或QQ，并注明来意
-    - 建议默认使用Valine评论，出现错误请使用Livere评论
   candidates:
     - livere
 
