@@ -1,0 +1,225 @@
+favicon: https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/user2.png
+
+social:
+  - name: QQ
+    link: https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/QQ.jpg
+    icon: icon-qq-line
+    color: "#12B7F5"
+  - name: GitHub
+    link: https://github.com/ShengQiBaoZao
+    icon: icon-github-line
+    color: "#181717"
+  - name: E-Mail
+    link: mailto:lty15376767691@gmail.com
+    icon: icon-mail-line
+    color: "#8E71C1"
+  - name: 网易云音乐
+    link: https://music.163.com/#/user/home?id=509242587
+    icon: icon-netease-cloud-music-line
+    color: "#C10D0C"
+  - name: Bilibili
+    link: https://space.bilibili.com/347061710
+    icon: icon-bilibili-line
+    color: "#FF8EB3"
+  - name: 微信
+    link: https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/wechat.jpg
+    icon: icon-wechat-2-line
+    color: "#1AAD19"
+
+banner:
+  enable: true
+  title: 圣奇宝枣的小站
+  border: true
+  cloud:
+    enable: true
+    color: white
+  go_down:
+    enable: true
+    icon: icon-arrow-down-s-line
+
+notice:
+  enable: true
+  content: 站点测试中。。。
+
+mode: auto
+
+bg_image:
+  enable: true
+  url: https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/background.png
+  dark: https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/background6.jpg
+  blur: 5px
+  opacity: 0.8
+
+fireworks:
+  enable: true
+  colors:
+    - "102, 167, 221"
+    - "62, 131, 225"
+    - "33, 78, 194"
+
+scrollreveal:
+  enable: true
+  targets:
+    - .post-card
+    - .markdown-body img
+
+cursor:
+  enable: false
+  default: https://cdn.yunyoujun.cn/css/md-cursors/pointer.cur
+  pointer: https://cdn.yunyoujun.cn/css/md-cursors/link.cur
+  text: https://cdn.yunyoujun.cn/css/md-cursors/text.cur
+
+sidebar:
+  bg_image: https://fastly.jsdelivr.net/gh/YunYouJun/cdn/img/bg/stars-timing-1.jpg
+  bg_position: bottom 3rem center
+  tagcloud:
+    enable: false
+    amount: 20
+
+avatar:
+  enable: true
+  url: https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/user2.png
+  rounded: true
+  opacity: 1
+  mickey_mouse: false
+  status:
+    enable: true
+    emoji: 😇
+    message: 加班升天中
+
+menu:
+  home:
+    path: /
+    icon: icon-home-4-line
+  list:
+    - type: archives
+      path: /archives/
+      icon: icon-archive-line
+    - type: categories
+      path: /categories/
+      icon: icon-folder-2-line
+    - type: tags
+      path: /tags/
+      icon: icon-price-tag-3-line
+    # - path: https://www.yunyoujun.cn
+    #   icon: icon-cloud-line
+    #   count: 你猜
+  custom:
+    title: 本项目仓库
+    path: https://github.com/ShengQiBaoZao/shengqibaozao.github.io
+    icon: icon-github-line
+
+pages:
+  - name: 我的小伙伴们
+    url: /links/
+    icon: icon-genderless-line
+    color: dodgerblue
+  - name: 可爱的女孩子
+    url: /girls/
+    icon: icon-women-line
+    color: hotpink
+
+post_meta:
+  item_text: false
+  created_at: true
+  updated_at: true
+  categories: true
+  tags: true
+
+toc:
+  list_number: true
+  max_depth: 4
+  min_depth: 1
+  placeholder: 很遗憾，这篇文章内容较短不需要目录或咱懒得写目录
+  collapse: false
+
+codeblock:
+  copy_btn: true
+
+creative_commons:
+  license: by-nc-sa
+  post: true
+  language: deed.zh
+  clipboard: false
+
+lazyload:
+  enable: true
+
+reward:
+  enable: true
+  icon: icon-hand-coin-line
+  comment: 创作不易，如果对你有帮助，点此打赏支持
+  methods:
+    - name: 支付宝
+      path: https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/alipay.jpg
+      color: "#00A3EE"
+      icon: icon-alipay-line
+    - name: QQ 支付
+      path: https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/QQpay.png
+      color: "#12B7F5"
+      icon: icon-qq-line
+    - name: 微信支付
+      path: https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/wechatpay.png
+      color: "#2DC100"
+      icon: icon-wechat-pay-line
+
+footer:
+  since: 2022
+  icon:
+    name: icon-cloud-line
+    animated: true
+    color: "#0078E7"
+  live_time:
+    enable: true
+    prefix: 本博客已萌萌哒地运行
+    suffix: (●'◡'●)
+    start_time: "2022-04-15T09:43:00"
+
+girls:
+  enable: true
+
+comment:
+  enable: true
+  tips:
+    - 若您想及时得到回复提醒，也可以去B站私信我哦
+    - 如果较为紧急，建议添加微信或QQ，并注明来意
+    - 建议默认使用Valine评论，出现错误请使用Livere评论
+  candidates:
+    - valine
+    - livere
+
+valine:
+  enable: true
+  appId: SYoVU6j10s1vQJW8qq4o2YNN-MdYXbMMI
+  appKey: lXveRnVuQRUCa7HlP395OcHL
+  placeholder: 说点什么？
+  avatar:
+  meta:
+    - nick
+    - mail
+    - link
+  pageSize: 10 # pagination size
+
+livere:
+  enable: true
+  uid: MTAyMC81NTQ1OC8zMTkyNQ==
+
+engine_search:
+  enable: false
+
+local_search:
+  enable: true
+
+busuanzi:
+  enable: true
+  site_uv: true
+  site_uv_icon: icon-user-line
+  site_pv: true
+  site_pv_icon: icon-eye-line
+  page_pv: true
+  page_pv_icon: icon-eye-line
+
+wordcount:
+  enable: true
+  count: true
+  time: true
