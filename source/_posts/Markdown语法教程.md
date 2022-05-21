@@ -1,5 +1,7 @@
 ---
 title: Markdown语法教程
+author: 圣奇宝枣
+description: 简单易上手的标记语言Markdown，无论用来写文章还是记概要整理知识都很出众
 date: 2022-05-21 10:30:00
 updated: 2022-05-21 10:30:00
 tags:
