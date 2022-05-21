@@ -1,6 +1,14 @@
 favicon: https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/user2.png
 
+notice:
+  enable: true
+  content: 站点测试中。。。
+
 social:
+  - name: 微信
+    link: https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/wechat.jpg
+    icon: icon-wechat-2-line
+    color: "#1AAD19"
   - name: QQ
     link: https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/QQ.jpg
     icon: icon-qq-line
@@ -21,10 +29,6 @@ social:
     link: https://space.bilibili.com/347061710
     icon: icon-bilibili-line
     color: "#FF8EB3"
-  - name: 微信
-    link: https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/wechat.jpg
-    icon: icon-wechat-2-line
-    color: "#1AAD19"
 
 banner:
   enable: true
@@ -36,10 +40,6 @@ banner:
   go_down:
     enable: true
     icon: icon-arrow-down-s-line
-
-notice:
-  enable: true
-  content: 站点测试中。。。
 
 mode: auto
 
@@ -64,7 +64,7 @@ scrollreveal:
     - .markdown-body img
 
 cursor:
-  enable: false
+  enable: true
   default: https://cdn.yunyoujun.cn/css/md-cursors/pointer.cur
   pointer: https://cdn.yunyoujun.cn/css/md-cursors/link.cur
   text: https://cdn.yunyoujun.cn/css/md-cursors/text.cur
@@ -120,7 +120,7 @@ pages:
     color: hotpink
 
 post_meta:
-  item_text: false
+  item_text: true
   created_at: true
   updated_at: true
   categories: true
@@ -128,10 +128,10 @@ post_meta:
 
 toc:
   list_number: true
-  max_depth: 4
+  max_depth: 6
   min_depth: 1
   placeholder: 很遗憾，这篇文章内容较短不需要目录或咱懒得写目录
-  collapse: false
+  collapse: true
 
 codeblock:
   copy_btn: true
@@ -223,3 +223,7 @@ wordcount:
   enable: true
   count: true
   time: true
+
+wordcloud:
+  enable: true
+  height: 350
