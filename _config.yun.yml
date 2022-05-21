@@ -2,7 +2,27 @@ favicon: https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/user2.png
 
 notice:
   enable: true
-  content: 站点测试中。。。
+  content: 站点试运行中，稳定性和速度可能欠佳。。。
+
+tags:
+  Git: "#ff4d4d"
+  网络爬虫: "#ff4d4d"
+  Microsoft 5E 订阅: "#00b300"
+  基础语法: "#cc33ff"
+  版本管理工具: "#00b300"
+  Markdown: "#b35900"
+  VScode: "#6699ff"
+  Office 365: "#ff944d"
+  PicGO: "#6699ff"
+  教程分享: "#cc33ff"
+  环境配置: "#00b300"
+  Python3: "#ffc266"
+  C语言: "#6699ff"
+
+categories:
+  编程语言: "#ff944d"
+  其他教程: "#ffc266"
+  代码编辑器: "#9999ff"
 
 social:
   - name: 微信
@@ -189,20 +209,7 @@ comment:
     - 如果较为紧急，建议添加微信或QQ，并注明来意
     - 建议默认使用Valine评论，出现错误请使用Livere评论
   candidates:
-    - valine
     - livere
-
-valine:
-  enable: true
-  appId: SYoVU6j10s1vQJW8qq4o2YNN-MdYXbMMI
-  appKey: lXveRnVuQRUCa7HlP395OcHL
-  placeholder: 说点什么？
-  avatar:
-  meta:
-    - nick
-    - mail
-    - link
-  pageSize: 10 # pagination size
 
 livere:
   enable: true

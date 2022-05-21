@@ -2,8 +2,8 @@
 title: Python3基础教程
 author: 圣奇宝枣
 description: 有关Python3的基础教程，包括基本语法、python特有数据类型以及面向对象编程等，适合新手上手
-date: 2022-05-21 10:30:00
-updated: 2022-05-21 10:30:00
+date: 2022-04-16 10:30:00
+updated: 2022-04-27 19:34:15
 tags:
   - Python3
   - 基础语法
