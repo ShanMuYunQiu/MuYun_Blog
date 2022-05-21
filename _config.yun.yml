@@ -187,22 +187,8 @@ comment:
   tips:
     - 若您想及时得到回复提醒，也可以去B站私信我哦
     - 如果较为紧急，建议添加微信或QQ，并注明来意
-    - 建议默认使用Valine评论，出现错误请使用Livere评论
   candidates:
-    - valine
     - livere
-
-valine:
-  enable: true
-  appId: SYoVU6j10s1vQJW8qq4o2YNN-MdYXbMMI
-  appKey: lXveRnVuQRUCa7HlP395OcHL
-  placeholder: 说点什么？
-  avatar:
-  meta:
-    - nick
-    - mail
-    - link
-  pageSize: 10 # pagination size
 
 livere:
   enable: true
