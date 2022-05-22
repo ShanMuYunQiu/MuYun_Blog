@@ -11,26 +11,31 @@ links:
     blog: 云游君的小站
     desc: All at sea.
     color: '#0078e7'
+
   - url: https://www.jiurs.top/
     avatar: http://edu-1510131045.oss-cn-beijing.aliyuncs.com/config/16b6b1b3f501e0cf052470dce56457d5.ico
     blog: jiurs 博客
     desc: 分享日常生活和Java后端学习笔记
     color: '#0078e7'
+
   - url: https://www.solargod.cn/
     avatar: https://images.solargod.cn/config/161b16c6343438d5104be03415215c65.svg
     blog: 斜阳技术博客
     desc: 前端、后端、服务器基础分享
     color: '#0078e7'
+
   - url: https://www.ender.ml/
     avatar: https://s2.loli.net/2022/05/22/GPVbRYtFJwT8Q3Z.png
     blog: ender's_blog
     desc: 不念过往，不惧将来
     color: '#0078e7'
+
   - url: https://www.ffnb.top/
     avatar: http://www.ffnb.top/wp-content/uploads/2022/02/仙鸣背景.jpg
     blog: HOMIE 工作室
     desc: 欢迎大家访问HOMIE工作室，大家可以在这里学习浏览交流！★大家有什么需求、或者是更好的意见可以加我QQ联系推荐~
     color: '#0078e7'
+    
   - url:
     avatar: https://s2.loli.net/2022/05/22/qyFjteWoNwLGJ54.jpg
     blog: 等待申请中。。。
