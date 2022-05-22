@@ -2,7 +2,7 @@ favicon: https://s2.loli.net/2022/05/22/4s8QIyo6OEiavVD.png
 
 notice:
   enable: true
-  content: 站点正常运行，暂无公告。近期学习：C基础
+  content: 站点正常运行，暂无公告。近期学习与更新：C语言基础教程
 
 tags:
   Git: "#ff4d4d"
