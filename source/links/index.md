@@ -19,7 +19,7 @@ links:
     blog: 斜阳技术博客
     desc: 前端、后端、服务器基础分享
   - url: https://www.ender.ml/
-    avatar: https://s2.loli.net/2022/05/22/qyFjteWoNwLGJ54.jpg
+    avatar: https://code004accepted.github.io/img/favicon.png
     blog: ender's_blog
     desc: 不念过往，不惧将来
   - url: https://www.ffnb.top/
