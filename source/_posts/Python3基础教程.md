@@ -167,11 +167,11 @@ categories:
   > **in**：前者是否在后者中  
   > **not in**：前者是否不在后者中
 - 位运算符  
-  ![](https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/pythonweiyunsuan.png)
+  ![](https://s2.loli.net/2022/05/22/RwpXjMEQvmLlodf.png)
 
 ##### **优先级**
 
-![](https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/pythonyouxianji.png)
+![](https://s2.loli.net/2022/05/22/exaBjZfVkgDvdXq.png)
 
 ---
 
@@ -620,21 +620,21 @@ s={i for i in range(10)}
   - 可以使用运算符`==`或`!=`
 - 一个集合是否是另一个集合的子集
   - 可以调用方法`issubset`进行判断，例如：
-  ```Python
+  ```python
   s1={10,20,30,40,50,60}
   s2={10,20,30}
   print(s2.issubset(s1))
   ```
 - 一个集合是否是另一个集合的超集
   - 可以调用方法`insuperset`进行判断，例如：
-  ```Python
+  ```python
   s1={10,20,30,40,50,60}
   s2={10,20,30}
   print(s1.issuperset(s2))
   ```
 - 两个集合是否没有交集
   - 可以调用方法`isdisjoint`进行判断，例如：
-  ```Python
+  ```python
   s1={10,20,30,40,50,60}
   s2={10,456,789}
   print(s1.isdisjoint(s2))
@@ -644,7 +644,7 @@ s={i for i in range(10)}
 
 - 交集
   - 使用内置函数`intersection`或使用`&`符号获取，示例：
-  ```Python
+  ```python
   s1={10,20,30,40}
   s2={20,30,40,50,60}
   print(s1.intersection(s2))
@@ -652,7 +652,7 @@ s={i for i in range(10)}
   ```
 - 并集
   - 使用内置函数`union`或使用符号`|`符号获取，示例：
-  ```Python
+  ```python
   s1={10,20,30,40}
   s2={20,30,40,50,60}
   print(s1.union(s2))
@@ -660,7 +660,7 @@ s={i for i in range(10)}
   ```
 - 差集
   - 使用内置函数`difference`或使用符号`-`符号获取，示例：
-  ```Python
+  ```python
   s1={10,20,30,40}
   s2={20,30,40,50,60}
   print(s1.difference(s2))
@@ -668,7 +668,7 @@ s={i for i in range(10)}
   print(s1 - s2)
   print(s2 - s1)
   ```
-  ```Python
+  ```python
   {10}
   {50, 60}
   {10}
@@ -676,13 +676,13 @@ s={i for i in range(10)}
   ```
 - 对称差集
   - 使用内置函数`symmetric_difference`或使用符号`^`符号获取，示例：
-  ```Python
+  ```python
   s1={10,20,30,40}
   s2={20,30,40,50,60}
   print(s1.symmetric_difference(s2))
   print(s1 ^ s2)
   ```
-  ```Python
+  ```python
   {10, 50, 60}
   {10, 50, 60}
   ```
@@ -707,7 +707,7 @@ s={i for i in range(10)}
 ##### **字符串的操作**
 
 - 字符串的**查询**
-  ![](https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/pythonchaxun.png)
+  ![](https://s2.loli.net/2022/05/22/EiZMJXqRtNkyCaY.png)
   - 示例：
   ```python
   s="hello,hello"
@@ -723,11 +723,11 @@ s={i for i in range(10)}
   9
   ```
 - 字符串**大小写转换**
-  ![](https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/pythondaxiaoxie.png)
+  ![](https://s2.loli.net/2022/05/22/vFlnm9fJscHyxeD.png)
 - 字符串**内容对齐**
-  ![](https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/pythonduiqi.png)
+  ![](https://s2.loli.net/2022/05/22/SdnCMJfWgjApt6D.png)
 - 字符串的**劈分**
-  ![](https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/pythonpifen.png)
+  ![](https://s2.loli.net/2022/05/22/5BgOMTKNAekRofy.png)
 
   - 示例：
 
@@ -749,9 +749,9 @@ s={i for i in range(10)}
   ```
 
 - 字符串的**判断**
-  ![](https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/pythonzfcpanduan.png)
+  ![](https://s2.loli.net/2022/05/22/Ed7V2m4ofzZbpWv.png)
 - 字符串**替换与合并**
-  ![](https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/pythontihuan.png)
+  ![](https://s2.loli.net/2022/05/22/dbaCAlkSifG4QKW.png)
 
   - 示例 1：
 
@@ -803,23 +803,23 @@ s={i for i in range(10)}
 - **占位**与**保留小数**
   - `%`的占位保留
     - **占位**(%与数据类型之间写数字，表示域宽)，**示例**：
-    ```Python
+    ```python
     print("%10d" % 99)
     ```
-    ```Python
+    ```python
             99
     ```
     - **保留小数**(%与浮点类型之间写.保留位数，保留小数)，**示例**：
-    ```Python
+    ```python
     print("%.3f" % 3.1415926)
     ```
-    ```Python
+    ```python
       3.142
     ```
     - **注意**：上述二者可共存，如:`print("%10.3f" % 3.1415926)`
   - `{}`的占位保留
     - 基本同上，跟写在`:`后面
-    ```Python
+    ```python
     print("{1 :10.3f}".format(3.1415926))
     ```
 
@@ -901,7 +901,7 @@ print(sum(12,4,3))
 - 个数可变的**位置形参**
   - 使用`*`定义**个数可变**的位置形参
   - 结果为一个**元组**
-  ```Python
+  ```python
   def fun(*a):
       print(a)
   fun(10)
@@ -910,7 +910,7 @@ print(sum(12,4,3))
 - 个数可变的**关键字形参**
   - 使用`**`定义**个数可变**的关键字形参
   - 结果为一个**字典**
-  ```Python
+  ```python
   def fun(**a):
       print(a)
   fun(a=10)
@@ -1000,7 +1000,7 @@ print("程序结束")
 
 ##### **编程两大思想**
 
-![](https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/pythonsixiang.png)
+![](https://s2.loli.net/2022/05/22/ZahRuqgtOdyerw4.png)
 
 ##### **类与对象认识**
 
@@ -1014,14 +1014,14 @@ print("程序结束")
 
 - **创建**类的**语法**
 
-```Python
+```python
 class 类名（每个单词首字母大写，其余小写）:
   pass（内容）
 ```
 
 - 示例：
 
-```Python
+```python
 class Student:
     pass
 #python中一切皆对象
@@ -1034,7 +1034,7 @@ print(Student)
   > 类属性、实例方法、静态方法、类方法
 - 示例：
 
-```Python
+```python
 class Student:
     native_place="青岛"     #直接写在类里的变量称为类属性
 
@@ -1059,13 +1059,13 @@ class Student:
 - 对象的创建又称为**类的实例化**
 - **语法**：
 
-```Python
+```python
 实例名=类名()
 ```
 
 - 示例：
 
-```Python
+```python
 class Student:
     native_place="青岛"
 
@@ -1091,7 +1091,7 @@ print(type(stu1))
 print(stu1)         #存储的值为id地址的十六进制
 ```
 
-```Python
+```python
 2214680575184
 <class '__main__.Student'>
 <__main__.Student object at 0x00000203A53FBCD0>
@@ -1100,7 +1100,7 @@ print(stu1)         #存储的值为id地址的十六进制
 - **意义**：有了实例，就**可以调用类中的内容**
 - 示例：
 
-```Python
+```python
 class Student:
     native_place="青岛"
 
@@ -1127,7 +1127,7 @@ print(stu1.name)
 print(stu1.age)
 ```
 
-```Python
+```python
 学生在吃饭......
 学生在吃饭......
 张三
@@ -1142,7 +1142,7 @@ print(stu1.age)
 
 - 示例：
 
-```Python
+```python
 class Student:
     native_place="青岛"     #类属性
 
@@ -1178,7 +1178,7 @@ Student.cm()
 Student.method()
 ```
 
-```Python
+```python
 青岛
 青岛
 青岛
@@ -1194,7 +1194,7 @@ Student.method()
 - python 是动态语言，在创建对象之后，**可以动态的绑定属性和方法**
 - 示例：
 
-```Python
+```python
 class Student:
     def __init__(self,name,age):
         self.name=name
@@ -1217,7 +1217,7 @@ stu1.show()
 #stu2.show()        因为没有绑定，所以报错
 ```
 
-```Python
+```python
 男
 定义在类之外的，称为函数
 ```
@@ -1240,7 +1240,7 @@ stu1.show()
 
 - 示例：
 
-```Python
+```python
 class Student:
     def __init__(self,name,age):
         self.name=name
@@ -1261,7 +1261,7 @@ print("\n",dir(stu),"\n")     #列出stu全部的属性
 print(stu._Student__age)        #在类的外部可以通过 _类名__实例属性 来访问
 ```
 
-```Python
+```python
 张三
 
 ['_Student__age', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'name', 'show']
@@ -1272,17 +1272,17 @@ print(stu._Student__age)        #在类的外部可以通过 _类名__实例属�
 ##### **继承及其实现方式**
 
 - **继承**
-  ![](https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/pythonjicheng1.png)
-  ![](https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/pythonjicheng2.png)
+  ![](https://s2.loli.net/2022/05/22/kz6QCKXwqnWUtAI.png)
+  ![](https://s2.loli.net/2022/05/22/ZbCcTQk3DAteYv6.png)
 - **方法重写**
-  ![](https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/pythonchongxie.png)
+  ![](https://s2.loli.net/2022/05/22/Lr7y4MoCjBXtPhk.png)
 - **object 类**
-  ![](https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/pythonobjectlei.png)
+  ![](https://s2.loli.net/2022/05/22/eHSdjXQgIC7RwGs.png)
 
 ##### **多态**
 
 - **多态**
-  ![](https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/pythonduotai.png)
+  ![](https://s2.loli.net/2022/05/22/IjMkAvJC9oZ1V6y.png)
 - 静态语言和动态语言关于**多态的区别**
   - 静态语言实现多态的三个必要条件
     > 1、继承  
@@ -1299,7 +1299,7 @@ print(stu._Student__age)        #在类的外部可以通过 _类名__实例属�
 ##### **特殊属性与特殊方法**
 
 - **大纲总览**
-  ![](https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/pythonteshu.png)
+  ![](https://s2.loli.net/2022/05/22/2xjq69eODFcwkRK.png)
 - **特殊属性示例**
 
 ```python
@@ -1395,7 +1395,7 @@ p1这个Person类的实例对象的id为1973248703792
 ```
 
 - **传参过程**  
-  ![](https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/pythonchuancan.png)
+  ![](https://s2.loli.net/2022/05/22/MyLeK9ZFVtXgUbR.png)
 
 ##### **类的赋值与深浅拷贝**
 
@@ -1411,7 +1411,7 @@ p1这个Person类的实例对象的id为1973248703792
 
 - **类的赋值与浅拷贝**
 
-  ```Python
+  ```python
   class CPU:
       pass
   class Disk:
@@ -1437,7 +1437,7 @@ p1这个Person类的实例对象的id为1973248703792
   print(computer2,computer2.cpu,computer2.disk)
   ```
 
-  ```Python
+  ```python
   <__main__.CPU object at 0x000001E2DF41BE80>
   <__main__.CPU object at 0x000001E2DF41BE80>
 
@@ -1447,7 +1447,7 @@ p1这个Person类的实例对象的id为1973248703792
 
 - **深拷贝**
 
-  ```Python
+  ```python
   class CPU:
       pass
   class Disk:
@@ -1468,7 +1468,7 @@ p1这个Person类的实例对象的id为1973248703792
   print(computer2,computer2.cpu,computer2.disk)
   ```
 
-  ```Python
+  ```python
   <__main__.Computer object at 0x0000020C2AE6BD60> <__main__.CPU object at 0x0000020C2AE6BE80> <__main__.Disk object at 0x0000020C2AE6BD90>
   <__main__.Computer object at 0x0000020C2AE6BC10> <__main__.CPU object at 0x0000020C2AE6B910> <__main__.Disk object at 0x0000020C2AE91480>
   ```
@@ -1497,26 +1497,26 @@ p1这个Person类的实例对象的id为1973248703792
   - 新建一个`.py`文件，名称尽量不要与 python 自带标准模块冲突
 - 导入模块
 
-```Python
+```python
 import 模块名称 [as 别名]
 from 模块名称 import 函数/变量/类
 ```
 
 - 示例：
   - **calc.py**文件：
-  ```Python
+  ```python
   def add(a,b):
       return a+b
   def div(a,b):
       return a/b
   ```
   - **main.py**文件：
-  ```Python
+  ```python
   import calc
   print(calc.add(10,20))
   print(calc.div(10,4))
   ```
-  ```Python
+  ```python
     30
     2.5
   ```
@@ -1527,7 +1527,7 @@ from 模块名称 import 函数/变量/类
 - 在每个模块的定义中都包括一个记录模块名称的变量**name**，程序可以检查该变量，以确定他们在哪个模块中执行。如果一个模块不是被导入到其它程序中执行，那么它可能在解释器的顶级模块中执行。顶级模块的**name**变量的值为**main**
 - 语法
 
-```Python
+```python
 if __name__=="__main__":        #只有以当前模块为主程序运行时才会执行
   执行语句
 ```
@@ -1536,7 +1536,7 @@ if __name__=="__main__":        #只有以当前模块为主程序运行时才�
 
   - **calc.py**文件：
 
-  ```Python
+  ```python
   def add(a,b):
       return a+b
 
@@ -1546,12 +1546,12 @@ if __name__=="__main__":        #只有以当前模块为主程序运行时才�
 
   - **main.py**文件：
 
-  ```Python
+  ```python
   import calc
   print(calc.add(100,200))
   ```
 
-  ```Python
+  ```python
   300
   ```
 
@@ -1566,32 +1566,32 @@ if __name__=="__main__":        #只有以当前模块为主程序运行时才�
   - 目录里通常不含`__init__.py`文件
 - 包的导入
 
-```Python
+```python
 import 包名.模块名
-```
+``````
 
 - 包的创建：在文件夹目录下创建`__init__.py`文件
 
 ##### **python 常用内容模块**
 
-![](https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/pythonmokuai.png)
+![](https://s2.loli.net/2022/05/22/G47RQZju9UIhpNy.png)
 
 ##### **第三方模块的安装与使用**
 
 - 在终端 cmd 中执行命令：
-  ```
+  ```bash
   pip install 模块名
   ```
   如果出错，则在 python 文件根目录打开 cmd 输入
 - 由于服务器在国外，访问速度过慢，可以使用[清华源](https://mirrors.tuna.tsinghua.edu.cn/help/pypi/)镜像安装
   - 临时使用
-  ```
+  ```bash
   pip install -i [https://pypi.tuna.tsinghua.edu.cn/simple](https://pypi.tuna.tsinghua.edu.cn/simple) 包名称
   ```
   - 注意，`simple` 不能少, 是 `https` 而不是 `http`
   - 设为默认
     升级 pip 到最新的版本 (>=10.0.0) 后进行配置(单行输入)：
-  ```Python
+  ```bash
   python -m pip install --upgrade pip
   pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
   ```
@@ -1604,19 +1604,19 @@ import 包名.模块名
 
 ##### **编码格式介绍**
 
-![](https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/pythonbiamma.png)
+![](https://s2.loli.net/2022/05/22/b982vN71WSPm6kF.png)
 
 ##### **文件读写**
 
 - 使用内置函数`open()`创建或打开文件对象，语法如下：
 
-```Python
+```python
 被创建的文件对象=open(要创建或打开的文件名称,[打开方式(默认只读),编码格式(默认GBK)])
 ```
 
 - 读示例：
   同目录下有**a.txt**文件：hello,world
-  ```Python
+  ```python
   file=open("a.txt","r")      #r为只读
   print(file.readlines())
   file.close
@@ -1631,16 +1631,16 @@ import 包名.模块名
 
 ##### **常用文件打开方式**
 
-![](https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/pythondakai.png)
+![](https://s2.loli.net/2022/05/22/CpZl3HzR8q5PXb7.png)
 
 ##### **文件对象常用方式**
 
-![](https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/pythonduixiangfangshi.png)
+![](https://s2.loli.net/2022/05/22/O6eUXDkI8AxJYhl.png)
 
 ##### **with 语句(上下文管理器)**
 
 - with 语句可以自动管理上下文资源，不论什么原因跳出 with 块，都能确保文件正确的关闭，以此来达到释放资源的目的
-  ![](https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/pythonwith.png)
+  ![](https://s2.loli.net/2022/05/22/GMEg3Fm7RINzsWC.png)
 
 ##### **os 模块的常用函数**
 
@@ -1648,7 +1648,7 @@ import 包名.模块名
 - os 模块与 os.path 模块用于对目录或文件进行操作
 - 示例：
 
-```Python
+```python
 #os模块是与操作系统相关的一个模块
 import os
 os.system("notepad.exe")        #运行系统命令，打开记事本
@@ -1656,11 +1656,11 @@ os.system("notepad.exe")        #运行系统命令，打开记事本
 os.startfile("D:\\Edge\\Edge\\msedge.exe")          #调用系统文件，打开edge
 ```
 
-![](https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/pythonos.png)
+![](https://s2.loli.net/2022/05/22/wrJc5gWZ8hBVqlU.png)
 
 ##### **os.path 模块的常用函数**
 
-![](https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/pythonospath.png)
+![](https://s2.loli.net/2022/05/22/oND3hXZqYr7KRjy.png)
 
 ---
 
@@ -1670,20 +1670,20 @@ os.startfile("D:\\Edge\\Edge\\msedge.exe")          #调用系统文件，打开
 
 - 安装执行库 pyinstaller（在 cmd 执行）
 
-```Python
+```bash
 pip install pyinstaller
 ```
 
 - 如果是控制台运行，记得最后使用 os 模块中的 system 暂停
 
-```Python
+```python
 import os
 os.system("pause")
 ```
 
 - 在想要打包文件存放的目录下执行 cmd，也可以之间使用 Vscode 的终端自动获取目录，执行下列语句(区分大小写)
 
-```Python
+```bash
 pyinstaller -F(单文件)/D(目录) -c(带控制台)/w(不带控制台)
   (-i 文件目录地址，这里是改.exe的显示图标，图片需要为.ico格式) 主文件目录
 ```
@@ -1692,7 +1692,7 @@ pyinstaller -F(单文件)/D(目录) -c(带控制台)/w(不带控制台)
 - 打包后文件在 dict 目录中，多余文件可以删除
 - 如果报错，可以使用 cmd 查看错误原因（需要带控制台，可以重新打包变为带控制台再 debug）
 
-```Python
+```bash
 D:(进入盘符)
 cd 目录
 .exe文件名(直接输入即可运行)

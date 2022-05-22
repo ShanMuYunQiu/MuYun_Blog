@@ -156,17 +156,17 @@ print(a)
 **参考式**：
 
 > \[圣奇宝枣的 Github 个人页\]\[1\]  
-> \[圣奇宝枣的 Github 图床\]\[2\]  
+> \[圣奇宝枣的个人博客\]\[2\]  
 > \[1\]:https://github.com/ShengQiBaoZao  
-> \[2\]:https://github.com/ShengQiBaoZao/Image
+> \[2\]:https://shengqibaozao.vercel.app
 
 效果：
 
 > [圣奇宝枣的 Github 个人页][1]  
-> [圣奇宝枣的 Github 图床][2]
+> [圣奇宝枣的个人博客][2]
 
 [1]: https://github.com/ShengQiBaoZao
-[2]: https://github.com/ShengQiBaoZao/Image
+[2]: https://shengqibaozao.vercel.app
 
 ---
 

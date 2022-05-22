@@ -19,17 +19,25 @@ categories:
 ---
 
 仓库名：用户名/仓库名  
-例如：ShengQiBaoZao/Image，`4-Ykk0`
+例如：ShengQiBaoZao/Image
 
 设定分支：master 或 main
 
 Token 秘钥：github 主页-头像-设置-Developer setting-Personal access tokens，新建：只选择 repo  
-本人 Token(已加密)：ghp_842aFlkCf8YIihfJ7LUYXku5Ix7pUo0mR4Kl
+Token(示例)：ghp_842aFlkCf8YIihfJ7LUYXku5Ix7pUo0mR4Kl
 
 存储路径：可不填
 
 自定义域名：https://fastly.jsdelivr.net/gh/用户名/仓库名  
 例如：https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image
+
+---
+
+#### **SM.MS 图床**
+
+---
+
+在 SM.MS 登录，个人页选择 API Token，生成 Token 填入 PicGO
 
 ---
 

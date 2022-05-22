@@ -32,7 +32,7 @@ categories:
 
 - **简单试做**：将百度搜索源码爬取：
 
-```Python
+```python
 #百度
 #需求：用程序模拟浏览器，输入一个网址，从该网址中获取到资源或者内容
 from urllib.request import urlopen      #从包中导入模块
@@ -113,8 +113,7 @@ with open("D:\desktop\代码\python测试\Mywebsite.html",mode="w",encoding="utf
 
 - `requests` 模块为第三方支持库，需要**手动安装**
 
-```Python
-cmd:
+```bash
 pip install requests
 ```
 
@@ -122,8 +121,9 @@ pip install requests
 
 **GET 请求**：将搜狗搜索内容爬取，并学习简单的反爬
 
-```Python
+```python
 import requests
+
 url = "https://www.sogou.com/web?query=周杰伦"          #保存网址字符串给变量，中文可能转码错误，手动打上去
 #第10行处被拦截，可以将更多请求头信息补入，定义一个字典headers，将User-Agent写入字典，User-Agent通过抓包网页骨架中的Request Headers(请求头)找到，注意直接复制后Mozilla前会多一个空格，记得删除
 dict = {"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36"}
@@ -139,8 +139,9 @@ resp.close()            #关闭请求
 
 可以进行一些小修改，做到更改搜索对象：
 
-```Python
+```python
 import requests
+
 #手动输入搜索的内容
 query=input("输入你要搜索的内容：")
 #利用f-string，做到搜索内容更改
@@ -161,7 +162,7 @@ resp.close()            #关闭请求
 
 **POST 请求**：爬取百度翻译的结果
 
-```Python
+```python
 """
 打开百度翻译后按F12进入抓包工具，清除多余的文件，注意输入法切换为英文，输入英文单词后，翻译框下方有一个小列表
 在抓包工具中通过preview预览尝试寻找列表的数据文件，发现sug文件为数据文件
@@ -169,6 +170,7 @@ resp.close()            #关闭请求
 打开Payload，找对From Data，为POST传参数据，对于上个GET程序中利用f-string传入参数的方式就不灵了
 """
 import requests
+
 url = "https://fanyi.baidu.com/sug"         #准备url，注意url为数据的url，即sug文件Headers的url
 
 word = input("请输入你要翻译的英文:")        #准备翻译的单词
@@ -190,7 +192,7 @@ resp.close()            #关闭请求
 
 - 通常网站 url 里有问号"?"，问号前的是 url，问号后的是参数
 
-```Python
+```python
 """
 豆瓣电影分类排行榜网页通过浏览器渲染，有两次数据传递
 在抓包工具中选择筛选XHR类别(常表示二次请求数据)，找到跟页面差不多的蕴含量大一些的XHR文件，就是页面的数据文件找到数据文件Headers：
@@ -255,11 +257,11 @@ resp.close()            #关闭请求
   在线测试正则表达式[https://tool.oschina.net/regex/](https://tool.oschina.net/regex/)
 - 元字符：具有**固定含义**的特殊符号
 - **常用元字符**  
-  ![](https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/pythonyuanzifu.png)
+  ![](https://s2.loli.net/2022/05/22/dQWwnPKjXv7fhFO.png)
 - **量词**：控制前面的元字符出现的次数  
-  ![](https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/pythoncishu.png)
+  ![](https://s2.loli.net/2022/05/22/xVsqA4pPk3Ee2mG.png)
 - **贪婪匹配**和**惰性匹配**  
-  ![](https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/pythonpipei.png)  
+  ![](https://s2.loli.net/2022/05/22/S21Xsz3UlLCP7Od.png)  
   这两个着重说一下，写爬虫**用的最多**的就是**惰性匹配**
   `*？`表示尽可能少的让`*`匹配东西
 
@@ -273,7 +275,7 @@ resp.close()            #关闭请求
 ```
 
 - **常用标签**：  
-  ![](https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/pythonpachongbiaoqian.png)
+  ![](https://s2.loli.net/2022/05/22/naO4G9ErYhoxBDu.png)
 - **属性**：标签内后跟的**控制标签行为**的**属性**，其后所写的为**属性值**，简单举例：
 
 ```html
@@ -321,7 +323,7 @@ resp.close()            #关闭请求
 
 在 python 中使用正则表达式，可以使用`re`模块，`re`模块记住几个常用功能就足够我们日常使用了：
 
-```Python
+```python
 import re           #引入re模块
 
 #findall：匹配字符串中所有的符合正则的内容
@@ -385,7 +387,7 @@ print()
 
 [豆瓣 top250](https://movie.douban.com/top250)
 
-```Python
+```python
 #数据在页面源代码中
 #思路：拿到页面源代码，通过re正则提取我们想要的有效信息
 from email import header
@@ -424,14 +426,14 @@ print("over!")
 ```
 
 参考源代码：  
- ![](https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/pythoncankao1.png)
+ ![](https://s2.loli.net/2022/05/22/uYzsxdIEPDAjk9W.png)
 
 ##### **屠戮盗版天堂电影信息**
 
 [盗版天堂](https://dytt89.com/)  
  补充 html 中 a 标签超链接知识
 
-```Python
+```python
 """
 1、确认数据在页面源码中，定位到2022必看热片
 2、从2022必看热片中提取到子页面链接地址
@@ -443,6 +445,7 @@ print("over!")
 
 ```python
 import requests,re
+
 main_url = "https://dytt89.com/"            #主界面url
 child_url_list = []
 #原老版网站存在https加密，requests模块也有安全验证，所以会报错，可以使用verify=False关闭安全验证来解决，运行时最上部的警告意为“请求没有进行安全验证”。新版网站已取消
@@ -452,6 +455,7 @@ resp.encoding = "gb2312"            #指定字符集编码
 #定位提取ul里面的li
 obj1 = re.compile('2022必看热片.*?<ul>(?P<ul>.*?)</ul>',re.S)           #提取需要的部分
 obj2 = re.compile("<a href='(?P<href>.*?)'",re.S)                       #提取a标签中的url链接
+
 #开始筛选提取
 result1 = obj1.finditer(resp.text)             #第一次提取板块源码部分
 for it in result1:
@@ -466,6 +470,7 @@ for it in result1:
         child_url = main_url + add.strip("/")              #拼接url，使用strip除去拼接处多余的一个/符号
         #print(child_url)            #检验输出
         child_url_list.append(child_url)            #将网址保存进列表里(注意空列表已经提前定义)
+
 #提取子页面内容
 obj3 = re.compile('◎片　　名(?P<movie>.*?)<br />.*?<td style="WORD-WRAP: break-word" bgcolor="#fdfddf"><a href="(?P<download>.*?)">',re.S)
 for url in child_url_list:
@@ -480,9 +485,9 @@ for url in child_url_list:
 ```
 
 参考源代码：
-![](https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/pythoncankao2.png)
+![](https://s2.loli.net/2022/05/22/JoU6tMlxOsmk3qa.png)
 
-![](https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/pythoncankao3.png)
+![](https://s2.loli.net/2022/05/22/ztwUBVHycvarPg3.png)
 
 ---
 
@@ -494,7 +499,7 @@ for url in child_url_list:
 
 python 的 `bs4` 模块为第三方模块，需要先安装，安装 cmd 语法如下：
 
-```python
+```bash
 pip install bs4
 ```
 
@@ -543,7 +548,7 @@ print("over")
 ```
 
 参考源代码：  
- ![](https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/pythoncankao4.png)
+ ![](https://s2.loli.net/2022/05/22/dE2tlqb1PenDSrQ.png)
 
 ##### **抓取优美图库的图片**(已失效，仅可参考)
 
@@ -553,9 +558,11 @@ print("over")
 # 1.拿到主页面的源代码，然后提取到子页面的链接地址，href
 # 2.通过href拿到子页面的数据内容，提取图片的下载地址，img->src
 # 3.下载图片
+
 import requests
 import time         # 对应37行代码
 from bs4 import BeautifulSoup
+
 url = "https://umei.cc/bizhitupian/weimeibizhi"
 resp = requests.get(url)
 resp.encoding = "utf-8"          # 解码处理
@@ -570,6 +577,7 @@ for a in alist:             # 循环遍历每一个a标签
     # print(a.get("href"))        #测试，直接通过get就可以得到属性值
     href = a.get("href")
     # 至此任务1完成。进行任务2
+
     # 拿到子页面源代码
     child_resp = requests.get(href)
     child_resp.encoding = "utf-8"
@@ -579,6 +587,7 @@ for a in alist:             # 循环遍历每一个a标签
     p = child_page.find("p", align="center")
     img = p.find("img")
     src = img.get("src")
+
     # 下载图片
     img_resp = requests.get(src)
     # img_resp.content         # content获取到的是字节，写回到文件就是图片
@@ -591,8 +600,8 @@ print("all over!")
 ```
 
 参考源代码：  
- ![](https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/pythoncankao5.png)
-![](https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/pythoncankao6.png)
+![](https://s2.loli.net/2022/05/22/TZcz7OCWBEMGL3h.png)  
+![](https://s2.loli.net/2022/05/22/VLr5quaeOkD2RTh.png)
 
 ---
 
@@ -604,7 +613,7 @@ print("all over!")
 
 python 的 `lxml` 模块为第三方模块，需要先安装，安装 cmd 语法如下：
 
-```python
+```bash
 pip install lxml
 ```
 
@@ -612,6 +621,7 @@ pip install lxml
 
 ```python
 from lxml import etree
+
 xml = """......"""          # 将XML文档存入变量，(此处省略，本程序无法直接运行)
 tree = etree.XML(xml)       # 生成etree的XML文档
 # result = tree.xpath("/book")        # xpath查找book节点，"/"表示层级关系，第一个"/"是根节点
@@ -832,9 +842,11 @@ if __name__ == "__main__":
 
 ```python
 from threading import Thread            # 导入线程的类
+
 def func():
     for i in range(1000):
         print("func", i)
+
 if __name__ == "__main__":
     t = Thread(target=func)             # 创建一个线程类的对象，并且target=告诉程序这个线程执行的话会执行谁，为线程安排任务
     t.start()                           # 设置多线程状态为可以执行状态，具体的执行时间由CPU决定
@@ -846,10 +858,12 @@ if __name__ == "__main__":
 
 ```python
 from threading import Thread
+
 class MyThread(Thread):         # 继承Thread
     def run(self):          # 固定的        # 当线程被设置可以执行之后，被执行的就是run()
         for i in range(1000):
             print("子线程", i)
+
 if __name__ == "__main__":
     t = MyThread()
     # t.run()         #千万不能使用t.run，否则就是类方法的调用！--->单线程
@@ -862,9 +876,11 @@ if __name__ == "__main__":
 
 ```python
 from threading import Thread
+
 def func(name):
     for i in range(1000):
         print(name, i)
+
 if __name__ == "__main__":
     # 在Thread函数中，添加args进行传参，且args接收的数据类型必须是元组
     # 注意，元组内只有一个元素的时候需要加逗号
@@ -881,9 +897,11 @@ if __name__ == "__main__":
 
 ```python
 from multiprocessing import Process
+
 def func():
     for i in range(1000):
         print("子进程", i)
+
 if __name__ == "__main__":
     p = Process(target=func)
     p.start()
@@ -900,9 +918,11 @@ if __name__ == "__main__":
 ```python
 from concurrent.futures import ThreadPoolExecutor, ProcessPoolExecutor
 # 注：ThreadPoolExecutor为线程池，ProcessPoolExecutor为进程池，按需引入
+
 def fn(name):
     for i in range(1000):
         print(name, i)
+
 if __name__ == "__main__":
     # 创建线程池
     # 创建一个由50个线程组成的线程池，其中ThreadPoolExecutor的参数控制线程数量
@@ -927,10 +947,12 @@ if __name__ == "__main__":
 
 ```python
 import time
+
 def func():
     print("123")
     time.sleep(3)           # 让当前线程处于阻塞状态，CPU不为此程序工作
     print("456")
+
 if __name__ == "__main__":
     func()
 # 执行input()时，程序也是处于阻塞状态
@@ -950,8 +972,10 @@ if __name__ == "__main__":
 ```python
 import asyncio
 # 用async定义异步协程函数
+
 async def func():
     print("你好，我叫塞丽娜")
+
 if __name__ == "__main__":
     #此时的函数是异步协程函数，此时函数执行得到的是一个协程对象
     g = func()
@@ -964,21 +988,25 @@ if __name__ == "__main__":
 ```python
 import asyncio
 import time
+
 async def func1():
     print("你好，我叫潘金莲")
     # time.sleep(3)           # 当程序出现同步操作时，异步就中断了
     await asyncio.sleep(3)            # 异步模块的sleep，使用await挂起，切到其他任务
     print("你好，我叫潘金莲")
+
 async def func2():
     print("你好，我叫王建国")
     # time.sleep(2)
     await asyncio.sleep(2)
     print("你好，我叫王建国")
+
 async def func3():
     print("你好，我叫李雪琴")
     # time.sleep(4)
     await asyncio.sleep(4)
     print("你好，我叫李雪琴")
+
 if __name__ == '__main__':
     f1 = func1()
     f2 = func2()
@@ -998,18 +1026,22 @@ if __name__ == '__main__':
 
 ```python
 import asyncio
+
 async def func1():
     print("你好，我叫潘金莲")
     await asyncio.sleep(3)
     print("你好，我叫潘金莲")
+
 async def func2():
     print("你好，我叫王建国")
     await asyncio.sleep(2)
     print("你好，我叫王建国")
+
 async def func3():
     print("你好，我叫李雪琴")
     await asyncio.sleep(4)
     print("你好，我叫李雪琴")
+
 async def main():
     # 第一种写法
     # f1 = func1()
@@ -1020,6 +1052,7 @@ async def main():
         func1(),func2(),func3()
     ]
     await asyncio.wait(tasks_)
+
 if __name__ == '__main__':
     asyncio.run(main())
 ```
@@ -1028,18 +1061,22 @@ if __name__ == '__main__':
 
 ```python
 import asyncio
+
 async def func1():
     print("你好，我叫潘金莲")
     await asyncio.sleep(3)
     print("你好，我叫潘金莲")
+
 async def func2():
     print("你好，我叫王建国")
     await asyncio.sleep(2)
     print("你好，我叫王建国")
+
 async def func3():
     print("你好，我叫李雪琴")
     await asyncio.sleep(4)
     print("你好，我叫李雪琴")
+
 async def main():
     tasks_=[
         asyncio.create_task(func1()),
@@ -1047,6 +1084,7 @@ async def main():
         asyncio.create_task(func3())
     ]
     await asyncio.wait(tasks_)
+
 if __name__ == '__main__':
     asyncio.run(main())
 ```
@@ -1065,7 +1103,7 @@ if __name__ == '__main__':
 
 python 的 `aiohttp` 模块为第三方模块，需要先安装，安装 cmd 语法如下：
 
-```python
+```bash
 pip install aiohttp
 ```
 
@@ -1186,6 +1224,7 @@ if __name__ == '__main__':
 
 ```python
 from selenium.webdriver import Chrome
+
 # 1.创建浏览器对象
 web = Chrome()
 # 2.打开一个网址
@@ -1201,22 +1240,28 @@ print(web.title)
 ```python
 from selenium.webdriver import Chrome
 from selenium.webdriver.common.keys import Keys
+
 import time
 web = Chrome()
 web.get("http://lagou.com")
 # 点击页面中的某个元素，通过在页面检查元素，复制xpath
 el = web.find_element_by_xpath('//*[@id="changeCityBox"]/p[1]/a')          # 找到元素
 el.click()              # 点击元素
+
 # 也可以直接写为web.find_element_by_xpath('//*[@id="changeCityBox"]/p[1]/a').click()
 # 可以通过by后不同的查找方式查找，如div标签这种页面中存在很多的元素，可以通过find_elements全部获取
 # web.find_elements_by_tag_name("div")
+
 # 防止刷新速度慢，暂停1秒
 time.sleep(1)
+
 # 找到输入框，输入python ---> 输入回车/点击搜索
 # 此处实现输入回车，找到输入框，使用.send_keys()输入内容
 # 键盘回车通过第二行的包中的Keys模块实现，点进Keys可以查看所有能实现的键盘按键
 web.find_element_by_xpath('//*[@id="search_input"]').send_keys("python", Keys.ENTER)
+
 time.sleep(1)
+
 # 查找存放数据的位置，进行数据提取(注：此处代码由于网页重构已失效，无法运行！)
 # 找到存放数据的所有li，注意获取多个最后li的[]索引要删除
 li_list = web.find_elements_by_xpath('//*[@id="s_position_list"]/ul/li')
@@ -1235,19 +1280,23 @@ for li in li_list:
 from selenium.webdriver import Chrome
 from selenium.webdriver.common.keys import Keys
 import time
+
 web = Chrome()
 web.get("http://lagou.com")
 web.find_element_by_xpath('//*[@id="changeCityBox"]/p[1]/a').click()
 time.sleep(0.5)
 web.find_element_by_xpath('//*[@id="search_input"]').send_keys("python", Keys.ENTER)
 time.sleep(0.5)
+
 # 点击岗位查看详情，会跳转到新页面
 # 点击岗位
 web.find_element_by_xpath('//*[@id="jobList"]/div[1]/div[1]/div[1]/div[1]/div[1]/a').click()
+
 # 如何进入到新窗口进行提取
 # 注意，即使浏览器已经切换新窗口，在selenium的眼中，新出现的窗口默认是不切换的(未被选中)
 # 切换窗口，使用window_handles[-1]选中最后一个窗口选项卡
 web.switch_to.window(web.window_handles[-1])
+
 # 在新窗口中提取内容
 job_detail = web.find_element_by_xpath('//*[@id="job_detail"]/dd[2]/div').text
 print(job_detail)
@@ -1262,6 +1311,7 @@ web.switch_to.window(web.window_handles[0])
 
 ```python
 from selenium.webdriver import Chrome
+
 web = Chrome()
 # 页面中遇到iframe怎么处理
 web.get("https://www.91kanju.com/vod-play/541-2-1.html")
@@ -1287,6 +1337,7 @@ from selenium.webdriver import Chrome
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.select import Select
 import time
+
 # 无头浏览器
 # 准备好配置参数
 opt = Options()
@@ -1294,9 +1345,11 @@ opt = Options()
 opt.add_argument("--headless")          # 无头
 opt.add_argument("--disable-gpu")           # 禁用gpu
 # =================================================================
+
 # 在Chrome()中参加无头参数
 web = Chrome(options=opt)
 web.get("https://endata.com.cn/BoxOffice/BO/Year/index.html")
+
 # 网址中有select下拉列表元素，如何处理
 # 定位到下拉列表
 sel_el = web.find_element_by_xpath('//*[@id="OptionDate"]')
@@ -1309,6 +1362,7 @@ for i in range(len(sel.options)):
     sel.select_by_index(i)          # 按照索引i进行切换
     time.sleep(2)           # 等待切换
     # 提取数据，此处省略
+
 # =================================================================
 # 如何拿到页面源代码Elements数据(经过数据加载以及JS执行之后的结果的html内容)
 print(web.page_source)

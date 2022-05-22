@@ -65,7 +65,7 @@ categories:
 - 用 C 语言编写程序时，编写的内容被储存在文本文件中，该文件被称为**源代码文件**(**source code file**)。大部分 C 系统，都要求文件名以`.c`结尾
 - C 编程的**基本策略**是，用程序把**源代码**文件**转换**成**可执行文件**(其中包含可直接运行的机器语言代码)  
   典型的 C 实现通过**编译**和**链接**两个步骤来完成这一过程。**编译器**把源代码转换成**中间代码**，**连接器**把中间代码和其他代码**合并**，生成可执行文件  
-  ![](https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/Cbianyi.png)
+  ![](https://s2.loli.net/2022/05/22/ZyhE6a39RIPUOg4.png)
 
 ---
 
@@ -79,6 +79,7 @@ categories:
 
 ```c
 #include <stdio.h>
+
 int main(void)                //一个简单的C程序
 {
     int num;                  //定义一个名为num的变量
@@ -136,12 +137,13 @@ int main(void)                //一个简单的C程序
   - 通过**函数名后**的**圆括号**可以识别出函数，圆括号里**可能为空**，**可能有参数**
   - **函数体**被**花括号**括起来，由一系列**语句**、**声明**组成
 
-  ![](https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/Cjiegou.png)
+  ![](https://s2.loli.net/2022/05/22/Rm4WvcyqaZkgLuQ.png)
 
   - 简言之，一个简单的 C 语言程序格式如下(**大部分语句**都以**分号**`;`**结尾**)：
 
   ```c
   #include <stdio.h>
+
   int main(void)
   {
       //语句
@@ -154,6 +156,7 @@ int main(void)                //一个简单的C程序
 ```c
 //把2英寻转换成英尺
 #include <stdio.h>
+
 int main(void)
 {
     int feet, fathoms;
@@ -178,10 +181,12 @@ int main(void)
 
 ```c
 #include <stdio.h>
+
 void def(void)
 {
     printf("hello world!");
 }
+
 int main(void)
 {
     def();
@@ -192,7 +197,7 @@ int main(void)
 ##### **关键字和保留标识符**
 
 - 下表中**粗体**表示`C90`标准新增关键字，*斜体*表示`C99`标准新增关键字，**_粗斜体_** 表示`C11`标准新增关键字  
-  ![](https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/Cguanjianzi.png)
+  ![](https://s2.loli.net/2022/05/22/Ky2JEGjgcLb3t1q.png)
 
 ---
 
@@ -206,6 +211,7 @@ int main(void)
 
 ```c
 #include <stdio.h>
+
 int main(void)
 {
     float weight;
@@ -245,7 +251,7 @@ int main(void)
   - 和数学概念一样，**整数是没有小数部分的数**，例如 2、-23、2456 都是整数
   - 计算机以**二进制数字**存储整数，如整数 **7** 二进制写为 **111**，因此要在**8 位字节**中存储该数字，需要**前 5 位**设置为**0**，**后 3 位**设置为**1**
 
-  ![](https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/Czhengshu.png)
+  ![](https://s2.loli.net/2022/05/22/lB6cG1hnKCqD8mY.png)
 
 - **浮点数**
 
@@ -254,11 +260,11 @@ int main(void)
   - 此处简要介绍**e 计数法**(**科学计数法**)：**3.16E7**表示`3.16 * 10^7`
   - 这里关键要理解**浮点数**与**整数**的**储存方案不同**，计算机把浮点数分成**小数部分**和**指数部分**表示，而且**分开存储这两部分**。**7.0**写成**0.7E1**，这里，**0.7 是小数部分**，**1 是指数部分**。计算机在内部使用**二进制**和**2 的幂**进行储存，后续探讨(**此处图例以十进制下理解为例**)
 
-  ![](https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/Cxiaoshu.png)
+  ![](https://s2.loli.net/2022/05/22/3JspxLR21l7TcDd.png)
 
 ##### **数据类型关键字**
 
-![](https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/Cshujuguanjianzi.png)
+![](https://s2.loli.net/2022/05/22/XvZ8JeBSqV9ryPl.png)
 
 ##### **C 语言基本数据类型**
 
@@ -274,6 +280,7 @@ int main(void)
 
   ```c
   #include <stdio.h>
+
   int main(void)
   {
       int x = 100;
@@ -315,7 +322,7 @@ int main(void)
   > 7、有一些**代表行为**的**非打印字符**，如换行、退格、回车、蜂鸣等，这些字符**打印不出来**。如需要表示这些字符，可以使用**ASCII 码**，比如蜂鸣：`char beep = 7`。此外也可以使用**转义字符**，如`char beep = '\a'`  
   > 8、使用`%c`**打印**`char`类型字符，如果使用`%d`**打印**，则会打印**字符对应 ACSII 码的整数**
 
-  ![](https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/Czhuanyi.png)
+  ![](https://s2.loli.net/2022/05/22/gf3NWQ1Kvz4XkoR.png)
 
 - `_Bool`**布尔类型**
 
@@ -336,6 +343,7 @@ int main(void)
   ```c
   #include <stdio.h>
   #include <inttypes.h>
+
   int main(void)
   {
       int32_t me32;
@@ -364,6 +372,7 @@ int main(void)
 
 ```c
 #include <stdio.h>
+
 int main(void)
 {
     printf("Type int has a size of %zd bytes.\n", sizeof(int));
@@ -386,7 +395,9 @@ int main(void)
 ```c
 #include <stdio.h>
 #include <string.h>
+
 #define DENSITY 62.4 // 定义人体密度
+
 int main(void)
 {
     float weight, volume;
@@ -420,7 +431,9 @@ int main(void)
 
 ##### `char`**类型数组与**`null`**字符**
 
-- ***
+- 码字中。。。
+
+---
 
 #### **页底评论**
 

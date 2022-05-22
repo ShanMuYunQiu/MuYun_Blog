@@ -19,7 +19,7 @@ links:
     blog: 斜阳技术博客
     desc: 前端、后端、服务器基础分享
   - url: https://www.ender.ml/
-    avatar: https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/akalin.jpg
+    avatar: https://s2.loli.net/2022/05/22/qyFjteWoNwLGJ54.jpg
     blog: ender's_blog
     desc: 不念过往，不惧将来
   - url: https://www.ffnb.top/
@@ -27,7 +27,7 @@ links:
     blog: HOMIE 工作室
     desc: 欢迎大家访问HOMIE工作室，大家可以在这里学习浏览交流！★大家有什么需求、或者是更好的意见可以加我QQ联系推荐~
   - url:
-    avatar: https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image/akalin.jpg
+    avatar: https://s2.loli.net/2022/05/22/qyFjteWoNwLGJ54.jpg
     blog: 等待申请中。。。
     desc: 在下方评论区申请友链哦！
 placeholder: 还没想好说些什么 # 默认对友链的描述
