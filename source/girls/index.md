@@ -1,7 +1,7 @@
 ---
 layout: girls
 title: 可爱的女孩子(好像有奇怪的几个人混进来了)
-banner: <span title="大家都是我的天使!">排名不分先后，大家都是我的天使!</span>
+banner: <span title="大家都是我的天使!">排名不分先后，大家都是我的天使!(支持评论安利投稿，投稿条目人物名被^符号包裹，如果站长游玩或追番后也喜欢此角色，则^删除，请留意评论回复以及时提供信息)</span>
 girls:
   - name: 赤座灯里
     avatar: https://s2.loli.net/2022/05/22/qyFjteWoNwLGJ54.jpg
@@ -107,7 +107,7 @@ girls:
     avatar: https://s2.loli.net/2022/05/22/UCi4zWeNxQHFPuK.jpg
     from: 辉夜大小姐想让我告白
     url: https://zh.moegirl.org.cn/%E5%9B%9B%E5%AE%AB%E8%BE%89%E5%A4%9C
-  
+
   - name: 早坂爱
     avatar: https://s2.loli.net/2022/05/22/fax9QSFHDuAlVyd.jpg
     from: 辉夜大小姐想让我告白
@@ -132,12 +132,12 @@ girls:
     avatar: https://s2.loli.net/2022/05/22/RAWQxNev9lIfcGw.jpg
     from: NO GAME NO LIFE
     url: https://zh.moegirl.org.cn/%E5%B8%86%E6%A5%BC
-  
+
   - name: 艾拉
     avatar: https://s2.loli.net/2022/05/22/zV8DJBiphYCFg2K.jpg
     from: 可塑性记忆
     url: https://zh.moegirl.org.cn/%E8%89%BE%E6%8B%89(%E5%8F%AF%E5%A1%91%E6%80%A7%E8%AE%B0%E5%BF%86)#
-  
+
   - name: 雏鹤爱
     avatar: https://s2.loli.net/2022/05/22/VCFyeQv1Gs9Jx54.jpg
     from: 龙王的工作
@@ -162,7 +162,7 @@ girls:
     avatar: https://s2.loli.net/2022/05/22/FdeiQtokp6KSBEZ.jpg
     from: 龙与虎
     url: https://zh.moegirl.org.cn/%E9%80%A2%E5%9D%82%E5%A4%A7%E6%B2%B3
-  
+
   - name: 鬼瓦轮
     avatar: https://s2.loli.net/2022/05/22/djZy1lSqW7Mtz96.jpg
     from: 武装少女
@@ -182,4 +182,59 @@ girls:
     avatar: https://s2.loli.net/2022/05/22/Dn8BLNUigs5kqCy.jpg
     from: LoveLive! 虹咲学院学院偶像同好会
     url: https://zh.moegirl.org.cn/%E5%A4%A9%E7%8E%8B%E5%AF%BA%E7%92%83%E5%A5%88
+
+  - name: 博丽灵梦
+    avatar: https://s2.loli.net/2022/05/22/KoOGci6Q7TjlEwF.jpg
+    from: 东方project
+    url: https://zh.moegirl.org.cn/%E5%8D%9A%E4%B8%BD%E7%81%B5%E6%A2%A6
+
+  - name: 雾雨魔理沙
+    avatar: https://s2.loli.net/2022/05/22/7XWwYB4OZm8rJLg.png
+    from: 东方project
+    url: https://zh.moegirl.org.cn/%E9%9B%BE%E9%9B%A8%E9%AD%94%E7%90%86%E6%B2%99
+
+  - name: 魂魄妖梦
+    avatar: https://s2.loli.net/2022/05/22/tWXbgD1mndkPeNF.jpg
+    from: 东方project
+    url: https://zh.moegirl.org.cn/%E9%AD%82%E9%AD%84%E5%A6%96%E6%A2%A6
+
+  - name: 十六夜咲夜
+    avatar: https://s2.loli.net/2022/05/22/BGfrWSil7qZAPcz.jpg
+    from: 东方project
+    url: https://zh.moegirl.org.cn/%E5%8D%81%E5%85%AD%E5%A4%9C%E5%92%B2%E5%A4%9C
+
+  - name: 亚托莉
+    avatar: https://s2.loli.net/2022/05/22/Nrhd2AIf5BwlyeG.png
+    from: ATRI -My Dear Moments-
+    url: https://zh.moegirl.org.cn/%E4%BA%9A%E6%89%98%E8%8E%89
+
+  - name: ^丛雨^
+    avatar: https://s2.loli.net/2022/05/22/e2C9vW1AMVLZRtw.jpg
+    from: 千恋*万花
+    url: https://zh.moegirl.org.cn/%E4%B8%9B%E9%9B%A8
+
+  - name: ^西园寺铃^
+    avatar: https://s2.loli.net/2022/05/22/K5Y2ATQrqBn1uMC.jpg
+    from: 铁道少女project
+    url: https://zh.moegirl.org.cn/%E8%A5%BF%E5%9B%AD%E5%AF%BA%E9%93%83
+
+  - name: ^邵若燕^
+    avatar: https://s2.loli.net/2022/05/22/xAnrHR35UOW8zVJ.jpg
+    from: 铁道少女project
+    url: https://zh.moegirl.org.cn/%E9%82%B5%E8%8B%A5%E7%87%95
+
+  - name: ^立华奏^
+    avatar: https://s2.loli.net/2022/05/22/1xpAC6vcBXubiYR.jpg
+    from: Angel Beats!
+    url: https://zh.moegirl.org.cn/%E7%AB%8B%E5%8D%8E%E5%A5%8F
+
+  - name: ^缪莉^
+    avatar: https://s2.loli.net/2022/05/22/6cHbfuMkm2sJ3zx.jpg
+    from: 狼与羊皮纸
+    url: https://zh.moegirl.org.cn/%E7%BC%AA%E8%8E%89
+
+  - name: 待收录
+    avatar: https://s2.loli.net/2022/05/22/qyFjteWoNwLGJ54.jpg
+    from: 来源番剧、游戏、小说
+    url:
 ---
