@@ -214,8 +214,16 @@ comment:
   tips:
     - 若您想及时得到回复提醒，也可以去B站私信我哦
     - 如果较为紧急，建议添加微信或QQ，并注明来意
+    - 请默认优先使用waline评论，如出现故障，再备选使用livere，站主对livere的查看频率较低，且livere自带广告，请理解
   candidates:
+    - waline
     - livere
+
+waline:
+  enable: true
+  serverURL: https://waline-swart-ten.vercel.app/
+  visitor: false
+  comment: true
 
 livere:
   enable: true
