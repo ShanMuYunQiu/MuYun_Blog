@@ -1,4 +1,4 @@
-# 欢迎来到圣奇宝枣的小站
+# 欢迎来到圣奇宝枣的博客小站
 
 ## 博客地址：https://shengqibaozao.vercel.app
 
