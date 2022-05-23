@@ -30,6 +30,30 @@ links:
     desc: 一个专注于网络活动、资源的收集共享、分享学习经验的站点
     color: "#6699ff"
 
+  - url: https://blog.huran.xyz/
+    avatar: https://img.huran.xyz/avatar.png
+    blog: 忽然笔记
+    desc: 长风破浪会有时，直挂云帆济沧海
+    color: "#20df20"
+  
+  - url: https://blog.ssykawa.com
+    avatar: https://box.ssykawa.com/swallowfeng/avatar.png
+    blog: 虫不知喔
+    desc: 我要的正能量会发光！
+    color: "#9f79ec"
+  
+  - url: https://lisir.me/
+    avatar: https://npm.elemecdn.com/wkwbk-img@1.0.1/imgs/avatar.png
+    blog: LI SIR
+    desc: I am ordinary yet unique.
+    color: "#4ddbff"
+
+  - url: https://blog.mqawa.cn/
+    avatar: https://blog.mqawa.cn/img/mqawa.jpg
+    blog: MQ's Blog
+    desc: 一个华丽短暂的梦，一个残酷漫长的现实
+    color: "#ffb3d9"
+  
   - url:
     avatar: https://s2.loli.net/2022/05/22/qyFjteWoNwLGJ54.jpg
     blog: 等待申请中。。。
