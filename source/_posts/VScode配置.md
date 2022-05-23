@@ -66,7 +66,8 @@ categories:
 > **Power Mode**：打字炫酷特效，需要在设置里自行设定  
 > **Auto Rename Tag**：自动重命名相对应的闭合 HTML 标签  
 > **Better Comments**：更好的注释，注释信息变色  
-> ----使用：星号\*高亮亮绿色，叹号!警告红色，问号?记录问题蓝色，关键词 TODO 规划区域橙色
+> ----使用：星号\*高亮亮绿色，叹号!警告红色，问号?记录问题蓝色，关键词 TODO 规划区域橙色  
+> **Color Highlight**：显示色码颜色，在设置中设置**Marker Type**设置现实样式，推荐**dot-before**
 
 ---
 

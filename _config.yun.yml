@@ -2,7 +2,7 @@ favicon: https://s2.loli.net/2022/05/22/4s8QIyo6OEiavVD.png
 
 notice:
   enable: true
-  content: 站点正常运行，暂无公告。近期学习与更新：C语言基础教程
+  content: 站点正常运行，暂无公告。近期学习与更新：C语言基础教程。最近更新时间：2022-05-23
 
 tags:
   Git: "#ff4d4d"
@@ -24,6 +24,8 @@ tags:
   生活感悟: "#9999ff"
   笔下生辉: "#00b300"
   尼采: "#ff3333"
+  yun主题: "#9999ff"
+  Hexo博客: "#ff4d4d"
 
 categories:
   编程语言: "#ff944d"
@@ -101,7 +103,7 @@ sidebar:
   bg_position: bottom 3rem center
   tagcloud:
     enable: true
-    amount: 13
+    amount: 15
 
 avatar:
   enable: true
