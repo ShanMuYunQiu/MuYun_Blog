@@ -103,6 +103,6 @@ theme: yun
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://github.com/ShengQiBaoZao/shengqibaozao.github.io
+  repo: https://github.com/ShengQiBaoZao/shengqibaozao_blog
   branch: master
   message: 更新Hexo博客内容

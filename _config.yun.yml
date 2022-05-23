@@ -128,7 +128,7 @@ menu:
     #   count: 你猜
   custom:
     title: 本项目仓库
-    path: https://github.com/ShengQiBaoZao/shengqibaozao.github.io
+    path: https://github.com/ShengQiBaoZao/shengqibaozao_blog
     icon: icon-github-line
 
 pages:
