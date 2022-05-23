@@ -10,37 +10,32 @@ links:
     avatar: https://www.yunyoujun.cn/images/avatar.jpg
     blog: 云游君的小站
     desc: All at sea.
-    color: '#0078e7'
-
-  - url: https://www.jiurs.top/
-    avatar: http://edu-1510131045.oss-cn-beijing.aliyuncs.com/config/16b6b1b3f501e0cf052470dce56457d5.ico
-    blog: jiurs 博客
-    desc: 分享日常生活和Java后端学习笔记
-    color: '#0078e7'
-
-  - url: https://www.solargod.cn/
-    avatar: https://images.solargod.cn/config/161b16c6343438d5104be03415215c65.svg
-    blog: 斜阳技术博客
-    desc: 前端、后端、服务器基础分享
-    color: '#0078e7'
+    color: "#0078e7"
 
   - url: https://www.ender.ml/
     avatar: https://s2.loli.net/2022/05/22/GPVbRYtFJwT8Q3Z.png
     blog: ender's_blog
     desc: 不念过往，不惧将来
-    color: '#0078e7'
+    color: "#0078e7"
 
   - url: https://www.ffnb.top/
     avatar: http://www.ffnb.top/wp-content/uploads/2022/02/仙鸣背景.jpg
     blog: HOMIE 工作室
     desc: 欢迎大家访问HOMIE工作室，大家可以在这里学习浏览交流！★大家有什么需求、或者是更好的意见可以加我QQ联系推荐~
-    color: '#0078e7'
-    
+    color: "#0078e7"
+
+  - url: https://www.molimy.cn
+    avatar: http://www.molimy.cn/wp-content/uploads/2022/05/logo_20220506_uugai.com-16518403603981_gaitubao_154x1501.png
+    blog: 栖梦云溪
+    desc: 一个专注于网络活动、资源的收集共享、分享学习经验的站点
+    color: "#0078e7"
+
   - url:
     avatar: https://s2.loli.net/2022/05/22/qyFjteWoNwLGJ54.jpg
     blog: 等待申请中。。。
     desc: 在下方评论区申请友链哦！
-    color: '#0078e7'
+    color: "#0078e7"
+
 placeholder: 还没想好说些什么 # 默认对友链的描述
 tip: 友链加载中～如失败请刷新重试～
 ---
@@ -55,5 +50,12 @@ tip: 友链加载中～如失败请刷新重试～
 >   avatar: <站点图片>  
 >   blog: <站点名称>  
 >   desc: <站点描述>
+
+##### **本站站点友链信息**
+
+> 地址：https://shengqibaozao.vercel.app  
+> 图片：https://s2.loli.net/2022/05/22/4s8QIyo6OEiavVD.png  
+> 名称：圣奇宝枣的博客小站  
+> 描述：有朋自远方来，不亦乐乎。愿与你相识，得闲饮茶
 
 ##### **看到后我会尽快处理并回复，如果长期未处理，可以通过 b 站私信或其他联系方式联系提醒我~**
