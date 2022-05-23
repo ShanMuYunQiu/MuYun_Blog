@@ -20,11 +20,16 @@ tags:
   C语言: "#6699ff"
   图床: "#4ddbff"
   标记语言: "#4ddbff"
+  一言: "#ff99dd"
+  生活感悟: "#9999ff"
+  笔下生辉: "#00b300"
+  尼采: "#ff3333"
 
 categories:
   编程语言: "#ff944d"
   其他教程: "#ffc266"
   代码编辑器: "#9999ff"
+  好句摘抄: "#66c2ff"
 
 social:
   - name: 微信(请扫描二维码添加)
@@ -96,7 +101,7 @@ sidebar:
   bg_position: bottom 3rem center
   tagcloud:
     enable: true
-    amount: 25
+    amount: 13
 
 avatar:
   enable: true
