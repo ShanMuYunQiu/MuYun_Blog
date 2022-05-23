@@ -16,25 +16,25 @@ links:
     avatar: https://s2.loli.net/2022/05/22/GPVbRYtFJwT8Q3Z.png
     blog: ender's_blog
     desc: 不念过往，不惧将来
-    color: "#0078e7"
+    color: "#ff944d"
 
   - url: https://www.ffnb.top/
     avatar: http://www.ffnb.top/wp-content/uploads/2022/02/仙鸣背景.jpg
     blog: HOMIE 工作室
     desc: 欢迎大家访问HOMIE工作室，大家可以在这里学习浏览交流！★大家有什么需求、或者是更好的意见可以加我QQ联系推荐~
-    color: "#0078e7"
+    color: "#ff4d4d"
 
   - url: https://www.molimy.cn
     avatar: http://www.molimy.cn/wp-content/uploads/2022/05/logo_20220506_uugai.com-16518403603981_gaitubao_154x1501.png
     blog: 栖梦云溪
     desc: 一个专注于网络活动、资源的收集共享、分享学习经验的站点
-    color: "#0078e7"
+    color: "#6699ff"
 
   - url:
     avatar: https://s2.loli.net/2022/05/22/qyFjteWoNwLGJ54.jpg
     blog: 等待申请中。。。
     desc: 在下方评论区申请友链哦！
-    color: "#0078e7"
+    color: "#c2c2d6"
 
 placeholder: 还没想好说些什么 # 默认对友链的描述
 tip: 友链加载中～如失败请刷新重试～
