@@ -73,8 +73,7 @@ banner:
 colors:
   primary: '#1975ff'
   bg: '#F5F5F5'
-  selection_bg: '#7373ff' # 选取文字时的背景色
-  # 标签云中标签的起始色和结束色
+  selection_bg: '#7373ff'
   tag_start_color: '#99bbff'
   tag_end_color: '#1975ff'
 
