@@ -70,6 +70,11 @@ banner:
     enable: true
     icon: icon-arrow-down-s-line
 
+colors:
+  primary: "#1975ff"
+  bg: "#F5F5F5"
+  selection_bg: "#7373ff"
+
 mode: auto
 
 bg_image:
