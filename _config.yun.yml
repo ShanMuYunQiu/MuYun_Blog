@@ -150,6 +150,10 @@ pages:
     url: /links/
     icon: icon-genderless-line
     color: dodgerblue
+  - name: 本项目仓库(求Star!!)
+    url: https://github.com/ShengQiBaoZao/shengqibaozao_blog
+    icon: icon-github-line
+    color: orange
   - name: 可爱的女孩子
     url: /girls/
     icon: icon-women-line
