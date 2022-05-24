@@ -90,6 +90,24 @@ links:
     desc: 藏好自己，做好清理
     color: "#6699ff"
 
+  - url: https://www.cikian.cn/
+    avatar: https://img.cikian.cn/mypic/cikian.jpg
+    blog: Cikian
+    desc: 过去已过去，未来还未来
+    color: "#ff944d"
+
+  - url: https://blog.xmwpro.com/
+    avatar: https://cyan-blog.oss-cn-shenzhen.aliyuncs.com/global/avatar.jpg
+    blog: 白雾茫茫丶
+    desc: 记录学习、生活和有趣的事
+    color: "#20df20"
+  
+  - url: https://www.codingshen.com
+    avatar: https://www.codingshen.com/logo
+    blog: Alex’s Blog
+    desc: 技术小白的成长之路
+    color: "#ff5050"
+  
   - url:
     avatar: https://s2.loli.net/2022/05/22/qyFjteWoNwLGJ54.jpg
     blog: 等待申请中。。。
