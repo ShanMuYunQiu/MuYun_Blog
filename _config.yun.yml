@@ -252,3 +252,5 @@ wordcount:
 wordcloud:
   enable: true
   height: 350
+
+baidu_push: true
