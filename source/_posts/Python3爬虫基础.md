@@ -2,6 +2,7 @@
 title: Python3爬虫基础
 author: 圣奇宝枣
 description: Python3的爬虫教程，完全可以满足个人基本需求，有一定理解难度，内含爬虫所用各个模块教程与信息提取教程
+sticky: 0
 date: 2022-04-28 09:04:03
 updated: 2022-05-09 14:25:06
 tags:

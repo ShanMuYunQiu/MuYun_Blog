@@ -106,3 +106,34 @@ deploy:
   repo: https://github.com/ShengQiBaoZao/shengqibaozao_blog
   branch: master
   message: 更新Hexo博客内容
+
+live2d:
+  enable: true
+  # 推荐使用 jsdelivr 的 CDN 来加载
+  scriptFrom: https://fastly.jsdelivr.net/npm/live2d-widget@3.x/lib/L2Dwidget.min.js
+  pluginRootPath: live2dw/
+  pluginJsPath: lib/
+  pluginModelPath: assets/
+  tagMode: false
+  debug: false
+  model:
+    # 推荐使用 CDN 来加载模型
+    use: https://fastly.jsdelivr.net/npm/live2d-widget-model-wanko@1.0.5/assets/wanko.model.json
+  display:
+    superSample: 2
+    width: 200
+    height: 400
+    position: right
+    hOffset: 0
+    vOffset: -100
+  mobile:
+    show: true
+    scale: 0.5
+  react:
+    opacityDefault: 0.7
+    opacityOnHover: 0.2
+  dialog:
+    # 是否开启对话框
+    enable: true
+    # 是否使用一言
+    hitokoto: true

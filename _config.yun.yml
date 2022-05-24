@@ -141,19 +141,15 @@ menu:
     #   icon: icon-cloud-line
     #   count: 你猜
   custom:
-    title: 本项目仓库
-    path: https://github.com/ShengQiBaoZao/shengqibaozao_blog
-    icon: icon-github-line
+    title: 留言板
+    path: /comment/
+    icon: icon-clipboard-line
 
 pages:
   - name: 我的小伙伴们
     url: /links/
     icon: icon-genderless-line
     color: dodgerblue
-  - name: 常用资源网址
-    url: /website/
-    icon: icon-price-tag-3-line
-    color: orange
   - name: 可爱的女孩子
     url: /girls/
     icon: icon-women-line
