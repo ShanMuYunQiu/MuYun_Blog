@@ -36,6 +36,12 @@ links:
     desc: 长风破浪会有时，直挂云帆济沧海
     color: "#20df20"
 
+  - url: https://blog.ssykawa.com
+    avatar: https://box.ssykawa.com/swallowfeng/avatar.png
+    blog: 虫不知喔
+    desc: 我要的正能量会发光！
+    color: "#9f79ec"
+
   - url: https://lisir.me/
     avatar: https://npm.elemecdn.com/wkwbk-img@1.0.1/imgs/avatar.png
     blog: LI SIR
@@ -49,46 +55,28 @@ links:
     color: "#9e75f0"
 
   - url: https://ciraos.top
-    avatar: https://ciraos.top/customized/avatar.webp
+    avatar: https://s2.loli.net/2022/05/25/YGh2lLUNe7a1FMs.png
     blog: 葱苓的小窝
     desc: Dare && Do
     color: "#ffad33"
-
-  - url: https://blog.ssykawa.com
-    avatar: https://box.ssykawa.com/swallowfeng/avatar.png
-    blog: 虫不知喔
-    desc: 我要的正能量会发光！
-    color: "#9f79ec"
-
-  - url: https://blog.mqawa.cn/
-    avatar: https://blog.mqawa.cn/img/mqawa.jpg
-    blog: MQ's Blog
-    desc: 一个华丽短暂的梦，一个残酷漫长的现实
-    color: "#ffb3d9"
-
-  - url: https://www.wwru.cn/
-    avatar: https://static.mx142.cn/img/logo.png
-    blog: Mx
-    desc: 一个分享知识和快乐的地方！
-    color: "#ff5050"
-
-  - url: https://blog.cnortles.top
-    avatar: https://source.cnortles.top/avatar.png
-    blog: starsのblog
-    desc: 科学是使人的精神变得勇敢的最好途径
-    color: "#99e6e6"
 
   - url: https://www.travele.cc
     avatar: https://image.travele.cc/01.jpg
     blog: Travele_
     desc: 笔记，生活琐碎
-    color: "#bb99ff"
+    color: "#ffb3d9"
   
   - url: https://www.falling42.top/
     avatar: https://npm.elemecdn.com/falling42-cdn@2.0.0/avatar.png
     blog: 低熵体的博客
     desc: 藏好自己，做好清理
     color: "#6699ff"
+
+  - url: https://www.codingshen.com
+    avatar: https://www.codingshen.com/logo
+    blog: Alex’s Blog
+    desc: 技术小白的成长之路
+    color: "#ff5050"
 
   - url: https://www.cikian.cn/
     avatar: https://img.cikian.cn/mypic/cikian.jpg
@@ -100,19 +88,38 @@ links:
     avatar: https://cyan-blog.oss-cn-shenzhen.aliyuncs.com/global/avatar.jpg
     blog: 白雾茫茫丶
     desc: 记录学习、生活和有趣的事
-    color: "#20df20"
-  
-  - url: https://www.codingshen.com
-    avatar: https://www.codingshen.com/logo
-    blog: Alex’s Blog
-    desc: 技术小白的成长之路
+    color: "#99e6e6"
+
+  - url: https://www.wwru.cn/
+    avatar: https://static.mx142.cn/img/logo.png
+    blog: Mx
+    desc: 一个分享知识和快乐的地方！
     color: "#ff5050"
-  
+
+  - url: https://www.chuckle.top
+    avatar: https://www.chuckle.top/img/head.webp
+    blog: 轻笑Chuckle
+    desc: 宁静致远,倾尘轻笑
+    color: "#ffad33"
+
+  - url: https://www.mrzefr.cn
+    avatar: https://cdn.mrzefr.cn/IMG/ICO/Doraemon.ico
+    blog: MrZeFr的小窝
+    desc: Hello World
+    color: "#20df20"
+
+  - url: https://gahotx.cn/
+    avatar: https://pub.gahotx.cn/photo/cat.jpg
+    blog: Gahotx
+    desc: Don't repeat yourself
+    color: "#ffb3d9"
+
   - url:
     avatar: https://s2.loli.net/2022/05/22/qyFjteWoNwLGJ54.jpg
     blog: 等待申请中。。。
     desc: 在下方评论区申请友链哦！
     color: "#c2c2d6"
+
 placeholder: 还没想好说些什么 # 默认对友链的描述
 tip: 友链加载中～如失败请刷新重试～
 ---
