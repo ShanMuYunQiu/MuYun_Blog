@@ -514,13 +514,13 @@ int main(void)
 
 - `scanf()`使用**指向变量的指针**，而`printf()`使用**变量、常量、表达式**
 
-- **ANSI C**标准为`scanf()`准备的转换说明
+- **ANSI C**标准为`scanf()`准备的转换说明  
 
-  ![](https://s2.loli.net/2022/05/26/viMHqI5gXLZKjFE.png)
+  ![](https://s2.loli.net/2022/05/26/viMHqI5gXLZKjFE.png)  
 
-- `scanf()`的转换说明**修饰符**
+- `scanf()`的转换说明**修饰符**  
 
-  ![](https://s2.loli.net/2022/05/26/aDcWXUYfFyBdCQZ.png)
+  ![](https://s2.loli.net/2022/05/26/aDcWXUYfFyBdCQZ.png)  
 
 ---
 
