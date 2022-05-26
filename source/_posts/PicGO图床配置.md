@@ -25,12 +25,14 @@ categories:
 设定分支：master 或 main
 
 Token 秘钥：github 主页-头像-设置-Developer setting-Personal access tokens，新建：只选择 repo  
-Token(示例)：ghp_842aFlkCf8YIihfJ7LUYXku5Ix7pUo0mR4Kl
+Token(示例)：ghp_WGxZemKeB2aRql2RMgXxOY9CwIQVFW3Q9f3q
 
 存储路径：可不填
 
 自定义域名：https://fastly.jsdelivr.net/gh/用户名/仓库名  
 例如：https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image
+
+4-2oXV
 
 ---
 
