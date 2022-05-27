@@ -1,7 +1,7 @@
 ---
 layout: girls
 title: 可爱的女孩子(好像有奇怪的几个人混进来了)
-banner: <span title="大家都是我的天使!">排名不分先后，大家都是我的天使!</span>
+banner: <span title="大家都是我的天使!">排名不分先后，大家都是我的天使! φ(>ω<*) </span>
 girls:
   - name: 赤座灯里
     avatar: https://s2.loli.net/2022/05/22/qyFjteWoNwLGJ54.jpg
