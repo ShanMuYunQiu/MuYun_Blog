@@ -2,7 +2,7 @@ favicon: https://s2.loli.net/2022/05/22/4s8QIyo6OEiavVD.png
 
 notice:
   enable: true
-  content: 站点正常运行(ﾉﾟ∀ﾟ)ﾉ ~近期学习与更新：C语言基础教程。最近更新时间：2022-05-27
+  content: 站点正常运行(ﾉﾟ∀ﾟ)ﾉ ~近期学习与更新：C语言基础教程。最近更新时间：2022-05-28
 
 tags:
   Git: "#ff4d4d"
@@ -36,27 +36,27 @@ categories:
 social:
   - name: 微信(请扫描二维码添加)
     link: https://s2.loli.net/2022/05/22/PijGqtNOyW45BvZ.jpg
-    icon: icon-wechat-2-line
+    icon: ri:wechat-2-line
     color: "#1AAD19"
   - name: QQ(请扫描二维码添加)
     link: https://s2.loli.net/2022/05/22/gktDW5v8RKIYdOn.jpg
-    icon: icon-qq-line
+    icon: ri:qq-line
     color: "#12B7F5"
   - name: GitHub(个人页面)
     link: https://github.com/ShengQiBaoZao
-    icon: icon-github-line
+    icon: ri:github-line
     color: "#181717"
   - name: E-Mail:lty15376767691@gmail.com
     link: mailto:lty15376767691@gmail.com
-    icon: icon-mail-line
+    icon: ri:mail-line
     color: "#8E71C1"
   - name: 网易云音乐(点此跳转)
     link: https://music.163.com/#/user/home?id=509242587
-    icon: icon-netease-cloud-music-line
+    icon: ri:netease-cloud-music-line
     color: "#C10D0C"
   - name: Bilibili(点此跳转)
     link: https://space.bilibili.com/347061710
-    icon: icon-bilibili-line
+    icon: ri:bilibili-line
     color: "#FF8EB3"
 
 banner:
@@ -68,14 +68,14 @@ banner:
     color: white
   go_down:
     enable: true
-    icon: icon-arrow-down-s-line
+    icon: ri:arrow-down-s-line
 
 colors:
-  primary: '#1975ff'
-  bg: '#F5F5F5'
-  selection_bg: '#7373ff'
-  tag_start_color: '#99bbff'
-  tag_end_color: '#1975ff'
+  primary: "#1975ff"
+  bg: "#F5F5F5"
+  selection_bg: "#7373ff"
+  tag_start_color: "#99bbff"
+  tag_end_color: "#1975ff"
 
 mode: auto
 
@@ -126,37 +126,37 @@ avatar:
 menu:
   home:
     path: /
-    icon: icon-home-4-line
+    icon: ri:home-4-line
   list:
     - type: archives
       path: /archives/
-      icon: icon-archive-line
+      icon: ri:archive-line
     - type: categories
       path: /categories/
-      icon: icon-folder-2-line
+      icon: ri:folder-2-line
     - type: tags
       path: /tags/
-      icon: icon-price-tag-3-line
+      icon: ri:price-tag-3-line
     # - path: https://www.yunyoujun.cn
-    #   icon: icon-cloud-line
+    #   icon: ri:cloud-line
     #   count: 你猜
   custom:
     title: 留言板
     path: /comment/
-    icon: icon-clipboard-line
+    icon: ri:clipboard-line
 
 pages:
   - name: 我的小伙伴们
     url: /links/
-    icon: icon-genderless-line
+    icon: ri:genderless-line
     color: dodgerblue
   - name: 本项目仓库(求Star!!)
     url: https://github.com/ShengQiBaoZao/shengqibaozao_blog
-    icon: icon-github-line
+    icon: ri:github-line
     color: orange
   - name: 可爱的女孩子
     url: /girls/
-    icon: icon-women-line
+    icon: ri:women-line
     color: hotpink
 
 post_meta:
@@ -187,26 +187,26 @@ lazyload:
 
 reward:
   enable: true
-  icon: icon-hand-coin-line
+  icon: ri:hand-coin-line
   comment: 创作不易，如果对你有帮助，点此打赏支持
   methods:
     - name: 支付宝
       path: https://s2.loli.net/2022/05/22/Zz73mGbyuJMWqrj.jpg
       color: "#00A3EE"
-      icon: icon-alipay-line
+      icon: ri:alipay-line
     - name: QQ 支付
       path: https://s2.loli.net/2022/05/22/duCQVgIl2yJqwfO.png
       color: "#12B7F5"
-      icon: icon-qq-line
+      icon: ri:qq-line
     - name: 微信支付
       path: https://s2.loli.net/2022/05/22/vMCFmPrxBoSJsUE.png
       color: "#2DC100"
-      icon: icon-wechat-pay-line
+      icon: ri:wechat-pay-line
 
 footer:
   since: 2022
   icon:
-    name: icon-cloud-line
+    name: ri:cloud-line
     animated: true
     color: "#0078E7"
   live_time:
@@ -242,11 +242,11 @@ local_search:
 busuanzi:
   enable: true
   site_uv: true
-  site_uv_icon: icon-user-line
+  site_uv_icon: ri:user-line
   site_pv: true
-  site_pv_icon: icon-eye-line
+  site_pv_icon: ri:eye-line
   page_pv: true
-  page_pv_icon: icon-eye-line
+  page_pv_icon: ri:eye-line
 
 wordcount:
   enable: true
