@@ -5,6 +5,7 @@ date: 2022-05-21 09:30:20
 keywords: 链接
 description: 友情链接
 comments: true
+reward: true
 links:
   - url: https://yunyoujun.cn
     avatar: https://www.yunyoujun.cn/images/avatar.jpg
