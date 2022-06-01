@@ -121,7 +121,7 @@ categories:
 
 - 环境变量设置：同 C/C++环境配置进入环境变量设置
   - 新建系统变量**JAVA_HOME**，路径设置为**JDK 总文件夹的路径**
-  - 新建**CLASSPATH**，填入以下内容：**.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar**
+  - 新建**CLASSPATH**，填入以下内容：`.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar`
   - 找到**Path**变量，添加 **%JAVA_HOME%\bin** 和 **%JAVA_HOME%\jre\bin**
 - **VScode**中安装**Extension Pack for Java**插件包
 - **VScode 设置**，**用户**类别下，找到**Code Actions On Save**，在.json 中编辑，将新增的`"editor.codeActionsOnSave"`这一些代码删除，在第一层缩进下，在`"workbench.iconTheme": "vscode-icons",`前写入`"java.jdt.ls.java.home": "JDK的路径(注意反斜杠转义)",`
