@@ -6,14 +6,14 @@
 title: 圣奇宝枣的博客小站
 subtitle: "有朋自远方来，不亦乐乎。愿与你相识，得闲饮茶"
 description: "知识分享与个人记录"
-keywords: 编程、知识、博客、圣奇宝枣
+keywords:
 author: 圣奇宝枣
 language: zh-CN
 timezone: ""
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://shengqibaozao.vercel.app
+url: http://example.com
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
