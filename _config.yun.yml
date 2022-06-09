@@ -251,3 +251,10 @@ wordcloud:
 baidu_push: true
 
 medium_zoom: true
+
+vendors:
+  # 以 '/' 结尾
+  host: 'https://npm.elemecdn.com/'
+  # 下方代表覆盖 waline CDN 为别的链接，默认不用修改
+  # waline:
+  #   css: '@waline/client@v2/dist/waline.css'
