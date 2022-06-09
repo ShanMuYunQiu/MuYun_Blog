@@ -191,15 +191,15 @@ reward:
   comment: 创作不易，如果对你有帮助，点此打赏支持
   methods:
     - name: 支付宝
-      path: https://s2.loli.net/2022/05/22/Zz73mGbyuJMWqrj.jpg
+      path: https://s2.loli.net/2022/06/09/BVFh4X9luHDjnUE.png
       color: "#00A3EE"
       icon: ri:alipay-line
     - name: QQ 支付
-      path: https://s2.loli.net/2022/05/22/duCQVgIl2yJqwfO.png
+      path: https://s2.loli.net/2022/06/09/YDOTzQmvhBb3FNA.png
       color: "#12B7F5"
       icon: ri:qq-line
     - name: 微信支付
-      path: https://s2.loli.net/2022/05/22/vMCFmPrxBoSJsUE.png
+      path: https://s2.loli.net/2022/06/09/5fIH4Mnq37ZLNOp.png
       color: "#2DC100"
       icon: ri:wechat-pay-line
 

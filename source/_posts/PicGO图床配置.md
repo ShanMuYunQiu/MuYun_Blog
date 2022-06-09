@@ -5,6 +5,7 @@ description: 使用PicGO搭配各个平台做个人图床，简单易上手
 sticky: 0
 date: 2022-04-26 09:21:33
 updated: 2022-04-26 09:42:15
+readmore: true
 tags:
   - PicGO
   - 图床
@@ -26,6 +27,8 @@ categories:
 
 Token 秘钥：github 主页-头像-设置-Developer setting-Personal access tokens，新建：只选择 repo  
 Token(示例)：ghp_WGxZemKeB2aRql2RMgXxOY9CwIQVFW3Q9f3q
+
+<!-- more -->
 
 存储路径：可不填
 

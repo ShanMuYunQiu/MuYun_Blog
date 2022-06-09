@@ -5,6 +5,7 @@ description: 有关于Microsoft 5E开发者订阅教程的简单介绍，包括�
 sticky: 0
 date: 2022-05-14 09:42:12
 updated: 2022-05-14 10:40:12
+readmore: true
 tags:
   - Office 365
   - Microsoft 5E 订阅
@@ -27,6 +28,8 @@ https://developer.microsoft.com/zh-cn/microsoft-365/profile
 
 英文界面收验证码  
 https://developer.microsoft.com/en-us/microsoft-365/dev-program
+
+<!-- more -->
 
 登录微软账户
 

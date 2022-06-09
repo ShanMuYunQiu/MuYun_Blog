@@ -5,6 +5,7 @@ description: 个人以及大众最爱的编辑器，新手时期被繁杂的配�
 sticky: 0
 date: 2022-04-27 12:56:14
 updated: 2022-05-10 11:01:46
+readmore: true
 tags:
   - VScode
   - 环境配置
@@ -32,6 +33,8 @@ categories:
 > 3、安装**Code Runner**插件
 
 ---
+
+<!-- more -->
 
 #### **其他基础设置**
 
