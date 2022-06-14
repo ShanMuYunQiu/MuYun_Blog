@@ -4,7 +4,7 @@ author: 圣奇宝枣
 description: 有关于C语言的基础教程，包括基本语法与基础的逻辑知识，比较适合新手上手
 sticky: 1
 date: 2022-05-09 08:21:06
-updated: 2022-06-13 14:25:13
+updated: 2022-06-14 16:26:31
 readmore: true
 tags:
   - C语言
@@ -994,7 +994,7 @@ int main(void)
 
 ---
 
-> **章节概要**：`if`语句、`if-else` 语句与 `else-if` 语句、`if` 与 `else` 的配对和嵌套 `if`、`getchar()`与`putchar()`函数、`ctype.h`系列的字符函数、逻辑运算符、备选拼写：`iso646.h`头文件、条件(三目)运算符、循环辅助：`continue`和`break`、`switch` 语句
+> **章节概要**：`if`语句、`if-else` 语句与 `else-if` 语句、`if` 与 `else` 的配对和嵌套 `if`、`getchar()`与`putchar()`函数、`ctype.h`系列的字符函数、逻辑运算符、备选拼写：`iso646.h`头文件、条件(三目)运算符、循环辅助：`continue`和`break`、`switch` 语句、`goto` 语句
 
 ##### **if 语句**
 
@@ -1182,7 +1182,87 @@ int main(void)
 
 ##### **switch 语句**
 
+- 使用**条件运算符**和`if-else`语句很容易编写**二选一**的程序，然而有时程序需要从**多个选项中选择**，尽管可以使用`else if`实现，但大多情况下`switch`**更加方便**
+
+- **基本语法**
+
+  ```c
+  switch (表达式){
+      case 表达式的可能值1:
+          语句;
+          break;
+      case 表达式的可能值2:
+          语句;
+          break;
+      ...
+      default:
+          语句;
+          break;
+  }
+  ```
+
+- **注意事项**
+
+  > 1、`break`语句使程序离开`switch`语句，**直接执行**`switch`后的**下一条语句**，如果**没有**`break`，则会**按顺序**将**条件成立处**向后**所有**`case`内语句执行完毕，直到`default`语句后退出  
+  > 2、C 语言的`case`一般都**指定一个值**，**不能使用一个范围**  
+  > 3、关于`switch`不使用`break`会**向后执行**的特性，可以在特定的地方设定`break`，来利用这个特性，如下设计统计字母出现次数的程序
+
+  ```c
+  #include <stdio.h>
+  int main(void)
+  {
+      char ch;                              // 输入字母
+      int a_ct, b_ct, c_ct, d_ct, e_ct;     // 统计abcde的次数
+      a_ct = b_ct = c_ct = d_ct = e_ct = 0; // 初始化为0
+      printf("enter some text;enter # to quit");
+      while ((ch = getchar()) != '#')
+      {
+          switch (ch)
+          {
+          case 'a': // 检测a时执行，并会向下执行'A'的语句
+          case 'A': // 不论大写小写a，都会执行语句计入统计
+              a_ct++;
+              break; // break终止继续执行
+          // 以此类推，此处省略bcde的case
+          }
+      }
+      printf("A   B   C   D   E\n");
+      printf("%-4d%-4d%-4d%-4d%-4d", a_ct, b_ct, c_ct, d_ct, e_ct);
+      return 0;
+  }
+  ```
+
+- **swith 与 if-else**
+
+  > 1、通常而言，`switch`能干的`if-else`**都能实现**，但`switch`的运行**速度更快**  
+  > 2、当需要判断**一个范围**或**浮点变量或表达式**时，`switch`**无法实现**  
+  > 3、`switch`通常只是`if-else`的**优化**，对比之下，仍是`if-else`**泛用性更强**
+
+##### **goto 语句**
+
+- 早期版本的**BASIC**和**FORTRAN**所依赖的`goto`语句，在 C 中**仍然可用**，但**非常不建议**使用，即使没有`goto`语句 C 语言也仍能运行良好，且**逻辑更加清晰**
+
+- **基本语法**
+
+  ```c
+  语句标签(如:part1):语句
+
+  goto 语句标签;
+  ```
+
+---
+
+#### **字符输入输出与输入验证**
+
+---
+
+> **章节概要**：单字符 I/O:`getchar`与`putchar`
+
+##### **单字符 I/O:getchar 与 putchar**
+
 - 码字中。。。
+
+---
 
 #### **页底评论**
 
