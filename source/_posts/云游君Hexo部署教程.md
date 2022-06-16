@@ -8,6 +8,7 @@ updated: 2022-05-24 09:00:00
 sticky: 0
 tags:
   - Hexo博客
+  - 博客部署
   - 教程分享
 categories:
   - 其他教程

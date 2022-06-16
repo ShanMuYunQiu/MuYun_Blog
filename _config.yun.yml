@@ -26,6 +26,9 @@ tags:
   尼采: "#ff3333"
   yun主题: "#9999ff"
   Hexo博客: "#ff4d4d"
+  Sitemap地图: "#b35900"
+  SEO收录: "#ffc266"
+  博客部署: "#ff99dd"
 
 categories:
   编程语言: "#ff944d"
