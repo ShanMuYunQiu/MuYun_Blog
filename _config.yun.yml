@@ -239,6 +239,13 @@ waline:
   serverURL: https://waline-swart-ten.vercel.app/
   visitor: true
   comment: true
+  emoji:
+    - "@waline/emojis@latest/bilibili/"
+    - "@waline/emojis@latest/weibo/"
+    - "@waline/emojis@latest/qq/"
+  locale:
+    placeholder: 填写邮箱，可以收到回复通知哦～
+  requiredMeta: [nick]
 
 engine_search:
   enable: false
