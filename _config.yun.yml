@@ -236,7 +236,7 @@ comment:
 
 waline:
   enable: true
-  serverURL: https://waline-swart-ten.vercel.app/
+  serverURL: https://waline-swart-ten.vercel.app
   visitor: true
   comment: true
   emoji:
