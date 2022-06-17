@@ -6,7 +6,15 @@
 title: 圣奇宝枣的博客小站
 subtitle: "有朋自远方来，不亦乐乎。愿与你相识，得闲饮茶"
 description: "知识分享与个人记录"
-keywords: 编程、知识、博客、圣奇宝枣
+keywords:
+  - 圣奇宝枣
+  - Blog
+  - 博客
+  - 圣奇宝枣的小站
+  - 编程知识
+  - 教程
+  - https://shengqibaozao.vercel.app
+  - shengqibaozao
 author: 圣奇宝枣
 language: zh-CN
 timezone: ""
