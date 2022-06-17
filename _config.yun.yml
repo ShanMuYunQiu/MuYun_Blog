@@ -218,6 +218,10 @@ footer:
     suffix: (●'◡'●)
     start_time: "2022-04-15T09:43:00"
 
+post_edit:
+  enable: true
+  url: https://github.com/ShengQiBaoZao/shengqibaozao_blog/tree/hexo/source/
+
 girls:
   enable: true
 
