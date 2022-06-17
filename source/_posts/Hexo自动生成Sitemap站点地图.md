@@ -4,7 +4,7 @@ author: 圣奇宝枣
 description: 通过简单的操作，实现Hexo自动生成站点地图，方便搜索引擎SEO抓取
 sticky: 0
 date: 2022-06-16 22:01:14
-updated: 2022-06-16 22:01:14
+updated: 2022-06-17 15:07:30
 readmore: true
 tags:
   - Hexo博客
@@ -40,7 +40,7 @@ categories:
   谷歌版本：
   npm install hexo-generator-sitemap --save
 
-  百度版本：
+  百度版本(注:个人使用经常出错，亲测谷歌版也能胜任百度，不建议安装)：
   npm install hexo-generator-baidu-sitemap --save
   ```
 
