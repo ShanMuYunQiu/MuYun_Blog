@@ -7,9 +7,9 @@ date: 2022-05-09 08:21:06
 updated: 2022-06-16 15:02:12
 readmore: true
 tags:
+  - 编程
   - C语言
   - 基础语法
-  - 教程分享
 categories:
   - 编程语言
 ---

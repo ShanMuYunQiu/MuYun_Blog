@@ -7,9 +7,9 @@ date: 2022-04-27 12:56:14
 updated: 2022-05-10 11:01:46
 readmore: true
 tags:
+  - 前置准备
   - VScode
   - 环境配置
-  - 教程分享
 categories:
   - 代码编辑器
 ---

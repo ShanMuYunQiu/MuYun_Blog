@@ -6,6 +6,8 @@ notice:
 
 tags:
   Git: "#ff4d4d"
+  基础技能: "#ff99dd"
+  编程: "#9999ff"
   网络爬虫: "#ff4d4d"
   Microsoft 5E 订阅: "#00b300"
   基础语法: "#cc33ff"
@@ -14,21 +16,21 @@ tags:
   VScode: "#6699ff"
   Office 365: "#ff944d"
   PicGO: "#6699ff"
-  教程分享: "#cc33ff"
   环境配置: "#00b300"
   Python3: "#ffc266"
   C语言: "#6699ff"
-  图床: "#4ddbff"
+  图床: "#00b300"
   标记语言: "#4ddbff"
   一言: "#ff99dd"
-  生活感悟: "#9999ff"
-  笔下生辉: "#00b300"
   尼采: "#ff3333"
   yun主题: "#9999ff"
   Hexo博客: "#ff4d4d"
   Sitemap地图: "#b35900"
   SEO收录: "#ffc266"
   博客部署: "#ff99dd"
+  白嫖: "#4ddbff"
+  前置准备: "#ff3333"
+  配置项: "#4ddbff"
 
 categories:
   编程语言: "#ff944d"
@@ -268,7 +270,7 @@ medium_zoom: true
 
 vendors:
   # 以 '/' 结尾
-  host: 'https://npm.elemecdn.com/'
+  host: "https://npm.elemecdn.com/"
   # 下方代表覆盖 waline CDN 为别的链接，默认不用修改
   # waline:
   #   css: '@waline/client@v2/dist/waline.css'

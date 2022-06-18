@@ -7,9 +7,9 @@ date: 2022-05-20 08:30:14
 updated: 2022-05-20 10:56:37
 readmore: true
 tags:
+  - 基础技能
   - Git
   - 版本管理工具
-  - 教程分享
 categories:
   - 其他教程
 ---

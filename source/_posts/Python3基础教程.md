@@ -7,9 +7,9 @@ date: 2022-04-16 10:30:00
 updated: 2022-04-27 19:34:15
 readmore: true
 tags:
+  - 编程
   - Python3
   - 基础语法
-  - 教程分享
 categories:
   - 编程语言
 ---
