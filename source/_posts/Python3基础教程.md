@@ -11,7 +11,7 @@ tags:
   - Python3
   - 基础语法
 categories:
-  - 编程语言
+  - 编程语言入门
 ---
 
 ---

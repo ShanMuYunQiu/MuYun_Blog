@@ -11,7 +11,7 @@ tags:
   - Markdown
   - 标记语言
 categories:
-  - 其他教程
+  - 专业技能教程
 ---
 
 ---

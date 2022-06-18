@@ -2,7 +2,7 @@ favicon: https://s2.loli.net/2022/05/22/4s8QIyo6OEiavVD.png
 
 notice:
   enable: true
-  content: 站点正常运行(ﾉﾟ∀ﾟ)ﾉ ~近期学习与更新：C语言基础教程。最近更新时间：2022-06-17
+  content: 站点正常运行(ﾉﾟ∀ﾟ)ﾉ ~近期学习与更新：C语言基础教程。最近更新时间：2022-06-18
 
 tags:
   Git: "#ff4d4d"
@@ -31,9 +31,11 @@ tags:
   白嫖: "#4ddbff"
   前置准备: "#ff3333"
   配置项: "#4ddbff"
+  搜索引擎: "#ffc266"
 
 categories:
-  编程语言: "#ff944d"
+  编程语言入门: "#ff944d"
+  专业技能教程: "#cc33ff"
   其他教程: "#ffc266"
   代码编辑器: "#9999ff"
   好句摘抄: "#66c2ff"
