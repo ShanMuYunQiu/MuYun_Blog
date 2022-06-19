@@ -241,7 +241,7 @@ comment:
 waline:
   enable: true
   serverURL: https://waline-swart-ten.vercel.app
-  visitor: true
+  visitor: false
   comment: true
   emoji:
     - "https://unpkg.com/@waline/emojis@1.0.1/bilibili"
@@ -250,6 +250,13 @@ waline:
   locale:
     placeholder: 填写邮箱，可以收到回复通知哦～
   requiredMeta: [nick]
+
+leancloud_visitors:
+  enable: true
+  app_id: 0yBk9ey9VK6RjMoWpNk1rr8n-MdYXbMMI
+  app_key: 4q0zlsryvWqA1L1MItJOVpel
+  # Required for apps from CN region
+  # server_url: 
 
 engine_search:
   enable: false
