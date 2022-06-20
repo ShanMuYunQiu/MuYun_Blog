@@ -124,7 +124,7 @@ reward: true
 
 <p>
 
-> **06-19** | 使用 LearnCloud Visitor 代替 Waline 完成访客统计  
+> **06-19** | 使用 LeanCloud Visitor 代替 Waline 完成访客统计  
 > **06-18** | 将博客的分类和标签重新规划  
 > **06-17** | 莫名报了一堆错，最终排查原因是百度版本的 sitemap 插件，删除后修复  
 > **06-17** | 将文章内图片类型的表格，使用`markdown`手动实现并替换  
