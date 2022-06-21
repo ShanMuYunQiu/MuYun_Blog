@@ -124,6 +124,7 @@ reward: true
 
 <p>
 
+> **06-21** | 准备更换`Hexo`主题为`Butterfly`  
 > **06-19** | 使用 LeanCloud Visitor 代替 Waline 完成访客统计  
 > **06-18** | 将博客的分类和标签重新规划  
 > **06-17** | 莫名报了一堆错，最终排查原因是百度版本的 sitemap 插件，删除后修复  
@@ -143,8 +144,8 @@ reward: true
 > **05-24** | 正式将所有`docsify`的文档转为`hexo`格式，并更改使用了部分`Yun`主题特有的文档格式  
 > **05-23** | 更换了图床，由`github`+`jsdelivr`更换为`SM.MS`图床  
 > **05-21** | 修复了一些由于配置问题而产生的 bug  
-> **05-20** | 正式更换`hexo`框架，使用`Yun`主题，并投入运行(但误操作删库，导致 github 提交记录消失)  
-> **05-18** | 准备更换框架为`hexo`，并使用`Yun`主题，将文档从`docsify`搬运并调整格式至`hexo`  
+> **05-20** | 正式更换`Hexo`框架，使用`Yun`主题，并投入运行(但误操作删库，导致 github 提交记录消失)  
+> **05-18** | 准备更换框架为`Hexo`，并使用`Yun`主题，将文档从`docsify`搬运并调整格式至`Hexo`  
 > **04-21** | 使用`jsdelivr`全球 CDN 加速博客  
 > **04-17** | 试运行成功，搭载于`github pages`并稳定运行，地址为`https://ShengQiBaoZao/shengqibaozao.github.io`  
 > **04-15** | 创建`docsify`框架博客，进入试运行
