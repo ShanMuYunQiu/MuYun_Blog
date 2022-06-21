@@ -34,7 +34,7 @@ tags:
   搜索引擎: "#ffc266"
   Linux: "#ffc266"
   系统操作: "#ff3333"
-  GitCalendar: "#cc33ff"
+  Github Calendar: "#cc33ff"
 
 categories:
   编程语言入门: "#ff944d"
@@ -260,7 +260,7 @@ leancloud_visitors:
   app_id: 0yBk9ey9VK6RjMoWpNk1rr8n-MdYXbMMI
   app_key: 4q0zlsryvWqA1L1MItJOVpel
   # Required for apps from CN region
-  # server_url: 
+  # server_url:
 
 engine_search:
   enable: false
