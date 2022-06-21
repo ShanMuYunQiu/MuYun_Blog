@@ -1727,6 +1727,11 @@
   dependencies:
     "hexo-pagination" "1.0.0"
 
+"hexo-githubcalendar@^1.2.3":
+  "integrity" "sha512-xMfp2Z11F57s0/q7N9x+S2ui5dkrOiz5I3+TKPL+2IquWKj11wpaVZsPDgMxPAU8B6AYm/78S5e2APiHADPYSg=="
+  "resolved" "https://registry.npmmirror.com/hexo-githubcalendar/-/hexo-githubcalendar-1.2.3.tgz"
+  "version" "1.2.3"
+
 "hexo-helper-live2d@^3.1.1":
   "integrity" "sha512-YqWAyCjB91kLBYJnmYJZtecKvfw+ph0cIZfycjZeJ4rYvF4d4Z+C5TVVW2SPstOEbNvwK0PpimUhi6r3hT5z7g=="
   "resolved" "https://registry.npmmirror.com/hexo-helper-live2d/-/hexo-helper-live2d-3.1.1.tgz"
