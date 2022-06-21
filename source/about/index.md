@@ -124,7 +124,7 @@ reward: true
 
 <p>
 
-> **06-21** | 实现Github Calendar插件，显示开发记录
+> **06-21** | 实现 Github Calendar 插件，显示开发记录，并使用 CSS 适配手机端
 > **06-19** | 使用 LeanCloud Visitor 代替 Waline 完成访客统计  
 > **06-18** | 将博客的分类和标签重新规划  
 > **06-17** | 莫名报了一堆错，最终排查原因是百度版本的 sitemap 插件，删除后修复  
