@@ -165,3 +165,9 @@ githubcalendar:
   # api: https://python-gitee-calendar-api.vercel.app/api
   calendar_js: https://cdn.jsdelivr.net/gh/Zfour/hexo-github-calendar@1.21/hexo_githubcalendar.js
   plus_style: ""
+
+aplayer:
+  cdn: https:///npm.elemecdn.com/aplayer@latest/dist/APlayer.min.js
+  style_cdn: https:///npm.elemecdn.com/aplayer@latest/dist/APlayer.min.css
+  meting: true
+  meting_cdn: https:///npm.elemecdn.com/meting@1/dist/Meting.min.js

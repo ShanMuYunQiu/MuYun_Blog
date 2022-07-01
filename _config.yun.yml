@@ -322,3 +322,32 @@ vendors:
   # 下方代表覆盖 waline CDN 为别的链接，默认不用修改
   # waline:
   #   css: '@waline/client@v2/dist/waline.css'
+
+pjax:
+  enable: true
+
+aplayer:
+  global: true
+  meting: true
+  # https://github.com/metowolf/MetingJS/tree/v1.2#option
+  widget:
+    enable: true
+    autoplay: true
+    loop: all
+    order: random
+    preload: auto
+    volume: 0.15
+    mutex: true
+    lrcType: 0
+    listFolded: false
+    listMaxHeight: 340px
+    audio:
+      # - name: 星宿计时
+      #   artist: 杉田朗/洛天依
+      #   url: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/audio/star-timer.mp3
+      #   cover: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/bg/stars-timing-0.jpg
+    meting:
+      enable: true
+      id: 7514736165
+      server: netease
+      type: playlist
