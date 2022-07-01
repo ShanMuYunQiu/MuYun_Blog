@@ -84,7 +84,7 @@ banner:
 colors:
   primary: "#1975ff"
   bg: "#F5F5F5"
-  selection_bg: "#7373ff"
+  selection_bg: "#1975ff"
   tag_start_color: "#99bbff"
   tag_end_color: "#1975ff"
 
@@ -267,6 +267,41 @@ engine_search:
 
 local_search:
   enable: true
+
+types:
+  link:
+    color: '#1975ff'
+    icon: ri:external-link-line
+  bilibili:
+    color: '#FF8EB3'
+    icon: ri:bilibili-line
+  douban:
+    color: '#007722'
+    icon: ri:douban-line
+  github:
+    color: black
+    icon: ri:github-line
+  netease-cloud-music:
+    color: '#C10D0C'
+    icon: ri:netease-cloud-music-line
+  notion:
+    color: black
+    icon: ri:notion
+  twitter:
+    color: '#1da1f2'
+    icon: ri:twitter-line
+  wechat:
+    color: '#1AAD19'
+    icon: ri:wechat-2-line
+  weibo:
+    color: '#E6162D'
+    icon: ri:weibo-line
+  yuque:
+    color: '#25b864'
+    icon: ant-design:yuque-outlined
+  zhihu:
+    color: '#0084FF'
+    icon: ri:zhihu-line
 
 wordcount:
   enable: true
