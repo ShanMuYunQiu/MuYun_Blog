@@ -336,7 +336,7 @@ aplayer:
     loop: all
     order: random
     preload: auto
-    volume: 0.2
+    volume: 0.7
     mutex: true
     lrcType: 0
     listFolded: true
