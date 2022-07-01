@@ -336,10 +336,10 @@ aplayer:
     loop: all
     order: random
     preload: auto
-    volume: 0.15
+    volume: 0.2
     mutex: true
     lrcType: 0
-    listFolded: false
+    listFolded: true
     listMaxHeight: 340px
     audio:
       # - name: 星宿计时
