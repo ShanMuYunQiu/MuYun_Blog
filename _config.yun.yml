@@ -199,7 +199,7 @@ lazyload:
 reward:
   enable: true
   icon: ri:hand-coin-line
-  comment: 创作不易，如果对你有帮助，点此打赏支持
+  comment: 手头阔绰?点这点这!money得斯!
   methods:
     - name: 支付宝
       path: https://s2.loli.net/2022/06/09/BVFh4X9luHDjnUE.png
@@ -273,37 +273,37 @@ local_search:
 
 types:
   link:
-    color: '#1975ff'
+    color: "#1975ff"
     icon: ri:external-link-line
   bilibili:
-    color: '#FF8EB3'
+    color: "#FF8EB3"
     icon: ri:bilibili-line
   douban:
-    color: '#007722'
+    color: "#007722"
     icon: ri:douban-line
   github:
     color: black
     icon: ri:github-line
   netease-cloud-music:
-    color: '#C10D0C'
+    color: "#C10D0C"
     icon: ri:netease-cloud-music-line
   notion:
     color: black
     icon: ri:notion
   twitter:
-    color: '#1da1f2'
+    color: "#1da1f2"
     icon: ri:twitter-line
   wechat:
-    color: '#1AAD19'
+    color: "#1AAD19"
     icon: ri:wechat-2-line
   weibo:
-    color: '#E6162D'
+    color: "#E6162D"
     icon: ri:weibo-line
   yuque:
-    color: '#25b864'
+    color: "#25b864"
     icon: ant-design:yuque-outlined
   zhihu:
-    color: '#0084FF'
+    color: "#0084FF"
     icon: ri:zhihu-line
 
 wordcount:
@@ -354,3 +354,17 @@ aplayer:
       id: 7514736165
       server: netease
       type: playlist
+
+widget_tree:
+  cdn: true
+  hide: false
+  layout: default
+  # layout:
+  #   - home
+  #   - page
+  showCount: true
+  toc:
+    enable: false
+    # max_depth:
+    # min_depth:
+    # list_number:
