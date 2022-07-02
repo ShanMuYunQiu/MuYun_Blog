@@ -1,5 +1,5 @@
 ---
-title: C语言基础教程
+title: hexo-encrypt密码插件测试
 author: 圣奇宝枣
 description: 使用了hexo-encrypt插件，对文章进行了加密，本文章密码为123456
 sticky:
