@@ -35,6 +35,8 @@ tags:
   Linux: "#ffc266"
   系统操作: "#ff3333"
   Github Calendar: "#cc33ff"
+  私密: "#808080"
+  测试: "#9999ff"
 
 categories:
   编程语言入门: "#ff944d"
@@ -43,6 +45,7 @@ categories:
   代码编辑器: "#9999ff"
   好句摘抄: "#66c2ff"
   英文摘抄: "#ff99dd"
+  其他: "#ff4d4d"
 
 social:
   - name: 微信(请扫描二维码添加)
