@@ -57,7 +57,7 @@ social:
     link: https://github.com/ShengQiBaoZao
     icon: ri:github-line
     color: "#181717"
-  - name: E-Mail:lty15376767691@gmail.com
+  - name: E-Mail：lty15376767691@gmail.com
     link: mailto:lty15376767691@gmail.com
     icon: ri:mail-line
     color: "#8E71C1"
@@ -88,7 +88,7 @@ colors:
   tag_start_color: "#99bbff"
   tag_end_color: "#1975ff"
 
-mode: auto
+mode: time
 
 bg_image:
   enable: true
@@ -216,6 +216,8 @@ reward:
 
 footer:
   since: 2022
+  powered:
+    enable: true
   icon:
     name: ri:cloud-line
     animated: true
@@ -225,6 +227,7 @@ footer:
     prefix: 本博客已萌萌哒地运行
     suffix: (●'◡'●)
     start_time: "2022-04-15T09:43:00"
+  custom_text: '<br><img width="315" height="100" src="https://api.moedog.org/count/@ShengQiBaoZao?theme=moebooru" style="margin-top:10px" alt>'
 
 post_edit:
   enable: true

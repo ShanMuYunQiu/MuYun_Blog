@@ -124,6 +124,7 @@ reward: true
 
 <p>
 
+> **07-02** | 页脚添加`Moe Count`  
 > **07-01** | 更改博客配色，更加统一协调。添加了`aplayer`播放器插件  
 > **06-21** | 实现 `Github Calendar` 插件，显示开发记录，并使用 CSS 适配手机端  
 > **06-19** | 使用 `LeanCloud Visitor` 代替 `Waline` 完成访客统计  
