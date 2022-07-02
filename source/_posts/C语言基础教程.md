@@ -4,7 +4,7 @@ author: 圣奇宝枣
 description: 有关于C语言的基础教程，包括基本语法与基础的底层逻辑知识，比较适合有一定经验的初学者上手
 sticky: 1
 date: 2022-05-09 08:21:06
-updated: 2022-07-01 10:34:41
+updated: 2022-07-02 10:22:29
 readmore: true
 tags:
   - 编程
@@ -1696,7 +1696,7 @@ int main(void)
 
 ---
 
-> **章节概要**：复习函数；函数概述；函数创建与使用；函数参数与返回值；ANSI C 函数原型；旧式声明问题及解决；递归；递归演示；递归的基本原理；尾递归；递归的优缺点；编译多源代码文件的程序
+> **章节概要**：复习函数；函数概述；函数创建与使用；函数参数与返回值；ANSI C 函数原型；旧式声明问题及解决；递归；递归演示；递归的基本原理；尾递归；递归的优缺点；编译多源代码文件的程序;使用(自建)头文件；查找地址：&运算符
 
 ##### **复习函数**
 
@@ -1970,6 +1970,206 @@ int main(void)
   - 递归既有优点也有缺点。**优点**是递归对于**某些编程问题**提供了**最简单的解决方案**。**缺点**是一些**递归算法**会**快速消耗**计算机的**内存资源**，此外**不便于阅读和维护**
 
 ##### **编译多源代码文件的程序**
+
+- 使用**多个函数**最简单的方法是把它们都放在**同一个文件**中，然后像编译**只有一个函数的文件**那样编译该文件即可。其他方法**因操作系统而异**，下面举例说明
+
+- **UNIX**
+
+  > 1、假定**UNIX 系统**中安装了**UNIX C 编译器 cc**，假设**file1.c**和**file2.c**是两个内涵 C 函数的文件  
+  > 2、使用`cc file1.c file2.c`可以将**两个文件**编译成**一个**名为**a.out**的可执行文件，并**生成**两个名为**file1.o**和**file2.o**的目标文件  
+  > 3、如果后来改动了**file1.c**而没有改动**file2.c**，可以使用`cc file1.c file2.o`来编译(如果**file2.o**文件还存在)
+
+- **Linux**
+
+  > 1、假定**Linux 系统**中安装了**GNU C 编译器 GCC**，假设**file1.c**和**file2.c**是两个内涵 C 函数的文件  
+  > 2、使用`gcc file1.c file2.c`可以将**两个文件**编译成**一个**名为**a.out**的可执行文件，并**生成**两个名为**file1.o**和**file2.o**的目标文件  
+  > 3、如果后来改动了**file1.c**而没有改动**file2.c**，可以使用`cc file1.c file2.o`来编译(如果**file2.o**文件还存在)
+
+- **DOS 命令行编译器**
+
+  > 1、绝大多数**DOS 命令行编译器**的工作原理和**UNIX 的 cc 命令类似**，只不过使用**不同名称**而已  
+  > 2、一个**区别**是，对象文件的**拓展名**是`.obj`而不是`.o`
+
+- **Windows 和 Mac 的 IDE 编译器**
+
+  > 1、**Windows**和**Mac**使用的**集成开发环境 IDE**的编译器是**面向项目**的，这种 IDE 的编译器要**创建项目**来**运行单文件程序**  
+  > 2、对于**多文件**程序，需要使用相应的**菜单命令**，把源代码加入一个项目中。要确保**所有源代码文件**都在**项目列表**中列出
+
+- **使用头文件**
+
+  > 1、如果把`main()`放在**第一个文件中**，**函数定义**放在**第二个文件中**，那么**第一个文件**仍然要使用**函数原型**  
+  > 2、而把**函数原型**放在**头文件**中，就**不用**每次使用函数文件都**写出函数的原型**  
+  > 3、此外，我们常常使用**C 预处理器**(`#define`)定义**符号常量**，也可以将其**写入头文件**，使用时只需要**包含**(`#include`)**该头文件**即可。这样更有利于**维护修改**，也利于对**常量的管理**  
+  > 4、因此，将**函数原型**和**字符常量**放在**头文件**，是一个十分良好的**编程习惯**  
+  > 5、`#include "xxx.h"`命令可以引入**自定义的头文件**，使用**双引号**`""`，且引号内如果是**同目录**可以**直接写文件名**，不同目录也可以使用**相对路径**和**绝对路径**
+
+  - **如下案例**，编写一个模拟酒店收费管理的程序，注意**标注的文件名**来区分文件，请使用**多源代码文件**编译方法**编译文件**(程序运行仍会从`usehotel.c`的`main()`**主函数**开始)
+
+    ```c
+    /* hotel.h */
+    #define QUIT 5
+    #define HOTEL1 180.00
+    #define HOTEL2 225.00
+    #define HOTEL3 225.00
+    #define HOTEL4 355.00
+    #define DISCOUNT 0.95
+    #define STARS "**************************************************"
+
+    // 显示选择列表
+    int menu(void);
+
+    // 返回预定天数
+    int getnights(void);
+
+    // 计算费用并显示结果
+    void showprice(double rate, int nights);
+    ```
+
+    ```c
+    /* hotel.c */
+    #include <stdio.h>
+    #include "hotel.h"
+    int menu(void)
+    {
+        int code, status;
+        printf("\n%s\n", STARS);
+        printf("enter the number to desired hotel:\n");
+        printf("1) XXX Hotel1            2) XXX Hotel2\n");
+        printf("3) XXX Hotel3            4) XXX Hotel4\n");
+        printf("5) Quit\n");
+        printf("%s\n", STARS);
+        while ((status = scanf("%d", &code)) != 1 || (code < 1 || code > 5))
+        {
+            if (status != 1)
+                scanf("%*s"); //处理非整数输入
+            printf("Enter an integer from 1 to 5:\n");
+        }
+        return code;
+    }
+
+    int getnights(void)
+    {
+        int nights;
+        printf("How many nights are you needed?\n");
+        while (scanf("%d", &nights) != 1)
+        {
+            scanf("%*s"); //处理非整数输入
+            printf("Enter an integer, such as 2\n");
+        }
+        return nights;
+    }
+
+    void showprice(double rate, int nights)
+    {
+        int n;
+        double total = 0.0;
+        double factor = 1.0;
+        for (n = 1; n <= nights; n++, factor *= DISCOUNT)
+            total += rate * factor;
+        printf("The total cost will be &%0.2f.\n", total);
+    }
+    ```
+
+    ```c
+    /* usehotel.c */
+    #include <stdio.h>
+    #include "hotel.h"
+    int main(void)
+    {
+        int nights;
+        double hotel_rate;
+        int code;
+        while ((code = menu()) != QUIT)
+        {
+            switch (code)
+            {
+                case 1:
+                    hotel_rate = HOTEL1;
+                    break;
+                case 2:
+                    hotel_rate = HOTEL2;
+                    break;
+                case 3:
+                    hotel_rate = HOTEL3;
+                    break;
+                case 4:
+                    hotel_rate = HOTEL4;
+                    break;
+                default:
+                    printf("Oops!\n");
+                    break;
+            }
+            nights = getnights();
+            showprice(hotel_rate,nights);
+        }
+        printf("Thank you and goodbye\n");
+        return 0;
+    }
+    ```
+
+  - 此外，**函数**也可以**直接定义**在头文件内，因此上述程序写为**单源代码文件**的方式可以**精简如下**：
+
+    ```c
+    /* hotel.h */
+    #include <stdio.h> // 注意引入头文件
+    #define QUIT 5
+    #define HOTEL1 180.00
+    #define HOTEL2 225.00
+    #define HOTEL3 225.00
+    #define HOTEL4 355.00
+    #define DISCOUNT 0.95
+    #define STARS "**************************************************"
+
+    // 显示选择列表
+    int menu(void)
+    {
+        int code, status;
+        printf("\n%s\n", STARS);
+        printf("enter the number to desired hotel:\n");
+        printf("1) XXX Hotel1            2) XXX Hotel2\n");
+        printf("3) XXX Hotel3            4) XXX Hotel4\n");
+        printf("5) Quit\n");
+        printf("%s\n", STARS);
+        while ((status = scanf("%d", &code)) != 1 || (code < 1 || code > 5))
+        {
+            if (status != 1)
+                scanf("%*s"); //处理非整数输入
+            printf("Enter an integer from 1 to 5:\n");
+        }
+        return code;
+    }
+
+    // 返回预定天数
+    int getnights(void)
+    {
+        int nights;
+        printf("How many nights are you needed?\n");
+        while (scanf("%d", &nights) != 1)
+        {
+            scanf("%*s"); //处理非整数输入
+            printf("Enter an integer, such as 2\n");
+        }
+        return nights;
+    }
+
+    // 计算费用并显示结果
+    void showprice(double rate, int nights)
+    {
+        int n;
+        double total = 0.0;
+        double factor = 1.0;
+        for (n = 1; n <= nights; n++, factor *= DISCOUNT)
+            total += rate * factor;
+        printf("The total cost will be &%0.2f.\n", total);
+    }
+    ```
+
+    ```c
+    /* usehotel.c */
+    同上例文件，写法不变
+    ```
+
+##### **查找地址：&运算符**
 
 - 码字中。。。
 
