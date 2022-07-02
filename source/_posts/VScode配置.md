@@ -28,9 +28,13 @@ categories:
 
 ---
 
+<div class="info">
+
 > 1、在左下角找到**账户**登录，我个人使用**github**登录，记得打开设置同步，以此同步设置(以前设置过并且同步正常的话下方就不用看了)  
 > 2、首次使用可能需要设置语言，找到**拓展**(Ctrl+Shift+X)，搜索**Chinese**，下载语言包  
 > 3、安装**Code Runner**插件
+
+</div>
 
 ---
 
@@ -42,6 +46,8 @@ categories:
 
 - **“齿轮”-设置**：
 
+<div class="success">
+
 > **Mouse Wheel Zoom**：按住 Ctrl 滑动滚轮调整字体大小  
 > **Run In Terminal**：在终端运行  
 > **Trim Final Newlines**：保存时删除末尾多余新行  
@@ -49,11 +55,15 @@ categories:
 > **Workbench Tree Indent**：文件树缩进，建议设置 18  
 > **Workbench Tree render Indent** **Guides**：文件树缩进线，建议设置 always
 
+</div>
+
 ---
 
 #### **拓展推荐**
 
 ---
+
+<div class="warning">
 
 > **Live Server**：实时显示刷新页面，网页使用  
 > ----设置：**Auto Save**改为**afterDelay**，**Auto Delay Save**为自动保存时间(1000=1 秒)  
@@ -72,6 +82,8 @@ categories:
 > **Better Comments**：更好的注释，注释信息变色  
 > ----使用：星号\*高亮亮绿色，叹号!警告红色，问号?记录问题蓝色，关键词 TODO 规划区域橙色  
 > **Color Highlight**：显示色码颜色，在设置中设置**Marker Type**设置现实样式，推荐**dot-before**
+
+</div>
 
 ---
 

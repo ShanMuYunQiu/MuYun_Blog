@@ -53,10 +53,14 @@ Token(示例)：ghp_WGxZemKeB2aRql2RMgXxOY9CwIQVFW3Q9f3q
 
 ---
 
+<div class="danger">
+
 > 1、仓库名不要使用空格  
 > 2、尽量不要使用特殊符号  
 > 3、建议 PicGo 设置打开上传前重命名，时间戳重命名，防止重名  
 > 4、玄学问题：PicGo 设置重启 serve，重启应用，重启电脑
+
+</div>
 
 ---
 
