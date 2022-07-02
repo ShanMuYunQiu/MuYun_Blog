@@ -2167,6 +2167,7 @@ int main(void)
     ```c
     /* usehotel.c */
     同上例文件，写法不变
+    此外由于hotel.h中引入了stdio.h，而本文件又调用了hotel.h，所以可以不再调用stdio.h，即删除本文件的#include <stdio.h>
     ```
 
 ##### **查找地址：&运算符**
