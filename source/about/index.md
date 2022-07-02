@@ -42,7 +42,7 @@ reward: true
 > 4、自认为小站教程质量并不高，而且由于是学生技术**可能有疏漏**，如有错误**希望指出**，我会尽快修正  
 > 5、由于目前并不想在这里投入资金，所以网页速度可能较慢，敬请谅解，当规模扩大后我会投入资金优化的(但恐怕不会有那一天)  
 > 6、站点**接受投稿**，如有文章投稿，请**通过 QQ 或微信**联系我，感谢您的信任与支持！  
-> 7、如果对您有帮助，请点击[本项目仓库](https://github.com/ShengQiBaoZao/shengqibaozao_blog)，在 github **帮我点个 star**，**这对我真的很重要**，谢谢！
+> 7、如果对您有帮助，请点击[本项目仓库](https://github.com/ShengQiBaoZao/shengqibaozao_blog)，在 github **帮我点个 star** 支持一下，谢谢！
 
 ---
 
@@ -124,7 +124,7 @@ reward: true
 
 <p>
 
-> **07-02** | 页脚添加`Moe Count`  
+> **07-02** | 页脚添加`Moe Count`，并重写页脚，完成图标  
 > **07-01** | 更改博客配色，更加统一协调。添加了`aplayer`播放器插件  
 > **06-21** | 实现 `Github Calendar` 插件，显示开发记录，并使用 CSS 适配手机端  
 > **06-19** | 使用 `LeanCloud Visitor` 代替 `Waline` 完成访客统计  
