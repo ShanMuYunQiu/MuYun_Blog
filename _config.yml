@@ -182,3 +182,11 @@ aplayer:
   style_cdn: https:///npm.elemecdn.com/aplayer@latest/dist/APlayer.min.css
   meting: true
   meting_cdn: https:///npm.elemecdn.com/meting@1/dist/Meting.min.js
+
+sitemap:
+  path: sitemap.xml
+  tag: true # true：生成，false：排除
+  category: true # true：生成，false：排除
+
+baidusitemap:
+  path: baidusitemap.xml

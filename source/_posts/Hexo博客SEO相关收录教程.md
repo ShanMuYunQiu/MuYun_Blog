@@ -136,22 +136,24 @@ categories:
   ```yaml
   # 官方插件
   sitemap:
-  path:
-  - sitemap.xml
-  - sitemap.txt
-  template:
-  template_txt:
-  rel: false
-  tags: false
-  categories: false
+    path:
+      - sitemap.xml
+      - sitemap.txt
+    template:
+    template_txt:
+    rel: false
+    tags: false
+    categories: false
+
   # 友好地图
   sitemap:
-  path: sitemap.xml
-  tag: false # true：生成，false：排除
-  category: false # true：生成，false：排除
+    path: sitemap.xml
+    tag: false # true：生成，false：排除
+    category: false # true：生成，false：排除
+
   # 百度地图
   baidusitemap:
-  path: baidusitemap.xml
+    path: baidusitemap.xml
   ```
 
 - **提交 Sitemap**
@@ -181,15 +183,15 @@ categories:
 
   - **百度**
 
-    - 站长工具 -> 选择域名，点击进入 -> 点击侧边栏普通收录 -> API 提交，下方**推送接口token**为 Baidu Key
-  
+    - 站长工具 -> 选择域名，点击进入 -> 点击侧边栏普通收录 -> API 提交，下方**推送接口 token**为 Baidu Key
+
   - **必应**
 
     - 站长工具 -> 右上角齿轮图标 -> 选择接口访问（**API access**） -> 查看接口密钥 Bing Key
 
   - **谷歌**
 
-    - 较为复杂，请自行查询，且需要配置git bash代理，否则会推送失败
+    - 较为复杂，请自行查询，且需要配置 git bash 代理，否则会推送失败
 
 - `_config.yml`**配置**
 
