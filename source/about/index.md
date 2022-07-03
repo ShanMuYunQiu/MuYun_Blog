@@ -154,8 +154,8 @@ reward: true
 
 <div class="info">
 
-> **07-03** | 添加`hexo-blog-encrypt`插件，实现私密密码文章  
-> **07-03** | 添加`hexo-widget-tree`插件，实现树状文章菜单  
+> **07-02** | 添加`hexo-blog-encrypt`插件，实现私密密码文章  
+> **07-02** | 添加`hexo-widget-tree`插件，实现树状文章菜单  
 > **07-02** | 配置`Yun`引用标签颜色(success;warning;danger;info;gray;yellow)  
 > **07-02** | 页脚添加`Moe Count`，并重写页脚，完成图标  
 > **07-01** | 更改博客配色，更加统一协调。添加了`aplayer`播放器插件  
