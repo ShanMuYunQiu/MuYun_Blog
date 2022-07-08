@@ -54,6 +54,7 @@ categories:
 > **Trim Trailing Whitespace**：保存时删除行末尾多余空格  
 > **Workbench Tree Indent**：文件树缩进，建议设置 18  
 > **Workbench Tree render Indent** **Guides**：文件树缩进线，建议设置 always
+> **git.mergeEditor**：git merge 合并编辑器，可以更方便地处理冲突，建议设置 true
 
 </div>
 
