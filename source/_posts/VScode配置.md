@@ -108,7 +108,7 @@ categories:
 - **VScode**中安装**C/C++ Extension Pack**插件包
 - 重启，打开存代码的文件夹，新建文件为`.cpp`文件即可
 - 代码运行点击右上角**Run** **Code**(Ctrl+Alt+N)即可运行
-- 想要调试运行，点击**运行与调试**(Ctrl+Shift+D)，选择**GDB/LLDB**，**g++.exe**，按**F5**运行调试，也可以在**行号**前打**断点**进行调试，上方**按步运行**按键来控制运行
+- 想要调试运行，点击**运行与调试**(Ctrl+Shift+D)，选择**GDB/LLDB**，**g++.exe**，按**F5**运行调试，也可以在**行号**前打**断点**进行调试，上方**按步运行**按键来控制运行(调试全路径不能有中文)
 - **Encoding**：将**UTF-8**改为**GB18030**以正常显示中文
 
 [参考 bilibili 视频教程](https://www.bilibili.com/video/BV1UL411b7B4?spm_id_from=333.337.search-card.all.click)
@@ -136,7 +136,7 @@ categories:
 
 ---
 
-- **Java JDK**下载，VScode 插件支持目前只支持到 Java11 及以上，推荐使用 Java11
+- **Java JDK**下载，VScode 插件支持目前只支持到 Java17 及以上，推荐使用 Java17
 
 [Oracle 官方网站](https://www.oracle.com/cn/java/)
 
