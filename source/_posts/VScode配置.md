@@ -4,7 +4,7 @@ author: 圣奇宝枣
 description: 个人以及大众最爱的编辑器，新手时期被繁杂的配置劝退过，而本教程将带你渡过难关
 sticky: 0
 date: 2022-04-27 12:56:14
-updated: 2022-06-20 18:46:01
+updated: 2022-07-11 20:04:12
 readmore: true
 tags:
   - 前置准备
@@ -77,7 +77,8 @@ categories:
 > **Markdown Preview Enhanced**：分屏 markdown 预览  
 > **C++ Intellisense**：c++代码自动补全，查找代码引用，跳转到定义，列举 symbols  
 > **One Dark Pro**：黑灰色主题，好看  
-> **Github Copilot**：懂得都懂，AI 自动写代码，需要 github 账号登录，并且需要提前申请，通过后才可以使用  
+> **Github Copilot**：AI 自动补全写代码，需要 github 账号登录，并且需要提前申请，通过后才可以使用(已收费，[官网](https://copilot.github.com/))  
+> **Tabnine AI Autocomplete**：上面github copilot的下位替代，有免费版本([官网](https://www.tabnine.com/))  
 > **Power Mode**：打字炫酷特效，需要在设置里自行设定  
 > **Auto Rename Tag**：自动重命名相对应的闭合 HTML 标签  
 > **Better Comments**：更好的注释，注释信息变色  
