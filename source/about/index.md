@@ -48,7 +48,7 @@ reward: true
 > 4、自认为小站教程质量并不高，而且由于是学生技术**可能有疏漏**，如有错误**希望指出**，我会尽快修正  
 > 5、由于目前并不想在这里投入资金，所以网页速度可能较慢，敬请谅解，当规模扩大后我会投入资金优化的(但恐怕不会有那一天)  
 > 6、站点**接受投稿**，如有文章投稿，请**通过 QQ 或微信**联系我，感谢您的信任与支持！  
-> 7、如果对您有帮助，请点击[本项目仓库](https://github.com/ShengQiBaoZao/shengqibaozao_blog)，在 github **帮我点个 star** 支持一下，谢谢！
+> 7、如果对您有帮助且您**资金较为阔绰**，可以给我**打赏**投喂([点此跳转](../donate))，我将会根据**您的信息**将您列入**致谢名单**，谢谢~
 
 </div>
 
@@ -115,28 +115,6 @@ reward: true
 > **github**：[https://github.com/ShengQiBaoZao](https://github.com/ShengQiBaoZao)(现在可能没啥好看的，但指不定将来就有了呢(~~_诶嘿_~~))  
 > **网易云音乐**：[https://music.163.com/#/user/home?id=509242587](https://music.163.com/#/user/home?id=509242587)(虽然你会看到我曾经编曲的黑历史，但强烈不建议去听!!)  
 > **bilibili**：[https://space.bilibili.com/347061710](https://space.bilibili.com/347061710)(B 站账号，可能会发一些视频，但大多数并不会有什么动静。但我在线频率很高哦，不想 QQ 认识的话，B 站私信聊聊也可以!!)
-
-</div>
-
-</p>
-
-</details>
-
-<details><summary>打赏及鸣谢</summary>
-
-<p>
-
-<div class="success">
-
-> ![](https://s2.loli.net/2022/06/17/jMdEcRY1JLIeHOT.png)
-
-</div>
-
-<div class="success">
-
-> ##### **鸣谢名单**
->
-> 还没有人打赏~
 
 </div>
 

@@ -2,7 +2,7 @@ favicon: https://s2.loli.net/2022/05/22/4s8QIyo6OEiavVD.png
 
 notice:
   enable: true
-  content: 站点正常运行(ﾉﾟ∀ﾟ)ﾉ ~近期学习与更新：C语言基础教程。最近更新时间：2022-07-11
+  content: 站点正常运行(ﾉﾟ∀ﾟ)ﾉ ~近期学习与更新：C语言基础教程。最近更新时间：2022-07-12
 
 tags:
   Git: "#ff4d4d"
@@ -164,14 +164,14 @@ pages:
     url: /links/
     icon: ri:genderless-line
     color: dodgerblue
-  - name: 本项目仓库
-    url: https://github.com/ShengQiBaoZao/shengqibaozao_blog
-    icon: ri:github-line
-    color: orange
   - name: 可爱的女孩子
     url: /girls/
     icon: ri:women-line
     color: hotpink
+  - name: 给点给点~
+    url: /donate/
+    icon: ri:hand-coin-line
+    color: "#ff944d"
 
 post_meta:
   item_text: true
