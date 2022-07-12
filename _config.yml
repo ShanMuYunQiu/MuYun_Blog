@@ -39,7 +39,7 @@ i18n_dir: :lang
 skip_render:
   - README.md
   - google82a910db0c35b229.html
-  - baidu_verify_code-OZ2xGetd5w.html
+  - baidu_verify_code-sN7cVoeX06.html
 
 # Writing
 new_post_name: :title.md # File name of new posts
