@@ -53,7 +53,8 @@ categories:
 > **Trim Final Newlines**：保存时删除末尾多余新行  
 > **Trim Trailing Whitespace**：保存时删除行末尾多余空格  
 > **Workbench Tree Indent**：文件树缩进，建议设置 18  
-> **Workbench Tree render Indent** **Guides**：文件树缩进线，建议设置 always
+> **Workbench Tree render Indent - Guides**：文件树缩进线，建议设置 always  
+> **Auto Save**：改为**afterDelay**，随后**Auto Delay Save**为自动保存时间(1000=1 秒)  
 > **git.mergeEditor**：git merge 合并编辑器，可以更方便地处理冲突，建议设置 true
 
 </div>
@@ -66,9 +67,9 @@ categories:
 
 <div class="warning">
 
+> **xxx Extension Pack**：**xxx**改为需要的语言，此拓展为微软配置的开发环境支持拓展  
 > **Live Server**：实时显示刷新页面，网页使用  
-> ----设置：**Auto Save**改为**afterDelay**，**Auto Delay Save**为自动保存时间(1000=1 秒)  
-> ----运行时鼠标右键，选择**Open with Live Server**即可  
+> ----运行时右下角**Go Live**，或鼠标右键，选择**Open with Live Server**即可  
 > **indent-rainbow**：彩色缩进，缩进错误会报大红  
 > **Bracket Pair Colorizer**：彩色括号，方便读代码  
 > **code-translate**(w88975)：即时变量名翻译  
@@ -84,7 +85,7 @@ categories:
 > **Auto Rename Tag**：自动重命名相对应的闭合 HTML 标签  
 > **Better Comments**：更好的注释，注释信息变色  
 > ----使用：星号\*高亮亮绿色，叹号!警告红色，问号?记录问题蓝色，关键词 TODO 规划区域橙色  
-> **Color Highlight**：显示色码颜色，在设置中设置**Marker Type**设置现实样式，推荐**dot-before**
+> **Color Highlight**：显示色码(#000000)颜色，在设置中设置**Marker Type**设置显示样式，推荐**dot-before**
 
 </div>
 
