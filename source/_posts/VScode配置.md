@@ -74,11 +74,12 @@ categories:
 > **code-translate**(w88975)：即时变量名翻译  
 > **Prettier**：格式化代码，自动排版  
 > ----设置：**Format On Save**，保存时自动排版  
+> ----代码格式化大括号不独立换行：**C_Cpp:Clang_format_style**设置为`{BasedOnStyle: Chromium, IndentWidth: 4}`  
 > **Markdown Preview Enhanced**：分屏 markdown 预览  
 > **C++ Intellisense**：c++代码自动补全，查找代码引用，跳转到定义，列举 symbols  
 > **One Dark Pro**：黑灰色主题，好看  
 > **Github Copilot**：AI 自动补全写代码，需要 github 账号登录，并且需要提前申请，通过后才可以使用(已收费，[官网](https://copilot.github.com/))  
-> **Tabnine AI Autocomplete**：上面github copilot的下位替代，有免费版本([官网](https://www.tabnine.com/))  
+> **Tabnine AI Autocomplete**：上面 github copilot 的下位替代，有免费版本([官网](https://www.tabnine.com/))  
 > **Power Mode**：打字炫酷特效，需要在设置里自行设定  
 > **Auto Rename Tag**：自动重命名相对应的闭合 HTML 标签  
 > **Better Comments**：更好的注释，注释信息变色  
