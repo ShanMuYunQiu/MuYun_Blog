@@ -13,7 +13,7 @@ keywords:
   - 圣奇宝枣的小站
   - 编程知识
   - 教程
-  - https://shengqibaozao.vercel.app
+  - shengqibaozao.eu.org
   - shengqibaozao
 author: 圣奇宝枣
 language: zh-CN
@@ -21,7 +21,7 @@ timezone: "Asia/Shanghai"
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://shengqibaozao.vercel.app
+url: shengqibaozao.eu.org
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -150,8 +150,8 @@ encrypt: # hexo-blog-encrypt
   abstract: ヾ(✿ﾟ▽ﾟ)ノ这篇文章被加密了！输入密码才能查看哦！
   message: ヾ(๑╹◡╹)ﾉ"文章被加密，点击这里输入密码查看~~~
   tags:
-  - {name: 私密, password: qwertyuipo1130}
-  - {name: tagName, password: 密码B}
+    - { name: 私密, password: qwertyuipo1130 }
+    - { name: tagName, password: 密码B }
   theme: wave
   wrong_pass_message: 密码错误哦！如果不知道密码就不要试了！别想偷看！￣へ￣
   wrong_hash_message: sorry，出现了未知的错误，但您还是可以查看文章内容[・_・?]

@@ -192,7 +192,7 @@ print(a)
 > \[圣奇宝枣的 Github 个人页\]\[1\]  
 > \[圣奇宝枣的个人博客\]\[2\]  
 > \[1\]:https://github.com/ShengQiBaoZao  
-> \[2\]:https://shengqibaozao.vercel.app
+> \[2\]:shengqibaozao.eu.org
 
 效果：
 
@@ -200,7 +200,7 @@ print(a)
 > [圣奇宝枣的个人博客][2]
 
 [1]: https://github.com/ShengQiBaoZao
-[2]: https://shengqibaozao.vercel.app
+[2]: shengqibaozao.eu.org
 
 ---
 

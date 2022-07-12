@@ -120,25 +120,25 @@ links:
     blog: Slcpの童话镇
     desc: 你若盛开,阳光自来。
     color: "#03c0ff"
-  
+
   - url: https://blog.godgy.xyz
     avatar: https://dreamwld.top/images/avatar1.png
     blog: 梦境学习站
     desc: 一个乐于免费分享的网站
     color: "#00d8a2"
-  
+
   - url: https://blog.fullcomb.top
     avatar: https://cloud.fullcomb.top/private/source/image/build/roselia/avatar.webp
     blog: Sato
     desc: 祝愿我们都能够保持初心，做兴趣使然的英雄
     color: "#ff5050"
-  
+
   - url: https://undf.top
     avatar: https://c.undf.top/icon/android-chrome-144x144.png
     blog: 沐印小站
     desc: 时间不在于你拥有多少，而在于你如何使用!
     color: "#4ddbff"
-  
+
   - url:
     avatar: https://s2.loli.net/2022/05/22/qyFjteWoNwLGJ54.jpg
     blog: 等待申请中。。。
@@ -162,7 +162,7 @@ tip: 友链加载中～如失败请刷新重试～
 
 ##### **本站站点友链信息**
 
-> 地址：https://shengqibaozao.vercel.app  
+> 地址：shengqibaozao.eu.org  
 > 图片：https://s2.loli.net/2022/05/22/4s8QIyo6OEiavVD.png  
 > 名称：圣奇宝枣的博客小站  
 > 描述：有朋自远方来，不亦乐乎。愿与你相识，得闲饮茶

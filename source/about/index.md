@@ -132,6 +132,7 @@ reward: true
 
 <div class="info">
 
+> **07-12** | 成功申请欧盟`eu.org`域名，地址变更为`shengqibaozao.eu.org`  
 > **07-12** | 简单更改了一下博客页面  
 > **07-03** | 更改了自动生成`sitemap`的插件，使用友好地图替换官方插件  
 > **07-02** | 添加`hexo-blog-encrypt`插件，实现私密密码文章  
@@ -154,7 +155,7 @@ reward: true
 > **06-01** | 添加了 Live2D(PC 端)  
 > **05-28** | 添加了大量友链，并完善"可爱的女孩子"页面  
 > **05-25** | 在`Vercel`搭建`Waline`评论后端，并将`Waline`作为博客评论系统代替`Liveri`(广告问题)  
-> **05-24** | 将博客部署托管在`Vercel`平台，地址变更为`https://shengqibaozao.vercel.app`  
+> **05-24** | 将博客部署托管在`Vercel`平台，地址变更为`shengqibaozao.eu.org`  
 > **05-24** | 由于`jsdelivr`被注入攻击，CDN 由`cdn.jsdelivr`更换为`fastly.jsdelivr`  
 > **05-24** | 正式将所有`docsify`的文档转为`hexo`格式，并更改使用了部分`Yun`主题特有的文档格式  
 > **05-23** | 更换了图床，由`github`+`jsdelivr`更换为`SM.MS`图床  
