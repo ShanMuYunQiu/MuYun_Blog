@@ -139,7 +139,7 @@ categories:
 
 ---
 
-- **Java JDK**下载，VScode 插件支持目前只支持到 Java17 及以上，推荐使用 Java17
+- **Java JDK**下载，VScode 插件支持目前只支持到 Java17 及以上，如需使用老版本 JDK 请自行将插件降版本
 
 [Oracle 官方网站](https://www.oracle.com/cn/java/)
 
