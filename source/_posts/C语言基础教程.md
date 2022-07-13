@@ -99,7 +99,7 @@ int main(void)                //一个简单的C程序
     num = 1;                  //为num赋一个值
     printf("I am a simple "); //使用printf函数
     printf("computer.\n");
-    printf("my favourite number is %d because it is fitst.\n", num);
+    printf("my favourite number is %d because it is first.\n", num);
     return 0;
 }
 ```
