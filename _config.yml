@@ -21,7 +21,7 @@ timezone: "Asia/Shanghai"
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://shengqibaozao.eu.org
+url: https://www.shengqibaozao.eu.org
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -187,6 +187,3 @@ sitemap:
   path: sitemap.xml
   tag: true # true：生成，false：排除
   category: true # true：生成，false：排除
-
-baidusitemap:
-  path: baidusitemap.xml
