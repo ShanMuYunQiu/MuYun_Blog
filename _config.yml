@@ -112,11 +112,12 @@ theme: yun
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
-deploy:
-  type: git
-  repo: https://github.com/ShengQiBaoZao/shengqibaozao_blog
-  branch: master
-  message: 更新Hexo博客内容
+
+# deploy:
+# type: git
+# repo: https://github.com/ShengQiBaoZao/shengqibaozao_blog
+# branch: master
+# message: 更新Hexo博客内容
 
 live2d:
   enable: true
@@ -192,3 +193,27 @@ sitemap:
   rel: true
   tags: true
   categories: true
+
+hexo_submit_urls_to_search_engine:
+  submit_condition: count # 链接被提交的条件，可选值：count / period，现仅支持 count。
+  count: 100 # 提交最新的 100 个链接。
+  period: 100000 # 提交修改时间在 100000 秒内的链接。
+  google: 0 # 是否向 Google 提交，可选值：1 / 0（0：否；1：是）
+  bing: 1 # 是否向 Bing 提交，可选值：1 / 0（0：否；1：是）
+  baidu: 1 # 是否向 Baidu 提交，可选值：1 / 0（0：否；1：是）
+  txt_path: submit_urls.txt
+  baidu_host: https://www.shengqibaozao.eu.org
+  baidu_token: A6dZMEMdwydPianF
+  bing_host: https://www.shengqibaozao.eu.org
+  bing_token: c7114aa03dab43a696e023e65ba5b402
+  google_host: https://jinghu-moon.top ## 在谷歌站长平台注册的域名。
+  google_key_file: central-droplet-337107-098e588b1d98.json #存放google key 的 json 文件，与hexo _config.yml文件放于同一路径。不要把json 文件直接发布在公众仓库里!
+  google_proxy: http://127.0.0.1:7890 # 向谷歌提交网址所使用的系统http 代理，填 0 不使用。以 Clash for Windows 为例。必须使用代理，否则，本地谷歌推送会失败
+  replace: 0 # 是否替换链接中的部分字符串，可选值：1 | 0（0：否；1：是）
+  find_what:
+  replace_with:
+
+deploy:
+  - type: cjh_google_url_submitter
+  - type: cjh_bing_url_submitter
+  - type: cjh_baidu_url_submitter
