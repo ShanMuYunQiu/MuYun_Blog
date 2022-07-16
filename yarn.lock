@@ -386,11 +386,6 @@
   "resolved" "https://registry.npmmirror.com/bluebird/-/bluebird-3.7.2.tgz"
   "version" "3.7.2"
 
-"bluebird@3.5.4":
-  "integrity" "sha512-FG+nFEZChJrbQ9tIccIfZJBz3J7mLrAhxakAbnrJWn8d7aKOC+LWifa0G+p4ZqKp4y13T7juYvdhq9NzKdsrjw=="
-  "resolved" "https://registry.npmmirror.com/bluebird/-/bluebird-3.5.4.tgz"
-  "version" "3.5.4"
-
 "boxen@^3.0.0":
   "integrity" "sha512-cU4J/+NodM3IHdSL2yN8bqYqnmlBTidDR4RC7nJs61ZmtGz8VZzM3HLQX0zY5mrSmPtR3xWwsq2jOUQqFZN8+A=="
   "resolved" "https://registry.npmmirror.com/boxen/-/boxen-3.2.0.tgz"
@@ -1187,11 +1182,6 @@
   dependencies:
     "jake" "^10.8.5"
 
-"ejs@2.6.1":
-  "integrity" "sha512-0xy4A/twfrRCnkhfk8ErDi5DqdAsAqeGxht4xkCUrsvhhbQNs7E+4jV0CN7+NKIY0aHE72+XvqtBIXzD31ZbXQ=="
-  "resolved" "https://registry.npmmirror.com/ejs/-/ejs-2.6.1.tgz"
-  "version" "2.6.1"
-
 "emoji-regex@^7.0.1":
   "integrity" "sha512-CwBLREIQ7LvYFB0WyRvwhq5N5qPhc6PMjD6bYggFlI5YyDgl+0vxq5VHbMOFqLg7hfWzmu8T5Z1QofhmTIhItA=="
   "resolved" "https://registry.npmmirror.com/emoji-regex/-/emoji-regex-7.0.3.tgz"
@@ -1864,17 +1854,14 @@
   dependencies:
     "nunjucks" "^3.2.2"
 
-"hexo-generator-seo-friendly-sitemap@^0.2.1":
-  "integrity" "sha512-DtEulX/7U2X4bRLztb6cDtHEvtwhEPSaL6shaxNtk2oPljJlnep9vFGGlF3KvTD1XADxSOtvVHd3RKWZEXl9WA=="
-  "resolved" "https://registry.npmmirror.com/hexo-generator-seo-friendly-sitemap/-/hexo-generator-seo-friendly-sitemap-0.2.1.tgz"
-  "version" "0.2.1"
+"hexo-generator-sitemap@^3.0.1":
+  "integrity" "sha512-n+0KLNmq6TLbiZPTQF6NY5MbEem/O+DFx0lgQZNQcU4tdjXIZRrQJs+KRKeT66NTkdlYTqb4WwCxswLqQz0crA=="
+  "resolved" "https://registry.npmmirror.com/hexo-generator-sitemap/-/hexo-generator-sitemap-3.0.1.tgz"
+  "version" "3.0.1"
   dependencies:
-    "bluebird" "3.5.4"
-    "ejs" "2.6.1"
-    "lodash" "4.17.12"
-    "moment" "2.24.0"
-    "pretty-data" "0.40.0"
-    "url-join" "4.0.0"
+    "hexo-util" "^2.1.0"
+    "micromatch" "^4.0.2"
+    "nunjucks" "^3.1.6"
 
 "hexo-generator-tag@^1.0.0":
   "integrity" "sha512-JDoB2T1EncRlyGSjuAhkGxRfKkN8tq0i8tFlk9I4q2L6iYxPaUnFenhji0oxufTADC16/IchuPjmMk//dt8Msg=="
@@ -2757,11 +2744,6 @@
   "resolved" "https://registry.npmmirror.com/lodash/-/lodash-4.17.21.tgz"
   "version" "4.17.21"
 
-"lodash@4.17.12":
-  "integrity" "sha512-+CiwtLnsJhX03p20mwXuvhoebatoh5B3tt+VvYlrPgZC1g36y+RRbkufX95Xa+X4I59aWEacDFYwnJZiyBh9gA=="
-  "resolved" "https://registry.npmmirror.com/lodash/-/lodash-4.17.12.tgz"
-  "version" "4.17.12"
-
 "longest@^1.0.1":
   "integrity" "sha512-k+yt5n3l48JU4k8ftnKG6V7u32wyH2NfKzeMto9F/QRE0amxy/LayxwlvjjkZEIzqR+19IrtFO8p5kB9QaYUFg=="
   "resolved" "https://registry.npmmirror.com/longest/-/longest-1.0.1.tgz"
@@ -2893,7 +2875,7 @@
     "snapdragon" "^0.8.1"
     "to-regex" "^3.0.2"
 
-"micromatch@^4.0.4":
+"micromatch@^4.0.2", "micromatch@^4.0.4":
   "integrity" "sha512-DMy+ERcEW2q8Z2Po+WNXuw3c5YaUSFjAO5GsJqfEl7UjvtIuFKO6ZrKvcItdy98dwFI2N1tg3zNIdKaQT+aNdA=="
   "resolved" "https://registry.npmmirror.com/micromatch/-/micromatch-4.0.5.tgz"
   "version" "4.0.5"
@@ -3046,11 +3028,6 @@
   "integrity" "sha512-c6YRvhEo//6T2Jz/vVtYzqBzwvPT95JBQ+smCytzf7c50oMZRsR/a4w88aD34I+/QVSfnoAnSBFPJHItlOMJVw=="
   "resolved" "https://registry.npmmirror.com/moment/-/moment-2.29.3.tgz"
   "version" "2.29.3"
-
-"moment@2.24.0":
-  "integrity" "sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg=="
-  "resolved" "https://registry.npmmirror.com/moment/-/moment-2.24.0.tgz"
-  "version" "2.24.0"
 
 "morgan@^1.9.1":
   "integrity" "sha512-AbegBVI4sh6El+1gNwvD5YIck7nSA36weD7xvIxG4in80j/UoK8AEGaWnnz8v1GxonMCltmlNs5ZKbGvl9b1XQ=="
@@ -3299,7 +3276,7 @@
   dependencies:
     "path-key" "^2.0.0"
 
-"nunjucks@^3.2.1", "nunjucks@^3.2.2", "nunjucks@^3.2.3":
+"nunjucks@^3.1.6", "nunjucks@^3.2.1", "nunjucks@^3.2.2", "nunjucks@^3.2.3":
   "integrity" "sha512-psb6xjLj47+fE76JdZwskvwG4MYsQKXUtMsPh6U0YMvmyjRtKRFcxnlXGWglNybtNTNVmGdp94K62/+NjF5FDQ=="
   "resolved" "https://registry.npmmirror.com/nunjucks/-/nunjucks-3.2.3.tgz"
   "version" "3.2.3"
@@ -3669,11 +3646,6 @@
   "integrity" "sha512-s/46sYeylUfHNjI+sA/78FAHlmIuKqI9wNnzEOGehAlUUYeObv5C2mOinXBjyUyWmJ2SfcS2/ydApH4hTF4WXQ=="
   "resolved" "https://registry.npmmirror.com/preserve/-/preserve-0.2.0.tgz"
   "version" "0.2.0"
-
-"pretty-data@0.40.0":
-  "integrity" "sha512-YFLnEdDEDnkt/GEhet5CYZHCvALw6+Elyb/tp8kQG03ZSIuzeaDWpZYndCXwgqu4NAjh1PI534dhDS1mHarRnQ=="
-  "resolved" "https://registry.npmmirror.com/pretty-data/-/pretty-data-0.40.0.tgz"
-  "version" "0.40.0"
 
 "pretty-hrtime@^1.0.3":
   "integrity" "sha512-66hKPCr+72mlfiSjlEB1+45IjXSqvVAIy6mocupoww4tBFE9R9IhwwUGoI4G++Tc9Aq+2rxOt0RFU6gPcrte0A=="
@@ -4816,11 +4788,6 @@
   "integrity" "sha512-Am1ousAhSLBeB9cG/7k7r2R0zj50uDRlZHPGbazid5s9rlF1F/QKYObEKSIunSjIOkJZqwRRLpvewjEkM7pSqg=="
   "resolved" "https://registry.npmmirror.com/urix/-/urix-0.1.0.tgz"
   "version" "0.1.0"
-
-"url-join@4.0.0":
-  "integrity" "sha512-EGXjXJZhIHiQMK2pQukuFcL303nskqIRzWvPvV5O8miOfwoUb9G+a/Cld60kUyeaybEI94wvVClT10DtfeAExA=="
-  "resolved" "https://registry.npmmirror.com/url-join/-/url-join-4.0.0.tgz"
-  "version" "4.0.0"
 
 "url-parse-lax@^3.0.0":
   "integrity" "sha512-NjFKA0DidqPa5ciFcSrXnAltTtzz84ogy+NebPvfEgAck0+TNg4UJ4IN+fB7zRZfbgUf0syOo9MDxFkDSMuFaQ=="
