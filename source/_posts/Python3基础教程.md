@@ -286,26 +286,26 @@ categories:
 
 - 列表的创建需要使用中括号，元素之间用英文的逗号分隔：
 
-```python
-列表名 = [元素1, 元素2, ...]
-```
+  ```python
+  列表名 = [元素1, 元素2, ...]
+  ```
 
 - 还可以使用内置函数`list()`创建列表，语法如下：
 
-```python
-列表名 = list([元素1, 元素2, ...])
-```
+  ```python
+  列表名 = list([元素1, 元素2, ...])
+  ```
 
 - 列表的创建可以使用**列表生成式**，语法如下：
 
-```python
-[表示列表元素的表达式 for 自定义变量 in 可迭代对象]
-```
+  ```python
+  [表示列表元素的表达式 for 自定义变量 in 可迭代对象]
+  ```
 
-```python
-list1=[i for i in range(1,10)]      # [1,2,3,4,5,6,7,8,9]
-list1=[i*i for i in range(1,10)]    # [1,4,9,16,25,36,49,64,81]
-```
+  ```python
+  list1=[i for i in range(1,10)]      # [1,2,3,4,5,6,7,8,9]
+  list1=[i*i for i in range(1,10)]    # [1,4,9,16,25,36,49,64,81]
+  ```
 
 ##### **列表的特点**
 
@@ -319,9 +319,9 @@ list1=[i*i for i in range(1,10)]    # [1,4,9,16,25,36,49,64,81]
 
 - 基本使用操作
   - 列表的**索引**切片，获取列表中元素的值，语法如下：
-  ```python
-  lst[起点:终点:步长]
-  ```
+    ```python
+    lst[起点:终点:步长]
+    ```
   - 当步长为**正数**，**正向**调取；当步长为**负数**，**逆向**调取
   - 列表的**正向索引**为 0 ~ n-1，**逆向索引**为-n ~ -1
   - 列表可以作为**可迭代对象**使用`for-in`进行循环**遍历**
@@ -336,29 +336,29 @@ list1=[i*i for i in range(1,10)]    # [1,4,9,16,25,36,49,64,81]
 
     - 示例：
 
-    ```python
-    list1=[10,20,30]
-    list1.append(100)
-    print(list1)
+      ```python
+      list1=[10,20,30]
+      list1.append(100)
+      print(list1)
 
-    list2=["hello","world"]
-    list1.extend(list2)
-    print(list1)
+      list2=["hello","world"]
+      list1.extend(list2)
+      print(list1)
 
-    list1.insert(1,20)
-    print(list1)
+      list1.insert(1,20)
+      print(list1)
 
-    list3=[True,False,"hello"]
-    list1[1:]=list3
-    print(list1)
-    ```
+      list3=[True,False,"hello"]
+      list1[1:]=list3
+      print(list1)
+      ```
 
-    ```python
-    [10, 20, 30, 100]
-    [10, 20, 30, 100, 'hello', 'world']
-    [10, 20, 20, 30, 100, 'hello', 'world']
-    [10, True, False, 'hello']
-    ```
+      ```python
+      [10, 20, 30, 100]
+      [10, 20, 30, 100, 'hello', 'world']
+      [10, 20, 20, 30, 100, 'hello', 'world']
+      [10, True, False, 'hello']
+      ```
 
   - 列表的**删除**操作
 
@@ -370,58 +370,58 @@ list1=[i*i for i in range(1,10)]    # [1,4,9,16,25,36,49,64,81]
 
     - 示例：
 
-    ```python
-    list1=[10,20,30,40,50,60,30]
-    list1.remove(30)
-    print(list1)
+      ```python
+      list1=[10,20,30,40,50,60,30]
+      list1.remove(30)
+      print(list1)
 
-    list1.pop(1)
-    print(list1)
+      list1.pop(1)
+      print(list1)
 
-    list2=list1[1:3]
-    print(list2)
-    list1[1:3]=[]
-    print(list1)
+      list2=list1[1:3]
+      print(list2)
+      list1[1:3]=[]
+      print(list1)
 
-    list1.clear
-    print(list1)
+      list1.clear
+      print(list1)
 
-    del list1
-    #print(list1)   报错，不存在list1
-    ```
+      del list1
+      #print(list1)   报错，不存在list1
+      ```
 
-    ```python
-    [10, 20, 40, 50, 60, 30]
-    [10, 40, 50, 60, 30]
-    [40, 50]
-    [10, 60, 30]
-    [10, 60, 30]
-    ```
+      ```python
+      [10, 20, 40, 50, 60, 30]
+      [10, 40, 50, 60, 30]
+      [40, 50]
+      [10, 60, 30]
+      [10, 60, 30]
+      ```
 
   - 列表的**修改**操作
 
     - 为指定索引的**元素**赋予一个新值 或 为指定的**切片**赋予一个新值
     - 示例：
 
-    ```python
-    list1=[10,20,30,40]
-    list1[2]=100
-    print(list1)
+      ```python
+      list1=[10,20,30,40]
+      list1[2]=100
+      print(list1)
 
-    list1[1:3]=[300,400,500,600]
-    print(list1)
-    ```
+      list1[1:3]=[300,400,500,600]
+      print(list1)
+      ```
 
-    ```python
-    [10, 20, 100, 40]
-    [10, 300, 400, 500, 600, 40]
-    ```
+      ```python
+      [10, 20, 100, 40]
+      [10, 300, 400, 500, 600, 40]
+      ```
 
   - 列表的**查找判断**操作
     - 可以使用`index`函数获取列表(指定范围内)中**第一个**值为所填 value 的**元素**的**索引**，语法如下：
-    ```python
-    lst.index(value, start, stop)
-    ```
+      ```python
+      lst.index(value, start, stop)
+      ```
     - 列表可以使用`in`与`not in`运算符，判断指定**元素在列表中是否存在**
   - 列表的**排序**操作
 
@@ -430,25 +430,25 @@ list1=[i*i for i in range(1,10)]    # [1,4,9,16,25,36,49,64,81]
 
     - 示例：
 
-    ```python
-    list1=[20,40,10,98,54]
-    list1.sort()
-    print(list1)
-    list1.sort(reverse=True)
-    print(list1)
+      ```python
+      list1=[20,40,10,98,54]
+      list1.sort()
+      print(list1)
+      list1.sort(reverse=True)
+      print(list1)
 
-    list1=[20,40,10,98,54]
-    list2=sorted(list1)
-    print(list2)
-    print(list1)
-    ```
+      list1=[20,40,10,98,54]
+      list2=sorted(list1)
+      print(list2)
+      print(list1)
+      ```
 
-    ```python
-    [10, 20, 40, 54, 98]
-    [98, 54, 40, 20, 10]
-    [10, 20, 40, 54, 98]
-    [20, 40, 10, 98, 54]
-    ```
+      ```python
+      [10, 20, 40, 54, 98]
+      [98, 54, 40, 20, 10]
+      [10, 20, 40, 54, 98]
+      [20, 40, 10, 98, 54]
+      ```
 
 ---
 
@@ -460,35 +460,35 @@ list1=[i*i for i in range(1,10)]    # [1,4,9,16,25,36,49,64,81]
 
 - 字典的创建可以使用**花括号**，格式如下：
 
-```python
-scores={"张三":100,"李四":98,"王二马":89}
-```
+  ```python
+  scores={"张三":100,"李四":98,"王二马":89}
+  ```
 
 - 字典的创建可以使用`dict`函数，格式如下：
 
-```python
-scores=dict(name="Jack",age=20)
-```
+  ```python
+  scores=dict(name="Jack",age=20)
+  ```
 
 - 字典的创建可以使用`zip`函数，用于将**可迭代对象**作为参数，将对象中**对应的元素**打包成一个**元组**,然后**返回**由这些元组组成的**列表**,格式如下：
 
-```python
-name=["张三","李四","王二马"]
-scores=[56,89,14]
-lst=zip(name,scores)
-```
+  ```python
+  name=["张三","李四","王二马"]
+  scores=[56,89,14]
+  lst=zip(name,scores)
+  ```
 
 - 字典的创建可以使用**字典生成式**，格式如下：
 
-```python
-{表示字典key的表达式:表示字典value的表达式 for 表示key的自定义变量,表示value的自定义变量 in zip(可迭代对象a,可迭代对象2)}
-```
+  ```python
+  {表示字典key的表达式:表示字典value的表达式 for 表示key的自定义变量,表示value的自定义变量 in zip(可迭代对象a,可迭代对象2)}
+  ```
 
-```python
-name=["张三","李四","王二马"]
-scores=[56,89,14]
-dictionary={a:b for a,b in zip(name,scores)}
-```
+  ```python
+  name=["张三","李四","王二马"]
+  scores=[56,89,14]
+  dictionary={a:b for a,b in zip(name,scores)}
+  ```
 
 ##### **字典的特点**
 
@@ -516,40 +516,40 @@ dictionary={a:b for a,b in zip(name,scores)}
 
   - 示例：
 
-  ```python
-  scores={"张三":100,"李四":98,"王二马":89}
+    ```python
+    scores={"张三":100,"李四":98,"王二马":89}
 
-  a=scores.keys()
-  print(a)
-  print(type(a))
-  print(list(a))  #将所有key组成的视图转换为列表
+    a=scores.keys()
+    print(a)
+    print(type(a))
+    print(list(a))  #将所有key组成的视图转换为列表
 
-  print()
+    print()
 
-  b=scores.values()
-  print(b)
-  print(type(b))
-  print(list(b))  #将所有key组成的视图转换为列表
+    b=scores.values()
+    print(b)
+    print(type(b))
+    print(list(b))  #将所有key组成的视图转换为列表
 
-  print()
+    print()
 
-  c=scores.items()
-  print(c)
-  print(list(c))  #转换之后的列表元素由元组组成
-  ```
+    c=scores.items()
+    print(c)
+    print(list(c))  #转换之后的列表元素由元组组成
+    ```
 
-  ```python
-  dict_keys(['张三', '李四', '王二马'])
-  <class 'dict_keys'>
-  ['张三', '李四', '王二马']
+    ```python
+    dict_keys(['张三', '李四', '王二马'])
+    <class 'dict_keys'>
+    ['张三', '李四', '王二马']
 
-  dict_values([100, 98, 89])
-  <class 'dict_values'>
-  [100, 98, 89]
+    dict_values([100, 98, 89])
+    <class 'dict_values'>
+    [100, 98, 89]
 
-  dict_items([('张三', 100), ('李四', 98), ('王二马', 89)])
-  [('张三', 100), ('李四', 98), ('王二马', 89)]
-  ```
+    dict_items([('张三', 100), ('李四', 98), ('王二马', 89)])
+    [('张三', 100), ('李四', 98), ('王二马', 89)]
+    ```
 
 ---
 
@@ -561,21 +561,21 @@ dictionary={a:b for a,b in zip(name,scores)}
 
 - 用`()`创建，格式如下：
 
-```python
-a=("python","hello",90)
-```
+  ```python
+  a=("python","hello",90)
+  ```
 
 - 使用内置函数`tuple`，格式如下：
 
-```python
-a=tuple(("python","hello",90))
-```
+  ```python
+  a=tuple(("python","hello",90))
+  ```
 
 - 只包含一个元组的元素需要使用逗号与小括号,例如：
 
-```python
-a=(10,)
-```
+  ```python
+  a=(10,)
+  ```
 
 ##### **元组的特点**
 
@@ -600,26 +600,26 @@ a=(10,)
 
 - 使用`{}`创建，格式如下：
 
-```python
-s={"python","hello",90}
-```
+  ```python
+  s={"python","hello",90}
+  ```
 
 - 使用内置函数`set`，格式如下：
 
-```python
-s=set(range(6))
-print(s)
-```
+  ```python
+  s=set(range(6))
+  print(s)
+  ```
 
 - 使用**集合生成式**创建，格式如下：
 
-```python
-{表示集合元素的表达式 for 自定义变量 in 可迭代对象}
-```
+  ```python
+  {表示集合元素的表达式 for 自定义变量 in 可迭代对象}
+  ```
 
-```python
-s={i for i in range(10)}
-```
+  ```python
+  s={i for i in range(10)}
+  ```
 
 ##### **集合概述与特点**
 
@@ -646,72 +646,72 @@ s={i for i in range(10)}
   - 可以使用运算符`==`或`!=`
 - 一个集合是否是另一个集合的子集
   - 可以调用方法`issubset`进行判断，例如：
-  ```python
-  s1={10,20,30,40,50,60}
-  s2={10,20,30}
-  print(s2.issubset(s1))
-  ```
+    ```python
+    s1={10,20,30,40,50,60}
+    s2={10,20,30}
+    print(s2.issubset(s1))
+    ```
 - 一个集合是否是另一个集合的超集
   - 可以调用方法`insuperset`进行判断，例如：
-  ```python
-  s1={10,20,30,40,50,60}
-  s2={10,20,30}
-  print(s1.issuperset(s2))
-  ```
+    ```python
+    s1={10,20,30,40,50,60}
+    s2={10,20,30}
+    print(s1.issuperset(s2))
+    ```
 - 两个集合是否没有交集
   - 可以调用方法`isdisjoint`进行判断，例如：
-  ```python
-  s1={10,20,30,40,50,60}
-  s2={10,456,789}
-  print(s1.isdisjoint(s2))
-  ```
+    ```python
+    s1={10,20,30,40,50,60}
+    s2={10,456,789}
+    print(s1.isdisjoint(s2))
+    ```
 
 ##### **集合的数学操作**
 
 - 交集
   - 使用内置函数`intersection`或使用`&`符号获取，示例：
-  ```python
-  s1={10,20,30,40}
-  s2={20,30,40,50,60}
-  print(s1.intersection(s2))
-  print(s1 & s2)
-  ```
+    ```python
+    s1={10,20,30,40}
+    s2={20,30,40,50,60}
+    print(s1.intersection(s2))
+    print(s1 & s2)
+    ```
 - 并集
   - 使用内置函数`union`或使用符号`|`符号获取，示例：
-  ```python
-  s1={10,20,30,40}
-  s2={20,30,40,50,60}
-  print(s1.union(s2))
-  print(s1 | s2)
-  ```
+    ```python
+    s1={10,20,30,40}
+    s2={20,30,40,50,60}
+    print(s1.union(s2))
+    print(s1 | s2)
+    ```
 - 差集
   - 使用内置函数`difference`或使用符号`-`符号获取，示例：
-  ```python
-  s1={10,20,30,40}
-  s2={20,30,40,50,60}
-  print(s1.difference(s2))
-  print(s2.difference(s1))
-  print(s1 - s2)
-  print(s2 - s1)
-  ```
-  ```python
-  {10}
-  {50, 60}
-  {10}
-  {50, 60}
-  ```
+    ```python
+    s1={10,20,30,40}
+    s2={20,30,40,50,60}
+    print(s1.difference(s2))
+    print(s2.difference(s1))
+    print(s1 - s2)
+    print(s2 - s1)
+    ```
+    ```python
+    {10}
+    {50, 60}
+    {10}
+    {50, 60}
+    ```
 - 对称差集
   - 使用内置函数`symmetric_difference`或使用符号`^`符号获取，示例：
-  ```python
-  s1={10,20,30,40}
-  s2={20,30,40,50,60}
-  print(s1.symmetric_difference(s2))
-  print(s1 ^ s2)
-  ```
-  ```python
-  {10, 50, 60}
-  {10, 50, 60}
-  ```
+    ```python
+    s1={10,20,30,40}
+    s2={20,30,40,50,60}
+    print(s1.symmetric_difference(s2))
+    print(s1 ^ s2)
+    ```
+    ```python
+    {10, 50, 60}
+    {10, 50, 60}
+    ```
 
 ---
 
@@ -743,20 +743,20 @@ s={i for i in range(10)}
 
   - 示例：
 
-  ```python
-  s="hello,hello"
-  print(s.index("lo"))
-  print(s.find("lo"))
-  print(s.rindex("lo"))
-  print(s.rfind("lo"))
-  ```
+    ```python
+    s="hello,hello"
+    print(s.index("lo"))
+    print(s.find("lo"))
+    print(s.rindex("lo"))
+    print(s.rfind("lo"))
+    ```
 
-  ```python
-  3
-  3
-  9
-  9
-  ```
+    ```python
+    3
+    3
+    9
+    9
+    ```
 
 - 字符串**大小写转换**
 
@@ -786,22 +786,22 @@ s={i for i in range(10)}
 
   - 示例：
 
-  ```python
-  s1="hello world python"
-  list1=s1.split()
-  print(list1)
+    ```python
+    s1="hello world python"
+    list1=s1.split()
+    print(list1)
 
-  s2="hello|world|python"
-  list2=s2.split(sep="|")
-  print(list2)
+    s2="hello|world|python"
+    list2=s2.split(sep="|")
+    print(list2)
 
-  #rsplit从右侧开始
-  ```
+    #rsplit从右侧开始
+    ```
 
-  ```python
-  ['hello', 'world', 'python']
-  ['hello', 'world', 'python']
-  ```
+    ```python
+    ['hello', 'world', 'python']
+    ['hello', 'world', 'python']
+    ```
 
 - 字符串的**判断**
 
@@ -823,31 +823,31 @@ s={i for i in range(10)}
 
   - 示例 1：
 
-  ```python
-  s="hello,python"
-  print(s.replace("python","java"))
-  s="hello,python,python,python"
-  print(s.replace("python","java",2))
-  ```
+    ```python
+    s="hello,python"
+    print(s.replace("python","java"))
+    s="hello,python,python,python"
+    print(s.replace("python","java",2))
+    ```
 
-  ```python
-  hello,java
-  hello,java,java,python
-  ```
+    ```python
+    hello,java
+    hello,java,java,python
+    ```
 
   - 示例 2：
 
-  ```python
-  list1=["hello","java","python"]
-  print('|'.join(list1))
+    ```python
+    list1=["hello","java","python"]
+    print('|'.join(list1))
 
-  print('*'.join("python"))
-  ```
+    print('*'.join("python"))
+    ```
 
-  ```python
-  hello|java|python
-  p*y*t*h*o*n
-  ```
+    ```python
+    hello|java|python
+    p*y*t*h*o*n
+    ```
 
 - 字符串的**比较**
   - 字符串可以使用`<`、`>`、`<=`、`>=`、`==`、`!=`进行比较
@@ -860,36 +860,36 @@ s={i for i in range(10)}
 - **格式化**字符串
   - 格式化字符串常用于字符串中可变数值位置进行保留，可以随时方便的替换格式化后位置的内容
   - 格式化的三种方法，语法如下：
-  ```python
-  name="张三"
-  age=20
-  print("我叫%s,今年%d岁" % (name,age))
-  print("我叫{0},今年{1}岁".format(name,age))
-  print(f"我叫{name},今年{age}岁")
-  ```
+    ```python
+    name="张三"
+    age=20
+    print("我叫%s,今年%d岁" % (name,age))
+    print("我叫{0},今年{1}岁".format(name,age))
+    print(f"我叫{name},今年{age}岁")
+    ```
   其中第一种`%`的用法，`%s`为字符串，`%d`或`%i`为整数，`%f`为浮点数
 - **占位**与**保留小数**
   - `%`的占位保留
     - **占位**(%与数据类型之间写数字，表示域宽)，**示例**：
-    ```python
-    print("%10d" % 99)
-    ```
-    ```python
-            99
-    ```
+      ```python
+      print("%10d" % 99)
+      ```
+      ```python
+              99
+      ```
     - **保留小数**(%与浮点类型之间写.保留位数，保留小数)，**示例**：
-    ```python
-    print("%.3f" % 3.1415926)
-    ```
-    ```python
-      3.142
-    ```
+      ```python
+      print("%.3f" % 3.1415926)
+      ```
+      ```python
+        3.142
+      ```
     - **注意**：上述二者可共存，如:`print("%10.3f" % 3.1415926)`
   - `{}`的占位保留
     - 基本同上，跟写在`:`后面
-    ```python
-    print("{1 :10.3f}".format(3.1415926))
-    ```
+      ```python
+      print("{1 :10.3f}".format(3.1415926))
+      ```
 
 ##### **字符串的编码与解码**
 
@@ -897,25 +897,25 @@ s={i for i in range(10)}
   解码：将 bytes 类型数据转换为字符串类型
 - 示例：
 
-```python
-s="天涯共此时"
-#编码
-print(s.encode(encoding="GBK"))
-print(s.encode(encoding="UTF-8"))
-#解码
-#byte代表的就是一个二进制数据
-byte=s.encode(encoding="GBK")
-print(byte.decode(encoding="GBK"))
-byte=s.encode(encoding="UTF-8")
-print(byte.decode(encoding="UTF-8"))
-```
+  ```python
+  s="天涯共此时"
+  #编码
+  print(s.encode(encoding="GBK"))
+  print(s.encode(encoding="UTF-8"))
+  #解码
+  #byte代表的就是一个二进制数据
+  byte=s.encode(encoding="GBK")
+  print(byte.decode(encoding="GBK"))
+  byte=s.encode(encoding="UTF-8")
+  print(byte.decode(encoding="UTF-8"))
+  ```
 
-```python
-b'\xcc\xec\xd1\xc4\xb9\xb2\xb4\xcb\xca\xb1'
-b'\xe5\xa4\xa9\xe6\xb6\xaf\xe5\x85\xb1\xe6\xad\xa4\xe6\x97\xb6'
-天涯共此时
-天涯共此时
-```
+  ```python
+  b'\xcc\xec\xd1\xc4\xb9\xb2\xb4\xcb\xca\xb1'
+  b'\xe5\xa4\xa9\xe6\xb6\xaf\xe5\x85\xb1\xe6\xad\xa4\xe6\x97\xb6'
+  天涯共此时
+  天涯共此时
+  ```
 
 ---
 
@@ -928,25 +928,25 @@ b'\xe5\xa4\xa9\xe6\xb6\xaf\xe5\x85\xb1\xe6\xad\xa4\xe6\x97\xb6'
 - 什么是函数：函数就是执行**特定**任务和以完成**特定**功能的一段代码
 - 函数**创建与调用**，语法如下：
 
-```python
-def 函数名(形式参数):
-  函数体
-  return 返回值
-```
+  ```python
+  def 函数名(形式参数):
+    函数体
+    return 返回值
+  ```
 
 - 示例：
 
-```python
-def sum(a,b,c):
-  result=a+b*c
-  return result
+  ```python
+  def sum(a,b,c):
+    result=a+b*c
+    return result
 
-print(sum(12,4,3))
-```
+  print(sum(12,4,3))
+  ```
 
-```python
-24
-```
+  ```python
+  24
+  ```
 
 - 形参可以**默认**一个值，如`def sum(a,b=2,c=3)`，当有默认值的形参有数据传入，则使用**传入数据**，否则使用**默认值**
 
@@ -969,34 +969,34 @@ print(sum(12,4,3))
 - 个数可变的**位置形参**
   - 使用`*`定义**个数可变**的位置形参
   - 结果为一个**元组**
-  ```python
-  def fun(*a):
-      print(a)
-  fun(10)
-  fun(10,100,20)
-  ```
+    ```python
+    def fun(*a):
+        print(a)
+    fun(10)
+    fun(10,100,20)
+    ```
 - 个数可变的**关键字形参**
   - 使用`**`定义**个数可变**的关键字形参
   - 结果为一个**字典**
-  ```python
-  def fun(**a):
-      print(a)
-  fun(a=10)
-  fun(a=10,b=100,c=20)
-  ```
+    ```python
+    def fun(**a):
+        print(a)
+    fun(a=10)
+    fun(a=10,b=100,c=20)
+    ```
 
 ##### **变量的作用域**
 
 - 变量的作用域为**程序能够访问该代码的区域**，按范围分为**局部变量**(仅在当前函数内使用)和**全局变量**(全局都可使用)
 - 函数外部默认全局变量，**函数内部**使用`global`声明，使局部变量变为**全局变量**，例如：
 
-```python
-def fun(a,b):
-  global c
-  c=a+b
-fun(10,20)
-print(c)
-```
+  ```python
+  def fun(a,b):
+    global c
+    c=a+b
+  fun(10,20)
+  print(c)
+  ```
 
 ##### **递归函数**
 
@@ -1006,14 +1006,14 @@ print(c)
 - **优缺点**
   - **缺点**：占用内存多，效率低下
   - **优点**：思路和代码简单
-- 例子：
+- **例子**：
 
-```python
-def forFun_1(i):  # 传入最小的数1
-    if i <= 10:
-        print(i)
-        forFun_1(i + 1)  # 尾递归
-```
+  ```python
+  def forFun_1(i):  # 传入最小的数1
+      if i <= 10:
+          print(i)
+          forFun_1(i + 1)  # 尾递归
+  ```
 
 ---
 
@@ -1025,24 +1025,24 @@ def forFun_1(i):  # 传入最小的数1
 
 - python 提供了异常处理功能，可以在异常出现时即时捕获，内部“消化”处理，让程序继续执行，语法如下：
 
-```python
-try:
-  可能出现异常的代码
-except 错误类型(报错提示写的类型):
-  异常处理
-```
+  ```python
+  try:
+    可能出现异常的代码
+  except 错误类型(报错提示写的类型):
+    异常处理
+  ```
 
 - 例如：
 
-```python
-try:
-    a=int(input("请输入被除数"))
-    b=int(input("请输入除数"))
-    print(a/b)
-except ZeroDivisionError:       #except后跟错误类型
-    print("除数不允许为0")
-print("程序结束")
-```
+  ```python
+  try:
+      a=int(input("请输入被除数"))
+      b=int(input("请输入除数"))
+      print(a/b)
+  except ZeroDivisionError:       #except后跟错误类型
+      print("除数不允许为0")
+  print("程序结束")
+  ```
 
 - 此外，**同一个 try 下**，**可以跟多个 except**，用来处理**多种**可能出现的错误类型
 - **最后**，可以`except BaseException`，表示捕获所有的异常，防止疏漏
@@ -1082,125 +1082,125 @@ print("程序结束")
 
 - **创建**类的**语法**
 
-```python
-class 类名（每个单词首字母大写，其余小写）:
-  pass（内容）
-```
+  ```python
+  class 类名（每个单词首字母大写，其余小写）:
+    pass（内容）
+  ```
 
 - 示例：
 
-```python
-class Student:
-    pass
-#python中一切皆对象
-print(id(Student))
-print(type(Student))
-print(Student)
-```
+  ```python
+  class Student:
+      pass
+  #python中一切皆对象
+  print(id(Student))
+  print(type(Student))
+  print(Student)
+  ```
 
 - **类的组成**
   > 类属性、实例方法、静态方法、类方法
 - 示例：
 
-```python
-class Student:
-    native_place="青岛"     #直接写在类里的变量称为类属性
+  ```python
+  class Student:
+      native_place="青岛"     #直接写在类里的变量称为类属性
 
-    def __init__(self,name,age):
-        self.name=name      #self.name称为实例属性，进行了赋值操作，将局部变量的name的值给实例属性
-        self.age=age
+      def __init__(self,name,age):
+          self.name=name      #self.name称为实例属性，进行了赋值操作，将局部变量的name的值给实例属性
+          self.age=age
 
-    def eat(self):      #实例方法，self可省略，但建议保留//在类外定义称为函数，类内定义称为方法
-        print("学生在吃饭......")
+      def eat(self):      #实例方法，self可省略，但建议保留//在类外定义称为函数，类内定义称为方法
+          print("学生在吃饭......")
 
-    @staticmethod       #静态方法使用staticmethod修饰
-    def method():       #不能写括号内
-        print("使用了staticmethod进行修饰,所以是静态方法")
+      @staticmethod       #静态方法使用staticmethod修饰
+      def method():       #不能写括号内
+          print("使用了staticmethod进行修饰,所以是静态方法")
 
-    @classmethod        #类方法使用classmethod进行修饰
-    def cm(cls):
-        print("使用了classmethod进行修饰,所以是类方法")
-```
+      @classmethod        #类方法使用classmethod进行修饰
+      def cm(cls):
+          print("使用了classmethod进行修饰,所以是类方法")
+  ```
 
 ##### **对象的创建**
 
 - 对象的创建又称为**类的实例化**
 - **语法**：
 
-```python
-实例名=类名()
-```
+  ```python
+  实例名=类名()
+  ```
 
 - 示例：
 
-```python
-class Student:
-    native_place="青岛"
+  ```python
+  class Student:
+      native_place="青岛"
 
-    def __init__(self,name,age):
-        self.name=name
-        self.age=age
+      def __init__(self,name,age):
+          self.name=name
+          self.age=age
 
-    def eat(self):
-        print("学生在吃饭......")
+      def eat(self):
+          print("学生在吃饭......")
 
-    @staticmethod
-    def method():
-        print("使用了staticmethod进行修饰,所以是静态方法")
+      @staticmethod
+      def method():
+          print("使用了staticmethod进行修饰,所以是静态方法")
 
-    @classmethod
-    def cm(cls):
-        print("使用了classmethod进行修饰,所以是类方法")
+      @classmethod
+      def cm(cls):
+          print("使用了classmethod进行修饰,所以是类方法")
 
-#创建Student类的对象
-stu1=Student("张三",20)        #对应类中__init__的两个参数name和age
-print(id(stu1))
-print(type(stu1))
-print(stu1)         #存储的值为id地址的十六进制
-```
+  #创建Student类的对象
+  stu1=Student("张三",20)        #对应类中__init__的两个参数name和age
+  print(id(stu1))
+  print(type(stu1))
+  print(stu1)         #存储的值为id地址的十六进制
+  ```
 
-```python
-2214680575184
-<class '__main__.Student'>
-<__main__.Student object at 0x00000203A53FBCD0>
-```
+  ```python
+  2214680575184
+  <class '__main__.Student'>
+  <__main__.Student object at 0x00000203A53FBCD0>
+  ```
 
 - **意义**：有了实例，就**可以调用类中的内容**
 - 示例：
 
-```python
-class Student:
-    native_place="青岛"
+  ```python
+  class Student:
+      native_place="青岛"
 
-    def __init__(self,name,age):
-        self.name=name
-        self.age=age
+      def __init__(self,name,age):
+          self.name=name
+          self.age=age
 
-    def eat(self):
-        print("学生在吃饭......")
+      def eat(self):
+          print("学生在吃饭......")
 
-    @staticmethod
-    def method():
-        print("使用了staticmethod进行修饰,所以是静态方法")
+      @staticmethod
+      def method():
+          print("使用了staticmethod进行修饰,所以是静态方法")
 
-    @classmethod
-    def cm(cls):
-        print("使用了classmethod进行修饰,所以是类方法")
+      @classmethod
+      def cm(cls):
+          print("使用了classmethod进行修饰,所以是类方法")
 
-#创建Student类的对象
-stu1=Student("张三",20)        #对应类中__init__的两个参数name和age
-stu1.eat()
-Student.eat(stu1)
-print(stu1.name)
-print(stu1.age)
-```
+  #创建Student类的对象
+  stu1=Student("张三",20)        #对应类中__init__的两个参数name和age
+  stu1.eat()
+  Student.eat(stu1)
+  print(stu1.name)
+  print(stu1.age)
+  ```
 
-```python
-学生在吃饭......
-学生在吃饭......
-张三
-20
-```
+  ```python
+  学生在吃饭......
+  学生在吃饭......
+  张三
+  20
+  ```
 
 ##### **类属性，类方法，静态方法**
 
@@ -1210,85 +1210,85 @@ print(stu1.age)
 
 - 示例：
 
-```python
-class Student:
-    native_place="青岛"     #类属性
+  ```python
+  class Student:
+      native_place="青岛"     #类属性
 
-    def __init__(self,name,age):
-        self.name=name
-        self.age=age
+      def __init__(self,name,age):
+          self.name=name
+          self.age=age
 
-    def eat(self):
-        print("学生在吃饭......")
+      def eat(self):
+          print("学生在吃饭......")
 
-    @staticmethod
-    def method():
-        print("使用了staticmethod进行修饰,所以是静态方法")
+      @staticmethod
+      def method():
+          print("使用了staticmethod进行修饰,所以是静态方法")
 
-    @classmethod
-    def cm(cls):
-        print("使用了classmethod进行修饰,所以是类方法")
+      @classmethod
+      def cm(cls):
+          print("使用了classmethod进行修饰,所以是类方法")
 
-#使用类属性
-print(Student.native_place)
-stu1=Student("张三",20)
-stu2=Student("李四",30)
-print(stu1.native_place)
-print(stu2.native_place)
-#共享性
-Student.native_place="天津"
-print(stu1.native_place)
-print(stu2.native_place,"\n")
+  #使用类属性
+  print(Student.native_place)
+  stu1=Student("张三",20)
+  stu2=Student("李四",30)
+  print(stu1.native_place)
+  print(stu2.native_place)
+  #共享性
+  Student.native_place="天津"
+  print(stu1.native_place)
+  print(stu2.native_place,"\n")
 
-#类方法的使用方式
-Student.cm()
-#静态方法的使用方式
-Student.method()
-```
+  #类方法的使用方式
+  Student.cm()
+  #静态方法的使用方式
+  Student.method()
+  ```
 
-```python
-青岛
-青岛
-青岛
-天津
-天津
+  ```python
+  青岛
+  青岛
+  青岛
+  天津
+  天津
 
-使用了classmethod进行修饰,所以是类方法
-使用了staticmethod进行修饰,所以是静态方法
-```
+  使用了classmethod进行修饰,所以是类方法
+  使用了staticmethod进行修饰,所以是静态方法
+  ```
 
 ##### **动态绑定属性和方法**
 
 - python 是动态语言，在创建对象之后，**可以动态的绑定属性和方法**
 - 示例：
 
-```python
-class Student:
-    def __init__(self,name,age):
-        self.name=name
-        self.age=age
+  ```python
+  class Student:
+      def __init__(self,name,age):
+          self.name=name
+          self.age=age
 
-    def eat(self):
-        print(self.name+"在吃饭")
+      def eat(self):
+          print(self.name+"在吃饭")
 
-stu1=Student("张三",20)
-stu2=Student("李四",30)
+  stu1=Student("张三",20)
+  stu2=Student("李四",30)
 
-stu1.gender="男"      #动态绑定属性，将“男”绑定到stu1的gender属性
-print(stu1.gender)
-#print(stu2.gender)     因为没有绑定，所以报错
+  stu1.gender="男"      #动态绑定属性，将“男”绑定到stu1的gender属性
+  print(stu1.gender)
+  #print(stu2.gender)     因为没有绑定，所以报错
 
-def show():
-    print("定义在类之外的，称为函数")
-stu1.show=show      #动态绑定方法，将show函数绑定到stu1的show方法
-stu1.show()
-#stu2.show()        因为没有绑定，所以报错
-```
+  def show():
+      print("定义在类之外的，称为函数")
+  stu1.show=show      #动态绑定方法，将show函数绑定到stu1的show方法
+  stu1.show()
+  #stu2.show()        因为没有绑定，所以报错
+  ```
 
-```python
-男
-定义在类之外的，称为函数
-```
+  ```python
+  男
+  定义在类之外的，称为函数
+  ```
 
 ---
 
@@ -1308,34 +1308,34 @@ stu1.show()
 
 - 示例：
 
-```python
-class Student:
-    def __init__(self,name,age):
-        self.name=name
-        self.__age=age      #age不希望在类的外部被使用，所以加了__
-    def show(self):
-        print(self.name,self.__age)
+  ```python
+  class Student:
+      def __init__(self,name,age):
+          self.name=name
+          self.__age=age      #age不希望在类的外部被使用，所以加了__
+      def show(self):
+          print(self.name,self.__age)
 
-stu=Student("张三",20)
+  stu=Student("张三",20)
 
-#在类内使用
-stu.show
+  #在类内使用
+  stu.show
 
-#在类外使用
-print(stu.name)
-#print(stu.__age)       不能在类外访问，所以报错
+  #在类外使用
+  print(stu.name)
+  #print(stu.__age)       不能在类外访问，所以报错
 
-print("\n",dir(stu),"\n")     #列出stu全部的属性
-print(stu._Student__age)        #在类的外部可以通过 _类名__实例属性 来访问
-```
+  print("\n",dir(stu),"\n")     #列出stu全部的属性
+  print(stu._Student__age)        #在类的外部可以通过 _类名__实例属性 来访问
+  ```
 
-```python
-张三
+  ```python
+  张三
 
-['_Student__age', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'name', 'show']
+  ['_Student__age', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'name', 'show']
 
-20
-```
+  20
+  ```
 
 ##### **继承及其实现方式**
 
@@ -1378,97 +1378,97 @@ print(stu._Student__age)        #在类的外部可以通过 _类名__实例属�
 
 - **特殊属性示例**
 
-```python
-class A:
-    pass
-class B:
-    pass
-class C(A,B):
-    def __init__(self,name,age):
-        self.name=name
-        self.age=age
+  ```python
+  class A:
+      pass
+  class B:
+      pass
+  class C(A,B):
+      def __init__(self,name,age):
+          self.name=name
+          self.age=age
 
-x=C("Jack",20)     #x是C类型的一个实例对象
+  x=C("Jack",20)     #x是C类型的一个实例对象
 
-print(x.__dict__)       #实例对象的属性字典
-print(C.__dict__)       #类对象的属性以及方法
-print(x.__class__)      #对象所属的类
-print(C.__bases__)      #C的父类类型的元素
-print(C.__bases__)      #C的类的基类
-print(C.__mro__)        #类的层次结构，继承关系
-print(A.__subclasses__())       #A的子类类型的元素
-```
+  print(x.__dict__)       #实例对象的属性字典
+  print(C.__dict__)       #类对象的属性以及方法
+  print(x.__class__)      #对象所属的类
+  print(C.__bases__)      #C的父类类型的元素
+  print(C.__bases__)      #C的类的基类
+  print(C.__mro__)        #类的层次结构，继承关系
+  print(A.__subclasses__())       #A的子类类型的元素
+  ```
 
-```python
-{'name': 'Jack', 'age': 20}
-{'__module__': '__main__', '__init__': <function C.__init__ at 0x000001943D99A170>, '__doc__': None}
-<class '__main__.C'>
-(<class '__main__.A'>, <class '__main__.B'>)
-(<class '__main__.A'>, <class '__main__.B'>)
-(<class '__main__.C'>, <class '__main__.A'>, <class '__main__.B'>, <class 'object'>)
-[<class '__main__.C'>]
-```
+  ```python
+  {'name': 'Jack', 'age': 20}
+  {'__module__': '__main__', '__init__': <function C.__init__ at 0x000001943D99A170>, '__doc__': None}
+  <class '__main__.C'>
+  (<class '__main__.A'>, <class '__main__.B'>)
+  (<class '__main__.A'>, <class '__main__.B'>)
+  (<class '__main__.C'>, <class '__main__.A'>, <class '__main__.B'>, <class 'object'>)
+  [<class '__main__.C'>]
+  ```
 
 - **特殊方法示例**
 
-```python
-class Student:
-    def __init__(self,name):
-        self.name=name
-    def __add__(self,other):
-        return self.name+other.name
-    def __len__(self):
-        return len(self.name)
+  ```python
+  class Student:
+      def __init__(self,name):
+          self.name=name
+      def __add__(self,other):
+          return self.name+other.name
+      def __len__(self):
+          return len(self.name)
 
-stu1=Student("张三")
-stu2=Student("李四")
+  stu1=Student("张三")
+  stu2=Student("李四")
 
-s=stu1+stu2         #如果第4,5行不定义，程序报错(因为在Student类中编写了__add__()特殊的方法，所以实现了两个不同类的实例变量相加)
-print(s)
-s=stu1.__add__(stu2)        #如果第4,5行不定义，程序报错
-print(s)
+  s=stu1+stu2         #如果第4,5行不定义，程序报错(因为在Student类中编写了__add__()特殊的方法，所以实现了两个不同类的实例变量相加)
+  print(s)
+  s=stu1.__add__(stu2)        #如果第4,5行不定义，程序报错
+  print(s)
 
-print(len(stu1))        #如果第6,7行不定义，程序报错
-print(len(stu2))
-```
+  print(len(stu1))        #如果第6,7行不定义，程序报错
+  print(len(stu2))
+  ```
 
-```python
-张三李四
-张三李四
-2
-2
-```
+  ```python
+  张三李四
+  张三李四
+  2
+  2
+  ```
 
 - \***\*new**与**init**演示创建对象的过程\*\*
 
-```python
-class Person(object):
-    def __new__(cls,*args,**kwargs):
-        print("__new__被调用了,cls的id值为{0}".format(id(cls)))
-        obj=super().__new__(cls)
-        print("创建的对象的id为{0}".format(id(obj)))
-        return obj
-    def __init__(self,name,age):
-        print("__init__被调用了,self的值为{0}".format(id(self)))
-        self.name=name
-        self.age=age
+  ```python
+  class Person(object):
+      def __new__(cls,*args,**kwargs):
+          print("__new__被调用了,cls的id值为{0}".format(id(cls)))
+          obj=super().__new__(cls)
+          print("创建的对象的id为{0}".format(id(obj)))
+          return obj
+      def __init__(self,name,age):
+          print("__init__被调用了,self的值为{0}".format(id(self)))
+          self.name=name
+          self.age=age
 
-print("object这个类对象的id为{0}".format(id(object)))
-print("Person这个类对象的id为{0}".format(id(Person)))
+  print("object这个类对象的id为{0}".format(id(object)))
+  print("Person这个类对象的id为{0}".format(id(Person)))
 
-#创建Person类的实例对象
-p1=Person("张三",20)
-print("p1这个Person类的实例对象的id为{0}".format(id(p1)))
-```
+  #创建Person类的实例对象
+  p1=Person("张三",20)
+  print("p1这个Person类的实例对象的id为{0}".format(id(p1)))
+  ```
 
-```python
-object这个类对象的id为140734130337664
-Person这个类对象的id为1973241802080
-__new__被调用了,cls的id值为1973241802080
-创建的对象的id为1973248703792
-__init__被调用了,self的值为1973248703792
-p1这个Person类的实例对象的id为1973248703792
-```
+  ```python
+  object这个类对象的id为140734130337664
+  Person这个类对象的id为1973241802080
+  __new__被调用了,cls的id值为1973241802080
+  创建的对象的id为1973248703792
+  __init__被调用了,self的值为1973248703792
+  p1这个Person类的实例对象的id为1973248703792
+  ```
 
 - **传参过程**  
   ![](https://s2.loli.net/2022/05/22/MyLeK9ZFVtXgUbR.png)
@@ -1573,29 +1573,29 @@ p1这个Person类的实例对象的id为1973248703792
   - 新建一个`.py`文件，名称尽量不要与 python 自带标准模块冲突
 - 导入模块
 
-```python
-import 模块名称 [as 别名]
-from 模块名称 import 函数/变量/类
-```
+  ```python
+  import 模块名称 [as 别名]
+  from 模块名称 import 函数/变量/类
+  ```
 
 - 示例：
   - **calc.py**文件：
-  ```python
-  def add(a,b):
-      return a+b
-  def div(a,b):
-      return a/b
-  ```
+    ```python
+    def add(a,b):
+        return a+b
+    def div(a,b):
+        return a/b
+    ```
   - **main.py**文件：
-  ```python
-  import calc
-  print(calc.add(10,20))
-  print(calc.div(10,4))
-  ```
-  ```python
-    30
-    2.5
-  ```
+    ```python
+    import calc
+    print(calc.add(10,20))
+    print(calc.div(10,4))
+    ```
+    ```python
+      30
+      2.5
+    ```
 - **注意**：VScode 无需设置当前目录为源目录，如使用其他编译器，视情况操作
 
 ##### **以主程序形式运行**
@@ -1603,33 +1603,33 @@ from 模块名称 import 函数/变量/类
 - 在每个模块的定义中都包括一个记录模块名称的变量**name**，程序可以检查该变量，以确定他们在哪个模块中执行。如果一个模块不是被导入到其它程序中执行，那么它可能在解释器的顶级模块中执行。顶级模块的**name**变量的值为**main**
 - 语法
 
-```python
-if __name__=="__main__":        #只有以当前模块为主程序运行时才会执行
-  执行语句
-```
+  ```python
+  if __name__=="__main__":        #只有以当前模块为主程序运行时才会执行
+    执行语句
+  ```
 
 - 示例：
 
   - **calc.py**文件：
 
-  ```python
-  def add(a,b):
-      return a+b
+    ```python
+    def add(a,b):
+        return a+b
 
-  if __name__=="__main__":
-      print(10+20)
-  ```
+    if __name__=="__main__":
+        print(10+20)
+    ```
 
   - **main.py**文件：
 
-  ```python
-  import calc
-  print(calc.add(100,200))
-  ```
+    ```python
+    import calc
+    print(calc.add(100,200))
+    ```
 
-  ```python
-  300
-  ```
+    ```python
+    300
+    ```
 
 ##### **python 中的包**
 
@@ -1642,9 +1642,9 @@ if __name__=="__main__":        #只有以当前模块为主程序运行时才�
   - 目录里通常不含`__init__.py`文件
 - 包的导入
 
-```python
-import 包名.模块名
-```
+  ```python
+  import 包名.模块名
+  ```
 
 - 包的创建：在文件夹目录下创建`__init__.py`文件
 
@@ -1672,16 +1672,16 @@ import 包名.模块名
   如果出错，则在 python 文件根目录打开 cmd 输入
 - 由于服务器在国外，访问速度过慢，可以使用[清华源](https://mirrors.tuna.tsinghua.edu.cn/help/pypi/)镜像安装
   - 临时使用
-  ```bash
-  pip install -i [https://pypi.tuna.tsinghua.edu.cn/simple](https://pypi.tuna.tsinghua.edu.cn/simple) 包名称
-  ```
+    ```bash
+    pip install -i [https://pypi.tuna.tsinghua.edu.cn/simple](https://pypi.tuna.tsinghua.edu.cn/simple) 包名称
+    ```
   - 注意，`simple` 不能少, 是 `https` 而不是 `http`
-  - 设为默认
-    升级 pip 到最新的版本 (>=10.0.0) 后进行配置(单行输入)：
-  ```bash
-  python -m pip install --upgrade pip
-  pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
-  ```
+  - 设为默认  
+    升级 pip 到最新的版本 (>=10.0.0) 后进行配置(逐行输入)：
+    ```bash
+    python -m pip install --upgrade pip
+    pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+    ```
 
 ---
 
@@ -1697,9 +1697,9 @@ import 包名.模块名
 
 - 使用内置函数`open()`创建或打开文件对象，语法如下：
 
-```python
-被创建的文件对象=open(要创建或打开的文件名称,[打开方式(默认只读),编码格式(默认GBK)])
-```
+  ```python
+  被创建的文件对象=open(要创建或打开的文件名称,[打开方式(默认只读),编码格式(默认GBK)])
+  ```
 
 - 读示例：
   同目录下有**a.txt**文件：hello,world
@@ -1746,13 +1746,13 @@ import 包名.模块名
 - os 模块与 os.path 模块用于对目录或文件进行操作
 - 示例：
 
-```python
-#os模块是与操作系统相关的一个模块
-import os
-os.system("notepad.exe")        #运行系统命令，打开记事本
-#直接调用可执行文件
-os.startfile("D:\\Edge\\Edge\\msedge.exe")          #调用系统文件，打开edge
-```
+  ```python
+  #os模块是与操作系统相关的一个模块
+  import os
+  os.system("notepad.exe")        #运行系统命令，打开记事本
+  #直接调用可执行文件
+  os.startfile("D:\\Edge\\Edge\\msedge.exe")          #调用系统文件，打开edge
+  ```
 
 |               函数               | 说明                           |
 | :------------------------------: | ------------------------------ |
@@ -1784,33 +1784,33 @@ os.startfile("D:\\Edge\\Edge\\msedge.exe")          #调用系统文件，打开
 
 - 安装执行库 pyinstaller（在 cmd 执行）
 
-```bash
-pip install pyinstaller
-```
+  ```bash
+  pip install pyinstaller
+  ```
 
 - 如果是控制台运行，记得最后使用 os 模块中的 system 暂停
 
-```python
-import os
-os.system("pause")
-```
+  ```python
+  import os
+  os.system("pause")
+  ```
 
 - 在想要打包文件存放的目录下执行 cmd，也可以之间使用 Vscode 的终端自动获取目录，执行下列语句(区分大小写)
 
-```bash
-pyinstaller -F(单文件)/D(目录) -c(带控制台)/w(不带控制台)
-  (-i 文件目录地址，这里是改.exe的显示图标，图片需要为.ico格式) 主文件目录
-```
+  ```bash
+  pyinstaller -F(单文件)/D(目录) -c(带控制台)/w(不带控制台)
+    (-i 文件目录地址，这里是改.exe的显示图标，图片需要为.ico格式) 主文件目录
+  ```
 
 - 上述(-i)内容选写，仅用来修改图标，如果输入没错但图标没变，是由于操作系统缓存的问题，可以复制到别的目录查看即可解决
 - 打包后文件在 dict 目录中，多余文件可以删除
 - 如果报错，可以使用 cmd 查看错误原因（需要带控制台，可以重新打包变为带控制台再 debug）
 
-```bash
-D:(进入盘符)
-cd 目录
-.exe文件名(直接输入即可运行)
-```
+  ```bash
+  D:(进入盘符)
+  cd 目录
+  .exe文件名(直接输入即可运行)
+  ```
 
 - 如果有运行依赖的文件，需要一起放在 dist 目录下，否则会无法运行
 
