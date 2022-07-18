@@ -148,7 +148,7 @@ categories:
   - 新建**CLASSPATH**，填入以下内容：`.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar`
   - 找到**Path**变量，添加 **%JAVA_HOME%\bin** 和 **%JAVA_HOME%\jre\bin**
 - **VScode**中安装**Extension Pack for Java**插件包
-- **VScode 设置**，**用户**类别下，找到**Code Actions On Save**，在.json 中编辑，将新增的`"editor.codeActionsOnSave"`这一些代码删除，在第一层缩进下，在`"workbench.iconTheme": "vscode-icons",`前写入`"java.jdt.ls.java.home": "JDK的路径(注意反斜杠转义)",`
+- **VScode 设置**，**用户**类别下，找到**Code Actions On Save**，在.json 中编辑，将新增的`"editor.codeActionsOnSave"`这一些代码删除，在第一层缩进下，在`"workbench.iconTheme": "vscode-icons",`前写入`"java.jdt.ls.java.home": "JDK的路径(注意反斜杠转义)"`
 - 重启**VScode**，创建`.java`文件即可使用，运行前需要在**VScode**的**调试**处调试并自动生成文件，后续可以直接使用**Run**运行
 
 [参考 bilibili 视频教程](https://www.bilibili.com/video/BV16y4y177b9)
