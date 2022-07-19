@@ -34,5 +34,8 @@
     "hexo-theme-yun": "^1.10.4",
     "hexo-widget-tree": "^0.2.2",
     "hexo-wordcount": "^6.0.1"
+  },
+  "devDependencies": {
+    "http-proxy-middleware": "^2.0.6"
   }
 }
