@@ -2,7 +2,7 @@ favicon: https://s2.loli.net/2022/05/22/4s8QIyo6OEiavVD.png
 
 notice:
   enable: true
-  content: 站点正常运行(ﾉﾟ∀ﾟ)ﾉ ~近期学习与更新：C语言基础教程。最近更新时间：2022-07-19
+  content: 站点正常运行(ﾉﾟ∀ﾟ)ﾉ ~近期学习与更新：C语言基础教程。最近更新时间：2022-07-20
 
 tags:
   Git: "#ff4d4d"
@@ -50,11 +50,11 @@ categories:
 
 social:
   - name: 微信(请扫描二维码添加)
-    link: https://s2.loli.net/2022/05/22/PijGqtNOyW45BvZ.jpg
+    link: https://s2.loli.net/2022/07/20/wzmFPjMJH1eXR4g.jpg
     icon: ri:wechat-2-line
     color: "#1AAD19"
   - name: QQ(请扫描二维码添加)
-    link: https://s2.loli.net/2022/05/22/gktDW5v8RKIYdOn.jpg
+    link: https://s2.loli.net/2022/07/20/gzCHZvQdkwqLt84.jpg
     icon: ri:qq-line
     color: "#12B7F5"
   - name: GitHub(个人页面)
@@ -213,18 +213,18 @@ reward:
   icon: ri:hand-coin-line
   comment: 手头阔绰?点这点这!money得斯!
   methods:
+    - name: 微信支付
+      path: https://s2.loli.net/2022/07/20/wWSp6bRENMGsDCj.png
+      color: "#2DC100"
+      icon: ri:wechat-pay-line
     - name: 支付宝
-      path: https://s2.loli.net/2022/06/09/BVFh4X9luHDjnUE.png
+      path: https://s2.loli.net/2022/07/20/MaiIDcuVsqUWgyF.jpg
       color: "#00A3EE"
       icon: ri:alipay-line
     - name: QQ 支付
-      path: https://s2.loli.net/2022/06/09/YDOTzQmvhBb3FNA.png
+      path: https://s2.loli.net/2022/07/20/Gqv92cabdg4OWkS.png
       color: "#12B7F5"
       icon: ri:qq-line
-    - name: 微信支付
-      path: https://s2.loli.net/2022/06/09/5fIH4Mnq37ZLNOp.png
-      color: "#2DC100"
-      icon: ri:wechat-pay-line
 
 footer:
   since: 2022
