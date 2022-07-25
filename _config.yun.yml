@@ -2,7 +2,7 @@ favicon: https://s2.loli.net/2022/05/22/4s8QIyo6OEiavVD.png
 
 notice:
   enable: true
-  content: 站点正常运行(ﾉﾟ∀ﾟ)ﾉ ~近期学习与更新：C语言基础教程。最近更新时间：2022-07-25
+  content: 站点正常运行(ﾉﾟ∀ﾟ)ﾉ ~近期学习与更新：C语言基础教程。最近更新时间：2022-07-26
 
 tags:
   Git: "#ff4d4d"
@@ -333,7 +333,7 @@ medium_zoom: true
 
 vendors:
   # 以 '/' 结尾
-  host: "https://npm.elemecdn.com/"
+  host: "https://cdn.jsdelivr.net/npm/"
   # 下方代表覆盖 waline CDN 为别的链接，默认不用修改
   # waline:
   #   css: '@waline/client@v2/dist/waline.css'

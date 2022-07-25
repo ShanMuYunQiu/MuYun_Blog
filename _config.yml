@@ -124,7 +124,7 @@ theme: yun
 live2d:
   enable: true
   # 推荐使用 jsdelivr 的 CDN 来加载
-  scriptFrom: https://npm.elemecdn.com/live2d-widget@3.x/lib/L2Dwidget.min.js
+  scriptFrom: https://cdn.jsdelivr.net/npm/live2d-widget@3.x/lib/L2Dwidget.min.js
   pluginRootPath: live2dw/
   pluginJsPath: lib/
   pluginModelPath: assets/
@@ -132,7 +132,7 @@ live2d:
   debug: false
   model:
     # 推荐使用 CDN 来加载模型
-    use: https://npm.elemecdn.com/live2d-widget-model-wanko@1.0.5/assets/wanko.model.json
+    use: https://cdn.jsdelivr.net/npm/live2d-widget-model-wanko@1.0.5/assets/wanko.model.json
   display:
     superSample: 2
     width: 200
@@ -181,10 +181,10 @@ githubcalendar:
   plus_style: ""
 
 aplayer:
-  cdn: https:///npm.elemecdn.com/aplayer@latest/dist/APlayer.min.js
-  style_cdn: https:///npm.elemecdn.com/aplayer@latest/dist/APlayer.min.css
+  cdn: https:///cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.js
+  style_cdn: https:///cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.css
   meting: true
-  meting_cdn: https:///npm.elemecdn.com/meting@1/dist/Meting.min.js
+  meting_cdn: https:///cdn.jsdelivr.net/npm/meting@1/dist/Meting.min.js
 
 sitemap:
   path:

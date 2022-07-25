@@ -132,7 +132,8 @@ reward: true
 
 <div class="info">
 
-> **07-19** | 解决了`Vercel`的CORS跨域问题  
+> **07-26** | 更换回`cdn.jsdelivr`作为博客 CDN  
+> **07-19** | 解决了`Vercel`的 CORS 跨域问题  
 > **07-19** | 更新一言接口，调整节选片段的类型  
 > **07-16** | 将`sitemap`插件重新更换为官方插件，并添加主动推送插件  
 > **07-12** | 成功申请欧盟`eu.org`域名，地址变更为`shengqibaozao.eu.org`  
