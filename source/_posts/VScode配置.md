@@ -4,7 +4,7 @@ author: 圣奇宝枣
 description: 个人以及大众最爱的编辑器，新手时期被繁杂的配置劝退过，而本教程将带你渡过难关
 sticky: 0
 date: 2022-04-27 12:56:14
-updated: 2022-07-11 20:04:12
+updated: 2022-07-28 09:34:27
 readmore: true
 tags:
   - 前置准备
