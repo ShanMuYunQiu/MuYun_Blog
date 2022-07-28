@@ -71,23 +71,58 @@ categories:
 > **Live Server**：实时显示刷新页面，网页使用  
 > ----运行时右下角**Go Live**，或鼠标右键，选择**Open with Live Server**即可  
 > **indent-rainbow**：彩色缩进，缩进错误会报大红  
-> **Bracket Pair Colorizer**：彩色括号，方便读代码  
-> **code-translate**(w88975)：即时变量名翻译  
+> **Bracket Pair Colorizer**：彩色括号，方便读代码(已内置于 VScode 的**Bracket Pair Colorization**设置项)  
+> **Code Translate**(w88975)：划词翻译，且显示变量名定义类型与语法使用规则  
 > **Prettier**：格式化代码，自动排版  
 > ----设置：**Format On Save**，保存时自动排版  
 > ----代码格式化大括号不独立换行：**C_Cpp:Clang_format_style**设置为`{BasedOnStyle: Chromium, IndentWidth: 4}`  
 > **Markdown Preview Enhanced**：分屏 markdown 预览  
-> **C++ Intellisense**：c++代码自动补全，查找代码引用，跳转到定义，列举 symbols  
 > **One Dark Pro**：黑灰色主题，好看  
 > **Github Copilot**：AI 自动补全写代码，需要 github 账号登录，并且需要提前申请，通过后才可以使用(已收费，[官网](https://copilot.github.com/))  
 > **Tabnine AI Autocomplete**：上面 github copilot 的下位替代，有免费版本([官网](https://www.tabnine.com/))  
 > **Power Mode**：打字炫酷特效，需要在设置里自行设定  
-> **Auto Rename Tag**：自动重命名相对应的闭合 HTML 标签  
+> **Auto Close Tag**：自动闭合标签(已内置于 VScode 的**Auto Closing Tags**设置项)  
+> **Auto Rename Tag**：自动重命名相对应的闭合 HTML 标签(已内置于 VScode 的**Linked Editing**设置项)  
 > **Better Comments**：更好的注释，注释信息变色  
 > ----使用：星号\*高亮亮绿色，叹号!警告红色，问号?记录问题蓝色，关键词 TODO 规划区域橙色  
-> **Color Highlight**：显示色码(#000000)颜色，在设置中设置**Marker Type**设置显示样式，推荐**dot-before**
+> **Color Highlight**：显示色码(#000000)颜色，在设置中设置**Marker Type**设置显示样式，推荐**dot-before**  
+> **Excel Viewer**：在 VScode 中打开 Excel 表格  
+> **Bookmarks**：书签跳转，使用右键在需要的行上设置书签以快速跳转
 
 </div>
+
+---
+
+#### **配置用户代码片段**
+
+---
+
+- VScode 允许用户**配置**自己的**代码片段**，以快速完成**经常重复输入的代码**
+
+- **进入配置文件**：**文件**-**首选项**-**配置用户代码片段**-**选择配置的语言**
+
+- **配置自己的代码片段**
+
+  ```json
+  "对象名"{
+      "prefix": "关键字",
+      "body": [
+          "代码片段第1行",
+          "代码片段第2行",
+          " ",
+          "上一行打印空格表示空行后代码片段第3行"
+      ],
+      "description": "描述"
+  }
+  ```
+
+- **配置说明**
+
+  - **对象名**：任意
+  - **prefix**：触发所需的关键字
+  - **body**：触发后的代码片段
+  - **description**：描述
+  - _\*占位符_：使用**Dollar 符**`$`表示占位，放置 Dollar 符可以使代码片段的**鼠标光标**默认出现在**占位符**处，使用**Tab**可以**快速跳转**到下一个占位符处。此外可以给 Dollar 符编号，即使用`$1`，`$2`等符号设置光标切换的顺序。还可以给占位符处设置默认的值，比如`printf("&{1:hello} ${2:world}");`，这样片段默认带有**hello**和**world**，且鼠标光标定位到对应占位符时**自动选中默认的值**以便修改
 
 ---
 
