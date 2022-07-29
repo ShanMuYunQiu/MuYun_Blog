@@ -168,7 +168,7 @@ reward: true
 > **05-20** | 正式更换`Hexo`框架，使用`Yun`主题，并投入运行(但误操作删库，导致 github 提交记录消失)  
 > **05-18** | 准备更换框架为`Hexo`，并使用`Yun`主题，将文档从`docsify`搬运并调整格式至`Hexo`  
 > **04-21** | 使用`jsdelivr`全球 CDN 加速博客  
-> **04-17** | 试运行成功，搭载于`github pages`并稳定运行，地址为`https://ShengQiBaoZao/shengqibaozao.github.io`  
+> **04-17** | 试运行成功，部署于`github pages`并稳定运行，地址为`https://ShengQiBaoZao/shengqibaozao.github.io`  
 > **04-15** | 创建`docsify`框架博客，进入试运行
 
 </div>
