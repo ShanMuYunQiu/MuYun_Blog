@@ -55,7 +55,8 @@ categories:
 > **Workbench Tree Indent**：文件树缩进，建议设置 18  
 > **Workbench Tree render Indent - Guides**：文件树缩进线，建议设置 always  
 > **Auto Save**：改为**afterDelay**，随后**Auto Delay Save**为自动保存时间(1000=1 秒)  
-> **git.mergeEditor**：git merge 合并编辑器，可以更方便地处理冲突，建议设置 true
+> **git.mergeEditor**：git merge 合并编辑器，可以更方便地处理冲突，建议设置 true  
+> **Snippets Prevent Quick Suggestions**：阻止快速建议，建议关闭，关闭后可以在使用代码补全后仍继续收到提示
 
 </div>
 
