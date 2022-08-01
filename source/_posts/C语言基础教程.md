@@ -3433,7 +3433,7 @@ int main(void)
 
 <div class="success">
 
-> **章节概要**：表示字符串和字符串 I/O；在程序中定义字符串；数组表示法与指针表示法；字符串数组；字符串输入；分配空间；`gets()`函数；`fgets()`函数；`gets_s()`函数；`scanf()`函数；字符串输出；`puts()`函数；`fputs()`函数；`printf()`函数；自定义输入/输出函数；字符串函数；`strlen()`函数；`strcat()`函数；`strncat()`函数；`strcmp()`函数；`strncmp()`函数；`strcpy()`函数；`strncpy()`函数；其他字符串函数；字符串示例：字符串排序
+> **章节概要**：表示字符串和字符串 I/O；在程序中定义字符串；数组表示法与指针表示法；字符串数组；字符串输入；分配空间；`gets()`函数；`fgets()`函数；`gets_s()`函数；`scanf()`函数；字符串输出；`puts()`函数；`fputs()`函数；`printf()`函数；自定义输入/输出函数；字符串函数；`strlen()`函数；`strcat()`函数；`strncat()`函数；`strcmp()`函数；`strncmp()`函数；`strcpy()`函数；`strncpy()`函数；其他字符串函数；`ctype.h`字符函数和字符串；字符串示例：字符串排序；排序指针而非字符串；选择排序算法；命令行参数
 
 </div>
 
@@ -3821,18 +3821,118 @@ int main(void)
 
 - **其他字符串函数**
 
-  | 函数                                           | 作用                                                                                                                                    |
-  | ---------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-  | char \*strchr(const char \*str, char c)        | 如果 str 字符串包含 c 字符，返回指向 str 中**首次**出现 c 字符位置的指针，如果未找到 c 字符，返回空指针(末尾的空字符也在查找范围内)     |
-  | char \*strrchr(const char \*str, char c)       | 如果 str 字符串包含 c 字符，返回指向 str 中**最后一次**出现 c 字符位置的指针，如果未找到 c 字符，返回空指针(末尾的空字符也在查找范围内) |
+  |                      函数                      | 作用                                                                                                                                    |
+  | :--------------------------------------------: | --------------------------------------------------------------------------------------------------------------------------------------- |
+  |    char \*strchr(const char \*str, char c)     | 如果 str 字符串包含 c 字符，返回指向 str 中**首次**出现 c 字符位置的指针，如果未找到 c 字符，返回空指针(末尾的空字符也在查找范围内)     |
+  |    char \*strrchr(const char \*str, char c)    | 如果 str 字符串包含 c 字符，返回指向 str 中**最后一次**出现 c 字符位置的指针，如果未找到 c 字符，返回空指针(末尾的空字符也在查找范围内) |
   | char \*strpbrk(const char *s1, const char *s2) | 如果 s1 字符串中包含 s2 字符串中的任意字符，返回指向 s1 字符串首位置的指针，否则返回空指针                                              |
   | char \*strstr(const char *s1, const char *s2)  | 该函数返回指向 s1 字符串中 s2 字符串出现的首位置，如果没有找到，返回空指针                                                              |
+
+- **ctype.h 字符函数和字符串**
+
+  - **第 7 章**中介绍了`ctype.h`系列**与字符相关**的**函数**，这些函数虽然**不能处理整个字符串**，但可以通过**自定义编写**，**处理**字符串中的**字符**
+
+  - 例如可以自己编写`for`循环**遍历**字符串中的**字符**，然后对**这些字符**使用`ctype.h`中的**函数**来**实现一些功能**
 
 ##### **字符串示例：字符串排序**
 
 - **示例程序**
 
-  - 码字中。。。
+  ```c
+  #include <stdio.h>
+  #include <string.h>
+
+  #define SIZE 81 // 限制字符串长度
+  #define LIM 20  //可读入最多行数
+  #define HALT "" //空字符串停止输入
+
+  // 字符串-指针-排序函数
+  void stsrt(char *strings[], int num)
+  {
+      char *temp;
+      int top, seek;
+      // 选择排序
+      for (top = 0; top < num - 1; top++)
+          for (seek = top + 1; seek < num; seek++)
+              if (strcmp(strings[top], strings[seek]) > 0)
+              {
+                  // 交换指针
+                  temp = strings[top];
+                  strings[top] = strings[seek];
+                  strings[seek] = temp;
+              }
+  }
+
+  // 前面“自定义函数”中提到过的自定义 s_gets()函数
+  char *s_gets(char *str, int n)
+  {
+      char *ret_val; // 创建指针
+      int i = 0;
+      ret_val = fgets(str, n, stdin); // fgets()返回指向char的指针，如果顺利的话返回地址与传入的第一个参数相同，如果读到文件结尾返回NULL
+      if (ret_val)                    // 即，ret_val != NULL，判断是否读到文件结尾
+      {
+          while (str[i] != '\n' && str[i] != '\0') // 忽略跳过正常字符
+              i++;
+          if (str[i] == '\n') // 出现换行符替换为空字符，即不存储换行符
+              str[i] = '\0';
+          else                          // 否则就是读到了空字符
+              while (getchar() != '\n') // 丢弃该输入行的其余字符
+                  continue;
+      }
+      return ret_val;
+  }
+
+  int main(void)
+  {
+      char input[LIM][SIZE]; // 储存输入的数组
+      char *ptstr[LIM];      // 内含指针变量的数组
+      int ct = 0;            // 输入计数
+      int k;                 //输出计数
+      printf("最多输入%d行，我将会对它们排序，在一行开始处回车以停止输入\n", LIM);
+      // 输入行数在范围内 && 输入数据正常 && 第一个字符不是空字符
+      while (ct < LIM && s_gets(input[ct], SIZE) != NULL && input[ct][0] != '\0')
+      {
+          ptstr[ct] = input[ct]; //设置指针指向字符串
+          ct++;
+      }
+      // 函数排序
+      stsrt(ptstr, ct);
+      printf("排序后：\n");
+      for (k = 0; k < ct; k++)
+          puts(ptstr[k]);
+      return 0;
+  }
+  ```
+
+  ```
+  最多输入20行，我将会对它们排序，在一行开始处回车以停止输入
+  O that I was where I would be,
+  Then would I be where I an not;
+  But there I an I must be,
+  And where I would be I can not.
+
+  排序后：
+  And where I would be I can not.
+  But there I an I must be,
+  O that I was where I would be,
+  Then would I be where I an not;
+  ```
+
+- **排序指针而非字符串**
+
+  > 1、该程序的**巧妙之处**，在于**排序**的是**指向字符串的指针**，而**不是字符串本身**  
+  > 2、最初，`ptrst[0]`**指针**被设置为`input[0]`，`ptrst[1]`**指针**被设置为`input[1]`，以此类推，这意味着**指针**`ptrst[i]`**指向数组**`input[i]`的**首字符**。每个`input[i]`都是**内含 81 个元素的数组**，每个`ptrst[i]`都是一个**单独的指针变量**  
+  > 3、排序过程中，将`ptrst`**重新排列**，并**未改变**`input`。例如**按字母顺序**`input[1]`应在`input[0]`前面，程序便**交换它们的指针**(即`ptrst[0]`指向`input[1]`的开始，而`ptrst[1]`指向`input[0]`的开始)。这样做比`strcpy()`函数**交换字符串内容**要**简易快速**的多，且还保留了`input`的**原始顺序**
+
+- **选择排序算法**
+
+  > 1、上例中**排序函数**使用的**排序算法**为**选择排序**，具体通过**两层循环**处理以下操作(简称内层循环变量为 j，外层循环变量为 i)  
+  > 2、**内层循环**负责**依次**把**每个未排序的元素**(第 j 个元素)与**所排序位置元素**(第 i 个元素)比较。如果**第 j 个元素**在**第 i 个元素**前面，则**交换两者**  
+  > 3、**内层循环结束**时，**第 i 个元素**便是这一轮排序中的**最值**，然后**外层循环**将 i 加 1(比对下一位置)，继续**重复这一过程**
+
+##### **命令行参数**
+
+- 码字中。。。
 
 ---
 
