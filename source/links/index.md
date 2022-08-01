@@ -62,7 +62,7 @@ links:
     color: "#ffad33"
 
   - url: https://www.travele.cc
-    avatar: https://image.travele.cc/01.jpg
+    avatar: https://image.travele.cc/trave.jpg
     blog: Travele_
     desc: 笔记，生活琐碎
     color: "#ffb3d9"
