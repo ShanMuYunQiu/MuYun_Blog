@@ -3957,8 +3957,8 @@ int main(void)
 
 - 编译后使用终端 cmd**运行命令行**及**输出结果**
 
-  ```bash
-  test.exe resistance is futile
+  ```
+  C> test.exe resistance is futile
   The command line has 3 arguments:
   1: resistance
   2: is
