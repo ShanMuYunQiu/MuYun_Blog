@@ -132,6 +132,7 @@ reward: true
 
 <div class="info">
 
+> **08-04** | 关闭`LeanCloud Visitor`统计阅读量，莫名报错，原因未知  
 > **07-26** | 更换回`cdn.jsdelivr`作为博客 CDN  
 > **07-19** | 解决了`Vercel`的 CORS 跨域问题  
 > **07-19** | 更新一言接口，调整节选片段的类型  
@@ -145,14 +146,14 @@ reward: true
 > **07-02** | 配置`Yun`引用标签颜色(success;warning;danger;info;gray;yellow)  
 > **07-02** | 页脚添加`Moe Count`，并重写页脚，完成图标  
 > **07-01** | 更改博客配色，更加统一协调。添加了`aplayer`播放器插件  
-> **06-21** | 实现 `Github Calendar` 插件，显示开发记录，并使用 CSS 适配手机端  
-> **06-19** | 使用 `LeanCloud Visitor` 代替 `Waline` 完成访客统计  
+> **06-21** | 实现`Github Calendar`插件，显示开发记录，并使用 CSS 适配手机端  
+> **06-19** | 使用`LeanCloud Visitor`代替`Waline`完成访客统计  
 > **06-18** | 将博客的分类和标签重新规划  
-> **06-17** | 莫名报了一堆错，最终排查原因是百度版本的 sitemap 插件，删除后修复  
+> **06-17** | 莫名报了一堆错，最终排查原因是百度版本的`sitemap`插件，删除后修复  
 > **06-17** | 将文章内图片类型的表格，使用`markdown`手动实现并替换  
 > **06-16** | 创建本更新日志，此前记录根据`git`保存描述复现  
 > **06-16** | 实现自动创建`Sidemap`功能  
-> **06-09** | 创建`Sidemap`，并提交 SEO  
+> **06-09** | 创建`sitemap`，并提交 SEO  
 > **06-08** | 使用`github action`实现持续集成功能  
 > **06-08** | 由于`fastly.jsdelivr`也受到影响，CDN 更换为饿了么`npm.elemecdn.com`  
 > **06-05** | 更新了版权许可  
