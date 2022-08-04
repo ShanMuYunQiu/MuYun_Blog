@@ -4,7 +4,7 @@ author: 圣奇宝枣
 description: Quotefancy网站中摘抄的英文谚语
 sticky: 0
 date: 2022-06-21 13:01:00
-updated: 2022-06-28 13:20:01
+updated: 2022-08-05 08:10:01
 readmore: true
 tags:
 categories:
@@ -13,10 +13,10 @@ categories:
 
 ---
 
-- **Work hard in silence,let your success be your noise.**  
+- **Work hard in silence, let your success be your noise.**  
   **安静沉默地努力工作，让你的成功为你发声**
 
-- **Make it happen now, not tomorrow. Tomorrow is a loser's excuse.**  
+- **Make it happen now, not tomorrow. Tomorrow is a loser’s excuse.**  
   **现在就让它成为现实，而不是明天，明天是一个失败者的借口**
 
 - **If you want something you have never had, you must be willing to do something you have never done.**  
@@ -48,7 +48,7 @@ categories:
 - **If people are not laughing at your goals, your goals are too small.**  
   **如果人们没有嘲笑你的目标，那么你的目标太小了**
 
-- **Hard work beats talent when talent doesn't work hard.**  
+- **Hard work beats talent when talent doesn’t work hard.**  
   **当天赋不努力的时候，努力就能胜过天赋**
 
 - **It does not matter how slowly you go as long as you do not stop.**  
@@ -59,3 +59,36 @@ categories:
 
 - **Knowing is not enough, we must apply. Willing is not enough, we must do.**  
   **仅仅知道是不够的，我们必须还要会应用。仅仅有意愿是不够的，我们必须还要行动**
+
+- **The first step to getting anywhere is deciding you’re no longer willing to stay where you are.**  
+  **到达任何地方的第一步，是你下定决心不再原因停留在原地**
+
+- **A year from now you may wish you had started today.**  
+  **一年后，你可能会希望你早在今天就已经开始了**
+
+- **The activity you’re most avoiding contains your biggest opportunity.**  
+  **你最想回避的活动包含着你最大的机会**
+
+- **Today i will do what others won’t so tomorrow i can do what others can’t.**  
+  **今天我要去做其他人不会去做的事情，所以明天我能做到其他人做不到的事情**
+
+- **Keep loving, keep living.**  
+  **保持热爱，奔赴山海**
+
+- **When 99% of people doubt your idea, you’re either gravely wrong or about to make history.**  
+  **当 99%的人都质疑你的观点时，你要么大错特错，要么即将创造历史**
+
+- **Do what you can, with what you have, where you are.**  
+  **用你所拥有的东西，在你所处的地方，做你能做的事**
+
+- **Courage doesn’t always roar. Sometimes courage is the little voice at the end of the day that says I’ll try again tomorrow.**  
+  **勇气并不总是咆哮。有时勇气也是在一天的结束，说出“我明天再试试”的微小的声音**
+
+- **Always be a first rate version of yourself and not a second rate version of someone else.**  
+  **永远做一流版本的自己，而不要做二流版本的别人**
+
+- **Long-term consistency trumps short-term intensity.**  
+  **长期的稳定性胜过短期的强度**
+
+- **Success isn’t owned. It’s leased. And rent is due every day.**  
+  **成功并不是拥有的，它是租来的，并且租金还是每天都要交的**
