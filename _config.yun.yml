@@ -260,7 +260,7 @@ comment:
 waline:
   enable: true
   serverURL: https://waline-swart-ten.vercel.app
-  visitor: true
+  visitor: false
   comment: true
   emoji:
     - "https://unpkg.com/@waline/emojis@1.0.1/bilibili"
