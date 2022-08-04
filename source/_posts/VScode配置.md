@@ -4,7 +4,7 @@ author: 圣奇宝枣
 description: 个人以及大众最爱的编辑器，新手时期被繁杂的配置劝退过，而本教程将带你渡过难关
 sticky: 0
 date: 2022-04-27 12:56:14
-updated: 2022-07-31 11:04:13
+updated: 2022-08-04 21:04:13
 readmore: true
 tags:
   - 前置准备
@@ -88,7 +88,10 @@ categories:
 > ----使用：星号\*高亮亮绿色，叹号!警告红色，问号?记录问题蓝色，关键词 TODO 规划区域橙色  
 > **Color Highlight**：显示色码(#000000)颜色，在设置中设置**Marker Type**设置显示样式，推荐**dot-before**  
 > **Excel Viewer**：在 VScode 中打开 Excel 表格  
-> **Bookmarks**：书签跳转，使用右键在需要的行上设置书签以快速跳转
+> **Bookmarks**：书签跳转，使用右键在需要的行上设置书签以快速跳转  
+> **GitLens**：侧边栏显示光标所在位置的历史git提交并快速访问，拓展VScode自带git管理器的功能  
+> **Git Graph**：将git提交记录转换为可视化图表  
+> **CodeSnap**：快速美观代码截图
 
 </div>
 
