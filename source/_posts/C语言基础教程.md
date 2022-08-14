@@ -4,7 +4,7 @@ author: 圣奇宝枣
 description: 有关于C语言的基础教程，包括基本语法与基础的底层逻辑知识，比较适合有一定经验的初学者上手
 sticky: 1
 date: 2022-05-09 08:21:06
-updated: 2022-08-13 20:24:00
+updated: 2022-08-14 11:09:00
 readmore: true
 tags:
   - 编程
@@ -4780,7 +4780,7 @@ int main(void)
 
 <div class="success">
 
-> **章节概要**：与文件进行通信；文本模式和二进制模式；I/O 的级别；标准文件；标准 I/O；`fopen()`函数；文件指针；`getc()`和`putc()`函数；`fclose()`函数；指向标准文件的指针；简单的文件压缩程序
+> **章节概要**：与文件进行通信；文本模式和二进制模式；I/O 的级别；标准文件；标准 I/O；`fopen()`函数；文件指针；`getc()`和`putc()`函数；`fclose()`函数；指向标准文件的指针；简单的文件压缩程序；文件 I/O；`fprintf()`、`fscanf()`函数和`rewind()`函数；`fgets()`和`fputs()`函数；随机访问：`fseek()`和`stell()`
 
 </div>
 
@@ -4927,6 +4927,112 @@ int main(void)
   | 标准错误 |  stderr  |     显示器     |
 
 ##### **简单的文件压缩程序**
+
+```c
+/* 将文件压缩成原来的1/3*(仅压缩大小) */
+/* 同样本程序依然使用命令行参数传入参数 */
+#include <stdio.h>
+#include <stdlib.h> // 提供 exit() 的原型
+#include <string.h> // 提供 strcpy()、strcat()的原型
+#define LEN 40
+
+int main(int argc, char *argv[])
+{
+    FILE *in, *out; // 声明两个文件指针
+    int ch;
+    char name[LEN]; // 存储输出文件名
+    int count = 0;
+
+    // 检查命令行参数
+    if (argc < 2)
+    {
+        fprintf(stderr, "Usage: %s filename\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
+
+    // 设置输入
+    if ((in = fopen(argv[1], "r")) == NULL) // 以读模式打开文件
+    {
+        fprintf(stderr, "I couldn't open the file '%s' \n", argv[1]);
+        exit(EXIT_FAILURE);
+    }
+
+    // 设置输出
+    strncpy(name, argv[1], LEN - 5); // 拷贝文件名，LEN-5留出5字符添加文件后缀名
+    name[LEN - 5] = '\0';
+    strcat(name, ".red");                 // 在文件名后添加.red后缀
+    if ((out = fopen(name, "w")) == NULL) // 以写模式打开文件
+    {
+        fprintf(stderr, "Can't create output file\n");
+        exit(3);
+    }
+
+    // 拷贝数据
+    while ((ch = getc(in)) != EOF)
+        if (count++ % 3 == 0)
+            putc(ch, out); // 打印每三个字符的第一个字符
+
+    // 关闭文件，收尾
+    if (fclose(in) != 0 || fclose(out) != 0)
+        fprintf(stderr, "Error in closing files\n");
+    return 0;
+}
+```
+
+##### **文件 I/O**
+
+- **fprintf()、fscanf()函数和 rewind()函数**
+
+  - `fprintf()`和`fscanf()`函数的**工作方式**与我们熟悉的`printf()`和`scanf()`**相似**，只是前两者需要用**第一个参数**指定**待处理的文件**
+
+  - `rewind()`可以让程序回到**文件开始处**，其接受**一个参数**，即**文件指针**
+
+  - **示例程序**
+
+    ```c
+    /* 将终端输入的字符存入文件，并从文件再次读取输出到终端 */
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <string.h>
+    #define MAX 41
+
+    int main(void)
+    {
+        FILE *fp;
+        char words[MAX];
+        if ((fp = fopen("wordy", "a+")) == NULL)
+        {
+            fprintf(stdout, "Can't open 'wordy' file\n");
+            exit(EXIT_FAILURE);
+        }
+        puts("输入单词将其添加到文件中，在新的一行输入#符号退出");       // 终端提示语
+        while ((fscanf(stdin, "%40s", words) == 1) && (words[0] != '#')) // 从 stdin 接受至多40字符存入 words，且首字符不为#
+            fprintf(fp, "%s\n", words);                                  // 向 fp 指向的文件输出字符串，内容为 words 的字符
+        puts("文件预览：");                                              // 终端提示语
+        rewind(fp);                                                      // 回到文件开始处
+        while (fscanf(fp, "%s", words) == 1)                             // 从 fp 指向的文件接受字符，存入 words
+            puts(words);                                                 // 输出到屏幕上
+        fclose(fp);
+        return 0;
+    }
+    ```
+
+- **fgets()和 fputs()函数**
+
+  - **第 11 章**简要介绍过这两个函数，在此简单回顾
+
+  - `fgets()`**函数**
+
+    > 1、语法`fgets(words,STLEN,fp);`。**第一个参数**为**存储字符串的地址**，**第二个参数**为**输入字符串的大小**，**第三个参数**为**文件指针**  
+    > 2、`fgets()`**读取输入**，直到**第一个换行符后**，或**文件结尾**，或`STLEN-1`**个字符**，在末尾添加一个**空字符**使其成为**字符串**  
+    > 3、`fgets()`**遇到 EOF**时将**返回 NULL 值**，可以利用这一特性检查**是否到达文件结尾**；如果**未遇到 EOF**则**返回第一个参数的地址**
+
+  - `fputs()`**函数**
+
+    > 1、语法`fputs(words,fp);`。**第一个参数**为**所需输出字符串的地址**，**第二个参数**为**文件指针**  
+    > 2、`fputs`在打印字符串时**不会在末尾添加换行符**
+
+##### **随机访问：fseek()和 stell()**
 
 - 码字中。。。
 
