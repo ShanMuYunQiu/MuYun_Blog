@@ -4,7 +4,7 @@ author: 圣奇宝枣
 description: 有关于C语言的基础教程，包括基本语法与基础的底层逻辑知识，比较适合有一定经验的初学者上手
 sticky: 1
 date: 2022-05-09 08:21:06
-updated: 2022-08-16 11:25:16
+updated: 2022-08-17 07:46:41
 readmore: true
 tags:
   - 编程
@@ -5198,7 +5198,7 @@ int main(int argc, char *argv[])
 
 <div class="success">
 
-> **章节概要**：初识结构体；建立结构声明；定义结构变量；初始化结构；访问结构成员；结构的初始化器；结构数组
+> **章节概要**：初识结构体；建立结构声明；定义结构变量；初始化结构；访问结构成员；结构的初始化器；结构数组；声明结构数组；标识结构数组的成员；嵌套结构；指向结构的指针
 
 </div>
 
@@ -5364,7 +5364,139 @@ int main(int argc, char *argv[])
 
 ##### **结构数组**
 
-- 码字中。。。
+- **示例拓展**
+
+  - **引入**
+
+    > 1、接下来，我们要使上面的程序拓展成**可以处理多本书**，**每本书的信息**都可以用一个**book 类型**的**结构变量**来表示  
+    > 2、可以使用这一类型的**结构数组**来处理**多本书**，如下面的示例程序  
+    > 3、注意示例程序创建了一个内含**100 个结构变量**的**结构数组**。由于该数组是**自动存储类别**的对象，**信息**被存储在**栈**中。如此大的数组需要**很大一块内存**，这可能导致一些问题，比如**栈溢出**。这是由于编译器可能使用了一个**默认大小的栈**，要修正这个问题，可以使用**编译器选项**设置**栈大小**为**10000**，或者也可以创建**静态或外部数组**(这样不会存储在栈内)
+
+  - **示例程序**
+
+    ```c
+    #include <stdio.h>
+    #include <string.h>
+    #define MAXTITL 41 // 书名最大长度+1
+    #define MAXAUTL 31 // 作者姓名最大长度+1
+    #define MAXBKS 100 // 书籍最大数量
+
+    // 之前自己自定义的 s_gets 函数
+    char *s_gets(char *str, int n)
+    {
+        char *ret_val; // 创建指针
+        int i = 0;
+        ret_val = fgets(str, n, stdin); // fgets()返回指向char的指针，如果顺利的话返回地址与传入的第一个参数相同，如果读到文件结尾返回NULL
+        if (ret_val)                    // 即，ret_val != NULL，判断是否读到文件结尾
+        {
+            while (str[i] != '\n' && str[i] != '\0') // 忽略跳过正常字符
+                i++;
+            if (str[i] == '\n') // 出现换行符替换为空字符，即不存储换行符
+                str[i] = '\0';
+            else                          // 否则就是读到了空字符
+                while (getchar() != '\n') // 丢弃该输入行的其余字符
+                    continue;
+        }
+        return ret_val;
+    }
+
+    struct book
+    {
+        char title[MAXTITL];
+        char author[MAXAUTL];
+        float value;
+    };
+
+    int main(void)
+    {
+        struct book library[MAXBKS]; // book 类型结构的数组
+        int count = 0, index;
+        printf("输入书名，在新行行首换行停止程序：");
+        // 计数小于最大书籍数 && 输入title正常 && 不停止程序
+        while (count < MAXBKS && s_gets(library[count].title, MAXTITL) != NULL && library[count].title[0] != '\0')
+        {
+            printf("现在输入作者：");
+            s_gets(library[count].author, MAXAUTL);
+            printf("现在输入价钱：");
+            scanf("%f", &library[count++].value); // 输入结束后，count++
+            while (getchar() != '\n')             // 清理输入行(scanf输入会保留换行符)
+                continue;
+            if (count < MAXBKS)
+                printf("输入下一本书名：");
+        }
+
+        if (count > 0)
+        {
+            printf("这是你的书籍信息单：\n");
+            for (index = 0; index < count; index++)
+                printf("%s  %s  %.2f\n", library[index].title, library[index].author, library[index].value);
+        }
+        else
+            printf("没有书籍信息");
+        return 0;
+    }
+    ```
+
+- **声明结构数组**
+
+  > 1、声明**结构数组**和声明**其他类型的数组**类似，例如`struct book library[50]`  
+  > 2、以上代码把**library**声明为一个**内含 50 个元素**的数组。数组的**每个元素**都是一个**book 类型**的**结构**  
+  > 3、因此，`library[0]`是**第 1 个 book 类型结构变量**，`library[1]`是**第 2 个 book 类型结构变量**  
+  > 4、**数组名 library**本身**不是结构名**，它只是一个**数组名**
+
+- **标识结构数组的成员**
+
+  > 1、为了标识**结构数组**的**成员**，可以采用**访问单独结构**的规则：**结构名**后加一个**点运算符**，再写**成员名**  
+  > 2、只是对于**结构数组**，结构名为`library[0]`这种形式，而非`library`(library 只是数组名)  
+  > 3、因此**访问对象**为`library[0].title`、`library[1].author`等等
+
+##### **嵌套结构**
+
+- **示例程序**
+
+  ```c
+  #include <stdio.h>
+  #define LEN 20
+
+  struct names
+  {
+      char first[LEN];
+      char last[LEN];
+  };
+
+  struct guy
+  {
+      struct names handle; // 嵌套结构
+      char favfood[LEN];
+      char job[LEN];
+      float income;
+  };
+
+  int main(void)
+  {
+      // 初始化结构变量
+      struct guy fellow = {
+          {"Ewen", "Villard"},
+          "grilled salmon",
+          "personality coach",
+          68112.00
+      };
+      printf("朋友信息：\n");
+      printf("名：%s  姓：%s\n", fellow.handle.first, fellow.handle.last);
+      printf("喜欢的食物：%s\n职业：%s\n收入：%.2f",fellow.favfood, fellow.job, fellow.income);
+      return 0;
+  }
+  ```
+
+- **示例解析**
+
+  > 1、首先注意如何在**结构声明**中**创建嵌套结构**。和声明**int类型变量**一样，先进行声明`struct names handle`，该声明表示**handle**是一个**struct names**类型的**变量**(当然文件中应**提前声明 names**)  
+  > 2、其次注意如何**访问嵌套结构**的**成员**。此时应使用两次**点运算符**，如`fellow.handle.first`，意为找到**fellow**中嵌套的**handle**，再找到**handle**的**first成员**  
+  > 3、**初始化**结构变量时，**嵌套的结构**也仍需按照**初始化语法**进行初始化，即需要用**花括号**包裹
+
+##### **指向结构的指针**
+
+- 码字中
 
 ---
 
