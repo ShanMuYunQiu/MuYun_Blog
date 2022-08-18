@@ -3714,9 +3714,9 @@ int main(void)
   // 函数的返回值是字符串(char *s_gets)
   char *s_gets(char *str, int n)
   {
-      char *ret_val; // 创建指针
+      char *ret_val; // 创建指针(同时也是存储字符串的变量)
       int i = 0;
-      ret_val = fgets(str, n, stdin); // fgets()返回指向char的指针，如果顺利的话返回地址与传入的第一个参数相同，如果读到文件结尾返回NULL
+      ret_val = fgets(str, n, stdin); // fgets()返回指向char的指针，如果顺利的话返回地址与传入的第一个参数相同(注意 ret_val 会和 str 指向同一个地址)，如果读到文件结尾返回NULL
       if (ret_val)                    // 即，ret_val != NULL，判断是否读到文件结尾
       {
           while (str[i] != '\n' && str[i] != '\0') // 忽略跳过正常字符
@@ -3866,9 +3866,9 @@ int main(void)
   // 前面“自定义函数”中提到过的自定义 s_gets()函数
   char *s_gets(char *str, int n)
   {
-      char *ret_val; // 创建指针
+      char *ret_val; // 创建指针(同时也是存储字符串的变量)
       int i = 0;
-      ret_val = fgets(str, n, stdin); // fgets()返回指向char的指针，如果顺利的话返回地址与传入的第一个参数相同，如果读到文件结尾返回NULL
+      ret_val = fgets(str, n, stdin); // fgets()返回指向char的指针，如果顺利的话返回地址与传入的第一个参数相同(注意 ret_val 会和 str 指向同一个地址)，如果读到文件结尾返回NULL
       if (ret_val)                    // 即，ret_val != NULL，判断是否读到文件结尾
       {
           while (str[i] != '\n' && str[i] != '\0') // 忽略跳过正常字符
@@ -4023,9 +4023,9 @@ int main(void)
   // 前面自定义函数提到的自定义s_gets()函数
   char *s_gets(char *str, int n)
   {
-      char *ret_val; // 创建指针
+      char *ret_val; // 创建指针(同时也是存储字符串的变量)
       int i = 0;
-      ret_val = fgets(str, n, stdin); // fgets()返回指向char的指针，如果顺利的话返回地址与传入的第一个参数相同，如果读到文件结尾返回NULL
+      ret_val = fgets(str, n, stdin); // fgets()返回指向char的指针，如果顺利的话返回地址与传入的第一个参数相同(注意 ret_val 会和 str 指向同一个地址)，如果读到文件结尾返回NULL
       if (ret_val)                    // 即，ret_val != NULL，判断是否读到文件结尾
       {
           while (str[i] != '\n' && str[i] != '\0') // 忽略跳过正常字符
@@ -5223,9 +5223,9 @@ int main(int argc, char *argv[])
     // 之前自己自定义的 s_gets 函数
     char *s_gets(char *str, int n)
     {
-        char *ret_val; // 创建指针
+        char *ret_val; // 创建指针(同时也是存储字符串的变量)
         int i = 0;
-        ret_val = fgets(str, n, stdin); // fgets()返回指向char的指针，如果顺利的话返回地址与传入的第一个参数相同，如果读到文件结尾返回NULL
+        ret_val = fgets(str, n, stdin); // fgets()返回指向char的指针，如果顺利的话返回地址与传入的第一个参数相同(注意 ret_val 会和 str 指向同一个地址)，如果读到文件结尾返回NULL
         if (ret_val)                    // 即，ret_val != NULL，判断是否读到文件结尾
         {
             while (str[i] != '\n' && str[i] != '\0') // 忽略跳过正常字符
@@ -5384,9 +5384,9 @@ int main(int argc, char *argv[])
     // 之前自己自定义的 s_gets 函数
     char *s_gets(char *str, int n)
     {
-        char *ret_val; // 创建指针
+        char *ret_val; // 创建指针(同时也是存储字符串的变量)
         int i = 0;
-        ret_val = fgets(str, n, stdin); // fgets()返回指向char的指针，如果顺利的话返回地址与传入的第一个参数相同，如果读到文件结尾返回NULL
+        ret_val = fgets(str, n, stdin); // fgets()返回指向char的指针，如果顺利的话返回地址与传入的第一个参数相同(注意 ret_val 会和 str 指向同一个地址)，如果读到文件结尾返回NULL
         if (ret_val)                    // 即，ret_val != NULL，判断是否读到文件结尾
         {
             while (str[i] != '\n' && str[i] != '\0') // 忽略跳过正常字符
@@ -5711,9 +5711,9 @@ int main(int argc, char *argv[])
     // 之前自定义的 s_gets() 函数
     char *s_gets(char *str, int n)
     {
-        char *ret_val; // 创建指针
+        char *ret_val; // 创建指针(同时也是存储字符串的变量)
         int i = 0;
-        ret_val = fgets(str, n, stdin); // fgets()返回指向char的指针，如果顺利的话返回地址与传入的第一个参数相同，如果读到文件结尾返回NULL
+        ret_val = fgets(str, n, stdin); // fgets()返回指向char的指针，如果顺利的话返回地址与传入的第一个参数相同(注意 ret_val 会和 str 指向同一个地址)，如果读到文件结尾返回NULL
         if (ret_val)                    // 即，ret_val != NULL，判断是否读到文件结尾
         {
             while (str[i] != '\n' && str[i] != '\0') // 忽略跳过正常字符
