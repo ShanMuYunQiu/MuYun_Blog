@@ -3711,7 +3711,7 @@ int main(void)
 
   ```c
   #include <stdio.h>
-  // 声明一个函数指针
+  // 函数的返回值是字符串(char *s_gets)
   char *s_gets(char *str, int n)
   {
       char *ret_val; // 创建指针
