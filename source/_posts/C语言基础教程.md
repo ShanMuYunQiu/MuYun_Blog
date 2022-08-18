@@ -4,7 +4,7 @@ author: 圣奇宝枣
 description: 有关于C语言的基础教程，包括基本语法与基础的底层逻辑知识，比较适合有一定经验的初学者上手
 sticky: 1
 date: 2022-05-09 08:21:06
-updated: 2022-08-17 10:04:41
+updated: 2022-08-18 11:09:41
 readmore: true
 tags:
   - 编程
@@ -5198,7 +5198,7 @@ int main(int argc, char *argv[])
 
 <div class="success">
 
-> **章节概要**：初识结构体；建立结构声明；定义结构变量；初始化结构；访问结构成员；结构的初始化器；结构数组；声明结构数组；标识结构数组的成员；嵌套结构；指向结构的指针；声明和初始化结构指针；用指针访问成员；向函数传递结构的信息
+> **章节概要**：初识结构体；建立结构声明；定义结构变量；初始化结构；访问结构成员；结构的初始化器；结构数组；声明结构数组；标识结构数组的成员；嵌套结构；指向结构的指针；声明和初始化结构指针；用指针访问成员；向函数传递结构的信息；传递结构成员；传递结构的地址；传递结构；其他结构特性；结构与内存分配；结构中的字符指针与`malloc()`；复合字面量和结构
 
 </div>
 
@@ -5573,7 +5573,209 @@ int main(int argc, char *argv[])
 
 ##### **向函数传递结构的信息**
 
-- 码字中。。。
+- **传递结构成员**
+
+  ```c
+  #include <stdio.h>
+
+  struct funds
+  {
+      double bankfund;
+      double savefund;
+  };
+
+  double sum(double x, double y)
+  {
+      return (x + y);
+  }
+
+  int main(void)
+  {
+      struct funds stan = {
+          4032.27,
+          8543.94
+      };
+      // 传参
+      printf("%.2f", sum(stan.bankfund, stan.savefund));
+      return 0;
+  }
+  ```
+
+  > 1、只要**结构成员**是一个**具有单个值**的数据类型，即可把它**作为参数**传递给**接受该类型**的函数  
+  > 2、当然，如果需要在**被调函数**中修改**主调函数**中成员的值，需要**传递成员的地址**(`&stan.bankfund`)
+
+- **传递结构的地址**
+
+  ```c
+  #include <stdio.h>
+
+  struct funds
+  {
+      double bankfund;
+      double savefund;
+  };
+
+  double sum(const struct funds *money) // 参数是一个指针
+  {
+      return (money->bankfund + money->savefund); // 通过指针访问成员
+  }
+
+  int main(void)
+  {
+      struct funds stan = {
+          4032.27,
+          8543.94
+      };
+      // 传参
+      printf("%.2f", sum(&stan));
+      return 0;
+  }
+  ```
+
+  > 1、这次将**结构的地址**作为参数，`sum()`**函数**使用**指向 funds 结构的指针**(money)作为参数，，把地址`&stan`传给函数，使**money**指向**结构变量 stan**  
+  > 2、函数中，通过**指针访问成员**(`->`运算符)，获取`stan.bankfund`和`stan.savefund`的值  
+  > 3、由于该函数并不能改变**指针所指向值**的**内容**，所以把**money**声明为一个**指向 const 的指针**
+
+- **传递结构**
+
+  ```c
+  #include <stdio.h>
+
+  struct funds
+  {
+      double bankfund;
+      double savefund;
+  };
+
+  double sum(struct funds moolah) // 参数是一个结构
+  {
+      return (moolah.bankfund + moolah.savefund); // 通过结构变量访问成员
+  }
+
+  int main(void)
+  {
+      struct funds stan = {
+          4032.27,
+          8543.94
+      };
+      // 传参
+      printf("%.2f", sum(stan));
+      return 0;
+  }
+  ```
+
+  > 1、对于**允许把结构作为参数**的编译器(一些旧的实现不允许这样做)，可以通过**上述示例**方式传递结构  
+  > 2、**函数**`sum()`被调用时，**创建**了一个名为**moolah**的**自动结构变量**，其**各成员**被**初始化**为**stan 结构变量相应成员**的值的**副本**  
+  > 3、因此，**传递指针**的方式使用的是**原始的结构**进行计算，而这种方式使用的是**新创建的 moolah 副本**进行计算，因此该程序使用`moolah.bankfund`访问**成员**
+
+- **其他结构特性**
+
+  - **结构赋值**
+
+    > 1、现在的 C 允许**把一个结构赋值给另一个结构**(但是数组不能这样做)  
+    > 2、也就是说，如果**n_data**和**o_data**都是**相同类型的结构**，可以这样做：`o_data = n_data`  
+    > 3、这条语句把**n_data**的**每个成员的值**都赋给**o_data**的**相应成员**。即使**成员是数组**，**也能完成赋值**
+
+  - **结构作为返回值**
+
+    > 1、现在的 C，**函数**不仅能把**结构**作为**参数**传递，还能把**结构**作为**返回值**返回  
+    > 2、例如一个**常规的函数**，接受一个**指向结构的指针**作为**参数**，并通过指针**改变数据**。现在还可以在**函数**内**定义单独的结构变量**，在**函数内**对该**结构变量**进行操作，最后将其**作为返回值**返回。  
+    > 3、例如**函数**为`void def(void)`，函数内定义**结构变量**为**person**，函数**返回语句**为`return person;`，主函数有**同类型结构变量 person_data**，便可以通过`person_data = def();`将`def()`**函数内**的**person**，**作为返回值赋给 person_data**
+
+##### **结构与内存分配**
+
+- **结构中的字符指针与 malloc()**
+
+  - **问题分析**
+
+    > 1、到目前为止，我们在**结构**中都是使用**字符数组**存储字符串，能否像学习**字符串**时使用**指向 char 的指针**存储字符串？  
+    > 2、通常而言是可行的，但是**实际使用**时，也会出现**指向 char 的指针**存储字符串时的**通病**——**内存分配**  
+    > 3、使用**这样的方式**存储字符串，由于**指针所指向的位置**并**未被分配**，因此其**存储的位置地址**可以是**任何值**，这可能会**篡改程序**的**其他数据**，导致程序崩溃  
+    > 4、因此如果要用**结构存储字符串**，用**字符数组**较为简单，如果使用**指针**，误用可能导致严重的问题，因此最好配合`malloc()`**函数**提前分配内存
+
+  - **指针与**`malloc()`**函数**
+
+    ```c
+    #include <stdio.h>
+    #include <string.h> // 提供 strcpy()、strlen()的原型
+    #include <stdlib.h> // 提供 malloc()、free()的原型
+    #define SLEN 81
+
+    struct namect
+    {
+        char *fname; // 使用指针存储字符串
+        char *lname;
+        int letters; // 统计名字字符数
+    };
+
+    // 之前自定义的 s_gets() 函数
+    char *s_gets(char *str, int n)
+    {
+        char *ret_val; // 创建指针
+        int i = 0;
+        ret_val = fgets(str, n, stdin); // fgets()返回指向char的指针，如果顺利的话返回地址与传入的第一个参数相同，如果读到文件结尾返回NULL
+        if (ret_val)                    // 即，ret_val != NULL，判断是否读到文件结尾
+        {
+            while (str[i] != '\n' && str[i] != '\0') // 忽略跳过正常字符
+                i++;
+            if (str[i] == '\n') // 出现换行符替换为空字符，即不存储换行符
+                str[i] = '\0';
+            else                          // 否则就是读到了空字符
+                while (getchar() != '\n') // 丢弃该输入行的其余字符
+                    continue;
+        }
+        return ret_val;
+    }
+
+    // 获取信息
+    void getinfo(struct namect *pst) // 传递指针
+    {
+        char temp[SLEN];
+        printf("输入名字：");
+        s_gets(temp, SLEN);
+        // 分配内存以存储名字
+        pst->fname = (char *)malloc(strlen(temp) + 1); // 分配存储 temp+1 所需的大小
+        strcpy(pst->fname, temp);                      // 拷贝字符串
+        printf("输入姓氏：");
+        s_gets(temp, SLEN);
+        pst->lname = (char *)malloc(strlen(temp) + 1);
+        strcpy(pst->lname, temp);
+    }
+
+    // 处理信息
+    void makeinfo(struct namect *pst)
+    {
+        // 计算名字字符个数
+        pst->letters = strlen(pst->fname) + strlen(pst->lname);
+    }
+
+    // 打印信息
+    void showinfo(struct namect *pst)
+    {
+        printf("%s  %s  %d\n", pst->fname, pst->lname, pst->letters);
+    }
+
+    // 释放分配的内存
+    void cleanup(struct namect *pst)
+    {
+        free(pst->fname);
+        free(pst->lname);
+    }
+
+    int main(void)
+    {
+        struct namect person; // 名为person的结构变量
+        getinfo(&person);
+        makeinfo(&person);
+        showinfo(&person);
+        cleanup(&person);
+        return 0;
+    }
+    ```
+
+- **复合字面量和结构**
+
+  - 码字中。。。
 
 ---
 
