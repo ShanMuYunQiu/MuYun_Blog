@@ -156,14 +156,14 @@ categories:
 
   - 简言之，一个简单的 C 语言程序格式如下(**大部分语句**都以**分号**`;`**结尾**)：
 
-  ```c
-  #include <stdio.h>
-  int main(void)
-  {
-      //语句
-      return 0;
-  }
-  ```
+    ```c
+    #include <stdio.h>
+    int main(void)
+    {
+        //语句
+        return 0;
+    }
+    ```
 
 ##### **进一步使用 C**
 
@@ -456,30 +456,32 @@ categories:
 
 </div>
 
-##### **示例程序**
+##### **引入示例**
 
-```c
-#include <stdio.h>
-#include <string.h>
-#define DENSITY 62.4 // 定义人体密度
-int main(void)
-{
-    float weight, volume;
-    int size, letters;
-    char name[40];
-    printf("Hi! What's your first name?\n");
-    scanf("%s", name);
-    printf("%s,whats's your weight in pounds?\n", name);
-    scanf("%f", &weight);
-    size = sizeof(name);
-    letters = strlen(name);
-    volume = weight / DENSITY;
-    printf("well, %s, your volume is %2.2f cubic feet\n", name, volume);
-    printf("Also, your first name has %d letters,\n", letters);
-    printf("and we have %d bytes to store it.\n", size);
-    return 0;
-}
-```
+- **示例程序**
+
+  ```c
+  #include <stdio.h>
+  #include <string.h>
+  #define DENSITY 62.4 // 定义人体密度
+  int main(void)
+  {
+      float weight, volume;
+      int size, letters;
+      char name[40];
+      printf("Hi! What's your first name?\n");
+      scanf("%s", name);
+      printf("%s,whats's your weight in pounds?\n", name);
+      scanf("%f", &weight);
+      size = sizeof(name);
+      letters = strlen(name);
+      volume = weight / DENSITY;
+      printf("well, %s, your volume is %2.2f cubic feet\n", name, volume);
+      printf("Also, your first name has %d letters,\n", letters);
+      printf("and we have %d bytes to store it.\n", size);
+      return 0;
+  }
+  ```
 
 - **新元素简单分析**
 
@@ -599,7 +601,7 @@ int main(void)
   |   t    | 和整型转换说明一起使用，表示 ptrdiff_t 类型的值，ptrdiff_t 是两个指针差值的类型(C99)                                                                                                                                                                                                                                                  |
   |   z    | 和整型转换说明一起使用，表示 size_t 类型的值，size_t 是 sizeof 返回的类型(C99)                                                                                                                                                                                                                                                        |
 
-  - 注：`%u`标记**不能把数字和符号分开**，会报错!!
+  > 注：`%u`标记**不能把数字和符号分开**，会报错!!
 
 - `printf()`中的**标记**
 
@@ -842,7 +844,7 @@ int main(void)
 
 ##### **再探 while 循环**
 
-- **程序示例**
+- **示例程序**
 
   ```c
   #include <stdio.h>
@@ -993,9 +995,9 @@ int main(void)
 
 ##### **复合赋值运算符**
 
-- **复合赋值运算符**:`+=`、`-=`、`*=`、`/=`、`%=`
+- **复合赋值运算符**：`+=`、`-=`、`*=`、`/=`、`%=`
 
-- **符号赋值运算符**`+=`表示**加法赋值**，如`a+=2`意义等同于`a=a+2`，其余以此类推
+- **符号赋值运算符**：`+=`表示**加法赋值**，如`a+=2`意义等同于`a=a+2`，其余以此类推
 
 ##### **出口条件循环 do-while**
 
