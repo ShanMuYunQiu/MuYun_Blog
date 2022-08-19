@@ -4,7 +4,7 @@ author: 圣奇宝枣
 description: 有关于C语言的基础教程，包括基本语法与基础的底层逻辑知识，比较适合有一定经验的初学者上手
 sticky: 1
 date: 2022-05-09 08:21:06
-updated: 2022-08-18 11:09:41
+updated: 2022-08-19 11:03:33
 readmore: true
 tags:
   - 编程
@@ -90,19 +90,21 @@ categories:
 
 ##### **简单的 C 程序示例及分析**
 
-```c
-#include <stdio.h>
+- **示例程序**
 
-int main(void)                //一个简单的C程序
-{
-    int num;                  //定义一个名为num的变量
-    num = 1;                  //为num赋一个值
-    printf("I am a simple "); //使用printf函数
-    printf("computer.\n");
-    printf("my favourite number is %d because it is first.\n", num);
-    return 0;
-}
-```
+  ```c
+  #include <stdio.h>
+
+  int main(void)                //一个简单的C程序
+  {
+      int num;                  //定义一个名为num的变量
+      num = 1;                  //为num赋一个值
+      printf("I am a simple "); //使用printf函数
+      printf("computer.\n");
+      printf("my favourite number is %d because it is first.\n", num);
+      return 0;
+  }
+  ```
 
 - **程序分析及知识概要**
 
@@ -165,24 +167,30 @@ int main(void)                //一个简单的C程序
 
 ##### **进一步使用 C**
 
-```c
-//把2英寻转换成英尺
-#include <stdio.h>
-int main(void)
-{
-    int feet, fathoms;
-    fathoms = 2;
-    feet = 6 * fathoms;
-    printf("There are %d feet in %d fathoms!\n", feet, fathoms);
-    printf("Yes,I said %d feet!\n", 6 * fathoms);
-    return 0;
-}
-```
+- **示例程序**
+
+  ```c
+  //把2英寻转换成英尺
+  #include <stdio.h>
+  int main(void)
+  {
+      int feet, fathoms;
+      fathoms = 2;
+      feet = 6 * fathoms;
+      printf("There are %d feet in %d fathoms!\n", feet, fathoms);
+      printf("Yes,I said %d feet!\n", 6 * fathoms);
+      return 0;
+  }
+  ```
 
 - **程序分析及知识概要**
+
   - **多条声明**
+
     > 1、`int feet, fathoms;`语句，使用**多条声明**声明了**两个变量**，使用**逗号**`,`隔开，此语句与`int feet;`+`int fathoms;`等价
+
   - **打印多个值**
+
     > 1、程序的**第一个**`printf()`进行了**两次替换**，**按顺序**将`feet`、`fathoms`替换了两个`%d`  
     > 2、第二个`printf()`说明待打印的值**不一定是变量**，只要**可求值**得出**合适类型值的项**即可
 
@@ -190,19 +198,19 @@ int main(void)
 
 - 把**自己的函数**添加到程序中，此处只做简单了解，后续学习：
 
-```c
-#include <stdio.h>
-void def(void)
-{
-    printf("hello world!");
-}
+  ```c
+  #include <stdio.h>
+  void def(void)
+  {
+      printf("hello world!");
+  }
 
-int main(void)
-{
-    def();
-    return 0;
-}
-```
+  int main(void)
+  {
+      def();
+      return 0;
+  }
+  ```
 
 ##### **关键字和保留标识符**
 
@@ -234,21 +242,23 @@ int main(void)
 
 </div>
 
-##### **示例程序(交互式程序引入)**
+##### **交互式程序**
 
-```c
-#include <stdio.h>
-int main(void)
-{
-    float weight;
-    float value;
-    printf("Please enter your weight in pounds:");
-    scanf("%f", &weight);
-    value = 1700.0 * weight * 14.5833;
-    printf("your weight in platinum is worth $%.2f.\n", value);
-    return 0;
-}
-```
+- **示例程序**
+
+  ```c
+  #include <stdio.h>
+  int main(void)
+  {
+      float weight;
+      float value;
+      printf("Please enter your weight in pounds:");
+      scanf("%f", &weight);
+      value = 1700.0 * weight * 14.5833;
+      printf("your weight in platinum is worth $%.2f.\n", value);
+      return 0;
+  }
+  ```
 
 - **新元素简单分析**
   - 新的**变量声明**，使用`float`**浮点数**类型，浮点类型可以**储存带小数的数字**，详细说明见本章后面部分
@@ -423,16 +433,16 @@ int main(void)
 
 - 可以使用`sizeof()`获取以**字节**为单位的**类型大小**，**C99**和**C11**提供`%zd`匹配`sizeof()`返回值，其余不支持的编译器可用`%u`或`%lu`代替
 
-```c
-#include <stdio.h>
-int main(void)
-{
-    printf("Type int has a size of %zd bytes.\n", sizeof(int));
-    printf("Type char has a size of %zd bytes.\n", sizeof(char));
-    printf("Type float has a size of %zd bytes.\n", sizeof(float));
-    return 0;
-}
-```
+  ```c
+  #include <stdio.h>
+  int main(void)
+  {
+      printf("Type int has a size of %zd bytes.\n", sizeof(int));
+      printf("Type char has a size of %zd bytes.\n", sizeof(char));
+      printf("Type float has a size of %zd bytes.\n", sizeof(float));
+      return 0;
+  }
+  ```
 
 ---
 
@@ -855,11 +865,11 @@ int main(void)
   }
   ```
 
-  - **新元素分析**
+- **新元素分析**
 
-    - **sum**初始值为`0L`，为`long`类型的`0`，而非`int`类型的`0`
-    - `==`为**相等运算符**，用于判断**前后值是否相等**，不要与`=`**赋值运算符**混淆
-    - `scanf()`函数的**返回值**，返回**成功读取项的数量**，因此此处读取**1 个整数**，则**成功后**返回**1**
+  - **sum**初始值为`0L`，为`long`类型的`0`，而非`int`类型的`0`
+  - `==`为**相等运算符**，用于判断**前后值是否相等**，不要与`=`**赋值运算符**混淆
+  - `scanf()`函数的**返回值**，返回**成功读取项的数量**，因此此处读取**1 个整数**，则**成功后**返回**1**
 
 ##### **while 循环语句**
 
@@ -5198,7 +5208,7 @@ int main(int argc, char *argv[])
 
 <div class="success">
 
-> **章节概要**：初识结构体；建立结构声明；定义结构变量；初始化结构；访问结构成员；结构的初始化器；结构数组；声明结构数组；标识结构数组的成员；嵌套结构；指向结构的指针；声明和初始化结构指针；用指针访问成员；向函数传递结构的信息；传递结构成员；传递结构的地址；传递结构；其他结构特性；结构与内存分配；结构中的字符指针与`malloc()`；复合字面量和结构
+> **章节概要**：初识结构体；建立结构声明；定义结构变量；初始化结构；访问结构成员；结构的初始化器；结构数组；声明结构数组；标识结构数组的成员；嵌套结构；指向结构的指针；声明和初始化结构指针；用指针访问成员；向函数传递结构的信息；传递结构成员；传递结构的地址；传递结构；其他结构特性；结构与内存分配；结构中的字符指针与`malloc()`；复合字面量和结构；伸缩型数组成员；匿名结构；使用结构数组的函数；把结构内容保存到文件
 
 </div>
 
@@ -5775,7 +5785,106 @@ int main(int argc, char *argv[])
 
 - **复合字面量和结构**
 
-  - 码字中。。。
+  > 1、**C99**的**复合字面量**特性不仅可以用于**数组**，还可以用于**结构**。如果只需要一个**临时结构值**，复合字面量很好用  
+  > 2、可以使用**复合字面量**创建一个**结构**作为**函数的参数**或**赋给另一个结构**  
+  > 3、语法与**数组复合字面量**相似，将**类型名**放在**圆括号**中，后面紧跟一个用**花括号**括起来的**初始化列表**，示例如下
+
+  ```c
+  struct book
+  {
+      char title[20];
+      char author[20];
+      float value;
+  };
+
+  int main(void)
+  {
+      struct book readfirst;
+      readfirst = (struct book){"food","Nick",11.25};   // 使用复合字面量创建临时结构值赋值
+      return 0;
+  }
+  ```
+
+- **伸缩型数组成员**
+
+  - **简介**
+
+    > 1、**C99**新增了一个特性：**伸缩型数组成员**。利用这项特性声明的**结构**，其**最后一个数组成员**具有一些**特性**  
+    > 2、第 1 个特性是，该数组**不会立即存在**  
+    > 3、第 2 个特性是，使用这个**伸缩型数组成员**可以编写合适的代码，就**好像**它**确实存在**并**具有所需数目的元素**
+
+  - **声明伸缩型数组成员**
+
+    ```c
+    struct flex
+    {
+        int count;
+        double average;
+        double score[];   // 伸缩型数组成员
+    };
+    ```
+
+    > 1、**伸缩型数组成员**必须是结构的**最后一个成员**  
+    > 2、结构中必须**至少有一个成员**  
+    > 3、**伸缩数组**的声明类似于**普通数组**，只是**方括号中是空的**
+
+  - **使用伸缩型数组成员**
+
+    - 声明一个**struct flex**类型的**结构变量**时，不能用**score**去做任何事，因为**没有**给这个数组**预留存储空间**
+
+    - 实际上，**C99**的意图不是让你声明**struct flex**类型的**结构变量**，而是希望你声明**指向 struct flex 类型的指针**，然后用`malloc()`函数来**分配足够的空间**，以存储**struct flex**类型结构的**常规内容**和**伸缩型数组成员**所需的**额外空间**
+
+    - 例如，假设用**score**表示一个**内含 5 个 double 类型值**的**数组**，可以这样做：
+
+      ```c
+      struct flex * pf;   // 声明一个指针
+      // 请求为一个结构和一个数组分配存储空间
+      pf = malloc(sizeof(struct flex) + 5 * sizeof(double));    // 一个struct flex的空间 + 5个double的空间
+      ```
+
+    - 现在有**足够储存空间**存储**count**、**average**和一个**内含 5 个 double 类型值**的**数组**，可以用**指针 pf**访问这些成员：
+
+      ```c
+      pf -> count = 5;        // 访问 count 成员
+      pf -> score[2] = 18.5;  // 访问数组的一个元素
+      ```
+
+    - 此时，可以将**5 个 double 类型值**的**5**换为一个**变量 n**，就可以更方便的**伸缩数组大小**。即`malloc()`分配时，`malloc(sizeof(struct flex) + n * sizeof(double))`，其中**n**就表示**伸缩型数组成员**的**元素个数**
+
+  - **一些特殊的处理要求**
+
+    > 1、第一，**不能**用结构进行**赋值或拷贝**(即`*pf1 = *pf2`这样)，这样做只会拷贝**除伸缩型数组成员外**的**其他成员**。如果确实要拷贝，应使用`memcpy()`函数(第 16 章介绍)  
+    > 2、不要以**按值方式**把这种结构**传递给函数**。原因相同，**按值传递**一个参数与**赋值**类似。应该把**结构的地址**传给函数  
+    > 3、不要使用**带伸缩型数组成员的结构**作为**数组成员**或**另一个结构的成员**
+
+- **匿名结构**
+
+  - **匿名结构**是一个**没有名称的结构成员**。**C11**中，可以用**嵌套**的**匿名成员结构**定义结构：
+
+    ```c
+    struct person
+    {
+        int id;
+        struct {char first[20]; char last[20];};    // 匿名结构
+    };
+    ```
+
+  - **特点**
+
+    > 1、假设需要一个**struct person**类型的**结构变量 ted**，**初始化 ted**的方式与初始化一个**嵌套结构**方式相同：`struct person ted = {12, {"Ted", "Grass"}};`  
+    > 2、但是在**访问 ted 时**，相比嵌套结构**简化了步骤**。只需把**first**和**last**看作**person 的成员**，使用`ted.first`即可访问，而不需要像**嵌套结构**那样使用`ted.xxxxx.first`访问  
+    > 3、当然，这样看来也可以把**first**和**last**直接作为**person 的成员**，**匿名特性**在**嵌套联合**中更加有用，后续介绍
+
+- **使用结构数组的函数**
+
+  > 1、整体传参方式和之前**传递一个数组**类似。**数组名**就是**首元素地址**(数组地址)，可以将其**传给指针**，另外该函数还需要访问**结构模板**  
+  > 2、**函数定义**时参数定义大致为`double sum(struct funds money[], int n);`，其中`money[]`就是一个**指针**(也可以写为`*money`，这样写是为了提醒他人这是一个数组地址)，**n**为数组**元素个数**  
+  > 3、在主函数中**调用函数**`sum(jones, 5)`(其中 jones 被定义为`struct funds jones[5]`)。**数组名 jones**就是**首元素地址**，因此**指针 money**初始值相当于`money = &jones[0]`  
+  > 4、因为**money**指向**jones的首元素**，所以`money[0]`就是`jones[0]`的**另一个名称**。与此类似，`money[1]`就是**第二个元素**，在**函数中**便使用`money[下标].成员名`访问成员
+
+##### **把结构内容保存到文件**
+
+- 码字中。。。
 
 ---
 
