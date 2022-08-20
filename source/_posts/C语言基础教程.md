@@ -4,7 +4,7 @@ author: 圣奇宝枣
 description: 有关于C语言的基础教程，包括基本语法与基础的底层逻辑知识，比较适合有一定经验的初学者上手
 sticky: 1
 date: 2022-05-09 08:21:06
-updated: 2022-08-19 11:03:33
+updated: 2022-08-20 10:51:11
 readmore: true
 tags:
   - 编程
@@ -5179,7 +5179,7 @@ int main(int argc, char *argv[])
     ```
 
     > 1、**函数原型**：`size_t fwrite(const void * restrict ptr, size_t size, size_t nmemb, FILE * restrict fp)`  
-    > 2、`fwrite()`把**二进制数据**写入文件。其中**指针 ptr**是**待写入数据块的地址**，**size**表示**待写入数据块的大小**(以字节为单位)，**nmemb**表示**待写入数据块的数量**，**fp**表示**待写入的文件**  
+    > 2、`fwrite()`把**二进制数据**写入文件。其中**指针 ptr**是**待写入数据块的地址**，**size**表示**待写入数据块的大小**(以字节为单位)，**nmemb**表示**待写入数据块的数量**(也是一次性写入数据块的数量)，**fp**表示**待写入的文件**  
     > 3、注意`fwrite()`**第一个参数**类型是**指向 void 的指针**(通用类型指针)，因此**示例**中分别传入**指向 char 的指针**和**指向 double 的指针**都是合法的  
     > 4、`fwrite()`函数**返回成功写入项的数量**。正常情况下返回值就是**nmemb**，出现错误返回值就会**比 nmemb 小**
 
@@ -5208,7 +5208,7 @@ int main(int argc, char *argv[])
 
 <div class="success">
 
-> **章节概要**：初识结构体；建立结构声明；定义结构变量；初始化结构；访问结构成员；结构的初始化器；结构数组；声明结构数组；标识结构数组的成员；嵌套结构；指向结构的指针；声明和初始化结构指针；用指针访问成员；向函数传递结构的信息；传递结构成员；传递结构的地址；传递结构；其他结构特性；使用结构数组的函数；结构与内存分配；结构中的字符指针与`malloc()`；复合字面量和结构；伸缩型数组成员；匿名结构；把结构内容保存到文件
+> **章节概要**：初识结构体；建立结构声明；定义结构变量；初始化结构；访问结构成员；结构的初始化器；结构数组；声明结构数组；标识结构数组的成员；嵌套结构；指向结构的指针；声明和初始化结构指针；用指针访问成员；向函数传递结构的信息；传递结构成员；传递结构的地址；传递结构；其他结构特性；使用结构数组的函数；结构与内存分配；结构中的字符指针与`malloc()`；复合字面量和结构；伸缩型数组成员；匿名结构；把结构内容保存到文件；链式结构；联合简介
 
 </div>
 
@@ -5697,7 +5697,7 @@ int main(int argc, char *argv[])
   > 1、整体传参方式和之前**传递一个数组**类似。**数组名**就是**首元素地址**(数组地址)，可以将其**传给指针**，另外该函数还需要访问**结构模板**  
   > 2、**函数定义**时参数定义大致为`double sum(struct funds money[], int n);`，其中`money[]`就是一个**指针**(也可以写为`*money`，这样写是为了提醒他人这是一个数组地址)，**n**为数组**元素个数**  
   > 3、在主函数中**调用函数**`sum(jones, 5)`(其中 jones 被定义为`struct funds jones[5]`)。**数组名 jones**就是**首元素地址**，因此**指针 money**初始值相当于`money = &jones[0]`  
-  > 4、因为**money**指向**jones的首元素**，所以`money[0]`就是`jones[0]`的**另一个名称**。与此类似，`money[1]`就是**第二个元素**，在**函数中**便使用`money[下标].成员名`访问成员
+  > 4、因为**money**指向**jones 的首元素**，所以`money[0]`就是`jones[0]`的**另一个名称**。与此类似，`money[1]`就是**第二个元素**，在**函数中**便使用`money[下标].成员名`访问成员
 
 ##### **结构与内存分配**
 
@@ -5883,6 +5883,140 @@ int main(int argc, char *argv[])
     > 3、当然，这样看来也可以把**first**和**last**直接作为**person 的成员**，**匿名特性**在**嵌套联合**中更加有用，后续介绍
 
 ##### **把结构内容保存到文件**
+
+- **引入**
+
+  > 1、由于**结构**可以**存储不同类型**的信息，所以它是**构建数据库**的重要工具。我们要把这些信息**存储在文件**中，并且能**再次检索**  
+  > 2、**数据库文件**可以包含**任意数量**的此类数据对象。存储在一个结构中的**整套信息**被称为**记录**，**单独的项**被称为**字段**  
+  > 3、或许**存储记录**最没效率的方法是用`fprintf()`。首先便是当结构的**成员更多**时，`fprintf()`所需要使用的**转换说明**也更多；其次**检索**时还**存在问题**，因为程序要知道**一个字段结束**和**另一个字段开始**的**位置**  
+  > 4、更好的方案是使用`fread()`和`fwrite()`函数读写**结构大小**的**单元**。回忆一下，这两个函数使用与程序相同的**二进制表示法**，如`fwrite(&primer, sizeof(struct book), 1, pbooks);`。定位到**primer 结构变量**开始的位置，并把结构中的**所有字节**都拷贝到**pbooks 所指文件**中，`sizeof(struct book)`告诉函数**待拷贝的一块数据的大小**(即 struct book 类型的大小)，**1**表示**一次拷贝一块数据**
+
+- **示例程序**
+
+  ```c
+  #include <stdio.h>
+  #include <stdlib.h>
+  #include <string.h>
+  #define MAXTITL 40
+  #define MAXAUTL 40
+  #define MAXBKS 10 // 最大书籍数量
+
+  struct book
+  {
+      char title[MAXTITL];
+      char author[MAXAUTL];
+      float value;
+  };
+
+  // 之前自定义的 s_gets() 函数
+  char *s_gets(char *str, int n)
+  {
+      char *ret_val;
+      int i = 0;
+      ret_val = fgets(str, n, stdin);
+      if (ret_val)
+      {
+          while (str[i] != '\n' && str[i] != '\0')
+              i++;
+          if (str[i] == '\n')
+              str[i] = '\0';
+          else
+              while (getchar() != '\n')
+                  continue;
+      }
+      return ret_val;
+  }
+
+  int main(void)
+  {
+      struct book library[MAXBKS]; // 定义结构数组
+      int ct = 0, index, filecount;
+      FILE *pbooks;
+      int size = sizeof(struct book);
+
+      // 打开文件
+      if ((pbooks = fopen("book.dat", "a+b")) == NULL)
+      {
+          fputs("无法打开book.dat\n", stderr);
+          exit(1);
+      }
+
+      // 读取数据文件中已经存储的数据，存入library，并打印之前存储的数据
+      rewind(pbooks); // 定位到文件开始处
+      // 遍历的 ct 小于数组元素个数 && 读取二进制内容并写入library正常
+      while (ct < MAXBKS && fread(&library[ct], size, 1, pbooks) == 1)
+      {
+          if (ct == 0)
+              puts("book.dat当前的内容："); // 首次的提示语
+          printf("%s  %s  %.2f\n", library[ct].title, library[ct].author, library[ct].value);
+          ct++;
+      }
+
+      // filecount 记录以前已写到结构数组第几个元素。判断目前结构数组是否有多余位置存储新数据
+      filecount = ct;
+      if (ct == MAXBKS)
+      {
+          fputs("book.dat文件已满\n", stderr);
+          exit(2);
+      }
+
+      // 向library写入新数据
+      puts("请添加新的书籍名称：(在新的一行回车停止)");
+      // 遍历的 ct 小于数组元素个数 && 读取书籍名称正常 && 不在新的一行回车停止程序
+      while (ct < MAXBKS && s_gets(library[ct].title, MAXTITL) != NULL && library[ct].title[0] != '\0')
+      {
+          puts("现在输入作者：");
+          s_gets(library[ct].author, MAXAUTL);
+          puts("现在输入价钱(或编号)：");
+          scanf("%f", &library[ct].value);
+          while (getchar() != '\n') // 清理输入行
+              continue;
+          if (ct < MAXBKS)
+              puts("输入下一本书的标题：");
+          ct++;
+      }
+
+      // 输出添加后的library，并写入数据文件
+      if (ct > 0)
+      {
+          puts("这是新的书单列表：");
+          for (index = 0; index < ct; index++)
+              printf("%s  %s  %.2f\n", library[index].title, library[index].author, library[index].value);
+          fwrite(&library[filecount], size, ct - filecount, pbooks);
+      }
+      else
+      {
+          puts("没有新书写入");
+      }
+      fclose(pbooks);
+      return 0;
+  }
+  ```
+
+- **示例重点**
+
+  > 1、以`a+b`模式**打开文件**。`a+`模式允许程序**读取文件**并可以在**末尾追加内容**，`b`表明程序将使用**二进制文件格式**  
+  > 2、选择**二进制模式**是因为`fread()`和`fwrite()`要使用二进制文件。`rewind()`函数确保**文件指针**处于**文件开始处**，为读文件做好准备  
+  > 3、**写入新的数据**时，我们本也可以用一个**循环**在**文件末尾**使用`fwrite()`**一次添加一个结构**，但示例中使用`fwrite()`**一次写入一块数据**。**filecount**表示**第一个新写入的结构**的下标，表达式`ct - filecount`就是**新添加书籍的数量**
+  > 4、虽然**结构**中有些内容是**文本**，但**value**成员不是文本。如果使用**文本编辑器**查看**book.dat**，其中**文本部分**内容显示正常，但**数值部分**内容不可读，甚至可能乱码
+
+##### **链式结构**
+
+- **结构**有很多种用途，除了前面介绍的，还有一种是**创建新的数据形式**
+
+  > 1、计算机用户已经开发出的一些**数据形式**比我们提到过的**数组**和**简单结构**能更有效地**解决特定问题**  
+  > 2、这些形式包括**队列**、**二叉树**、**堆**、**哈希表**和**图表**，许多这样的形式都由**链式结构**组成  
+  > 3、通常，每个结构都包含**一两个数据项**和**一两个指向其他同类型结构**的**指针**。这些指针把**一个结构**和**另一个结构**链接起来，并**提供一种路径**能遍历**整个彼此链接的结构**
+
+- **二叉树演示**
+
+  > 1、下图是一个**二叉树结构**的示意图  
+  > 2、考虑有**10 个节点的树**的情况下，他有 2<sup>10</sup>-1 个(或 1023 个)**节点**，可以**存储 1023 个单词**  
+  > 3、如果这些单词**以某种规则排列**，自上而下**逐级查找**，**最多**只需要**移动 9 次**即可找到；如果放在数组中，至多需要遍历**1023 个元素**才能找到
+
+  ![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/Clianshijiegou.png)
+
+##### **联合简介**
 
 - 码字中。。。
 
