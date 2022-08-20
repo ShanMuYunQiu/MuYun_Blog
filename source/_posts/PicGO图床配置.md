@@ -32,8 +32,8 @@ Token(示例)：ghp_WGxZemKeB2aRql2RMgXxOY9CwIQVFW3Q9f3q
 
 存储路径：可不填
 
-自定义域名：https://fastly.jsdelivr.net/gh/用户名/仓库名  
-例如：https://fastly.jsdelivr.net/gh/ShengQiBaoZao/Image
+自定义域名：https://cdn.jsdelivr.net/gh/用户名/仓库名  
+例如：https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image
 
 4-2oXV
 4+Pco4

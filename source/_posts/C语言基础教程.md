@@ -6014,7 +6014,7 @@ int main(int argc, char *argv[])
   > 2、考虑有**10 个节点的树**的情况下，他有 2<sup>10</sup>-1 个(或 1023 个)**节点**，可以**存储 1023 个单词**  
   > 3、如果这些单词**以某种规则排列**，自上而下**逐级查找**，**最多**只需要**移动 9 次**即可找到；如果放在数组中，至多需要遍历**1023 个元素**才能找到
 
-  ![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/Clianshijiegou.png)
+  ![](https://s2.loli.net/2022/08/20/Ar9saJQcVT2R6Sj.png)
 
 ##### **联合简介**
 
