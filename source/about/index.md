@@ -132,7 +132,8 @@ reward: true
 
 <div class="info">
 
-> **08-06** | 站点被 Bing 必应搜索引擎收录
+> **08-21** | 更新`Yun`版本至 1.10.6  
+> **08-06** | 站点被 Bing 必应搜索引擎收录  
 > **08-04** | 关闭`LeanCloud Visitor`统计阅读量，莫名报错，原因未知  
 > **07-26** | 更换回`cdn.jsdelivr`作为博客 CDN  
 > **07-19** | 解决了`Vercel`的 CORS 跨域问题  
