@@ -104,12 +104,12 @@ links:
     color: "#ffad33"
 
   - url: https://www.mrzefr.cn
-    avatar: https://cdn.mrzefr.cn/IMG/ICO/Doraemon.ico
+    avatar: https://cdn.afdelivr.top/npm/hexo-mrzefr-filebed@1.3.4/image/ICO/Doraemon.ico
     blog: MrZeFr的小窝
     desc: Hello World
     color: "#20df20"
 
-  - url: https://gahotx.cn/
+  - url: https://blog.mrzefr.cn/
     avatar: https://pub.gahotx.cn/photo/cat.jpg
     blog: Gahotx
     desc: Don't repeat yourself
