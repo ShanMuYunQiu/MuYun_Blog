@@ -132,6 +132,7 @@ reward: true
 
 <div class="info">
 
+> **09-03** | 部署`Github Calendar`的自建 api 并投入使用  
 > **08-21** | 更新`Yun`版本至 1.10.6  
 > **08-06** | 站点被 Bing 必应搜索引擎收录  
 > **08-04** | 关闭`LeanCloud Visitor`统计阅读量，莫名报错，原因未知  
