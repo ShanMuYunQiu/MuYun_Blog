@@ -56,7 +56,9 @@ categories:
 > **Workbench Tree render Indent - Guides**：文件树缩进线，建议设置 always  
 > **Auto Save**：改为**afterDelay**，随后**Auto Delay Save**为自动保存时间(1000=1 秒)  
 > **git.mergeEditor**：git merge 合并编辑器，可以更方便地处理冲突，建议设置 true  
-> **Snippets Prevent Quick Suggestions**：阻止快速建议，建议关闭，关闭后可以在使用代码补全后仍继续收到提示
+> **Snippets Prevent Quick Suggestions**：阻止快速建议，建议关闭，关闭后可以在使用代码补全后仍继续收到提示  
+> **Font Family**：配置字体(如写入**JetBrains Mono**)  
+> **Font Ligatures**：配置是否启用字体连字特性(在 JSON 中打开，设置为 true)
 
 </div>
 
@@ -89,8 +91,8 @@ categories:
 > **Color Highlight**：显示色码(#000000)颜色，在设置中设置**Marker Type**设置显示样式，推荐**dot-before**  
 > **Excel Viewer**：在 VScode 中打开 Excel 表格  
 > **Bookmarks**：书签跳转，使用右键在需要的行上设置书签以快速跳转  
-> **GitLens**：侧边栏显示光标所在位置的历史git提交并快速访问，拓展VScode自带git管理器的功能  
-> **Git Graph**：将git提交记录转换为可视化图表  
+> **GitLens**：侧边栏显示光标所在位置的历史 git 提交并快速访问，拓展 VScode 自带 git 管理器的功能  
+> **Git Graph**：将 git 提交记录转换为可视化图表  
 > **CodeSnap**：快速美观代码截图
 
 </div>
