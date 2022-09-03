@@ -4,7 +4,7 @@ author: 圣奇宝枣
 description: 有关于C语言的基础教程，包括基本语法与基础的底层逻辑知识，比较适合有一定经验的初学者上手
 sticky: 1
 date: 2022-05-09 08:21:06
-updated: 2022-08-24 15:40:57
+updated: 2022-09-03 15:40:57
 readmore: true
 tags:
   - C语言
