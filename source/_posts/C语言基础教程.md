@@ -4,7 +4,7 @@ author: 圣奇宝枣
 description: 有关于C语言的基础教程，包括基本语法与基础的底层逻辑知识，比较适合有一定经验的初学者上手
 sticky: 1
 date: 2022-05-09 08:21:06
-updated: 2022-09-11 17:44:44
+updated: 2022-09-18 11:24:30
 readmore: true
 tags:
   - C语言
@@ -6380,7 +6380,7 @@ int main(int argc, char *argv[])
 
 <div class="success">
 
-> **章节概要**：二进制数、位、字节；二进制整数；有符号整数；二进制浮点数；其他进制数；八进制；十六进制；进制赋值；C 按位运算符；按位逻辑运算符；移位运算符；常用用法；掩码；打开位；关闭位；切换位；检查位的值；乘除次幂；位字段
+> **章节概要**：二进制数、位、字节；二进制整数；有符号整数；二进制浮点数；其他进制数；八进制；十六进制；进制赋值；C 按位运算符；按位逻辑运算符；移位运算符；常用用法；掩码；打开位；关闭位；切换位；检查位的值；乘除次幂；位字段；简介与声明；位字段的使用；位字段越界问题；位字段示例；对齐特性
 
 </div>
 
@@ -6658,6 +6658,156 @@ int main(int argc, char *argv[])
     ```
 
 ##### **位字段**
+
+- **简介与声明**
+
+  > 1、**操控位**的第二种方法是**位字段**。**位字段**是一个**signed int**或**unsigned int**类型变量中的**一组相邻的位**  
+  > 2、**位字段**通过一个**结构声明**来建立，该结构声明**为每个字段提供标签**，并确定该字段的**宽度**  
+  > 3、随后，可通过普通的**结构成员运算符**`.`**单独**给这些字段**赋值**  
+  > 4、由于**每个字段恰好为 1 位**，所以**只能赋值 1 或 0**。**结构变量**被存储在**int 大小的内存单元**中，但是在本例中**只使用了其中 4 位**
+
+  ```c
+  // 建立一个 4个 1位 的字段：
+  struct {
+      unsigned int autfd : 1;
+      unsigned int bldfc : 1;
+      unsigned int undln : 1;
+      unsigned int itals : 1;
+  } prnt;
+
+  // 为字段单独赋值：
+  prnt.itals = 0;
+  prnt.undln = 1;
+  ```
+
+- **位字段的使用**
+
+  - **带有位字段的结构**提供一种**记录设置**的方便途径。许多设置(如字体的粗体或斜体)就是**简单的二选一**，例如**开或关**、**真或假**等。如果**只需要使用 1 位**，就**不需要使用整个变量**
+
+  - 有时，某些设置也有**多个选择**，因此**需要多位来表示**。这没问题，字段**不限制 1 位大小**，可以使用如下的示例。只是，要确保**赋值不超过字段可容纳范围**
+
+    ```c
+    // 创建 2个 2位 的字段和 1个 8位 的字段：
+    struct {
+        unsigned int code1 : 2;   // 2位 为 2位二进制，即可表示 2^2 个数，范围为 0~3
+        unsigned int code2 : 2;
+        unsigned int code3 : 8;
+    } prcode;
+
+    // 赋值：
+    prcode.code1 = 0;
+    prcode.code2 = 3;
+    prcode.code3 = 102;
+    ```
+
+- **位字段越界问题**
+
+  > 1、如果**声明的总位数**超过了**一个 unsigned int 类型**的大小，会用到**下一个 unsigned int 类型**的**存储位置**  
+  > 2、一个字段**不允许跨越**两个**unsigned int**之间的**边界**。**编译器**会自动**移动跨界的字段**，保持**unsigned int**的**边界对齐**  
+  > 3、一旦发生这种情况，**第一个 unsigned int**中会留下一个**未命名的**“**洞**”。可以使用**未命名的字段宽度**来**填充**未命名的洞；可以使用一个**宽度为 0 的未命名字段**迫使下一个字段与下一个整数**对齐**  
+  > 4、示例中，`stuff.field1`和`stuff.field2`之间，有一个**2 位的空隙**；`stuff.field3`将**存储在下一个 unsigned int 中**  
+  > 5、**字段存储**在一个 int 中的**顺序取决于机器**。另外，不同的机器中**两个字段边界的位置也有区别**。由于这些原因，位字段通常都**不容易移植**
+
+  ```c
+  struct {
+      unsigned int field1 : 1;
+      unsigned int : 2;
+      unsigned int field2 : 1;
+      unsigned int : 0;
+      unsigned int field3 : 1;
+  } stuff;
+  ```
+
+- **位字段示例**
+
+  - **打印方框属性**
+
+    > 1、在屏幕上表**示一个方框的属性**。为简化问题，假设方框具有如下几种属性  
+    > 2、方框是**透明或不透明**的  
+    > 3、**填充色**：黑、红、绿、黄、蓝、紫、青、白  
+    > 4、边框**可见或隐藏**  
+    > 5、**边框颜色**：与填充色相同的可能
+    > 6、边框使用**实线**、**点线或虚线**
+
+  - **示例程序**
+
+    ```c
+    #include <stdio.h>
+    #include <stdbool.h>
+
+    /* 线的样式 */
+    #define SOLID 0
+    #define DOTTED 1
+    #define DASHED 2
+    /* 三原色 */
+    #define BLUE 4
+    #define GREEN 2
+    #define RED 1
+    /* 混合色 */
+    #define BLACK 0
+    #define YELLOW (RED | GREEN)
+    #define MAGENTA (RED | BLUE)
+    #define CYAN (BLUE | GREEN)
+    #define WHITE (RED | GREEN | BLUE)
+
+    // 定义颜色的字符串
+    const char *colors[8] = {"black", "red", "green", "yellow", "blue", "magenta", "cyan", "white"};
+
+    // 定义位字段
+    struct box_props
+    {
+        bool opaque : 1;               // 1 为透明，0 为不透明
+        unsigned int fill_color : 3;   // 左侧位表示蓝色，中间位绿色，右侧位红色，通过三原色调色表示其他色
+        unsigned int : 4;              // 填充位
+        bool show_border : 1;          // 1 为可见，0 为不可见
+        unsigned int border_color : 3; // 同 fill_color
+        unsigned int border_style : 2; // 0、1、2分别表示实线、点线、虚线
+        unsigned int : 2;              // 填充位
+    };
+
+    // 显示设置的函数
+    void show_setting(struct box_props *pb)
+    {
+        printf("Box is %s.\n", pb->opaque == true ? "opaque" : "transparent");
+        printf("The fill color is %s.\n", colors[pb->fill_color]);
+        printf("Border %s.\n", pb->show_border == true ? "shown" : "not shown");
+        printf("The border color is %s.\n", colors[pb->border_color]);
+        printf("The border style is ");
+        switch (pb->border_style)
+        {
+        case SOLID:
+            printf("solid.\n");
+            break;
+        case DOTTED:
+            printf("dotted.\n");
+            break;
+        case DASHED:
+            printf("dashed.\n");
+            break;
+        default:
+            printf("unknown.\n");
+        }
+    }
+
+    int main(void)
+    {
+        /* 创建并初始化 box_props 结构 */
+        struct box_props box = {true, YELLOW, true, GREEN, DASHED};
+
+        printf("Original box settings:\n");
+        show_setting(&box);
+
+        box.opaque = false;
+        box.fill_color = WHITE;
+        box.border_color = MAGENTA;
+        box.border_style = SOLID;
+        printf("\nModified box settings:\n");
+        show_setting(&box);
+        return 0;
+    }
+    ```
+
+##### **对齐特性**
 
 - 码字中。。。
 
