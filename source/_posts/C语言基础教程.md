@@ -1,10 +1,10 @@
 ---
 title: C语言基础教程
 author: 圣奇宝枣
-description: 有关于C语言的基础教程，包括基本语法与基础的底层逻辑知识，比较适合有一定经验的初学者上手
+description: 有关于C语言的基础教程，包括基本语法、基础的底层逻辑知识与一部分数据结构，比较适合有一定经验的初学者上手
 sticky: 1
 date: 2022-05-09 08:21:06
-updated: 2022-10-04 11:01:58
+updated: 2022-10-05 15:24:58
 readmore: true
 tags:
   - C语言
@@ -7274,14 +7274,192 @@ int main(int argc, char *argv[])
   // 这样定义，在调用时只需要调用 SQRT(X) 就可以自动选择最合适的版本
   ```
 
-- **tgmath.h库**
+- **tgmath.h 库**
 
   > 1、**C99**提供的`tgmath.h`头文件中定义了**泛型类型宏**，其效果与上面**类型变体**的程序示例**类似**  
-  > 2、`tgmath.h`创建一个**泛型类型宏**，与**原来double版本**的函数名**同名**。其会根据**参数类型**自动选择**展开对应版本**  
+  > 2、`tgmath.h`创建一个**泛型类型宏**，与**原来 double 版本**的函数名**同名**。其会根据**参数类型**自动选择**展开对应版本**  
   > 3、`complex.h`中声明了与**复数运算**相关的函数，例如`csqrtf()`、`csqrt()`、`csqrtl()`，也分别对应**不同版本**。如果提供这些支持，`tgmath.h`中的`sqrt()`宏**也能展开**为相应的**复数平方根函数**  
   > 4、如果包含`tgmath.h`，要调用`sqrt()`**函数**而不是`sqrt()`**宏**，可以把被调用的函数名**括起来**：`(sqrt)(x)`
 
 - **通用工具库 stdlib.h**
+
+  - `exit()`**和**`atexit()`**函数**
+
+    - **引入**
+
+      > 1、在前面的章节已经使用过`exit()`函数。而且，在`main()`**返回系统时**将自动调用`exit()`  
+      > 2、**ANSI 标准**还新增了一些不错的功能，注重最重要的是**可以指定在执行**`exit()`**时**调用的**特定函数**  
+      > 3、`atexit()`通过**注册要在退出时调用的函数**来**提供这一特性**，`atexit()`函数接受一个**函数指针**作为参数
+
+    - `atexit()`**的用法**
+
+      > 1、函数使用**函数指针**。要使用`atexit()`**函数**，只需把**退出时要调用的函数地址**传递给`atexit()`即可(**函数名**作为**函数参数**时相当于**函数地址**)  
+      > 2、**传入参数**后，`atexit()`**注册**函数列表中的**函数**，当**调用**`exit()`时就会**执行这些函数**。**ANSI**保证，在这个**列表中至少可以放 32 个函数**  
+      > 3、最后**调用**`exit()`时，`exit()`会**执行这些函数**。**执行顺序**与**列表中函数顺序相反**，即**最后添加的函数最先执行**  
+      > 4、`atexit()`注册的函数**应该不带任何参数**且**返回类型为 void**。通常这些函数会执行一些**清理任务**，如**更新监视程序的文件**或**重置环境变量**
+
+    - **程序示例**
+
+      ```c
+      #include <stdio.h>
+      #include <stdlib.h>
+
+      void sign_off(void)
+      {
+          puts("Thus terminates another magnificent program from");
+          puts("Seesaw Software");
+      }
+
+      void too_bad(void)
+      {
+          puts("Seesaw Software extends its heartfelt condolences");
+          puts("to you upon the failure of your program");
+      }
+
+      int main(void)
+      {
+          int n;
+          atexit(sign_off); // 注册 sign_off 函数
+          puts("Enter an integer:");
+          if (scanf("%d", &n) != 1)
+          {
+              puts("That's no integer!");
+              atexit(too_bad); // 注册 too_bad 函数
+              exit(EXIT_FAILURE);
+          }
+          printf("%d is %s\n", n, (n % 2 == 0) ? "even" : "odd");
+          return 0;
+      }
+      ```
+
+      ```
+      Enter an integer:
+      212
+      212 is even
+      Thus terminates another magnificent program from
+      Seesaw Software
+      ```
+
+      ```
+      Enter an integer:
+      a
+      That's no integer!
+      Seesaw Software extends its heartfelt condolences
+      to you upon the failure of your program
+      Thus terminates another magnificent program from
+      Seesaw Software
+      ```
+
+  - `qsort()`**函数**
+
+    - `qsort()`**的用法**
+
+      > 1、对**较大型的数组**而言，**快速排序**算法是**最有效的排序算法之一**。**快速排序**算法在 C 实现的名称是`qsort()`  
+      > 2、`qsort()`函数**排序数组的数据对象**，其原型为`void qsort(void *base, size_t nmemb, size_t size, int (*compar)(const void *, const void *));`  
+      > 3、**第一个参数**是**指针**，指向待排序**数组的首元素**(void 类型指针，可以引入任何类型数组)  
+      > 4、**第二个参数**是**待排序项的数量**。函数原型将该值**转换为 size_t 类型**  
+      > 5、**第三个参数**是待排序数组**每个元素的大小**(由于第一个参数转换为 void 指针，所以函数不知道每个元素的大小，因此需要补偿该信息)  
+      > 6、**第四个参数**是一个**指向函数的指针**，指向一个**自定义的比较函数**，用于**确定排序的顺序**  
+      > 7、**自定义的比较函数**应接受**两个参数**，分别指向**待比较两项的指针**。**返回值**为**int 类型**，**返回正数**则告知`qsort()`**交换**，相等**返回 0**，**返回负数**则**不操作**(见示例程序)
+
+    - **程序示例**
+
+      ```c
+      /* 程序自动随机生成一组浮点数数组，并排序 */
+      #include <stdio.h>
+      #include <stdlib.h>
+
+      #define NUM 40 // 数组元素数
+
+      // 随机生成数组
+      void fillarray(double ar[], int n)
+      {
+          for (int index = 1; index < n; index++)
+              ar[index] = (double)rand() / ((double)rand() + 0.1);
+      }
+
+      // 打印数组
+      void showarray(double ar[], int n)
+      {
+          int index;
+          for (index = 0; index < n; index++)
+          {
+              printf("%9.4f ", ar[index]);
+              if (index % 6 == 5)
+                  putchar('\n');
+          }
+          if (index % 6 != 0)
+              putchar('\n');
+      }
+
+      // 自定义排序函数，按从小到大排序
+      int mycomp(const void *p1, const void *p2)
+      {
+          // 要使用指向对应类型(double)的指针来访问这两个值
+          const double *a1 = (const double *)p1;
+          const double *a2 = (const double *)p2;
+
+          // 如果此处符号改为 > ，则从大到小排序
+          if (*a1 < *a2)
+              return -1;
+          else if (*a1 == *a2)
+              return 0;
+          else
+              return 1;
+      }
+
+      int main(void)
+      {
+          double vals[NUM];
+          fillarray(vals, NUM);
+          puts("Random list:");
+          showarray(vals, NUM);
+          qsort(vals, NUM, sizeof(double), mycomp);
+          puts("\nSorted list:");
+          showarray(vals, NUM);
+          return 0;
+      }
+      ```
+
+      ```
+      Random list:
+        0.0000    0.0022    0.2390    1.2191    0.3910    1.1021
+        0.2027    1.3835    20.2830   0.2508    0.8880    2.2179
+        25.4866   0.0236    0.9308    0.9911    0.2507    1.2802
+        0.0939    0.9760    1.7217    1.2054    1.0326    3.7892
+        1.9635    4.1137    0.9241    0.9971    1.5582    0.8955
+        35.3798   4.0579    12.0460   0.0096    1.0109    0.8506
+        1.1529    2.3614    1.5876    0.4825
+
+      Sorted list:
+        0.0000    0.0022    0.0096    0.0236    0.0939    0.2027
+        0.2390    0.2507    0.2508    0.3910    0.4825    0.8506
+        0.8880    0.8955    0.9241    0.9308    0.9760    0.9911
+        0.9971    1.0109    1.0326    1.1021    1.1529    1.2054
+        1.2191    1.2802    1.3835    1.5582    1.5876    1.7217
+        1.9635    2.2179    2.3614    3.7892    4.0579    4.1137
+        12.0460   20.2830   25.4866   35.3798
+      ```
+
+- **断言库 assert.h**
+
+  - `assert()`**宏**
+
+    > 1、`assert.h`**断言库**是一个**辅助调试程序**的小型库  
+    > 2、`assert()`**宏**接受一个**整形表达式**作为参数。如果表达式**求值为假**，`assert()`则在**标准错误流**(stderr)中**写入一条错误信息**，并**调用**`abort()`**函数**(定义在`stdlib.h`)**终止程序**  
+    > 3、`assert()`是为了**标识**出程序中**某些条件为真**的**关键位置**，如果为**假**则**终止程序**。**终止程序**后会显示**失败的测试**、**包含测试的文件名和行号**  
+    > 4、使用`assert()`有**几个好处**：它不仅能**自动标识文件**和出问题的**行号**，还能**无需更改代码做到自动开启或关闭**  
+    > 5、如果认为已经**排除了 bug**，可以把`#define NDEBUG`**宏**写在`#include <assert.h>`前面，重新编译后就会**禁用所有**`assert()`语句
+
+  - `_Static_assert`**宏**
+
+    > 1、`assert()`是在**运行时进行检查**。**C11**新增的`_Static_assert()`可以在**编译时检查**  
+    > 2、因此，`assert()`会导致**运行中**的程序**终止**，而`_Static_assert()`会导致程序**无法通过编译**  
+    > 3、`_Static_assert()`接受**两个参数**：第一个是**整型常量表达式**，第二个是**一个字符串**  
+    > 4、如果第一个表达式**求值为假**，编译器会**显示字符串**并且**不编译程序**  
+    > 5、使用示例：`_Static_assert(CHAR_BIT == 16, "16-bit char falsely assumed")`(包含`limits.h`)
+
+- **字符串库 string.h**
 
   - 码字中。。。
 
