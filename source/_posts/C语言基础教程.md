@@ -4,7 +4,7 @@ author: 圣奇宝枣
 description: 有关于C语言的基础教程，包括基本语法、基础的底层逻辑知识与一部分数据结构，比较适合有一定经验的初学者上手
 sticky: 1
 date: 2022-05-09 08:21:06
-updated: 2022-10-09 20:41:19
+updated: 2022-10-15 20:41:19
 readmore: true
 tags:
   - C语言
@@ -7533,7 +7533,7 @@ int main(int argc, char *argv[])
 
 <div class="success">
 
-> **章节概要**：研究数据表示；结构数组的局限；从数组到链表；优化指针数组；链表引入；使用链表
+> **章节概要**：研究数据表示；结构数组的局限；从数组到链表；优化指针数组；链表引入；使用链表；抽象数据类型(ADT)
 
 </div>
 
@@ -7692,7 +7692,102 @@ int main(int argc, char *argv[])
 
 - **使用链表**
 
-  - 码字中。。。
+  - **示例程序**
+
+    ```c
+    #include <stdio.h>
+    #include <stdlib.h> // 提供 malloc() 的原型
+    #include <string.h> // 提供 strcpy() 的原型
+    #define TSIZE 45    // 存储片名的数组大小
+
+    // 定义结构模板，标记为 film
+    struct film
+    {
+        char title[TSIZE];
+        int rating;
+        struct film *next; // 指向链表中的下一个结构
+    };
+
+    // 之前定义的 s_gets() 函数
+    char *s_gets(char *str, int n)
+    {
+        int i = 0;
+        char *ret_val;
+        ret_val = fgets(str, n, stdin);
+        if (ret_val)
+        {
+            while (str[i] != '\n' && str[i] != '\0')
+                i++;
+            if (str[i] == '\n')
+                str[i] = '\0';
+            else
+                while (getchar() != '\n')
+                    continue;
+        }
+        return ret_val;
+    }
+
+    int main(void)
+    {
+        struct film *head = NULL;    // 链表头指针(第一个结构的位置)
+        struct film *prev, *current; // 上一个结构指针与当前结构指针
+        char input[TSIZE];           // 临时存储电影名
+
+        // 收集并存储信息
+        puts("输入第一个电影的名字：");
+        // 输入input无误 且 首字符不为\0
+        while (s_gets(input, TSIZE) != NULL && input[0] != '\0')
+        {
+            current = (struct film *)malloc(sizeof(struct film)); // 为当前指针 current 分配一个 struct film 大小的空间用来存储结构
+            if (head == NULL)                                     // 如果 current 是第一个结构
+                head = current;                                   // 将 head 头指针指向 current 的位置
+            else                                                  // 如果是后续的结构
+                prev->next = current;                             // 上一个结构中的 next 指针指向当前 current 的位置
+            current->next = NULL;                                 // 将当前结构的 next 成员设置为 NULL，表明是当前链表的最后一个元素
+            strcpy(current->title, input);                        // 将临时存储电影名的 input 的内容复制到当前结构的 title 成员
+            puts("输入你的评分<1-10>：");
+            scanf("%d", &current->rating);
+            while (getchar() != '\n')
+                continue;
+            puts("输入下一个电影名(或换行退出)");
+            prev = current; // 将表示上一个结构位置的指针 prev 指向 current
+        }
+
+        // 打印电影列表
+        if (head == NULL) // 头指针仍然为NULL，则没有结构
+            printf("没有数据写入");
+        else
+            printf("这是你的电影列表：\n");
+        current = head;         // 让 current 指向 head 头指针
+        while (current != NULL) // 只要 current 不是 NULL 空指针(即不是链表最后一个元素)
+        {
+            printf("电影：%s    评分：%d\n", current->title, current->rating);
+            current = current->next; // 让 current 指向 next 成员所指向的下一个结构的位置
+        }
+
+        // 完成任务，释放内存
+        current = head; // 让 current 指向 head 头指针
+        while (current != NULL)
+        {
+            head = current->next; // 提前让 head 指向下一个结构的位置
+            free(current);        // 释放 current 的内存
+            current = head;       // 让 current 指向提前准备好的指向下一个结构位置的 head
+        }
+        return 0;
+    }
+    ```
+
+  - **继续反思**
+
+    > 1、程序还有**些许的不足**。例如程序**没有检查**`malloc()`是否**成功请求**到内存，也**无法删除链表中的项**。不过这些不足可以弥补，例如添加代码**检查**`malloc()`**返回值是否是 NULL**(返回 NULL 说明未成功获得内存)。如果需要**删除链表中的项**，还需要额外编写更多代码  
+    > 2、因此，这种用**特定方法**解决**特定问题**，并在**需要时才添加相关功能**的编程方式通常不是最好的解决方案。另一方面，通常**无法预料**程序要完成的**所有任务**  
+    > 3、如果要**修改程序**，首先应该**强调最初的设计**，并**简化其他细节**。上面的示例并**没有遵循这个原则**，它把**概念模型**和**代码细节**混在一起  
+    > 4、例如程序的**概念模型**是**在一个链表中添加项**，但程序却**把一些细节放在最明显的位置**(例如`malloc()`、current->next 指针等等处理细节)，没有**突出接口**  
+    > 5、如果程序能**以某种方式强调**给链表添加项，并**隐藏具体处理细节**会更好。把**用户接口**和**代码细节**分开的程序，更**容易理解和更新**。我们下面就会学习有关内容
+
+##### **抽象数据类型(ADT)**
+
+- 码字中。。。
 
 ---
 
