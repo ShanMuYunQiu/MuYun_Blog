@@ -4,7 +4,7 @@ author: 圣奇宝枣
 description: 有关于C语言的基础教程，包括基本语法、基础的底层逻辑知识与一部分数据结构，比较适合有一定经验的初学者上手
 sticky: 1
 date: 2022-05-09 08:21:06
-updated: 2022-10-16 10:16:19
+updated: 2022-10-18 22:46:11
 readmore: true
 tags:
   - C语言
@@ -7533,7 +7533,7 @@ int main(int argc, char *argv[])
 
 <div class="success">
 
-> **章节概要**：研究数据表示；结构数组的局限；从数组到链表；优化指针数组；链表引入；使用链表；抽象数据类型(ADT)；建立抽象；建立接口
+> **章节概要**：研究数据表示；结构数组的局限；从数组到链表；优化指针数组；链表引入；使用链表；抽象数据类型(ADT)；建立抽象；建立接口；使用接口
 
 </div>
 
@@ -7844,6 +7844,167 @@ int main(int argc, char *argv[])
     ```
 
 - **建立接口**
+
+  - **接口数据类型**
+
+    - 这个**简单链表**的**接口**有两个部分，第一部分是**描述如何表示数据**，第二部分是**描述实现 ADT 操作的函数**
+
+    - **接口设计**应尽量与**ADT 的描述**保持一致，因此，应该用某种**通用的 Item 类型**而不是一些**特殊类型**(如 int 或 struct film)
+
+    - 可以用 C 的`typedef`功能来**定义所需的 Item 类型**
+
+      ```c
+      #define TSIZE 45  // 存储片名的数组大小
+      struct film
+      {
+          char title[TSIZE];
+          int rating;
+      };
+      // 将 film 结构设置别名 Item
+      typedef struct film Item;
+      ```
+
+    - 然后，就可以在**定义的其余部分**使用 Item 类型，如果以后需要**其他数据形式**的**链表**，可以**重新定义 Item 类型**，而不必更改**其余的接口定义**
+
+  - **进一步设计如何存储项**
+
+    - 在之前链表的示例程序中用**链式结构**处理得很好，所以在这里我们也用相同的方法(链表的实现中，每一个链节叫做节点 node)
+
+      ```c
+      // 将 node 结构设置别名为 Node
+      typedef struct node
+      {
+          Item item;            // 包含 film 结构
+          struct node * next;   // 指向下一个结构
+      } Node;
+      // 将指向 Node 的指针(实际就是一个链表)设置别名 List，表示指向链表开始处的指针
+      typedef Node * List;
+      ```
+
+    - 是否有其他方法定义**List 类型**？例如，还可以**添加一个变量**，**记录项数**(稍后程序示例会使用这种，现在**仍使用前面的方法**定义 List 类型)
+
+      ```c
+      typedef struct list
+      {
+          Node *head;    // 指向链表头的指针
+          int size;      // 链表中的项数
+      } List;
+      ```
+
+    - 因此，`List movies;`创建了**该链表所需类型**的**指针 movies**。这里要着重理解**声明创建了一个链表**，而不是**一个指向节点的指针**或**一个结构**
+
+  - **隐藏实现细节**
+
+    - **movies**代表的**确切数据**应该是**接口层次**不可见的**实现细节**
+
+    - 例如，程序启动后应把**头指针**初始化为**NULL**，你的实现细节应如下
+
+      ```c
+      movies = NULL;
+
+      // 稍后你会发现 List 类型的结构实现(即第二种定义List类型的方法)会更好，应该这样初始化
+      movies.head = NULL;
+      movies.size = 0;
+      ```
+
+    - 而**使用该类型的程序员**不需要知道**List 类型变量**的**实现细节**，只需要使用你**提前设计好的**`InitializeList()`**函数**来**初始化链表**即可
+
+    - 这是**数据隐藏**的一个示例，**数据隐藏**是一个从编程的更高层次**隐藏数据表示细节**的艺术
+
+    - 为了**指引用户使用**，你需要在拟定的`InitializeList()`**函数**前**提供一些注释**帮助使用者**使用函数**
+
+      ```c
+      /*
+      操作：初始化一个链表
+      前置条件：plist指向一个链表
+      后置条件：链表初始化为空
+      */
+      void InitializeList(List *plist);
+      ```
+
+  - **接口头文件示例**(使用`#ifndef`防止多次包含一个头文件)
+
+    ```c
+    /* list.h 简单链表类型的接口头文件 */
+
+    // 使用 #ifndef 检测是否 LIST_H_ 未定义，防止多次包含同一个文件，注意 #endif 在该头文件末尾
+    #ifndef LIST_H_
+    // 此处预处理器定义 LIST_H_，如果再次重复调用该头文件，#ifndef 将使得这部分代码不会执行
+    #define LIST_H_
+    #include <stdbool.h>
+
+    /* 特定程序的声明 */
+
+    #define TSIZE 45 // 存储片名的数组大小
+    struct film
+    {
+        char title[TSIZE];
+        int rating;
+    };
+
+    /* 一般类型定义 */
+
+    typedef struct film Item;
+
+    typedef struct node
+    {
+        Item item;
+        struct node *next;
+    } Node;
+
+    typedef Node *List;
+
+    /* 函数原型 */
+
+    /*
+    操作：初始化一个链表
+    前提条件：plist 指向一个链表
+    后置条件：链表初始化为空
+    */
+    void InitializeList(List *plist);
+
+    /*
+    操作：确定链表是否为空，plist 指向一个已初始化的链表
+    后置条件：如果链表为空，返回 true，否则返回 false
+    */
+    bool ListIsEmpty(List *plist);
+
+    /*
+    操作：确定链表是否已满，plist 指向一个已初始化的链表
+    后置条件：如果链表已满，返回 true，否则返回 false
+    */
+    bool ListIsFull(List *plist);
+
+    /*
+    操作：确定链表中的项数，plist 指向一个已初始化的链表
+    后置条件：该函数返回链表中的项数
+    */
+    unsigned int ListItemCount(const List *plist);
+
+    /*
+    操作：在链表末尾添加项
+    前提条件：item 是一个待添加至链表的项，plist 指向一个已初始化的链表
+    后置条件：如果可以，该函数在链表末尾添加一个项，且返回 true，否则返回 false
+    */
+    bool AddItem(Item item, List *plist);
+
+    /*
+    操作：把函数作用于链表的每一项
+    前提条件：plist 指向一个已初始化的链表，pfun 指向一个函数(该函数接受一个Item类型的参数，且无返回值)
+    后置条件：pfun 指向的函数作用于链表中的每一项一次
+    */
+    void Traverse(const List *plist, void(*pfun)(Item item));
+
+    /*
+    操作：释放已分配的内存(如果有的话)，plist 指向一个已初始化的链表
+    后置条件：释放了为链表分配的所有内存，链表设置为空
+    */
+    void EnptyTheList(List *plist);
+
+    #endif
+    ```
+
+- **使用接口**
 
   - 码字中。。。
 
