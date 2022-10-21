@@ -4,7 +4,7 @@ author: 圣奇宝枣
 description: 有关于C语言的基础教程，包括基本语法、基础的底层逻辑知识与一部分数据结构，比较适合有一定经验的初学者上手
 sticky: 1
 date: 2022-05-09 08:21:06
-updated: 2022-10-18 22:46:11
+updated: 2022-10-21 21:14:48
 readmore: true
 tags:
   - C语言
@@ -7533,7 +7533,7 @@ int main(int argc, char *argv[])
 
 <div class="success">
 
-> **章节概要**：研究数据表示；结构数组的局限；从数组到链表；优化指针数组；链表引入；使用链表；抽象数据类型(ADT)；建立抽象；建立接口；使用接口
+> **章节概要**：研究数据表示；结构数组的局限；从数组到链表；优化指针数组；链表引入；使用链表；抽象数据类型(ADT)；建立抽象；建立接口；使用接口；实现接口
 
 </div>
 
@@ -7952,7 +7952,7 @@ int main(int argc, char *argv[])
         struct node *next;
     } Node;
 
-    typedef Node *List;
+    typedef Node * List;
 
     /* 函数原型 */
 
@@ -8006,7 +8006,105 @@ int main(int argc, char *argv[])
 
 - **使用接口**
 
-  - 码字中。。。
+  - **说明**
+
+    > 1、我们的目标是，这个**接口**编写程序，但是**不必知道**具体的**实现细节**(如函数的具体实现细节)  
+    > 2、在编写**具体函数**之前，我们需要重新设计一下**电影程序**。由于**接口**要使用**List**和**Item**类型，所以该程序也应该**使用这些类型**
+
+  - **程序示例**
+
+    ```c
+    /* film.c 电影程序 */
+    /* 与 list.c 一起编译 */
+    #include <stdio.h>
+    #include <stdlib.h> // 提供 exit() 的原型
+    #include "list.h"   // 定义 List、Item
+
+    void showmovies(Item item)
+    {
+        printf("电影：%s  评分：%d\n", item.title, item.rating);
+    }
+
+    char *s_gets(char *str, int n)
+    {
+        char *ret_val;
+        int i = 1;
+        ret_val = fgets(str, n, stdin);
+        if (ret_val)
+        {
+            while (str[i] != '\0' && str[i] != '\n')
+                i++;
+            if (str[i] = '\n')
+                str[i] = '\0';
+            else
+                while (getchar() != '\n')
+                    continue;
+        }
+        return ret_val;
+    }
+
+    int main(void)
+    {
+        List movies;
+        Item temp;
+
+        // 初始化
+        InitializeList(&movies);
+        if (ListIsFull(&movies))
+        {
+            fprintf(stderr, "没有空余内存\n");
+            exit(1);
+        }
+
+        // 获取用户输入并存储
+        puts("输入第一个电影名：");
+        while (s_gets(temp.title, TSIZE) != NULL && temp.title[0] != '\0')
+        {
+            puts("输入你的评分：");
+            scanf("%d", &temp.rating);
+            while (getchar() != '\n')
+                continue;
+
+            if (AddItem(temp, &movies) == false)
+            {
+                fprintf(stderr, "内存分配错误\n");
+                break;
+            }
+            if (ListIsFull(&movies) == false)
+            {
+                fprintf(stderr, "列表已满\n");
+                break;
+            }
+            puts("输入下一个电影名(或换行退出)：");
+        }
+
+        // 显示
+        if (ListIsEmpty(&movies))
+            printf("没有数据写入\n");
+        else
+        {
+            printf("这是你的电影列表：\n");
+            Traverse(&movies, showmovies);
+        }
+        printf("你一共添加了%d个电影\n", ListItemCount(&movies));
+
+        // 清理
+        EmptyThelist(&movies);
+        printf("再见！\n");
+    }
+    ```
+
+- **实现接口**
+
+  - **说明**
+
+    > 1、当然，我们还必须**实现 List 接口**。C 方法是把**函数定义**和**具体实现**统一放在`list.c`文件中  
+    > 2、然后，**整个程序由**`list.h`(定义数据结构和提供用户接口的原型)、`list.c`(提供函数代码实现接口)、`film.c`(把链表接口应用于特定编程问题的源代码文件)**组成**  
+    > 3、下面，演示了`list.c`的**一种实现**，要**运行整个电影程序**，需要把`film.c`和`list.c`**一起编译和链接**
+
+  - **示例程序**
+
+    - 码字中。。。
 
 ---
 
