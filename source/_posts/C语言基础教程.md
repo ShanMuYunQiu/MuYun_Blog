@@ -4,7 +4,7 @@ author: 圣奇宝枣
 description: 有关于C语言的基础教程，包括基本语法、基础的底层逻辑知识与一部分数据结构，比较适合有一定经验的初学者上手
 sticky: 1
 date: 2022-05-09 08:21:06
-updated: 2022-10-21 21:14:48
+updated: 2022-10-22 21:14:48
 readmore: true
 tags:
   - C语言
@@ -7533,7 +7533,7 @@ int main(int argc, char *argv[])
 
 <div class="success">
 
-> **章节概要**：研究数据表示；结构数组的局限；从数组到链表；优化指针数组；链表引入；使用链表；抽象数据类型(ADT)；建立抽象；建立接口；使用接口；实现接口
+> **章节概要**：研究数据表示；结构数组的局限；从数组到链表；优化指针数组；链表引入；使用链表；抽象数据类型(ADT)；建立抽象；建立接口；使用接口；实现接口；队列 ADT；定义队列 ADT
 
 </div>
 
@@ -7999,7 +7999,7 @@ int main(int argc, char *argv[])
     操作：释放已分配的内存(如果有的话)，plist 指向一个已初始化的链表
     后置条件：释放了为链表分配的所有内存，链表设置为空
     */
-    void EnptyTheList(List *plist);
+    void EmptyTheList(List *plist);
 
     #endif
     ```
@@ -8028,13 +8028,13 @@ int main(int argc, char *argv[])
     char *s_gets(char *str, int n)
     {
         char *ret_val;
-        int i = 1;
+        int i = 0;
         ret_val = fgets(str, n, stdin);
         if (ret_val)
         {
             while (str[i] != '\0' && str[i] != '\n')
                 i++;
-            if (str[i] = '\n')
+            if (str[i] == '\n')
                 str[i] = '\0';
             else
                 while (getchar() != '\n')
@@ -8070,7 +8070,7 @@ int main(int argc, char *argv[])
                 fprintf(stderr, "内存分配错误\n");
                 break;
             }
-            if (ListIsFull(&movies) == false)
+            if (ListIsFull(&movies))
             {
                 fprintf(stderr, "列表已满\n");
                 break;
@@ -8091,6 +8091,7 @@ int main(int argc, char *argv[])
         // 清理
         EmptyThelist(&movies);
         printf("再见！\n");
+        system("pause");
     }
     ```
 
@@ -8104,7 +8105,119 @@ int main(int argc, char *argv[])
 
   - **示例程序**
 
-    - 码字中。。。
+    ```c
+    /* list.c 支持链表操作的函数 */
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include "list.h"
+
+    // 局部函数
+    static void CopyToNode(Item item, Node *pnode)
+    {
+        pnode->item = item; // 拷贝结构
+    }
+
+    /* 接口函数 */
+    // 把链表设置为空
+    void InitializeList(List *plist)
+    {
+        *plist = NULL;
+    }
+
+    // 如果链表为空，返回 true
+    bool ListIsEmpty(List *plist)
+    {
+        if (*plist == NULL)
+            return true;
+        else
+            return false;
+    }
+
+    // 如果链表已满，返回 true
+    bool ListIsFull(List *plist)
+    {
+        Node *pt;
+        bool full;
+
+        pt = (Node *)malloc(sizeof(Node));
+        if (pt == NULL)
+            full = true;
+        else
+            full = false;
+        free(pt);
+
+        return full;
+    }
+
+    // 返回节点的数量
+    unsigned int ListItemCount(const List *plist)
+    {
+        unsigned int count = 0;
+        Node *pnode = *plist; // 设置链表的开始
+
+        while (pnode != NULL)
+        {
+            ++count;
+            pnode = pnode->next; // 设置下一个节点
+        }
+
+        return count;
+    }
+
+    // 创建存储项的节点，并将其添加至由 plist 指向的链表末尾(较慢的实现)
+    bool AddItem(Item item, List *plist)
+    {
+        Node *pnew;
+        Node *scan = *plist;
+
+        pnew = (Node *)malloc(sizeof(Node));
+        if (pnew == NULL)
+            return false; // 内存分配失败时退出函数
+
+        CopyToNode(item, pnew);
+        pnew->next = NULL;
+        if (scan == NULL)  // 如果 scan(即plist)为空链表，就说明是链表第一个项
+            *plist = pnew; // 把 pnew 放在链表的开头
+        else
+        {
+            while (scan->next != NULL)
+                scan = scan->next; // 找到链表的末尾
+            scan->next = pnew;
+        }
+        return true;
+    }
+
+    // 访问每个节点并执行 pfun 指向的函数
+    void Traverse(const List *plist, void (*pfun)(Item item))
+    {
+        Node *pnode = *plist; // 设置链表的开始
+
+        while (pnode != NULL)
+        {
+            (*pfun)(pnode->item); // 把函数应用于链表中的项
+            pnode = pnode->next;  // 前进到下一项
+        }
+    }
+
+    /* 释放由 malloc() 分配的内存 */
+    // 设置链表的指针为 NULL
+    void EmptyTheList(List *plist)
+    {
+        Node *psave;
+        while (*plist != NULL)
+        {
+            psave = (*plist)->next; // 保存下一个节点的地址
+            free(*plist);           // 释放当前节点
+            *plist = psave;         // 前进至下一节点
+        }
+    }
+    ```
+
+##### **队列 ADT**
+
+- **定义队列 ADT**
+
+  - 码字中。。。
 
 ---
 
