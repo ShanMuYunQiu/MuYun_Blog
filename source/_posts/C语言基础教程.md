@@ -4,7 +4,7 @@ author: 圣奇宝枣
 description: 有关于C语言的基础教程，包括基本语法、基础的底层逻辑知识与一部分数据结构，比较适合有一定经验的初学者上手
 sticky: 1
 date: 2022-05-09 08:21:06
-updated: 2022-10-24 21:14:48
+updated: 2022-11-03 21:14:48
 readmore: true
 tags:
   - C语言
@@ -7533,7 +7533,7 @@ int main(int argc, char *argv[])
 
 <div class="success">
 
-> **章节概要**：研究数据表示；结构数组的局限；从数组到链表；优化指针数组；链表引入；使用链表；抽象数据类型(ADT)；建立抽象；建立接口；使用接口；实现接口；队列 ADT；定义队列 ADT；建立接口
+> **章节概要**：研究数据表示；结构数组的局限；从数组到链表；优化指针数组；链表引入；使用链表；抽象数据类型(ADT)；建立抽象；建立接口；实现接口；使用接口；队列 ADT；定义队列 ADT；建立接口；实现接口
 
 </div>
 
@@ -8004,97 +8004,6 @@ int main(int argc, char *argv[])
     #endif
     ```
 
-- **使用接口**
-
-  - **说明**
-
-    > 1、我们的目标是，这个**接口**编写程序，但是**不必知道**具体的**实现细节**(如函数的具体实现细节)  
-    > 2、在编写**具体函数**之前，我们需要重新设计一下**电影程序**。由于**接口**要使用**List**和**Item**类型，所以该程序也应该**使用这些类型**
-
-  - **程序示例**
-
-    ```c
-    /* film.c 电影程序 */
-    /* 与 list.c 一起编译 */
-    #include <stdio.h>
-    #include <stdlib.h> // 提供 exit() 的原型
-    #include "list.h"   // 定义 List、Item
-
-    void showmovies(Item item)
-    {
-        printf("电影：%s  评分：%d\n", item.title, item.rating);
-    }
-
-    char *s_gets(char *str, int n)
-    {
-        char *ret_val;
-        int i = 0;
-        ret_val = fgets(str, n, stdin);
-        if (ret_val)
-        {
-            while (str[i] != '\0' && str[i] != '\n')
-                i++;
-            if (str[i] == '\n')
-                str[i] = '\0';
-            else
-                while (getchar() != '\n')
-                    continue;
-        }
-        return ret_val;
-    }
-
-    int main(void)
-    {
-        List movies;
-        Item temp;
-
-        // 初始化
-        InitializeList(&movies);
-        if (ListIsFull(&movies))
-        {
-            fprintf(stderr, "没有空余内存\n");
-            exit(1);
-        }
-
-        // 获取用户输入并存储
-        puts("输入第一个电影名：");
-        while (s_gets(temp.title, TSIZE) != NULL && temp.title[0] != '\0')
-        {
-            puts("输入你的评分：");
-            scanf("%d", &temp.rating);
-            while (getchar() != '\n')
-                continue;
-
-            if (AddItem(temp, &movies) == false)
-            {
-                fprintf(stderr, "内存分配错误\n");
-                break;
-            }
-            if (ListIsFull(&movies))
-            {
-                fprintf(stderr, "列表已满\n");
-                break;
-            }
-            puts("输入下一个电影名(或换行退出)：");
-        }
-
-        // 显示
-        if (ListIsEmpty(&movies))
-            printf("没有数据写入\n");
-        else
-        {
-            printf("这是你的电影列表：\n");
-            Traverse(&movies, showmovies);
-        }
-        printf("你一共添加了%d个电影\n", ListItemCount(&movies));
-
-        // 清理
-        EmptyThelist(&movies);
-        printf("再见！\n");
-        system("pause");
-    }
-    ```
-
 - **实现接口**
 
   - **说明**
@@ -8213,6 +8122,97 @@ int main(int argc, char *argv[])
     }
     ```
 
+- **使用接口**
+
+  - **说明**
+
+    > 1、我们的目标是，这个**接口**编写程序，但是**不必知道**具体的**实现细节**(如函数的具体实现细节)  
+    > 2、在编写**具体函数**之前，我们需要重新设计一下**电影程序**。由于**接口**要使用**List**和**Item**类型，所以该程序也应该**使用这些类型**
+
+  - **程序示例**
+
+    ```c
+    /* film.c 电影程序 */
+    /* 与 list.c 一起编译 */
+    #include <stdio.h>
+    #include <stdlib.h> // 提供 exit() 的原型
+    #include "list.h"   // 定义 List、Item
+
+    void showmovies(Item item)
+    {
+        printf("电影：%s  评分：%d\n", item.title, item.rating);
+    }
+
+    char *s_gets(char *str, int n)
+    {
+        char *ret_val;
+        int i = 0;
+        ret_val = fgets(str, n, stdin);
+        if (ret_val)
+        {
+            while (str[i] != '\0' && str[i] != '\n')
+                i++;
+            if (str[i] == '\n')
+                str[i] = '\0';
+            else
+                while (getchar() != '\n')
+                    continue;
+        }
+        return ret_val;
+    }
+
+    int main(void)
+    {
+        List movies;
+        Item temp;
+
+        // 初始化
+        InitializeList(&movies);
+        if (ListIsFull(&movies))
+        {
+            fprintf(stderr, "没有空余内存\n");
+            exit(1);
+        }
+
+        // 获取用户输入并存储
+        puts("输入第一个电影名：");
+        while (s_gets(temp.title, TSIZE) != NULL && temp.title[0] != '\0')
+        {
+            puts("输入你的评分：");
+            scanf("%d", &temp.rating);
+            while (getchar() != '\n')
+                continue;
+
+            if (AddItem(temp, &movies) == false)
+            {
+                fprintf(stderr, "内存分配错误\n");
+                break;
+            }
+            if (ListIsFull(&movies))
+            {
+                fprintf(stderr, "列表已满\n");
+                break;
+            }
+            puts("输入下一个电影名(或换行退出)：");
+        }
+
+        // 显示
+        if (ListIsEmpty(&movies))
+            printf("没有数据写入\n");
+        else
+        {
+            printf("这是你的电影列表：\n");
+            Traverse(&movies, showmovies);
+        }
+        printf("你一共添加了%d个电影\n", ListItemCount(&movies));
+
+        // 清理
+        EmptyThelist(&movies);
+        printf("再见！\n");
+        system("pause");
+    }
+    ```
+
 ##### **队列 ADT**
 
 - **定义队列 ADT**
@@ -8287,6 +8287,86 @@ int main(int argc, char *argv[])
         ```
 
   - **接口头文件示例**
+
+    ```c
+    /* queue.h 队列的接口头文件 */
+
+    #ifndef QUEUE_H_
+    #define QUEUE_H_
+    #include <stdbool.h>
+
+    // 在这里插入 Item 类型的定义，例如
+    typedef int Item; // 用于 use_q.c
+    // 或者 typedef struct item{int gumption; int charisma;} Item;
+
+    typedef struct node
+    {
+        Item item;
+        struct node *next;
+    } Node;
+
+    typedef struct queue
+    {
+        Node *front; // 指向队列首项的指针
+        Node *rear;  // 指向队列尾项的指针
+        int items;   // 队列中的项数
+    } Queue;
+
+    /*
+    操作：初始化队列
+    前提条件：pq 指向一个队列
+    后置条件：队列被初始化为空
+    */
+    void InitializeQueue(Queue *pq);
+
+    /*
+    操作：检查队列是否已满
+    前提条件：pq 指向一个已被初始化的队列
+    后置条件：如果队列已满则返回 true，否则返回 false
+    */
+    bool QueueIsFull(Queue *pq);
+
+    /*
+    操作：检查队列是否为空
+    前提条件：pq 指向一个已被初始化的队列
+    后置条件：如果队列为空则返回 true，否则返回 false
+    */
+    bool QueueIsEmpty(Queue *pq);
+
+    /*
+    操作：确定队列中的项数
+    前提条件：pq 指向一个已被初始化的队列
+    后置条件：返回队列中的项数
+    */
+    int QueueItemCount(Queue *pq);
+
+    /*
+    操作：在队列末尾添加项
+    前提条件：pq 指向一个已被初始化的队列，item 是要被添加在队列末尾的项
+    后置条件：如果队列不为空，item 将被添加在队列的末尾，函数返回 true；否则，队列不改变，函数返回 false
+    */
+    bool EnQueue(Item item, Queue *pq);
+
+    /*
+    操作：从队列开头删除项
+    前提条件：pq 指向一个已被初始化的队列
+    后置条件：如果队列不为空，队列首端的 item 将被拷贝到 *pitem 中并被删除，函数返回 true；如果该操作使得队列为空，则重置队列为空；如果执行该操作前队列为空，函数返回 false
+    */
+    bool DeQueue(Item *pitem, Queue *pq);
+
+    /*
+    操作：清空队列
+    前提条件：pq 指向一个已被初始化的队列
+    后置条件：队列被清空
+    */
+    void EmptyTheQueue(Queue *pq);
+
+    #endif
+    ```
+
+- **实现接口**
+
+  - **示例程序**
 
     - 码字中。。。
 
