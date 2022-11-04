@@ -4,7 +4,7 @@ author: 圣奇宝枣
 description: 有关于C语言的基础教程，包括基本语法、基础的底层逻辑知识与一部分数据结构，比较适合有一定经验的初学者上手
 sticky: 1
 date: 2022-05-09 08:21:06
-updated: 2022-11-04 09:35:34
+updated: 2022-11-04 21:35:34
 readmore: true
 tags:
   - C语言
@@ -7533,7 +7533,7 @@ int main(int argc, char *argv[])
 
 <div class="success">
 
-> **章节概要**：研究数据表示；结构数组的局限；从数组到链表；优化指针数组；链表引入；使用链表；抽象数据类型(ADT)；建立抽象；建立接口；实现接口；使用接口；队列 ADT；定义队列 ADT；建立接口；实现接口；测试队列；用队列进行模拟
+> **章节概要**：研究数据表示；结构数组的局限；从数组到链表；优化指针数组；链表引入；使用链表；抽象数据类型(ADT)；建立抽象；建立接口；实现接口；使用接口；队列 ADT；定义队列 ADT；建立接口；实现接口；测试队列；用队列进行模拟；链表和数组
 
 </div>
 
@@ -8468,7 +8468,7 @@ int main(int argc, char *argv[])
     > 1、在重要程序中**使用一个新的设计之前**(如，队列包)，应该**先测试该设计**  
     > 2、测试的一种方法是，**编写一个小程序**，这样的程序称为**驱动程序**，其**唯一用途**是**进行测试**  
     > 3、注意编写的**驱动程序**必须链接所需要的`queue.c`，即**多文件编译**一起进行编译
-  
+
   - **驱动程序示例**
 
     ```c
@@ -8525,6 +8525,131 @@ int main(int argc, char *argv[])
     ```
 
 ##### **用队列进行模拟**
+
+- **引入**
+
+  > 1、经过测试，队列没问题。现在，我们用它来做一些有趣的事情。许多现实生活情景都涉及队列，我们可以用队列包模拟这些情景  
+  > 2、假设某人在商业街设置了一个提供建议的摊位，顾客可以购买**1 分钟**、**2 分钟**、**3 分钟**的建议。为确保交通畅通，商业街规定每个摊位前**排队等待的顾客最多 10 人**  
+  > 3、假设**顾客**都是**随机出现**的，并且他们花在咨询上的**时间**也是**随机选择**的。那么摊主平均每小时要接待多少顾客？每位顾客平均要花多少时间？排队等待的顾客有多少人？
+
+- **分析**
+
+  > 1、首先，要**确定队列里放什么**。我们可以**定义一个结构**，存放顾客**加入排队的时间**和**咨询所需的时间**，并用该结构**替换原队列包中的 Item 类型**(如后示例)。因此应**按需修改**`queue.h`和`queue.c`(必要步骤)  
+  > 2、这里有一种方法，让时间**以 1 分钟为单位递增**。每递增 1 分钟，就检查**是否有新顾客到来**，**如果有**且**队列未满**，就将其**加入队列**；如果**队列已满**，就**让该顾客离开**。为了做统计，要记录**顾客总数**和**被拒顾客数**  
+  > 3、接下来，处理**队列的首端**。如果**队列不为空**且**前面的顾客没有在咨询**，则**删除首端的项**；如果摊主正忙，则不用让任何人离开队列。注意，该项中存储着**顾客加入队列的时间**，把**该时间**与**当前时间**比较，就得出该顾客在队列中的**等待时间**。该项还存储着**需要咨询的分钟数**，因此还需要一个变量**存储这个数值**，每次循环，这个**记录等待时间的变量**应**递减 1**
+
+  ```c
+  typedef struct item
+  {
+      long arrive;      // 记录顾客加入队列的时间
+      int processtime;  // 该顾客咨询所需要花费的时间
+  } Item;
+  ```
+
+- **示例程序**(此处演示如何使用队列模拟，`queue.h`和`queue.c`须自行修改)
+
+  ```c
+  /* mall.c 使用 Queue 接口 */
+  /* 与 queue.c 一起编译(注意需要自行修改) */
+  #include <stdio.h>
+  #include <stdlib.h>     // 提供 rand() 和 srand() 的原型
+  #include <time.h>       // 提供 time() 的原型
+  #include "queue.h"      // 已更改 Item 的 typedef
+  #define MIN_PER_HR 60.0 // 每小时的分钟数
+
+  // 是否有新顾客到来
+  // x 是顾客到来的平均时间。如果1分钟内有顾客到来，则返回 true
+  bool newcustomer(double x)
+  {
+      if (rand() * x / RAND_MAX < 1)
+          return true;
+      else
+          return false;
+  }
+
+  // 设置顾客参数
+  // when 是顾客到来的时间。该函数返回一个 Item 结构，该顾客到达的时间设置为 when，咨询时间设置为 1~3 的随机值
+  Item customertime(long when)
+  {
+      Item cust;
+      cust.processtime = rand() % 3 + 1;
+      cust.arrive = when;
+      return cust;
+  }
+
+  int main(void)
+  {
+      Queue line;
+      Item temp;              // 新的顾客数据
+      int hours;              // 模拟的小时数
+      int perhour;            // 每小时平均多少位顾客
+      long cycle, cyclelimit; // 循环计数器、计数器的上限
+      long turnaways = 0;     // 因队列已满被拒的顾客数
+      long customers = 0;     // 加入队列的顾客数
+      long served = 0;        // 在模拟期间咨询过的顾客数
+      long sum_line = 0;      // 累积的队列总长
+      int wait_time = 0;      // 从当前时间到摊主空闲所需的时间
+      double min_per_cust;    // 顾客到来的平均时间
+      long line_wait = 0;     // 队列累计的等待时间
+
+      InitializeQueue(&line);
+      srand((unsigned int)time(0)); // rand() 随机初始化
+      puts("输入你要模拟的时长：");
+      scanf("%d", &hours);
+      cyclelimit = MIN_PER_HR * hours;
+      puts("输入每小时平均多少位顾客：");
+      scanf("%d", &perhour);
+      min_per_cust = MIN_PER_HR / perhour;
+
+      // 每次迭代对应1分钟的行为
+      for (cycle = 0; cycle < cyclelimit; cycle++)
+      {
+          // 随机生成这1分钟有没有顾客
+          if (newcustomer(min_per_cust))
+          {
+              // 队列已满则让顾客离开并计数
+              if (QueueIsFull(&line))
+                  turnaways++;
+              // 队列未满则随机生成顾客信息，并将其添加到队列中
+              else
+              {
+                  customers++;
+                  temp = customertime(cycle);
+                  EnQueue(temp, &line);
+              }
+          }
+          // 如果摊主目前空闲 且 队列不为空
+          if (wait_time <= 0 && !QueueIsEmpty(&line))
+          {
+              DeQueue(&temp, &line);            // 删除首元素并将其信息拷贝至 temp
+              wait_time = temp.processtime;     // 记录摊主接下来多少分钟不空闲
+              line_wait += cycle - temp.arrive; // 将该顾客的等待时间累加到队列等待总时长中
+              served++;
+          }
+          // 如果摊主不空闲
+          if (wait_time > 0)
+              wait_time--;
+          sum_line += QueueItemCount(&line); // 将这一分钟队列的总长累加到队列总长中
+      }
+
+      if (customers > 0)
+      {
+          printf("成功排队：%ld\n", customers);
+          printf("成功接待：%ld\n", served);
+          printf("离开顾客：%ld\n", turnaways);
+          printf("平均队列长度：%.2f", (double)sum_line / cyclelimit);
+          printf("平均等待时间：%.2f", (double)line_wait / served);
+      }
+      else
+          puts("没有顾客！");
+
+      EmptyTheQueue(&line);
+      puts("已清理队列，成功退出");
+      return 0;
+  }
+  ```
+
+##### **链表和数组**
 
 - 码字中。。。
 
