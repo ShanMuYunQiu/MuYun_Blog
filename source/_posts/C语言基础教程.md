@@ -4,7 +4,7 @@ author: 圣奇宝枣
 description: 有关于C语言的基础教程，包括基本语法、基础的底层逻辑知识与一部分数据结构，比较适合有一定经验的初学者上手
 sticky: 1
 date: 2022-05-09 08:21:06
-updated: 2022-11-03 21:14:48
+updated: 2022-11-04 09:35:34
 readmore: true
 tags:
   - C语言
@@ -7533,7 +7533,7 @@ int main(int argc, char *argv[])
 
 <div class="success">
 
-> **章节概要**：研究数据表示；结构数组的局限；从数组到链表；优化指针数组；链表引入；使用链表；抽象数据类型(ADT)；建立抽象；建立接口；实现接口；使用接口；队列 ADT；定义队列 ADT；建立接口；实现接口
+> **章节概要**：研究数据表示；结构数组的局限；从数组到链表；优化指针数组；链表引入；使用链表；抽象数据类型(ADT)；建立抽象；建立接口；实现接口；使用接口；队列 ADT；定义队列 ADT；建立接口；实现接口；测试队列；用队列进行模拟
 
 </div>
 
@@ -8368,7 +8368,165 @@ int main(int argc, char *argv[])
 
   - **示例程序**
 
-    - 码字中。。。
+    ```c
+    /* queue.c 队列类型函数的实现 */
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include "queue.h"
+
+    // 局部函数
+    static void CopyToNode(Item item, Node *pn)
+    {
+        pn->item = item;
+    }
+
+    static void CopyToItem(Node *pn, Item *pi)
+    {
+        *pi = pn->item;
+    }
+
+    // 实现功能函数
+    void InitializeQueue(Queue *pq)
+    {
+        pq->front = pq->rear = NULL;
+        pq->items = 0;
+    }
+
+    bool QueueIsFull(Queue *pq)
+    {
+        return pq->items == MAXQUEUE;
+    }
+
+    bool QueueIsEmpty(Queue *pq)
+    {
+        return pq->items == 0;
+    }
+
+    int QueueItemCount(Queue *pq)
+    {
+        return pq->items;
+    }
+
+    bool EnQueue(Item item, Queue *pq)
+    {
+        Node *pnew;
+        // 如果队列已满，返回 false
+        if (QueueIsFull(pq))
+            return false;
+
+        pnew = (Node *)malloc(sizeof(Node)); // 为 pnew 分配内存
+        // 如果内存分配错误(空指针)
+        if (pnew == NULL)
+        {
+            fprintf(stderr, "无法分配内存！\n");
+            exit(1);
+        }
+        CopyToNode(item, pnew); // 将值拷贝给 pnew
+        pnew->next = NULL;      // 让 pnew 的 next 指针成员指向 NULL
+
+        if (QueueIsEmpty(pq))      // 如果 pq 本来就为空
+            pq->front = pnew;      // 项位于队列的首端，即首个项
+        else                       // 否则则不是首项
+            pq->rear->next = pnew; // 当前队列尾端 rear 的 next 指针指向 pnew 进行链接
+        pq->rear = pnew;           // 记录队列尾端的位置，更新队列尾端指针 rear 指向 pnew
+        pq->items++;               // 队列项数+1
+
+        return true;
+    }
+
+    bool DeQueue(Item *pitem, Queue *pq)
+    {
+        Node *pt;
+        // 如果 pq 本来就为空
+        if (QueueIsEmpty(pq))
+            return false;
+
+        CopyToItem(pq->front, pitem); // 将 pq 的首元素拷贝给 pitem
+        pt = pq->front;               // 用 pt 记录目前首元素位置
+        pq->front = pq->front->next;  // 将首元素设置为下一个元素的位置
+        free(pt);                     // 释放原先首元素的位置
+        pq->items--;                  // 队列项数-1
+        // 如果删除后队列没有元素了，就初始化队列，将未操作清空的末尾设置为空
+        if (pq->items == 0)
+            pq->rear = NULL;
+
+        return true;
+    }
+
+    void EmptyTheQueue(Queue *pq)
+    {
+        Item dummy; // 临时指针
+        while (!QueueIsEmpty(pq))
+            DeQueue(&dummy, pq);
+    }
+    ```
+
+- **测试队列**
+
+  - **说明**
+
+    > 1、在重要程序中**使用一个新的设计之前**(如，队列包)，应该**先测试该设计**  
+    > 2、测试的一种方法是，**编写一个小程序**，这样的程序称为**驱动程序**，其**唯一用途**是**进行测试**  
+    > 3、注意编写的**驱动程序**必须链接所需要的`queue.c`，即**多文件编译**一起进行编译
+  
+  - **驱动程序示例**
+
+    ```c
+    /* use_q.c 驱动程序测试 Queue 接口 */
+    /* 与 queue.c 一起编译 */
+    #include <stdio.h>
+    #include "queue.h" // 定义 Queue、Item
+
+    int main(void)
+    {
+        Queue line;
+        Item temp;
+        char ch;
+
+        InitializeQueue(&line);
+        puts("测试队列界面，输入a添加值，输入d删除值，输入q退出程序");
+        while ((ch = getchar()) != 'q')
+        {
+            if (ch != 'a' && ch != 'd') // 忽略其他输入
+                continue;
+
+            // 如果为 a 则添加，否则即删除
+            if (ch == 'a')
+            {
+                printf("输入一个对应队列元素类型的值(该程序为整数)：");
+                scanf("%d", &temp);
+                // 如果队列未满则添加，已满则提示
+                if (!QueueIsFull(&line))
+                {
+                    EnQueue(temp, &line);
+                    printf("成功将%d写入队列\n", temp);
+                }
+                else
+                    puts("队列已满，未成功写入");
+            }
+            else
+            {
+                if (QueueIsEmpty(&line))
+                    puts("队列已经为空！\n");
+                else
+                {
+                    DeQueue(&temp, &line);
+                    printf("成功将%d从队列删除\n", temp);
+                }
+            }
+            printf("队列中有%d个元素\n", QueueItemCount(&line));
+            puts("输入a添加值，输入d删除值，输入q退出程序");
+        }
+
+        EmptyTheQueue(&line);
+        puts("队列已正常清空释放，程序退出");
+        return 0;
+    }
+    ```
+
+##### **用队列进行模拟**
+
+- 码字中。。。
 
 ---
 
