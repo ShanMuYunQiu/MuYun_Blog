@@ -4,7 +4,7 @@ author: 圣奇宝枣
 description: 有关于C语言的基础教程，包括基本语法、基础的底层逻辑知识与一部分数据结构，比较适合有一定经验的初学者上手
 sticky: 1
 date: 2022-05-09 08:21:06
-updated: 2022-11-06 09:35:34
+updated: 2022-11-07 21:14:52
 readmore: true
 tags:
   - C语言
@@ -7533,7 +7533,7 @@ int main(int argc, char *argv[])
 
 <div class="success">
 
-> **章节概要**：研究数据表示；结构数组的局限；从数组到链表；优化指针数组；链表引入；使用链表；抽象数据类型(ADT)；建立抽象；建立接口；实现接口；使用接口；队列 ADT；定义队列 ADT；建立接口；实现接口；测试队列；用队列进行模拟；链表和数组与查找方式；链表和数组的性质对比；访问元素的方式；顺序查找；二分查找；二分查找的原理；二分查找的优势；二分查找的实现；二叉查找树；二叉树简介；二叉树 ADT
+> **章节概要**：研究数据表示；结构数组的局限；从数组到链表；优化指针数组；链表引入；使用链表；抽象数据类型(ADT)；建立抽象；建立接口；实现接口；使用接口；队列 ADT；定义队列 ADT；建立接口；实现接口；测试队列；用队列进行模拟；链表和数组与查找方式；链表和数组的性质对比；访问元素的方式；顺序查找；二分查找；二分查找的原理；二分查找的优势；二分查找的实现；二叉查找树；二叉树简介；二叉树 ADT；建立接口；实现接口；使用接口
 
 </div>
 
@@ -8711,137 +8711,237 @@ int main(int argc, char *argv[])
 
 - **二叉树 ADT**
 
-  - **定义二叉树 ADT**
+  ```c
+  /*
+  类型名：      二叉查找树
+  类型属性：    二叉树要么是空节点的集合(空树)，要么是有一个根节点的节点集合
+              每个节点都有两个子树，叫左子树和右子树
+              每个子树本身也是一个二叉树，也有可能是空树
+              二叉查找树是一个有序的二叉树，每个节点包含一个项
+              左子树的所有项都在根节点项的前面，右子树的所有项都在根节点项的后面
+  类型操作：    初始化树为空
+              确定树是否为空
+              确定树是否已满
+              确定树中的项数
+              在树中添加一个项
+              在树中删除一个项
+              在树中查找一个项
+              在树中访问一个项
+              清空树
+  */
+  ```
+
+- **建立接口**
+
+  - **实现接口数据表示**
+
+    > 1、原则上，可以用多种方法实现**二叉查找树**，甚至可以通过**操纵数组下标**用数组实现  
+    > 2、但是，实现**二叉查找树**最直接的方法是**通过指针动态分配链式节点**
+
+  - **接口头文件示例**
 
     ```c
+    /* tree.h 二叉查找树的接口头文件 */
+    // 树中不允许有重复的项
+
+    #ifndef TREE_H_
+    #define TREE_H_
+    #include <stdbool.h>
+
+    // 根据具体情况重新定义 Item
+    #define SLEN 20
+    typedef struct item
+    {
+        char petname[SLEN];
+        char petkind[SLEN];
+    } Item;
+
+    #define MAXITEMS 10
+
+    typedef struct trnode
+    {
+        Item item;
+        struct trnode *left;  // 指向左分支的指针
+        struct trnode *right; // 指向右分支的指针
+    } Trnode;
+
+    typedef struct tree
+    {
+        Trnode *root; // 指向根节点的指针
+        int size;     // 树的项数
+    } Tree;
+
     /*
-    类型名：      二叉查找树
-    类型属性：    二叉树要么是空节点的集合(空树)，要么是有一个根节点的节点集合
-                每个节点都有两个子树，叫左子树和右子树
-                每个子树本身也是一个二叉树，也有可能是空树
-                二叉查找树是一个有序的二叉树，每个节点包含一个项
-                左子树的所有项都在根节点项的前面，右子树的所有项都在根节点项的后面
-    类型操作：    初始化树为空
-                确定树是否为空
-                确定树是否已满
-                确定树中的项数
-                在树中添加一个项
-                在树中删除一个项
-                在树中查找一个项
-                在树中访问一个项
-                清空树
+    操作：初始化树
+    前提条件：ptree 指向一个树
+    后置条件：树被初始化为空
     */
+    void InitializeTree(Tree *ptree);
+
+    /*
+    操作：检查树是否为空
+    前提条件：ptree 指向一个树
+    后置条件：如果树为空则返回 true，否则返回 false
+    */
+    bool TreeIsEmpty(Tree *ptree);
+
+    /*
+    操作：检查树是否已满
+    前提条件：ptree 指向一个树
+    后置条件：如果树已满则返回 true，否则返回 false
+    */
+    bool TreeIsFull(Tree *ptree);
+
+    /*
+    操作：确定树的项数
+    前提条件：ptree 指向一个树
+    后置条件：返回树的项数
+    */
+    int TreeItemCount(Tree *ptree);
+
+    /*
+    操作：在树中添加一个项
+    前提条件：pi 是待添加项的地址，ptree 指向一个已初始化的树
+    后置条件：如果可以添加，该函数将在树中添加一个项，并返回 true；否则返回 false
+    */
+    bool AddItem(Item *pi, Tree *ptree);
+
+    /*
+    操作：从树中查找一个项
+    前提条件：pi 指向一个项，ptree 指向一个已初始化的树
+    后置条件：如果在树中找到指定项，则返回 true；否则返回 false
+    */
+    bool InTree(Item *pi, Tree *ptree);
+
+    /*
+    操作：从树中删除一个项
+    前提条件：pi 是删除项的地址，ptree 指向一个已初始化的树
+    后置条件：如果从树中成功删除一个项，则返回 true；否则返回 false
+    */
+    bool DeleteItem(Item *pi, Tree *ptree);
+
+    /*
+    操作：把函数应用于树中的每一项
+    前提条件：ptree 指向一个树，pfun 指向一个函数，该函数接受一个 Item 类型的参数且无返回值
+    后置条件：pfun 指向的这个函数为树中的每一项执行一次
+    */
+    void Traverse(Tree *ptree, void (*pfun)(Item item));
+
+    /*
+    操作：清空树中的所有内容
+    前提条件：ptree 指向一个已被初始化的树
+    后置条件：树被清空
+    */
+    void DeleteAll(Tree *ptree);
+
+    #endif
     ```
 
-  - **建立接口**
+- **实现接口**
 
-    - **实现接口数据表示**
+  - **添加项**
 
-      > 1、原则上，可以用多种方法实现**二叉查找树**，甚至可以通过**操纵数组下标**用数组实现  
-      > 2、但是，实现**二叉查找树**最直接的方法是**通过指针动态分配链式节点**
-    
-    - **接口头文件示例**
+    - **添加项的实现思路**
+
+      > 1、在树中**添加一个项**，首先要**检查是否有空余位置**。由于我们定义**二叉树**时规定**其中的项不重复**，所以还要检查树中**是否已有该项**  
+      > 2、通过这两步检查后，便可**创建一个新节点**，把**待添加项**拷贝到该节点中，并设置节点的**左指针**和**右指针**都为**NULL**，这表明**该节点没有子节点**  
+      > 3、然后，更新**Tree**结构的**size**成员，统计**新增一项**  
+      > 4、接下来，必须找出应该把这个新节点**放在树中哪个位置**。如果**树为空**，则应设置**根节点指针**指向**该新节点**；否则，**遍历树**找到合适位置**存放节点**  
+      > 5、注意该**函数中**仍使用了一些**静态函数**来实现功能，这些函数将在**后续说明**
 
       ```c
-      /* tree.h 二叉查找树的接口头文件 */
-      // 树中不允许有重复的项
-
-      #ifndef TREE_H_
-      #define TREE_H_
-      #include <stdbool.h>
-
-      // 根据具体情况重新定义 Item
-      #define SLEN 20
-      typedef struct item
+      bool AddItem(Item *pi, Tree *ptree)
       {
-          char petname[SLEN];
-          char petkind[SLEN];
-      } Item;
+          Trnode *new_node;
+          if (TreeIsFull(ptree))
+          {
+              fprintf(stderr, "树已满!\n");
+              return false;
+          }
+          if (SeekItem(pi, ptree).child != NULL)
+          {
+              fprintf(stderr, "添加的项重复!\n");
+              return false;
+          }
+          new_node = MakeNode(pi); // 指向新节点
+          if (new_node == NULL)
+          {
+              fprintf(stderr, "无法分配内存!\n");
+              return false;
+          }
 
-      #define MAXITEMS 10
-
-      typedef struct trnode
-      {
-          Item item;
-          struct trnode *left;  // 指向左分支的指针
-          struct trnode *right; // 指向右分支的指针
-      } Trnode;
-
-      typedef struct tree
-      {
-          Trnode *root; // 指向根节点的指针
-          int size;     // 树的项数
-      } Tree;
-
-      /*
-      操作：初始化树
-      前提条件：ptree 指向一个树
-      后置条件：树被初始化为空
-      */
-      void InitializeTree(Tree *ptree);
-
-      /*
-      操作：检查树是否为空
-      前提条件：ptree 指向一个树
-      后置条件：如果树为空则返回 true，否则返回 false
-      */
-      bool TreeIsEmpty(Tree *ptree);
-
-      /*
-      操作：检查树是否已满
-      前提条件：ptree 指向一个树
-      后置条件：如果树已满则返回 true，否则返回 false
-      */
-      bool TreeIsFull(Tree *ptree);
-
-      /*
-      操作：确定树的项数
-      前提条件：ptree 指向一个树
-      后置条件：返回树的项数
-      */
-      int TreeItemCount(Tree *ptree);
-
-      /*
-      操作：在树中添加一个项
-      前提条件：pi 是待添加项的地址，ptree 指向一个已初始化的树
-      后置条件：如果可以添加，该函数将在树中添加一个项，并返回 true；否则返回 false
-      */
-      bool AddItem(Item *pi, Tree *ptree);
-
-      /*
-      操作：从树中查找一个项
-      前提条件：pi 指向一个项，ptree 指向一个已初始化的树
-      后置条件：如果在树中找到指定项，则返回 true；否则返回 false
-      */
-      bool InTree(Item *pi, Tree *ptree);
-
-      /*
-      操作：从树中删除一个项
-      前提条件：pi 是删除项的地址，ptree 指向一个已初始化的树
-      后置条件：如果从树中成功删除一个项，则返回 true；否则返回 false
-      */
-      bool DeleteItem(Item *pi, Tree *ptree);
-
-      /*
-      操作：把函数应用于树中的每一项
-      前提条件：ptree 指向一个树，pfun 指向一个函数，该函数接受一个 Item 类型的参数且无返回值
-      后置条件：pfun 指向的这个函数为树中的每一项执行一次
-      */
-      void Traverse(Tree *ptree, void (*pfun)(Item item));
-
-      /*
-      操作：清空树中的所有内容
-      前提条件：ptree 指向一个已被初始化的树
-      后置条件：树被清空
-      */
-      void DeleteAll(Tree *ptree);
-
-      #endif
+          // 成功创建了一个新节点
+          ptree->size++;
+          if (ptree->root == NULL)            // 如果根为空
+              ptree->root = new_node;         // 则这是第一个项，令根节点指向该节点
+          else                                // 否则
+              AddNode(new_node, ptree->root); // 在树中添加节点
+          return true;
+      }
       ```
 
-  - **实现接口**
+    - **部分静态函数的实现思路**
 
-    - **添加项**
+      ```c
+      static Trnode *MakeNode(Item *pi)
+      {
+          Trnode *new_node;
+          new_node = (Trnode *)malloc(sizeof(Trnode));  // 分配内存
+          if(new_node != NULL)                          // 如果内存成功分配，就初始化新节点
+          {
+              new_node->item = *pi;
+              new_node->left = NULL;
+              new_node->right = NULL;
+          }
+          return new_node;
+      }
+
+      static void AddNode(Trnode *new_node, Trnode *root)
+      {
+          // ToLeft() 和 ToRight() 判断该左移还是右移
+          if (ToLeft(&new_node->item, &root->item))
+          {
+              if (root->left == NULL)            // 空子树
+                  root->left = new_node;         // 在此处添加节点
+              else                               // 否则
+                  AddNode(new_node, root->left); // 继续处理该子树
+          }
+          else if (ToRight(&new_node->item, &root->item))
+          {
+              if (root->right == NULL)
+                  root->right = new_node;
+              else
+                  AddNode(new_node, root->right);
+          }
+          else
+          {
+              fprintf(stderr, "AddNode() 函数执行错误!\n");
+              exit(1);
+          }
+      }
+
+      static bool ToLeft(Item *i1, Item *i2)
+      {
+          // 比对字符串
+          int comp1;
+          // 比对 petname，如果 i1 的小于 i2 的，则 comp1 小于 0
+          if ((comp1 = strcmp(i1->petname, i2->petname)) < 0)
+              return true;
+          // 如果 petname 相同，则比对 petkind 的字符串
+          else if (comp1 == 0 && strcmp(i1->petkind, i2->petkind) < 0)
+              return true;
+          else
+              return false;
+      }
+      ```
+  
+  - **查找项**
+
+    - **查找项的数据类型**
+
+      - 码字中。。。
+    
+    - **查找项的实现思路**
 
       - 码字中。。。
 
