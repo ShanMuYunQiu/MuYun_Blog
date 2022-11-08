@@ -9194,7 +9194,7 @@ int main(int argc, char *argv[])
     {
         // 比对字符串
         int comp1;
-        // 比对 petname，如果 i1 的小于 i2 的，则 comp1 小于 0
+        // 比对 petname，如果 i1 的大于 i2 的，则 comp1 大于 0
         if ((comp1 = strcmp(i1->petname, i2->petname)) > 0)
             return true;
         // 如果 petname 相同，则比对 petkind 的字符串
