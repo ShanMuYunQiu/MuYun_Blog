@@ -4,7 +4,7 @@ author: 圣奇宝枣
 description: 有关于C语言的基础教程，包括基本语法、基础的底层逻辑知识与一部分数据结构，比较适合有一定经验的初学者上手
 sticky: 1
 date: 2022-05-09 08:21:06
-updated: 2022-11-07 21:14:52
+updated: 2022-11-08 21:14:52
 readmore: true
 tags:
   - C语言
@@ -9007,7 +9007,7 @@ int main(int argc, char *argv[])
       - **两个子节点**
 
         > 1、最后一种情况是删除**有两个子树的节点**。**其中一个子树**(如左子树)可以连接在**被删除节点**之前链接的位置，但是**另一个子树**怎么处理？  
-        > 2、牢记树的**基本设计**:**左子树所有项**都在**父节点项**的**前面**，**右子树所有项**都在**父节点项**的**后面**。也就是说，**右子树所有项**都在**左子树所有项**的**后面**  
+        > 2、牢记树的**基本设计**：**左子树所有项**都在**父节点项**的**前面**，**右子树所有项**都在**父节点项**的**后面**。也就是说，**右子树所有项**都在**左子树所有项**的**后面**  
         > 3、而且，因为该**右子树**曾经是**被删除节点的父节点**的**左子树**中的一部分，所以该**右节点所有项**都在**被删除节点的父节点项**的**前面**  
         > 4、该**右子树的头**的**位置**应该在**被删除节点的父节点**前面，因此要**沿着父节点的左子树向下找**，同时**这些项**又在**被删除节点**的**左子树所有项**后面  
         > 5、因此要查看**左子树的右支**是否有**新节点的空位**。如果没有，就要沿着**左子树的右支**向下找，**直到找到一个空位**
@@ -9016,7 +9016,128 @@ int main(int argc, char *argv[])
 
     - **删除项的实现思路**
 
-      - 码字中。。。
+      - **删除一个节点**
+
+        > 1、**删除节点**要**注意两点**：程序必须标识**待删除节点**的**父节点**；为了**修改指针**，代码必须把该**指针的地址**传给**执行删除任务的函数**  
+        > 2、第一点稍后讨论，先**分析第二点**。要修改的**指针**本身是`Trnode *`类型，即**指向 Trnode 的指针**；由于**该函数的参数**是**该指针的地址**，所以**参数类型**是`Trnode **`，即**指向指针的指针**  
+        > 3、我们分为**三种情况**讨论：**没有左子节点**的节点、**没有右子节点**的节点、**有两个子节点**的节点。其中**前两种情况同时成立**则包含了**两个节点都没有**的情况
+
+        ```c
+        // ptr 是指向目标节点的父节点指针成员的地址
+        static void DeleteNode(Trnode **ptr)
+        {
+            Trnode *temp;
+            if ((*ptr)->left == NULL)
+            {
+                temp = *ptr;
+                *ptr = (*ptr)->right;
+                free(temp);
+            }
+            else if ((*ptr)->right == NULL)
+            {
+                temp = *ptr;
+                *ptr = (*ptr)->left;
+                free(temp);
+            }
+            // 被删除的节点有两个子节点
+            else
+            {
+                // 找到重新连接右子树的位置
+                for (temp = (*ptr)->left; temp->right != NULL; temp = temp->right)
+                    continue;
+                temp->right = (*ptr)->right;
+                temp = *ptr;
+                *ptr = (*ptr)->left;
+                free(temp);
+            }
+        }
+        ```
+
+      - **删除一个项**
+
+        > 1、剩下的问题是把**一个节点**与**特定项**相**关联**。可以使用`SeekItem()`**函数**来完成  
+        > 2、回忆一下，该函数**返回一个结构**，包含**两个指针**：一个指向**父节点**，一个指向**包含特定项的节点**  
+        > 3、然后就可以通过**父节点的指针**获得**相应的地址**传给`DeleteNode()`函数
+
+        ```c
+        bool DeleteItem(Item *pi, Tree *ptree)
+        {
+            Pair look;
+            look = SeekItem(pi, ptree);
+            if (look.child == NULL)
+                return false;
+            if (look.parent == NULL)
+                DeleteNode(&ptree->root); // 删除根节点
+            else if (look.parent->left == look.child)
+                DeleteNode(&look.parent->left);
+            else
+                DeleteNode(&look.parent->right);
+            ptree->size--;
+            return true;
+        }
+        ```
+
+  - **遍历树**
+
+    - **遍历树的实现思路**
+
+      > 1、**遍历树**比遍历链表**更复杂**，因为**每个节点**都有**两个分支**。这种**分支特性**很适合使用**分而治之**的**递归**来处理  
+      > 2、对于**每个节点**，**执行遍历任务**的**函数**都要做**如下工作**：**处理节点中的项**、**处理左子树**(递归调用)、**处理右子树**(递归调用)  
+      > 3、可以把**遍历**分为**两个函数**来完成：`Traverse()`和`InOrder()`。注意`InOrder()`函数**处理左子树**，然后**处理项**，最后**处理右子树**。这种**遍历树的顺序**是按**字母排序**进行的
+
+      ```c
+      static void InOrder(Trnode *root, void (*pfun)(Item item))
+      {
+          if (root != NULL)
+          {
+              // 递归
+              InOrder(root->left, pfun);
+              (*pfun)(root->item);
+              InOrder(root->right, pfun);
+          }
+      }
+
+      void Traverse(Tree *ptree, void (*pfun)(Item item))
+      {
+          if (ptree != NULL)
+              InOrder(ptree->root, pfun);
+      }
+      ```
+
+  - **清空树**
+
+    - **清空树的实现思路**
+
+      > 1、**清空树**基本上和**遍历树**过程相同，即清空树的代码也要**访问每个节点**，而且要用`free()`**释放内存**  
+      > 2、除此之外，还要**重置 Tree 类型结构的成员**，表明**该树为空**  
+      > 3、`DeleteAll()`函数负责**处理 Tree 类型结构**，并把**释放内存**的任务交给`DeleteAllNodes()`函数
+
+      ```c
+      static void DeleteAllNodes(Trnode *root)
+      {
+          Trnode *pright;
+          if (root != NULL)
+          {
+              pright = root->right;
+              // 递归
+              DeleteAllNodes(root->left);
+              free(root);
+              DeleteAllNodes(pright);
+          }
+      }
+
+      void DeleteAll(Tree *ptree)
+      {
+          if (ptree != NULL)
+              DeleteAllNodes(ptree->root);
+          ptree->root = NULL;
+          ptree->size = 0;
+      }
+      ```
+
+  - **完整的实现接口示例**
+
+    - 码字中。。。
 
 ---
 
