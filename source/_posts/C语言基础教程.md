@@ -7533,7 +7533,7 @@ int main(int argc, char *argv[])
 
 <div class="success">
 
-> **章节概要**：研究数据表示；结构数组的局限；从数组到链表；优化指针数组；链表引入；使用链表；抽象数据类型(ADT)；建立抽象；建立接口；实现接口；使用接口；队列 ADT；定义队列 ADT；建立接口；实现接口；测试队列；用队列进行模拟；链表和数组与查找方式；链表和数组的性质对比；访问元素的方式；顺序查找；二分查找；二分查找的原理；二分查找的优势；二分查找的实现；二叉查找树；二叉树简介；二叉树 ADT；建立接口；实现接口；使用接口
+> **章节概要**：研究数据表示；结构数组的局限；从数组到链表；优化指针数组；链表引入；使用链表；抽象数据类型(ADT)；建立抽象；建立接口；实现接口；使用接口；队列 ADT；定义队列 ADT；建立接口；实现接口；测试队列；用队列进行模拟；链表和数组与查找方式；链表和数组的性质对比；访问元素的方式；顺序查找；二分查找；二分查找的原理；二分查找的优势；二分查找的实现；二叉查找树；二叉树简介；二叉树 ADT；建立接口；实现接口；使用接口；树的思想
 
 </div>
 
@@ -9023,8 +9023,8 @@ int main(int argc, char *argv[])
         > 3、我们分为**三种情况**讨论：**没有左子节点**的节点、**没有右子节点**的节点、**有两个子节点**的节点。其中**前两种情况同时成立**则包含了**两个节点都没有**的情况
 
         ```c
-        // ptr 是指向目标节点的父节点指针成员的地址
         static void DeleteNode(Trnode **ptr)
+        // ptr 是指向目标节点的父节点指针成员的地址
         {
             Trnode *temp;
             if ((*ptr)->left == NULL)
@@ -9137,7 +9137,446 @@ int main(int argc, char *argv[])
 
   - **完整的实现接口示例**
 
-    - 码字中。。。
+    ```c
+    /* tree.c 二叉查找树类型函数的实现 */
+    #include <stdio.h>
+    #include <string.h>
+    #include <stdlib.h>
+    #include "tree.h"
+
+    //局部数据类型
+    typedef struct pair
+    {
+        Trnode *parent;
+        Trnode *child;
+    } Pair;
+
+    // 局部函数
+    static void InOrder(Trnode *root, void (*pfun)(Item item))
+    {
+        if (root != NULL)
+        {
+            // 递归
+            InOrder(root->left, pfun);
+            (*pfun)(root->item);
+            InOrder(root->right, pfun);
+        }
+    }
+
+    static void DeleteAllNodes(Trnode *root)
+    {
+        Trnode *pright;
+        if (root != NULL)
+        {
+            pright = root->right;
+            // 递归
+            DeleteAllNodes(root->left);
+            free(root);
+            DeleteAllNodes(pright);
+        }
+    }
+
+    static bool ToLeft(Item *i1, Item *i2)
+    {
+        // 比对字符串
+        int comp1;
+        // 比对 petname，如果 i1 的小于 i2 的，则 comp1 小于 0
+        if ((comp1 = strcmp(i1->petname, i2->petname)) < 0)
+            return true;
+        // 如果 petname 相同，则比对 petkind 的字符串
+        else if (comp1 == 0 && strcmp(i1->petkind, i2->petkind) < 0)
+            return true;
+        else
+            return false;
+    }
+
+    static bool ToRight(Item *i1, Item *i2)
+    {
+        // 比对字符串
+        int comp1;
+        // 比对 petname，如果 i1 的小于 i2 的，则 comp1 小于 0
+        if ((comp1 = strcmp(i1->petname, i2->petname)) > 0)
+            return true;
+        // 如果 petname 相同，则比对 petkind 的字符串
+        else if (comp1 == 0 && strcmp(i1->petkind, i2->petkind) > 0)
+            return true;
+        else
+            return false;
+    }
+
+    static void AddNode(Trnode *new_node, Trnode *root)
+    {
+        // ToLeft() 和 ToRight() 判断该左移还是右移
+        if (ToLeft(&new_node->item, &root->item))
+        {
+            if (root->left == NULL)            // 空子树
+                root->left = new_node;         // 在此处添加节点
+            else                               // 否则
+                AddNode(new_node, root->left); // 继续处理该子树
+        }
+        else if (ToRight(&new_node->item, &root->item))
+        {
+            if (root->right == NULL)
+                root->right = new_node;
+            else
+                AddNode(new_node, root->right);
+        }
+        else
+        {
+            fprintf(stderr, "AddNode() 函数执行错误!\n");
+            exit(1);
+        }
+    }
+
+    static Trnode *MakeNode(Item *pi)
+    {
+        Trnode *new_node;
+        new_node = (Trnode *)malloc(sizeof(Trnode)); // 分配内存
+        if (new_node != NULL)
+        {
+            new_node->item = *pi;
+            new_node->left = NULL;
+            new_node->right = NULL;
+        }
+        return new_node;
+    }
+
+    static Pair SeekItem(Item *pi, Tree *ptree)
+    {
+        Pair look;
+        look.parent = NULL;
+        look.child = ptree->root;
+        if (look.child == NULL)
+            return look;
+        while (look.child != NULL)
+        {
+            if (ToLeft(pi, &(look.child->item)))
+            {
+                look.parent = look.child;
+                look.child = look.child->left;
+            }
+            else if (ToRight(pi, &(look.child->item)))
+            {
+                look.parent = look.child;
+                look.child = look.child->right;
+            }
+            else       // 如果前两种都不满足，那必然相等
+                break; // 打断循环，look.child 就是目标项节点，已找到
+        }
+        return look; // 返回的是一个结构
+    }
+
+    static void DeleteNode(Trnode **ptr)
+    // ptr 是指向目标节点的父节点指针成员的地址
+    {
+        Trnode *temp;
+        if ((*ptr)->left == NULL)
+        {
+            temp = *ptr;
+            *ptr = (*ptr)->right;
+            free(temp);
+        }
+        else if ((*ptr)->right == NULL)
+        {
+            temp = *ptr;
+            *ptr = (*ptr)->left;
+            free(temp);
+        }
+        // 被删除的节点有两个子节点
+        else
+        {
+            // 找到重新连接右子树的位置
+            for (temp = (*ptr)->left; temp->right != NULL; temp = temp->right)
+                continue;
+            temp->right = (*ptr)->right;
+            temp = *ptr;
+            *ptr = (*ptr)->left;
+            free(temp);
+        }
+    }
+
+    // 实现功能函数
+    void InitializeTree(Tree *ptree)
+    {
+        ptree->root = NULL;
+        ptree->size = 0;
+    }
+
+    bool TreeIsEmpty(Tree *ptree)
+    {
+        if (ptree->root == NULL)
+            return true;
+        else
+            return false;
+    }
+
+    bool TreeIsFull(Tree *ptree)
+    {
+        if (ptree->size == MAXITEMS)
+            return true;
+        else
+            return false;
+    }
+
+    int TreeItemCount(Tree *ptree)
+    {
+        return ptree->size;
+    }
+
+    bool AddItem(Item *pi, Tree *ptree)
+    {
+        Trnode *new_node;
+        if (TreeIsFull(ptree))
+        {
+            fprintf(stderr, "树已满!\n");
+            return false;
+        }
+        if (SeekItem(pi, ptree).child != NULL)
+        {
+            fprintf(stderr, "添加的项重复!\n");
+            return false;
+        }
+        new_node = MakeNode(pi); // 指向新节点
+        if (new_node == NULL)
+        {
+            fprintf(stderr, "无法分配内存!\n");
+            return false;
+        }
+
+        // 成功创建了一个新节点
+        ptree->size++;
+        if (ptree->root == NULL)            // 如果根为空
+            ptree->root = new_node;         // 则这是第一个项，令根节点指向该节点
+        else                                // 否则
+            AddNode(new_node, ptree->root); // 在树中添加节点
+        return true;
+    }
+
+    bool InTree(Item *pi, Tree *ptree)
+    {
+        return (SeekItem(pi, ptree).child == NULL) ? false : true;
+    }
+
+    bool DeleteItem(Item *pi, Tree *ptree)
+    {
+        Pair look;
+        look = SeekItem(pi, ptree);
+        if (look.child == NULL)
+            return false;
+        if (look.parent == NULL)
+            DeleteNode(&ptree->root); // 删除根节点
+        else if (look.parent->left == look.child)
+            DeleteNode(&look.parent->left);
+        else
+            DeleteNode(&look.parent->right);
+        ptree->size--;
+        return true;
+    }
+
+    void Traverse(Tree *ptree, void (*pfun)(Item item))
+    {
+        if (ptree != NULL)
+            InOrder(ptree->root, pfun);
+    }
+
+    void DeleteAll(Tree *ptree)
+    {
+        if (ptree != NULL)
+            DeleteAllNodes(ptree->root);
+        ptree->root = NULL;
+        ptree->size = 0;
+    }
+    ```
+
+- **使用接口**(实现宠物俱乐部花名册)
+
+  ```c
+  /* petclub.c 使用二叉树接口 */
+  /* 与 tree.c 一起编译 */
+  #include <stdio.h>
+  #include <string.h>
+  #include <ctype.h>
+  #include "tree.h"
+
+  char *s_gets(char *str, int n)
+  {
+      char *ret_val;
+      int i = 0;
+      ret_val = fgets(str, n, stdin);
+      if (ret_val)
+      {
+          while (str[i] != '\0' && str[i] != '\n')
+              i++;
+          if (str[i] == '\n')
+              str[i] = '\0';
+          else
+              while (getchar() != '\n')
+                  continue;
+      }
+      return ret_val;
+  }
+
+  // 将字符串转换为大写
+  void uppercase(char *str)
+  {
+      while (*str)
+      {
+          *str = toupper(*str);
+          str++;
+      }
+  }
+
+  // 打印成员
+  void printitem(Item item)
+  {
+      printf("宠物：%-19s 品种：%-19s\n", item.petname, item.petkind);
+  }
+
+  char menu(void)
+  {
+      int ch;
+      puts("\n宠物俱乐部成员程序");
+      puts("输入对应字母选择功能：");
+      puts("a) 添加一只宠物      l) 显示宠物菜单");
+      puts("n) 显示宠物数量      f) 查找宠物");
+      puts("d) 删除一只宠物      q) 退出程序");
+      while ((ch = getchar()) != EOF)
+      {
+          while (getchar() != '\n') // 处理输入队列多余内容
+              continue;
+          ch = tolower(ch); // 统一转换为小写
+          // strchr() 确定 "alfndq" 中是否包含 ch 对应字符，并返回对应位置指针，如果不包含则返回 NULL
+          if (strchr("alfndq", ch) == NULL)
+              puts("请输入a,l,f,n,d,q：");
+          else
+              break;
+      }
+      if (ch == EOF)
+          ch = 'q'; // 退出程序
+      return ch;
+  }
+
+  void addpet(Tree *pt)
+  {
+      Item temp;
+      if (TreeIsFull(pt))
+          puts("俱乐部成员已满！");
+      else
+      {
+          puts("输入宠物的名字：");
+          s_gets(temp.petname, SLEN);
+          puts("输入宠物的品种：");
+          s_gets(temp.petkind, SLEN);
+          uppercase(temp.petname);
+          uppercase(temp.petkind);
+          AddItem(&temp, pt);
+      }
+  }
+
+  void showpets(Tree *pt)
+  {
+      if (TreeIsEmpty(pt))
+          puts("没有成员！");
+      else
+          Traverse(pt, printitem);
+  }
+
+  void findpet(Tree *pt)
+  {
+      Item temp;
+      if (TreeIsEmpty(pt))
+      {
+          puts("没有成员！");
+          return; // 退出函数
+      }
+      puts("输入要查找的宠物名称：");
+      s_gets(temp.petname, SLEN);
+      puts("输入该宠物的品种：");
+      s_gets(temp.petkind, SLEN);
+      uppercase(temp.petname);
+      uppercase(temp.petkind);
+      printf("%s(%s) ", temp.petname, temp.petkind);
+      if (InTree(&temp, pt))
+          printf("已在俱乐部中\n");
+      else
+          printf("不在俱乐部中\n");
+  }
+
+  void droppet(Tree *pt)
+  {
+      Item temp;
+      if (TreeIsEmpty(pt))
+      {
+          puts("没有成员！");
+          return; // 退出函数
+      }
+      puts("输入要删除的宠物名称：");
+      s_gets(temp.petname, SLEN);
+      puts("输入该宠物的品种：");
+      s_gets(temp.petkind, SLEN);
+      uppercase(temp.petname);
+      uppercase(temp.petkind);
+      printf("%s(%s) ", temp.petname, temp.petkind);
+      if (DeleteItem(&temp, pt))
+          printf("已经删除\n");
+      else
+          printf("本就不在俱乐部中\n");
+  }
+
+  int main(void)
+  {
+      Tree pets;
+      char choice;
+
+      InitializeTree(&pets);
+      while ((choice = menu()) != 'q')
+      {
+          switch (choice)
+          {
+          case 'a':
+              addpet(&pets);
+              break;
+          case 'l':
+              showpets(&pets);
+              break;
+          case 'f':
+              findpet(&pets);
+              break;
+          case 'n':
+              printf("俱乐部中共有 %d 只宠物\n", TreeItemCount(&pets));
+              break;
+          case 'd':
+              droppet(&pets);
+              break;
+          default:
+              puts("switch() 执行错误！");
+          }
+      }
+      DeleteAll(&pets);
+      puts("已成功释放内存，运行结束");
+      return 0;
+  }
+  ```
+
+- **树的思想**
+
+  - **二叉查找树的缺陷**
+
+    > 1、**二叉查找树**也有**一些缺陷**。例如**二叉查找树**只有在**满员**(或平衡)时**效率最高**  
+    > 2、假设用户**按字母顺序输入**数据，那么**每个新节点**都应该被**添加到右边**(如下图)，查找这种**不平衡的树**并不比查找**链表**要快
+
+    ![](https://s2.loli.net/2022/11/07/PFzdbqc6gtrM2Q1.png)
+  
+  - **避免串状树**
+
+    > 1、避免**串状树**的方法之一是在**创建树时多加注意**。如果**树或子树**的**一边或另一边**不太平衡，就需要**重新排列节点**使之恢复平衡。与此类似，可能在**进行删除操作**后也要**重新排列树**  
+    > 2、德国数学家 Adel'son-Vel'skii 和 Landis **发明了一种算法**来解决这个问题，根据他们的算法**创建的树**称为**AVL树**  
+    > 3、因为要**重构**，所以**创建一个平衡的树**要**花费更多时间**，但这样的树可以**确保搜索效率最大化**
+  
+  - **存储相同项的思路**
+
+    > 1、你可能需要一个**能存储相同项**的**二叉查找树**。例如在分析文本时，统计**某个单词出现的次数**  
+    > 2、一种方法是把 **Item** 定义为包含**一个单词**和**一个数字**的结构。**第一次遇到**这个单词时将其**添加到树中**，并且该单词**计数器+1**；**下一次遇到**时直接**找到该节点**并**递增计数器**。使用这种方法**修改二叉查找树的特性**，并不费多少功夫
 
 ---
 
