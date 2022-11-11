@@ -37,8 +37,8 @@ links:
     desc: 长风破浪会有时，直挂云帆济沧海
     color: "#20df20"
 
-  - url: https://blog.ssykawa.com
-    avatar: https://box.ssykawa.com/swallowfeng/avatar.png
+  - url: https://blog.ssycs.com
+    avatar: https://blog.ssycs.com/image/avatar.png
     blog: 虫不知喔
     desc: 我要的正能量会发光！
     color: "#9f79ec"
@@ -85,7 +85,7 @@ links:
     desc: 过去已过去，未来还未来
     color: "#ff944d"
 
-  - url: https://blog.xmwpro.com/
+  - url: https://xmwpro.com/
     avatar: https://cyan-blog.oss-cn-shenzhen.aliyuncs.com/global/avatar.jpg
     blog: 白雾茫茫丶
     desc: 记录学习、生活和有趣的事
