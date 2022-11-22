@@ -132,7 +132,7 @@ reward: true
 
 <div class="info">
 
-> **11-22** | CDN 由`cdn.jsdelivr.net`更换为`jsd.cky.codes`  
+> **11-22** | CDN 由`cdn.jsdelivr.net`更换为`jsd.cky.codes`，图床更换为`github`+`jsdelivr`  
 > **10-04** | 更新`Yun`版本至 1.10.9  
 > **09-03** | 部署`Github Calendar`的自建 api 并投入使用  
 > **08-21** | 更新`Yun`版本至 1.10.6  
