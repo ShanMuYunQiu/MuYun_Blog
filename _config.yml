@@ -124,7 +124,7 @@ theme: yun
 live2d:
   enable: true
   # 推荐使用 jsdelivr 的 CDN 来加载
-  scriptFrom: https://cdn.jsdelivr.net/npm/live2d-widget@3.x/lib/L2Dwidget.min.js
+  scriptFrom: https://jsd.cky.codes/npm/live2d-widget@3.x/lib/L2Dwidget.min.js
   pluginRootPath: live2dw/
   pluginJsPath: lib/
   pluginModelPath: assets/
@@ -132,7 +132,7 @@ live2d:
   debug: false
   model:
     # 推荐使用 CDN 来加载模型
-    use: https://cdn.jsdelivr.net/npm/live2d-widget-model-wanko@1.0.5/assets/wanko.model.json
+    use: https://jsd.cky.codes/npm/live2d-widget-model-wanko@1.0.5/assets/wanko.model.json
   display:
     superSample: 2
     width: 200
@@ -177,14 +177,14 @@ githubcalendar:
   color: "['#ebedf0', '	#b3d9ff', '#80bfff', '#66b3ff', '	#59acff', '#4da6ff', '#409fff', '#3399ff', '	#2693ff', '#198cff', '#0080ff']"
   api: https://www.sqbztest.eu.org/api/
   # api: https://python-gitee-calendar-api.vercel.app/api
-  calendar_js: https://cdn.jsdelivr.net/gh/Zfour/hexo-github-calendar@1.21/hexo_githubcalendar.js
+  calendar_js: https://jsd.cky.codes/gh/Zfour/hexo-github-calendar@1.21/hexo_githubcalendar.js
   plus_style: ""
 
 aplayer:
-  cdn: https:///cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.js
-  style_cdn: https:///cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.css
+  cdn: https:///jsd.cky.codes/npm/aplayer@latest/dist/APlayer.min.js
+  style_cdn: https:///jsd.cky.codes/npm/aplayer@latest/dist/APlayer.min.css
   meting: true
-  meting_cdn: https:///cdn.jsdelivr.net/npm/meting@1/dist/Meting.min.js
+  meting_cdn: https:///jsd.cky.codes/npm/meting@1/dist/Meting.min.js
 
 sitemap:
   path:

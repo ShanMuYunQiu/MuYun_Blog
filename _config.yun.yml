@@ -2,7 +2,7 @@ favicon: https://s2.loli.net/2022/05/22/4s8QIyo6OEiavVD.png
 
 notice:
   enable: true
-  content: 木有BUG！站点正常运行(ﾉﾟ∀ﾟ)ﾉ | 最近更新：C语言基础教程 | 更新时间：2022-11-11
+  content: 木有BUG！站点正常运行(ﾉﾟ∀ﾟ)ﾉ | 最近更新：C语言基础教程 | 更新时间：2022-11-22
 # 木有BUG！站点正常运行(ﾉﾟ∀ﾟ)ﾉ
 
 tags:
@@ -90,7 +90,7 @@ banner:
 
 say:
   enable: true
-  api: https://cdn.jsdelivr.net/gh/ElpsyCN/say@gh-pages/sentences.json
+  api: https://jsd.cky.codes/gh/ElpsyCN/say@gh-pages/sentences.json
   # https://developer.hitokoto.cn/sentence/
   hitokoto:
     enable: true
@@ -329,7 +329,7 @@ medium_zoom: true
 
 vendors:
   # 以 '/' 结尾
-  host: "https://cdn.jsdelivr.net/npm/"
+  host: "https://jsd.cky.codes/npm/"
   # 下方代表覆盖 waline CDN 为别的链接，默认不用修改
   # waline:
   #   css: '@waline/client@v2/dist/waline.css'
@@ -355,8 +355,8 @@ aplayer:
     audio:
       # - name: 星宿计时
       #   artist: 杉田朗/洛天依
-      #   url: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/audio/star-timer.mp3
-      #   cover: https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/bg/stars-timing-0.jpg
+      #   url: https://jsd.cky.codes/gh/YunYouJun/cdn/audio/star-timer.mp3
+      #   cover: https://jsd.cky.codes/gh/YunYouJun/cdn/img/bg/stars-timing-0.jpg
     meting:
       enable: true
       id: 7514736165
