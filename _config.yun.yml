@@ -1,4 +1,4 @@
-favicon: https://s2.loli.net/2022/05/22/4s8QIyo6OEiavVD.png
+favicon: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/user2.png
 
 notice:
   enable: true
@@ -53,11 +53,11 @@ categories:
 
 social:
   - name: 微信(请扫描二维码添加)
-    link: https://s2.loli.net/2022/07/20/wzmFPjMJH1eXR4g.jpg
+    link: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/wechat.jpg
     icon: ri:wechat-2-line
     color: "#1AAD19"
   - name: QQ(请扫描二维码添加)
-    link: https://s2.loli.net/2022/07/20/gzCHZvQdkwqLt84.jpg
+    link: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/QQ.jpg
     icon: ri:qq-line
     color: "#12B7F5"
   - name: GitHub(个人页面)
@@ -107,8 +107,8 @@ mode: time
 
 bg_image:
   enable: true
-  url: https://s2.loli.net/2022/05/22/xzK6YApqal2wVSs.png
-  dark: https://s2.loli.net/2022/05/22/DkM3WXfSiIq9gmz.jpg
+  url: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/background.png
+  dark: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/background6.jpg
   blur: 5px
   opacity: 0.8
 
@@ -132,7 +132,7 @@ cursor:
   text: https://cdn.yunyoujun.cn/css/md-cursors/text.cur
 
 sidebar:
-  bg_image: https://s2.loli.net/2022/05/22/EjIsa9mV3ecCoT5.jpg
+  bg_image: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/background7.jpg
   bg_position: bottom 3rem center
   tagcloud:
     enable: true
@@ -140,7 +140,7 @@ sidebar:
 
 avatar:
   enable: true
-  url: https://s2.loli.net/2022/05/22/4s8QIyo6OEiavVD.png
+  url: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/user2.png
   rounded: true
   opacity: 1
   mickey_mouse: false
@@ -217,15 +217,15 @@ reward:
   comment: 手头阔绰?点这点这!money得斯!
   methods:
     - name: 微信支付
-      path: https://s2.loli.net/2022/07/20/wWSp6bRENMGsDCj.png
+      path: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/wechatpay.png
       color: "#2DC100"
       icon: ri:wechat-pay-line
     - name: 支付宝
-      path: https://s2.loli.net/2022/07/20/MaiIDcuVsqUWgyF.jpg
+      path: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/alipay.png
       color: "#00A3EE"
       icon: ri:alipay-line
     - name: QQ 支付
-      path: https://s2.loli.net/2022/07/20/Gqv92cabdg4OWkS.png
+      path: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/QQpay.png
       color: "#12B7F5"
       icon: ri:qq-line
 

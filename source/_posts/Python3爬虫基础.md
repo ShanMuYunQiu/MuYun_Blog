@@ -469,7 +469,7 @@ categories:
   ```
 
 参考源代码：  
- ![](https://s2.loli.net/2022/05/22/uYzsxdIEPDAjk9W.png)
+![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/pythoncankao1.png)
 
 ##### **屠戮盗版天堂电影信息**
 
@@ -524,9 +524,9 @@ categories:
   ```
 
 - 参考源代码：
-![](https://s2.loli.net/2022/05/22/JoU6tMlxOsmk3qa.png)
+![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/pythoncankao2.png)
 
-![](https://s2.loli.net/2022/05/22/ztwUBVHycvarPg3.png)
+![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/pythoncankao3.png)
 
 ---
 
@@ -587,7 +587,7 @@ categories:
   ```
 
 - 参考源代码：  
-  ![](https://s2.loli.net/2022/05/22/dE2tlqb1PenDSrQ.png)
+  ![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/pythoncankao4.png)
 
 ##### **抓取优美图库的图片**(已失效，仅可参考)
 
@@ -639,8 +639,8 @@ categories:
   ```
 
 - 参考源代码：  
-![](https://s2.loli.net/2022/05/22/TZcz7OCWBEMGL3h.png)  
-![](https://s2.loli.net/2022/05/22/VLr5quaeOkD2RTh.png)
+![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/pythoncankao5.png)  
+![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/pythoncankao6.png)
 
 ---
 

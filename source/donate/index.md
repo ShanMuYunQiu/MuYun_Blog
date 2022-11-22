@@ -10,7 +10,7 @@ reward: false
 
 <div class="success">
 
-> ![](https://s2.loli.net/2022/07/20/D6RG7Bm5lTzAqFo.png)
+> ![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/allpay.png)
 
 </div>
 

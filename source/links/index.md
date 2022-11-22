@@ -14,7 +14,7 @@ links:
     color: "#0078e7"
 
   - url: https://www.ender.ml/
-    avatar: https://s2.loli.net/2022/05/22/GPVbRYtFJwT8Q3Z.png
+    avatar: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/icon1.png
     blog: ender's_blog
     desc: 不念过往，不惧将来
     color: "#ff944d"
@@ -56,7 +56,7 @@ links:
     color: "#9e75f0"
 
   - url: https://ciraos.top
-    avatar: https://s2.loli.net/2022/05/25/YGh2lLUNe7a1FMs.png
+    avatar: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/congling.png
     blog: 葱苓的小窝
     desc: Dare && Do
     color: "#ffad33"
@@ -140,7 +140,7 @@ links:
     color: "#4ddbff"
 
   - url:
-    avatar: https://s2.loli.net/2022/05/22/qyFjteWoNwLGJ54.jpg
+    avatar: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/akalin.jpg
     blog: 等待申请中。。。
     desc: 在下方评论区申请友链哦！
     color: "#c2c2d6"
@@ -163,7 +163,7 @@ tip: 友链加载中～如失败请刷新重试～
 ##### **本站站点友链信息**
 
 > 地址：shengqibaozao.eu.org  
-> 图片：https://s2.loli.net/2022/05/22/4s8QIyo6OEiavVD.png  
+> 图片：https://jsd.cky.codes/gh/ShengQiBaoZao/Image/user2.png  
 > 名称：圣奇宝枣的博客小站  
 > 描述：有朋自远方来，不亦乐乎。愿与你相识，得闲饮茶
 

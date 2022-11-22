@@ -158,7 +158,7 @@ categories:
 
 - **提交 Sitemap**
 
-![](https://s2.loli.net/2022/07/03/GkcXwCtO3iVeBr5.jpg)
+![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/SEOsitemap.jpg)
 
 - 推荐提交以下站点地图
 

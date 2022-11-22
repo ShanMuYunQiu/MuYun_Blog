@@ -36,7 +36,7 @@ reward: true
 
 </div>
 
-![](https://s2.loli.net/2022/05/22/b5P2Lc9yZTnfxrF.png)_一个笨蛋画渣竭尽所能所画的怪图_
+![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/user.png)_一个笨蛋画渣竭尽所能所画的怪图_
 
 ##### **关于这个站点：**
 
@@ -109,8 +109,8 @@ reward: true
 <div class="yellow">
 
 > 虽然侧边栏有我的联系方式了，但这里也放一份吧！  
-> **微信**：[lty1099501402](https://s2.loli.net/2022/05/22/PijGqtNOyW45BvZ.jpg)(可能会更正式一些，如果想认识认识建议加 QQ 哦)  
-> **QQ**：[1099501402](https://s2.loli.net/2022/05/22/gktDW5v8RKIYdOn.jpg)(好友位极大空缺，欢迎来聊聊！如果不想 QQ，也可以 B 站私信聊聊哦!!)  
+> **微信**：[lty1099501402](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/wechat.jpg)(可能会更正式一些，如果想认识认识建议加 QQ 哦)  
+> **QQ**：[1099501402](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/QQ.jpg)(好友位极大空缺，欢迎来聊聊！如果不想 QQ，也可以 B 站私信聊聊哦!!)  
 > **E-mail**：[lty15376767691@gmail.com](mailto:lty15376767691@gmail.com)(可能看的更少，一般只用来注册账号和收验证码)  
 > **github**：[https://github.com/ShengQiBaoZao](https://github.com/ShengQiBaoZao)(现在可能没啥好看的，但指不定将来就有了呢(~~_诶嘿_~~))  
 > **网易云音乐**：[https://music.163.com/#/user/home?id=509242587](https://music.163.com/#/user/home?id=509242587)(虽然你会看到我曾经编曲的黑历史，但强烈不建议去听!!)  

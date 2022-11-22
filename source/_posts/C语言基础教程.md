@@ -73,7 +73,7 @@ categories:
 - 用 C 语言编写程序时，编写的内容被储存在文本文件中，该文件被称为**源代码文件**(**source code file**)。大部分 C 系统，都要求文件名以`.c`结尾
 - C 编程的**基本策略**是，用程序把**源代码**文件**转换**成**可执行文件**(其中包含可直接运行的机器语言代码)  
   典型的 C 实现通过**编译**和**链接**两个步骤来完成这一过程。**编译器**把源代码转换成**中间代码**，**连接器**把中间代码和其他代码**合并**，生成可执行文件  
-  ![](https://s2.loli.net/2022/05/22/ZyhE6a39RIPUOg4.png)
+  ![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/Cbianyi.png)
 
 ---
 
@@ -151,7 +151,7 @@ categories:
   - 通过**函数名后**的**圆括号**可以识别出函数，圆括号里**可能为空**，**可能有参数**
   - **函数体**被**花括号**括起来，由一系列**语句**、**声明**组成
 
-  ![](https://s2.loli.net/2022/05/22/Rm4WvcyqaZkgLuQ.png)
+  ![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/Cjiegou.png)
 
   - 简言之，一个简单的 C 语言程序格式如下(**大部分语句**都以**分号**`;`**结尾**)：
 
@@ -295,7 +295,7 @@ categories:
   - 和数学概念一样，**整数是没有小数部分的数**，例如 2、-23、2456 都是整数
   - 计算机以**二进制数字**存储整数，如整数 **7** 二进制写为 **111**，因此要在**8 位字节**中存储该数字，需要**前 5 位**设置为**0**，**后 3 位**设置为**1**
 
-  ![](https://s2.loli.net/2022/05/22/lB6cG1hnKCqD8mY.png)
+  ![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/Czhengshu.png)
 
 - **浮点数**
 
@@ -304,7 +304,7 @@ categories:
   - 此处简要介绍**e 计数法**(**科学计数法**)：**3.16E7**表示 **3.16 \* 10<sup>7</sup>**
   - 这里关键要理解**浮点数**与**整数**的**储存方案不同**，计算机把浮点数分成**小数部分**和**指数部分**表示，而且**分开存储这两部分**。**7.0**写成**0.7E1**，这里，**0.7 是小数部分**，**1 是指数部分**。计算机在内部使用**二进制**和**2 的幂**进行储存，后续探讨(**此处图例以十进制下理解为例**)
 
-  ![](https://s2.loli.net/2022/05/22/3JspxLR21l7TcDd.png)
+  ![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/Cxiaoshu.png)
 
 ##### **数据类型关键字**
 
@@ -635,7 +635,7 @@ categories:
   > 4、类似的，继续读取**第 3、4 个**`%ld`，读取为**n2 的前、后半部分**，并解释成**两个 long 类型整数**  
   > 5、因此，对于**n3、n4**虽然用对了转换说明，但还是**读错了字节**
 
-  ![](https://s2.loli.net/2022/05/25/jvdeNSciuAJbRaY.png)
+  ![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/Cchuancanshuoming.png)
 
 ##### **scanf()函数**
 
@@ -1207,7 +1207,8 @@ categories:
 ##### **if 与 else 的配对和嵌套 if**
 
 - 当一个程序有**多个**`if`和`else`，**如果没有花括号**，`else`将与**离它最近**的`if`配对，除非最近的 if 被花括号括起来  
-  ![](https://s2.loli.net/2022/06/13/cyX9MLRs4nvfZ3x.png)
+
+  ![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/Cifpeidui.png)
 
 - 有关`if`的嵌套，与`for`的嵌套基本雷同，只需要注意**不同嵌套的花括号包括的范围**即可
 
@@ -1437,7 +1438,7 @@ categories:
   > **缓冲输入**：对于**程序输入**，大部分系统在用户按下`Enter`之前**不会重复打印**刚输入的字符，即在**重复输入字符**时，不会在终端出现`H(输入)H(输入后处理输出的字符)e(第二格输入的字符)elllloo`这样的情况。这种**输入形式**称为**缓冲输入**  
   > **缓冲区**：用户**输入的字符**会先被**收集并储存**在一个被称为**缓冲区**的**临时储存区**，按下`Enter`时，程序才可使用用户输入的字符
 
-  ![](https://s2.loli.net/2022/06/15/gP38vdLms4abNn1.png)
+  ![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/Chuanchongqu.png)
 
 - **为什么要有缓冲区**
 
@@ -1489,7 +1490,7 @@ categories:
     > 4、操作系统使用的**另一种方法**是**储存文件大小的信息**。如果文件有**3000 字节**，那么**读到 3000 字节**时便**达到文件的末尾**  
     > 5、**MS-DOS**及其相关系统使用这种方法**处理二进制文件**，因为用这种方法可以在文件中**储存所有的字符**。新版的**DOS**也使用这种方式**处理文本文件**。**UNIX**使用这种方式**处理所有的文件**
 
-    ![](https://s2.loli.net/2022/06/16/ANt5CdYcEu94Og1.png)
+    ![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/Cjieweibiaoji.png)
 
   - **C 语言检测文件结尾**
 
@@ -1970,7 +1971,7 @@ categories:
   > 5、虽然**每级递归**都有**自己的变量**，但是并**没有拷贝函数的代码**。程序**按顺序执行**函数中的代码，**递归调用**相当于又**从头开始按序执行**函数的代码。除了为每次递归调用**创建变量**外，**递归调用**非常类似一个**循环语句**  
   > 6、递归函数**必须包含**能让递归**调用停止**的语句。通常都使用`if`**语句**或其他等价的**测试条件**在**函数形参**等于**某特定值**时终止递归。因此，**每次递归**调用的**形参**都要使用**不同的值**
 
-  ![](https://s2.loli.net/2022/07/01/VTa7kZndFOlJopy.png)
+  ![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/Cdigui.png)
 
 - **尾递归**
 
@@ -2375,7 +2376,7 @@ categories:
     > 3、**pc 指向的值**(即\*pc)是`char`类型，而**pc 本身的类型**描述为"**指向 char 类型的指针**"  
     > 4、在大部分系统内部，该**地址**由一个**无符号整数**表示。但**不要**把**指针**认为是**整数类型**，为此，**ANSI C**专门为指针提供了`%p`的**格式转换说明**
 
-    ![](https://s2.loli.net/2022/07/05/DgmC9sXaTE2ibY8.png)
+    ![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/Cshengmingzhizhen.png)
 
 - **使用指针在函数间通信**
 
@@ -2593,7 +2594,7 @@ categories:
   > 2、分开来看，`rain[5]`表示数组**rain 有 5 个元素**，至于**每个元素**的情况，要看**声明的其余部分**  
   > 3、`float`和`[12]`说明**每个元素的类型**是**float[12]**。即**rain 的每个元素**本身都是一个**内含 12 个 float 类型值**的**数组**
 
-  ![](https://s2.loli.net/2022/07/08/b9JKzUBwAcMarDi.png)
+  ![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/Cerweishuzu.png)
 
 - **示例程序(十分重要，请理解代码，教程夹杂在代码中)**
 
@@ -2721,7 +2722,7 @@ categories:
     > 2、系统中，地址**按字节编址**。**short**占**2 字节**，**double**占**8 字节**。在 C 中，**地址+1**指的是增加一个**存储单元**。对**数组**而言，这意味着**地址+1 后**是**下一个元素的地址**，而不是**下一个字节的地址**  
     > 3、这便是为何必须**声明指针所指向的对象类型**的原因之一。只知道**地址**不够，还需要知道**储存对象**需要**多少字节**，否则指针**无法正确取回**地址上的**值**
 
-    ![](https://s2.loli.net/2022/07/14/96IxhpwnslqozLK.png)
+    ![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/Cshuzuzhizhen.png)
 
   - **特性总结补充**
 
@@ -3091,7 +3092,7 @@ categories:
 
   - 图片演示**指针表示法**
 
-    ![](https://s2.loli.net/2022/07/21/8KCGwA3Y1lc9qWm.png)
+    ![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/Czhizhenbiaoshufa.png)
 
   - 以上分析并**不是为了**说明用**指针表示法**来**代替**常用的**数组表示法**(即下标直接引用)，而是表述程序恰巧使用一个**指向二维数组的指针**，而且要通过该指针**获取值**，最好用简单的**数组表示法**
 
@@ -5196,7 +5197,7 @@ int main(int argc, char *argv[])
     > 3、为保证数值在**存储前后一致**，**最精确**的做法是使用**与计算机相同**的**位组合**来存储。因此，**double 类型**的值应该存储在一个**double 大小的单元**中。如果以**程序**所用的**表示法**把数据**存储在文件**中，则称以**二进制形式**存储数据  
     > 4、对于**标准 I/O**，`fread()`和`fwrite()`函数用于以**二进制形式**处理数据
 
-    ![](https://s2.loli.net/2022/08/15/MTtH5YSchlCR23z.png)
+    ![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/Cerjinzhishuchu.png)
 
   - `fwrite()`**函数**
 
@@ -6044,7 +6045,7 @@ int main(int argc, char *argv[])
   > 2、考虑有**10 个节点的树**的情况下，他有 2<sup>10</sup>-1 个(或 1023 个)**节点**，可以**存储 1023 个单词**  
   > 3、如果这些单词**以某种规则排列**，自上而下**逐级查找**，**最多**只需要**移动 9 次**即可找到；如果放在数组中，至多需要遍历**1023 个元素**才能找到
 
-  ![](https://s2.loli.net/2022/08/20/Ar9saJQcVT2R6Sj.png)
+  ![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/Clianshijiegou.png)
 
 ##### **联合简介**
 
@@ -6394,7 +6395,7 @@ int main(int argc, char *argv[])
   > 4、**8 位字节**能表示的最大的数是**11111111**，即**255**；能表示的最小的数是**00000000**，即**0**  
   > 5、因此**一字节**可存储**0~255 范围内**共**256 种值**，程序可以用**1 字节**存储**自-128 至 127**同样**256 种值**
 
-  ![](https://s2.loli.net/2022/09/03/Kf2F4WbADjHgXs6.png)
+  ![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/Cerjinzhizhengshu.png)
 
 - **有符号整数**
 
@@ -6588,7 +6589,7 @@ int main(int argc, char *argv[])
     > 2、使用**按位与运算符**任何位**与 0 组合**都**得 0**，因此对该语句只有**1 号位**的**值不变**(因为 MASK 只有 1 号位为 1)。**这个过程**叫做**使用掩码**，因为**掩码中的 0 隐藏了 flags 中相应的位**  
     > 3、可以这样类比，把掩码中的**0 看做不透明**，**1 看做透明**。因此只有**MASK 为 1 的位**才**可见**
 
-    ![](https://s2.loli.net/2022/09/04/w1LThuqetzNlRED.png)
+    ![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/Cyanma.png)
 
 - **打开位**(**设置位**)
 
@@ -7688,7 +7689,7 @@ int main(int argc, char *argv[])
   > 5、现在，假设用户**输入第二部电影**，则程序为**第 2 个 film 类型的结构**分配空间，把**新结构的地址**存储在**上一个结构**(即第一个结构)的**next 成员**中(擦写了之前的 NULL 值)，并把**第二个结构**中的**next 成员设置为 NULL**，表明该结构目前是**链表最后一个结构**  
   > 6、以此类推，通过**头指针**访问**第一个结构**，就能**一个个访问 next 成员**来访问**下一个结构**，直到**最后一个结构**的**next 为 NULL**
 
-  ![](https://s2.loli.net/2022/10/09/w7tuvRHG5beKsad.png)
+  ![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/Clianbiaoyinru.png)
 
 - **使用链表**
 
@@ -8249,7 +8250,7 @@ int main(int argc, char *argv[])
       > 3、**编程实现**这个过程很简单，但是会**浪费大量的计算机时间**  
       > 4、第二种**解决数组队列删除问题**的方法是**改变队列首端的位置**，**其余元素不动**
 
-      ![](https://s2.loli.net/2022/10/24/5stZrQ9BJiPALR2.png)
+      ![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/Cduilie1.png)
 
     - 进一步优化**数组队列**的模型
 
@@ -8257,7 +8258,7 @@ int main(int argc, char *argv[])
       > 2、这样，当**到达数组末尾**时，如果**首元素空出**，就可以把**新添加的项**存储到这些**空出的元素**中  
       > 3、可以想象在一张条形的纸上画出数组，然后把数组的收尾粘起来形成一个环。当然**要做一些标记**，**以免尾端超过首端**
 
-      ![](https://s2.loli.net/2022/10/24/EU8xl4btJ1YsVpB.png)
+      ![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/Cduilie2.png)
 
     - **使用链表实现接口数据表示**
 
@@ -8683,7 +8684,7 @@ int main(int argc, char *argv[])
     > 3、接着，继续使用这种方法，把需要查找的**剩下的一半的中间项**与**目标项比较**，继续**缩小一半范围**  
     > 4、以此类推，直到**找到目标项**或**发现列表中没有目标项**为止
 
-    ![](https://s2.loli.net/2022/11/05/BZIfuKiT8mwrs4P.png)
+    ![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/Cerfenchazhao.png)
 
   - **二分查找的优势**
 
@@ -8707,7 +8708,7 @@ int main(int argc, char *argv[])
   > 4、**二叉树**的**每个节点**都是其**后代节点**的**根**，**该节点**与其**后代节点**构成了一个**子树**  
   > 5、假设要在**二叉树**中**查找一个项**。如果**目标项**在**根节点前面**，就只需查找**左子树**，反之只需查找**右子树**。因此，**每次比较**就**排除半个树**
 
-  ![](https://s2.loli.net/2022/11/05/Rzrx3VK1mo7tWa4.png)
+  ![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/Cerchashu.png)
 
 - **二叉树 ADT**
 
@@ -8995,14 +8996,14 @@ int main(int argc, char *argv[])
         > 1、待删除的节点**没有子节点**，这样的节点被称为**叶节点**，这种情况**最简单**  
         > 2、只需要把**父节点的指针**重置为**NULL**，并使用`free()`**释放已删除节点的内存**
 
-        ![](https://s2.loli.net/2022/11/07/Mf2DanhIEJAxKOY.png)
+        ![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/Cerchashu0.png)
 
       - **一个子节点**
 
         > 1、删除带有**一个子节点**的情况**比较复杂**。删除该节点会导致其**子树**与**其他部分**脱离  
         > 2、为了**修正这种情况**，要把**被删除节点**的**父节点**中**存储该节点的地址**更新为**该节点子树的地址**
 
-        ![](https://s2.loli.net/2022/11/07/UkrnWDQquYJjGlx.png)
+        ![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/Cerchashu1.png)
 
       - **两个子节点**
 
@@ -9012,7 +9013,7 @@ int main(int argc, char *argv[])
         > 4、该**右子树的头**的**位置**应该在**被删除节点的父节点**前面，因此要**沿着父节点的左子树向下找**，同时**这些项**又在**被删除节点**的**左子树所有项**后面  
         > 5、因此要查看**左子树的右支**是否有**新节点的空位**。如果没有，就要沿着**左子树的右支**向下找，**直到找到一个空位**
 
-        ![](https://s2.loli.net/2022/11/07/4DZ2aVBJv9kbHzr.png)
+        ![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/Cerchashu2.png)
 
     - **删除项的实现思路**
 
@@ -9565,14 +9566,14 @@ int main(int argc, char *argv[])
     > 1、**二叉查找树**也有**一些缺陷**。例如**二叉查找树**只有在**满员**(或平衡)时**效率最高**  
     > 2、假设用户**按字母顺序输入**数据，那么**每个新节点**都应该被**添加到右边**(如下图)，查找这种**不平衡的树**并不比查找**链表**要快
 
-    ![](https://s2.loli.net/2022/11/07/PFzdbqc6gtrM2Q1.png)
-  
+    ![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/Cerchashubupingheng.png)
+
   - **避免串状树**
 
     > 1、避免**串状树**的方法之一是在**创建树时多加注意**。如果**树或子树**的**一边或另一边**不太平衡，就需要**重新排列节点**使之恢复平衡。与此类似，可能在**进行删除操作**后也要**重新排列树**  
-    > 2、德国数学家 Adel'son-Vel'skii 和 Landis **发明了一种算法**来解决这个问题，根据他们的算法**创建的树**称为**AVL树**  
+    > 2、德国数学家 Adel'son-Vel'skii 和 Landis **发明了一种算法**来解决这个问题，根据他们的算法**创建的树**称为**AVL 树**  
     > 3、因为要**重构**，所以**创建一个平衡的树**要**花费更多时间**，但这样的树可以**确保搜索效率最大化**
-  
+
   - **存储相同项的思路**
 
     > 1、你可能需要一个**能存储相同项**的**二叉查找树**。例如在分析文本时，统计**某个单词出现的次数**  

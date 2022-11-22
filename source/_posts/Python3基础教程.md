@@ -196,7 +196,7 @@ categories:
 
 ##### **优先级**
 
-![](https://s2.loli.net/2022/05/22/exaBjZfVkgDvdXq.png)
+![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/pythonyouxianji.png)
 
 ---
 
@@ -866,7 +866,7 @@ categories:
     print("我叫{0},今年{1}岁".format(name,age))
     print(f"我叫{name},今年{age}岁")
     ```
-  其中第一种`%`的用法，`%s`为字符串，`%d`或`%i`为整数，`%f`为浮点数
+    其中第一种`%`的用法，`%s`为字符串，`%d`或`%i`为整数，`%f`为浮点数
 - **占位**与**保留小数**
   - `%`的占位保留
     - **占位**(%与数据类型之间写数字，表示域宽)，**示例**：
@@ -1067,7 +1067,7 @@ categories:
 
 ##### **编程两大思想**
 
-![](https://s2.loli.net/2022/05/22/ZahRuqgtOdyerw4.png)
+![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/pythonsixiang.png)
 
 ##### **类与对象认识**
 
@@ -1339,17 +1339,17 @@ categories:
 ##### **继承及其实现方式**
 
 - **继承**
-  ![](https://s2.loli.net/2022/05/22/kz6QCKXwqnWUtAI.png)
-  ![](https://s2.loli.net/2022/05/22/ZbCcTQk3DAteYv6.png)
+  ![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/pythonjicheng1.png)
+  ![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/pythonjicheng2.png)
 - **方法重写**
-  ![](https://s2.loli.net/2022/05/22/Lr7y4MoCjBXtPhk.png)
+  ![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/pythonchongxie.png)
 - **object 类**
-  ![](https://s2.loli.net/2022/05/22/eHSdjXQgIC7RwGs.png)
+  ![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/pythonobjectlei.png)
 
 ##### **多态**
 
 - **多态**
-  ![](https://s2.loli.net/2022/05/22/IjMkAvJC9oZ1V6y.png)
+  ![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/pythonduotai.png)
 - 静态语言和动态语言关于**多态的区别**
   - 静态语言实现多态的三个必要条件
     > 1、继承  
@@ -1470,7 +1470,7 @@ categories:
   ```
 
 - **传参过程**  
-  ![](https://s2.loli.net/2022/05/22/MyLeK9ZFVtXgUbR.png)
+  ![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/pythonchuancan.png)
 
 ##### **类的赋值与深浅拷贝**
 
@@ -1690,7 +1690,7 @@ categories:
 
 ##### **编码格式介绍**
 
-![](https://s2.loli.net/2022/05/22/b982vN71WSPm6kF.png)
+![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/pythonbianma.png)
 
 ##### **文件读写**
 
@@ -1732,12 +1732,12 @@ categories:
 
 ##### **文件对象常用方式**
 
-![](https://s2.loli.net/2022/05/22/O6eUXDkI8AxJYhl.png)
+![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/pythonduixiangfangshi.png)
 
 ##### **with 语句(上下文管理器)**
 
 - with 语句可以自动管理上下文资源，不论什么原因跳出 with 块，都能确保文件正确的关闭，以此来达到释放资源的目的
-  ![](https://s2.loli.net/2022/05/22/GMEg3Fm7RINzsWC.png)
+  ![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/pythonwith.png)
 
 ##### **os 模块的常用函数**
 
