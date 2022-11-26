@@ -2,7 +2,7 @@ favicon: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/user2.png
 
 notice:
   enable: true
-  content: 木有BUG！站点正常运行(ﾉﾟ∀ﾟ)ﾉ | 最近更新：好句摘抄 | 更新时间：2022-11-22
+  content: 木有BUG！站点正常运行(ﾉﾟ∀ﾟ)ﾉ | 最近更新：C语言基础教程 | 更新时间：2022-11-26
 # 木有BUG！站点正常运行(ﾉﾟ∀ﾟ)ﾉ
 
 tags:
@@ -45,7 +45,7 @@ categories:
   专业技能教程: "#cc33ff"
   其他教程: "#ffc266"
   代码编辑器: "#9999ff"
-  摘抄: "#66c2ff"
+  摘抄和碎碎念: "#66c2ff"
   # 英文摘抄: "#ff99dd"
   其他: "#ff4d4d"
 
