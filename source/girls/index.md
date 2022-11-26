@@ -231,7 +231,7 @@ girls:
     url: https://zh.moegirl.org.cn/%E7%AB%8B%E5%8D%8E%E5%A5%8F
 
   - name: ^缪莉^
-    avatar: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/miuli.jpg
+    avatar: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/muli.jpg
     from: 狼与羊皮纸
     url: https://zh.moegirl.org.cn/%E7%BC%AA%E8%8E%89
 

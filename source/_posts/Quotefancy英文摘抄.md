@@ -1,14 +1,14 @@
 ---
-title: Quotefancy摘抄1
+title: Quotefancy英文摘抄
 author: 圣奇宝枣
-description: Quotefancy网站中摘抄的英文谚语
+description: Quotefancy网站中摘抄的英文美句
 sticky: 0
 date: 2022-06-21 13:01:00
 updated: 2022-08-05 08:10:01
 readmore: true
 tags:
 categories:
-  - 英文摘抄
+  - 摘抄
 ---
 
 ---
