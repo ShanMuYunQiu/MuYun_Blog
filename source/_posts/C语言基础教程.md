@@ -9587,7 +9587,7 @@ int main(int argc, char *argv[])
 
 <div class="success">
 
-> **章节概要**：C 运算符；ANSI C库函数
+> **章节概要**：C 运算符；ANSI C 库函数、宏和类型
 
 </div>
 
@@ -9694,9 +9694,203 @@ int main(int argc, char *argv[])
   |           .(成员运算符)            | name.member 获取 name 结构中的 member 成员              |
   | ->(间接成员运算符、结构指针运算符) | ptrname->member 获取 ptrname 所指向结构中的 member 成员 |
 
-##### **ANSI C库函数**
+##### **ANSI C 库函数、宏和类型**
 
-- 42
+- **断言**`assert.h`
+
+  - **宏**
+
+    | 宏                       | 描述                                                                                                                                |
+    | ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
+    | void assert (int exprs); | 如果 exprs 为真，宏什么也不做。如果 exprs 为假，assert()就显示该表达式和其所在的行号和文件名。然后，assert()调用 abort()            |
+    | static_assert            | 展开为 \_Static_assert。其中 \_Static_assert(常量表达式,字符串字面量) 如果常量表达式为假，编译器给出包含字符串字面量的错误信息(C11) |
+
+- **复数**`complex.h`(C99)
+
+  - **宏**
+
+    | 宏            | 描述                                                                          |
+    | ------------- | ----------------------------------------------------------------------------- |
+    | complex       | 展开为类型关键字\_Complex                                                     |
+    | \_Complex_I   | 展开为 const float \_Complex 类型的表达式，其值的平方为-1                     |
+    | imaginary     | 如果支持虚数类型，展开为类型关键字\_Imaginary                                 |
+    | \_Imaginary_I | 如果支持虚数类型，展开为 const float \_Imaginary 类型的表达式，其值的平方为-1 |
+    | I             | 展开为\_Complex_I 或\_Imaginary_I                                             |
+
+  - **函数**(另有 float 和 long double 版本，在函数名后加上 f 或 l 即可切换，角度的单位是弧度)
+
+    | 函数原型                                                  | 描述                                 |
+    | --------------------------------------------------------- | ------------------------------------ |
+    | double complex cacos(double complex z);                   | 返回 z 的复数反余弦                  |
+    | double complex casin(double complex z);                   | 返回 z 的复数反正弦                  |
+    | double complex catan (double complex z);                  | 返回 z 的复数反正切                  |
+    | double complex ccos (double complex z);                   | 返回 z 的复数余弦                    |
+    | double complex csin(double complex z);                    | 返回 z 的复数正弦                    |
+    | double complex ctan(double complex z);                    | 返回 z 的复数正切                    |
+    | double complex cacosh(double complex z);                  | 返回 z 的复数反双曲余弦              |
+    | double complex casinh(double complex z);                  | 返回 z 的复数反双曲正弦              |
+    | double complex catanh (double complex z);                 | 返回 z 的复数反双曲正切              |
+    | double complex ccosh(double complex z);                   | 返回 z 的复数双曲余弦                |
+    | double complex csinh(double complex z);                   | 返回 z 的复数双曲正弦                |
+    | double complex ctanh (double complex z);                  | 返回 z 的复数双曲正切                |
+    | double complex cexp(double complex z);                    | 返回 e 的 z 次幂复数值               |
+    | double complex clog(double complex z);                    | 返回 z 的自然对数(以 e 为底)的复数值 |
+    | double cabs(double complex z);                            | 返回 z 的绝对值(或大小)              |
+    | double complex cpows (double complex z,double complex y); | 返回 z 的 y 次幂                     |
+    | double complex csqrt (double complex z);                  | 返回 z 的复数平方根                  |
+    | double carg(double complex z);                            | 以孤度为单位返回 z 的相位角(或幅角)  |
+    | double cimag(double complex z);                           | 以实数形式返回 z 的虚部              |
+    | double complex conj(double complex z);                    | 返回 z 的共轭复数                    |
+    | double complex cproj(double complex z);                   | 返回 z 在黎曼球面上的投影            |
+    | double complex CMPLX(double x,double y);                  | 返回实部为 x、虚部为 y 的复数(C11)   |
+    | double creal(double complex z);                           | 以实数形式返回 z 的实部              |
+
+- **字符处理**`ctype.h`
+
+  - **函数**
+
+    | 函数原型             | 描述                                                                                                 |
+    | -------------------- | ---------------------------------------------------------------------------------------------------- |
+    | int isalnum(int c);  | 如果 c 是字母或数字，则返回真                                                                        |
+    | int isalpha(int c);  | 如果 c 是字母，则返回真                                                                              |
+    | int isblank(int c);  | 如果 c 是空格或水平制表符，则返回真(C99)                                                             |
+    | int iscntrl(int c);  | 如果 c 是控制字符（如 Ctr1+B),则返回真                                                               |
+    | int isdigit(int c);  | 如果 c 是数字，则返回真                                                                              |
+    | int isgraph(int c);  | 如果 c 是非空格打印字符，则返回真                                                                    |
+    | int islower(int c);  | 如果 c 是小写字符，则返回真                                                                          |
+    | int isprint(int c);  | 如果 c 是打印字符，则返回真                                                                          |
+    | int ispunct(int c);  | 如果 c 是标点字符（除了空格、字母、数字以外的字符），则返回真                                        |
+    | int isspace(int c);  | 如果 c 是空白字符（空格、换行符、换页符、回车符、垂直或水平制表符，或者其他实现定义的字符)，则返回真 |
+    | int isxdigit(int c); | 如果 C 是十六进制数字字符，则返回真                                                                  |
+    | int isupper(int c);  | 如果 c 是大写字符，则返回真                                                                          |
+    | int tolower(int c);  | 如果 c 是大写字符，则返回其小写字符；否则返回 c                                                      |
+    | int toupper(int c);  | 如果 c 是小写字符，则返回其大写字符；否则返回 c                                                      |
+
+- **错误报告**`errno.h`
+
+  - **宏**
+
+    | 宏     | 含义                             |
+    | ------ | -------------------------------- |
+    | EDOM   | 函数调用中的域错误(参数越界)     |
+    | ERANGE | 函数返回值的范围错误(返回值越界) |
+    | EILSEQ | 宽字符转换错误                   |
+
+- **浮点环境**`fenv.h`(C99)
+
+  - **类型**
+
+    | 类型      | 表示             |
+    | --------- | ---------------- |
+    | fenv_t    | 整个浮点环境     |
+    | fexcept_t | 浮点状态标志集合 |
+
+  - **宏**
+
+    | 标准异常宏    | 含义                                 |
+    | ------------- | ------------------------------------ |
+    | FE_DIVBYZERO  | 抛出被零除异常                       |
+    | FE_INEXACT    | 抛出不精确值异常                     |
+    | FE_INVALID    | 抛出无效值异常                       |
+    | FE_OVERFLOW   | 抛出上溢异常                         |
+    | FE_UNDERFLOW  | 抛出下溢异常                         |
+    | FE_ALL_EXCEPT | 实现支持的所有浮点异常的按位或       |
+    | FE_DOWNWARD   | 向下舍入                             |
+    | FE_TONEAREST  | 向最近的舍入                         |
+    | FE_TOWARDZERO | 趋 0 舍入                            |
+    | FE_UPWARD     | 向上舍入                             |
+    | FE_DFL_ENV    | 表示默认环境，类型是 const fenv_t \* |
+
+  - **函数**
+
+    | 函数原型                                                   | 描述                                                                                                                                                                                 |
+    | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+    | void feclearexcept(int excepts);                           | 清理 excepts 表示的异常                                                                                                                                                              |
+    | void fegetexceptflag(fexcept_t \*flagp,int excepts);       | 把 excepts 指明的浮点状态标志存储在 flagp 指向的对象中                                                                                                                               |
+    | void feraiseexcept (int excepts);                          | 抛出 excepts 指定的异常                                                                                                                                                              |
+    | void fesetexceptflag(const fexcept_t \*flagp,int excepts); | 把 excepts 指明的浮点状态标志设置为 flagp 的值；在此之前，fegetexceptflag()调用应该设置 flagp 的值                                                                                   |
+    | int fetestexcept (int excepts);                            | 测试 excepts 指定的状态标志；该函数返回指定状态标志的按位或                                                                                                                          |
+    | int fegetround (void);                                     | 返回当前的舍入方向                                                                                                                                                                   |
+    | int fesetround(int round);                                 | 把舍入方向设置为 round 的值；当且仅当设置成功时，函数返回 0                                                                                                                          |
+    | void fegetenv (fenv_t \*envp);                             | 把当前环境存储至 envp 指向的位置中                                                                                                                                                   |
+    | int feholdexcept (fenv_t \*envp);                          | 把当前浮点环境存储至 envp 指向的位置中，清除浮点状态标志，然后如果可能的话就设置非停模式(nonstop mode).,在这种模式中即使发生异常也继续执行。当且仅当执行成功时，函数返回 0           |
+    | void fesetenv(const fenv_t \*envp);                        | 建立 envp 表示的浮点环境；envp 应指向一个之前通过调用 fegetenv()、feholdexcept()或浮点环境宏设置的数据对象                                                                           |
+    | void feupdateenv(const fenv_t \*envp);                     | 函数在自动存储区中存储当前抛出的异常，建立 envp 指向的对象表示的浮点环境，然后抛出已存储的浮点异常；envp 应指向一个之前通过调用 fegetenv()、feholdexcept()或浮点环境宏设置的数据对象 |
+
+- **浮点特性**`float.h`
+
+  - **宏**
+
+    | 宏               | 含义                                                                                       |
+    | ---------------- | ------------------------------------------------------------------------------------------ |
+    | FLT_ROUNDS       | 默认舍入方案                                                                               |
+    | FLT_EVAL_METHOD  | 浮点表达式求值的默认方案                                                                   |
+    | FLT_HAS_SUBNORM  | 存在或缺少 float 类型的反常值                                                              |
+    | DBL_HAS_SUBNORM  | 存在或缺少 double 类型的反常值                                                             |
+    | LDBL_HAS_SUBNORM | 存在或缺少 long double 类型的反常值                                                        |
+    | FLT_RADIX        | 指数表示法中使用的进制数(b),最小值为 2                                                     |
+    | FLT_MANT_DIG     | 以 FLT_RADIX 进制表示的 float 类型数的位数(模型中的 p)                                     |
+    | DBL_MANT_DIG     | 以 FLT_RADIX 进制表示的 double 类型数的位数(模型中的 p)                                    |
+    | LDBL_MANT_DIG    | 以 FLT_RADIX 进制表示的 long double 类型数的位数(模型中的 p)                               |
+    | FLT_DECIMAL_DIG  | 在 b 进制和十进制相互转换不损失精度的前提下，float 类型的十进制数的位数(最小值是 6)        |
+    | DBL_DECIMAL_DIG  | 在 b 进制和十进制相互转换不损失精度的前提下，double 类型的十进制数的位数(最小值是 10)      |
+    | LDBL_DECIMAL_DIG | 在 b 进制和十进制相互转换不损失精度的前提下，long double 类型的十进制数的位数(最小值是 10) |
+    | DECIMAL_DIG      | 在 b 进制与十进制相互转换不损失精度的前提下，浮点类型十进制数的最大个数(最小值为 10)       |
+    | FLT_DIG          | 在不损失精度的前提下，float 类型可表示的十进制数位数(最小值为 6)                           |
+    | DBL_DIG          | 在不损失精度的前提下，double 类型可表示的十进制数位数(最小值为 10)                         |
+    | LDBL_DIG         | 在不损失精度的前提下，long double 类型可表示的十进制数位数(最小值为 10)                    |
+    | FLT_MIN_EXP      | float 类型 e 表示法，指数的最小负正整数值                                                  |
+    | DBL_MIN_EXP      | double 类型 e 表示法，指数的最小负正整数值                                                 |
+    | LDBL_MIN_EXP     | long double 类型 e 表示法，指数的最小负正整数值                                            |
+    | FLT_MIN_10_EXP   | 用 10 的 x 次幂表示规范化 float 类型数时，x 的最小负整数值(不超过-37)                      |
+    | DBL_MIN_10_EXP   | 用 10 的 x 次幂表示规范化 double 类型数时，x 的最小负整数值(不超过-37)                     |
+    | LDBL_MIN_10_EXP  | 用 10 的 x 次幂表示规范化 long double 类型数时，x 的最小负整数值(不超过-37)                |
+    | FLT_MAX_EXP      | float 类型 e 表示法，指数的最大正整数值                                                    |
+    | DBL_MAX_EXP      | double 类型 e 表示法，指数的最大正整数值                                                   |
+    | LDBL_MAX_EXP     | long double 类型 e 表示法，指数的最大正整数值                                              |
+    | FLT_MAX_10_EXP   | 用 10 的 x 次幂表示规范化 float 类型数时，x 的最大正整数值(至少+37)                        |
+    | DBL_MAX_10_EXP   | 用 10 的 x 次幂表示规范化 double 类型数时，x 的最大正整数值(至少+37)                       |
+    | LDBL_MAX_10_EXP  | 用 10 的 x 次幂表示规范化 long double 类型数时，x 的最大正整数值(至少+37)                  |
+    | FLT_MAX          | float 类型的最大有限值(至少 1E+37)                                                         |
+    | DBL_MAX          | double 类型的最大有限值(至少 1E+37)                                                        |
+    | LDBL_MAX         | long double 类型的最大有限值(至少 1E+37)                                                   |
+    | FLT_EPSILON      | float 类型比 1 大的最小值与 1 的差值(不超过 1E-9)                                          |
+    | DBL_EPSILON      | double 类型比 1 大的最小值与 1 的差值(不超过 1E-9)                                         |
+    | LDBL_EPSILON     | long double 类型比 1 大的最小值与 1 的差值(不超过 1E-9)                                    |
+    | FLT_MIN          | 标准化 float 类型的最小正值(不超过 1E-37)                                                  |
+    | DBL_MIN          | 标准化 double 类型的最小正值(不超过 1E-37)                                                 |
+    | LDBL_MIN         | 标准化 long double 类型的最小正值(不超过 1E-37)                                            |
+    | FLT_TRUE_MIN     | float 类型的最小正值(不超过 1E-37)                                                         |
+    | DBL_TRUE_MIN     | double 类型的最小正值(不超过 1E-37)                                                        |
+    | LDBL_TRUE_MIN    | long double 类型的最小正值(不超过 1E-37)                                                   |
+
+- **整型格式转换**`inttypes.h`
+
+  - **函数**
+
+    | 函数原型                                                                                 | 描述                                                                   |
+    | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+    | intmax_t imaxabs(intmax_t j);                                                            | 返回 j 的绝对值                                                        |
+    | imaxdiv_t imaxdiv(intmax_t numer,intmax_t denom);                                        | 单独计算 numer/denom 的商和余数，并把两个计算结果存储在返回的结构中    |
+    | intmax_t strtoimax(const char \*restrict nptr,char \*\*restrict endptr,int base);        | 相当于 strtol()函数，但是该函数把字符串转换成 intmax_t 类型并返回该值  |
+    | uintmax_t strtoumax(const char \*restrict nptr,char \*\*restrict endptr,int base);       | 相当于 strtoul()函数，但是该函数把字符串转换成 intmax_t 类型并返回该值 |
+    | intmax_t wcstoimax(const wchar_t \*restrict nptr,wchar_t \*\*restrict endptr,int base);  | strtoimax()函数的 wchar_t 类型的版本                                   |
+    | uintmax_t wcstoumax(const wchar_t \*restrict nptr,wchar_t \*\*restrict endptr,int base); | strtoumax()函数的 wchar_t 类型的版本                                   |
+
+- **可选拼写**`iso646.h`
+
+  - **宏**
+
+    |   宏   | 运算符 |   宏   | 运算符 |   宏   | 运算符 |
+    | :----: | :----: | :----: | :----: | :----: | :----: |
+    |  and   |   &&   | or_eq  |  \|=   | bitor  |   \|   |
+    |   or   |  \|\|  |  not   |   !=   |  xor   |   ^    |
+    |  not   |   !    | compl  |   ~    | xor_eq |   ^=   |
+    | and_eq |   &=   | bitand |   &    |        |        |
+
+- **本地化**`locale.h`
+
+  - 48
 
 ---
 
