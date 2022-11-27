@@ -9890,7 +9890,59 @@ int main(int argc, char *argv[])
 
 - **本地化**`locale.h`
 
-  - 48
+  - **函数**
+
+    | 函数原型                                           | 描述                                                                                                                                                                                              |
+    | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | char *setlocale(int category, const char *locale); | 该函数把某些值设置为本地和 locale 指定的值。category 的值决定要设置哪些本地值(后附)。如果成功设置本地化，该函数将返回一个在新本地化中与指定类别相关联的指针；如果不能完成本地化请求，则返回空指针 |
+    | struct lconv \*localeconv(void);                   | 返回一个指向 struct lconv 类型结构(后附)的指针，该结构中存储着当前的本地值                                                                                                                        |
+
+  - **category 宏**
+
+    | 宏          | 描述                                                    |
+    | ----------- | ------------------------------------------------------- |
+    | NULL        | 本地化设置不变，返回指向当前本地化的指针                |
+    | LC_ALL      | 改变所有的本地值                                        |
+    | LC_COLLATE  | 改变 strcoll()和 strxfrm()所用的排列顺序的本地值        |
+    | LC_CTYPE    | 改变字符处理函数和多字节函数的本地值                    |
+    | LC_MONETARY | 改变货币格式信息的本地值                                |
+    | LC_NUMERIC  | 改变十进制小数点符号和格式化 I/O 使用的非货币格式本地值 |
+    | LC_TIME     | 改变 strftime()所用的时间格式本地值                     |
+
+  - **struct lconv 成员**
+
+    | 成员变量                 | 描述                                                                                                                                                                                                          |
+    | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | char \*decimal_point     | 非货币值的小数点字符                                                                                                                                                                                          |
+    | char \*thousands_sep     | 非货币值中小数点前面的千位分隔符                                                                                                                                                                              |
+    | char \*grouping          | 一个字符串，表示非货币量中每组数字的大小                                                                                                                                                                      |
+    | char \*int_curr_symbol   | 国际货币符号                                                                                                                                                                                                  |
+    | char \*currency_symbol   | 本地货币符号                                                                                                                                                                                                  |
+    | char \*mon_decimal_point | 贷币值的小数点符号                                                                                                                                                                                            |
+    | char \*mon_thousands_sep | 货币值的千位分隔符                                                                                                                                                                                            |
+    | char \*mon_grouping      | 一个字符串，表示货币量中每组数字的大小                                                                                                                                                                        |
+    | char \*positive_sign     | 指明非负格式化货币值的字符串                                                                                                                                                                                  |
+    | char \*negative_sign     | 指明负格式化货币值的字符串                                                                                                                                                                                    |
+    | char int_frac_digits     | 国际格式化货币值中，小数点后面的数字个数                                                                                                                                                                      |
+    | char frac_digits         | 本地格式化货币值中，小数点后面的数字个数                                                                                                                                                                      |
+    | char p_cs_precedes       | 如果该值为 1，则 currency_symbol 在非负格式化货币值的前面；如果该值为 0，则 currency_symbol 在非负格式化货币值的后面                                                                                          |
+    | char p_sep_by_space      | 如果该值为 1，则用空格把 currency_symbol 和非负格式化货币值隔开；如果该值为 0，则不用空格分隔 currency_symbol 和非负格式化货币值                                                                              |
+    | char n_cs_precedes       | 如果该值为 1,则 currency_symbol 在负格式化货币值的前面；如果该值为 0，则 currency_symbol 在负格式化货币值的后面                                                                                               |
+    | char n_sep_by_space      | 如果该值为 1，则用空格把 currency_symbol 和负格式化货币值隔开；如果该值为 O,则不用空格分隔 currency_symbol 和负格式化货币值                                                                                   |
+    | char p_sign_posn         | 其值表示 positive_sign 字符串的位置：0 表示用圆括号把数值和货币符号括起来；1 表示字符串在数值和货币符号前面；2 表示字符串在数值和货币符号后面；3 表示直接把字符串放在货币前面；4 表示字符串紧跟在货币符号后面 |
+    | char n_sign_posn         | 其值表示 negative_sign 字符串的位置，含义与 p_sign_posn 相同                                                                                                                                                  |
+    | char int_p_cs_precedes   | 如果该值为 1,则 int_currency_symbol 在非负格式化货币值的前面；如果该值为 O,则 int_currency_symbol 在非负格式化货币值的后面                                                                                    |
+    | char int_p_sep_by_space  | 如果该值为 1，则用空格把 int_currency_symbol 和非负格式化货币值隔开；如果该值为 0，则不用空格分隔 int_currency_symbol 和非负格式化货币值                                                                      |
+    | char int_n_cs_precedes   | 如果该值为 1,则 int_currency_symbol 在负格式化货币值的前面；如果该值为 O,则 int_currency_symbol 在负格式化货币值的后面                                                                                        |
+    | char int_n_sep_by_space  | 如果该值为 1，则用空格把 int_currency_symbol 和负格式化货币值隔开；如果该值为 0，则不用空格分隔 int_currency_symbol 和负格式化货币值                                                                          |
+    | char int_p_sign_posn     | 其值表示 positive_sign 相对于非负国际格式化货币值的位置                                                                                                                                                       |
+    | char int_n_sign_posn     | 其值表示 negative_sign 相对于负国际格式化货币值的位置                                                                                                                                                         |
+
+- **数学库**`cmath.h`
+
+  - **宏**
+
+    - 50
 
 ---
 
