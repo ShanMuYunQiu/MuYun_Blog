@@ -4,7 +4,7 @@ author: 圣奇宝枣
 description: 有关于C语言的基础教程，包括基本语法、基础的底层逻辑知识与一部分数据结构，比较适合有一定经验的初学者上手
 sticky: 1
 date: 2022-05-09 08:21:06
-updated: 2022-11-27 10:14:52
+updated: 2022-11-29 21:14:52
 readmore: true
 tags:
   - C语言
@@ -10019,7 +10019,7 @@ int main(int argc, char *argv[])
     | double remainder(double x,double y);                 | 返回 × 除以 y 的余数，IEC 60559 定义为 x-n\*y,n 取与 x/y 最接近的整数；如果(n-x/y)的绝对值是 1/2，n 取偶数                                                                       |
     | double remquo(double x,double y,int \*quo);          | 返回与 remainder()相同的值；把 x/y 的整数大小求模 2<sup>k</sup>的值存储在 quo 所指向的位置中，符号与 x/y 的符号相同，其中 k 为整数，至少是 3，具体值因实现而异(C99)              |
     | double copysign(double x,double y);                  | 返回 x 的大小和 y 的符号(C99)                                                                                                                                                    |
-    | double nan(const char \*tagp);                       | 返回以 double 类型表示的 quiet NaN;nan("n-char-seg")与 strtod("NAN(n-char-seq)",(char\*\*)NULL)等价；nan("")与 strtod("NAN()",(char\*\*)NULL)等价。如果不支持 quiet NaN,则返回 O |
+    | double nan(const char \*tagp);                       | 返回以 double 类型表示的 quiet NaN;nan("n-char-seg")与 strtod("NAN(n-char-seq)",(char\*\*)NULL)等价；nan("")与 strtod("NAN()",(char\*\*)NULL)等价。如果不支持 quiet NaN,则返回 0 |
     | double nextafter(double x,double y);                 | 返回 x 在 y 方向上可表示的最接近的 double 类型值；如果 x 等于 y,则返回 x(C99)                                                                                                    |
     | double nexttoward(double x,long double y);           | 与 nextafter()类似，但该函数的第 2 个参数是 long double 类型；如果 x 等于 y,则返回转换为 double 类型的 y(C99)                                                                    |
     | double fdim(double x,double y);                      | 如果大于 y,则返回 x-y 的值；如果 x 小于或等于 y,则返回 0(C99)                                                                                                                    |
@@ -10042,9 +10042,200 @@ int main(int argc, char *argv[])
     | int setjmp(jmp_buf env);           | 把调用环境存储在数组 env 中，如果是直接调用，则返回 0；如果是通过 longjmp()调用，则返回非 0                                                       |
     | void longjmp(jmp_buf env,int val); | 恢复最近的 setjmp()调用(设置 env 数组)存储的环境；完成后，程序继续像调用 setjmp()那样执行该函数，返回 val(但是该函数不允许返回 0，会将其转换成 1) |
 
-- **信号处理**`signal.h`
+- **对齐**`stdalign.h`
 
-  - 53
+  - **宏**
+
+    | 宏                     | 描述                        |
+    | ---------------------- | --------------------------- |
+    | alignas                | 展开为关键字\_Alignas       |
+    | alignof                | 展开为关键字\_Alignof       |
+    | \_\_alignas_is_defined | 展开为整型常量 1，适用于#if |
+    | \_\_alignof_is_defined | 展开为整型常量 1，适用于#if |
+
+- **可变参数**`stdarg.h`
+
+  - **宏**
+
+    | 宏                                      | 描述                                                                                                                      |
+    | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+    | void va_start(va_list ap,parmN);        | 该宏在 va_arg()和 va_end()使用 ap 之前初始化 ap,parmN 是形参列表中最后一个形参名的标识符                                  |
+    | type va_arg(va_list ap,type);           | 该宏展开为一个表达式，其值和类型都与 ap 表示的形参列表的下一项相同，type 是该项的类型。每次调用该宏都前进到 ap 中的下一项 |
+    | void va_end(va_list ap);                | 该宏关闭以上过程，可能导致 ap 在再次调用 va_start()之前不可用                                                             |
+    | void va_copy(va list dest,va list src); | 该宏把 dest 初始化为 srt 当前状态的备份(C99)                                                                              |
+
+- **布尔支持**`stdbool.h`
+
+  - **宏**
+
+    | 宏                              | 描述             |
+    | ------------------------------- | ---------------- |
+    | bool                            | 展开为\_Bool     |
+    | false                           | 展开为整型常量 0 |
+    | true                            | 展开为整型常量 1 |
+    | \_\_bool_true_false_are_defined | 展开为整型常量 1 |
+
+- **通用定义**`stddef.h`
+
+  - **类型**
+
+    | 类型      | 描述                                             |
+    | --------- | ------------------------------------------------ |
+    | ptrdiff_t | 有符号整数类型，表示两个指针之差                 |
+    | size_t    | 无符号整数类型，表示 sizeof 运算符的结果         |
+    | wchar_t   | 整数类型，表示支持的本地化所指定的最大扩展字符集 |
+
+  - **宏**
+
+    | 宏                               | 描述                                                                                                                             |
+    | -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+    | NULL                             | 实现定义的常量，表示空指针                                                                                                       |
+    | offsetof(type,member-designator) | 展开为 size_t 类型的值，表示 type 类型结构的指定成员在该结构中的偏移量，以字节为单位。如果成员是一个位字段，该宏的行为是未定义的 |
+
+- **整数类型**`stdint.h`
+
+  - **精确宽度类型**
+
+    | typedef 名 | 属性          |
+    | ---------- | ------------- |
+    | int8_t     | 8 位，有符号  |
+    | intl6_t    | 16 位，有符号 |
+    | int32_t    | 32 位，有符号 |
+    | int64_t    | 64 位，有符号 |
+    | uint8_t    | 8 位，无符号  |
+    | uint16_t   | 16 位，无符号 |
+    | uint32_t   | 32 位，无符号 |
+    | uint64_t   | 64 位，无符号 |
+
+  - **最小宽度类型**
+
+    | typedef 名     | 属性               |
+    | -------------- | ------------------ |
+    | int_least8_t   | 至少 8 位，有符号  |
+    | int_least16_t  | 至少 16 位，有符号 |
+    | int_least32_t  | 至少 32 位，有符号 |
+    | int_least64_t  | 至少 64 位，有符号 |
+    | uint_least8_t  | 至少 8 位，无符号  |
+    | uint_least16_t | 至少 16 位，无符号 |
+    | uint_least32_t | 至少 32 位，无符号 |
+    | uint_least64_t | 至少 64 位，无符号 |
+
+  - **最快最小宽度类型**
+
+    | typedef 名    | 属性             |
+    | ------------- | ---------------- |
+    | int_fast8_t   | 至少 8 位有符号  |
+    | int_fast16_t  | 至少 16 位有符号 |
+    | int_fast32_t  | 至少 32 位有符号 |
+    | int_fast64_t  | 至少 64 位有符号 |
+    | uint_fast8_t  | 至少 8 位无符号  |
+    | uint_fast16_t | 至少 16 位无符号 |
+    | uint_fast32_t | 至少 32 位无符号 |
+    | uint_fast64_t | 至少 64 位无符号 |
+
+  - **最大宽度类型**
+
+    | typedef 名 | 属性                 |
+    | ---------- | -------------------- |
+    | intmax_t   | 最大宽度的有符号类型 |
+    | uintmax_t  | 最大宽度的无符号类型 |
+
+  - **可存储指针值的整数类型**
+
+    | typedef 名 | 属性                     |
+    | ---------- | ------------------------ |
+    | intptr_t   | 可存储指针值的有符号类型 |
+    | uintptr_t  | 可存储指针值的无符号类型 |
+
+  - **整型常量**
+
+    | 常量标识符      | 最小值                   |
+    | --------------- | ------------------------ |
+    | INTN_MIN        | 等于-(2<sup>n-1</sup>-1) |
+    | INTN_MAX        | 等于 2<sup>n-1</sup>-1   |
+    | UINTN_MAX       | 等于 2<sup>n-1</sup>-1   |
+    | INT_LEASTN_MIN  | -(2<sup>n-1</sup>-1)     |
+    | INT_LEASTN_MAX  | 2<sup>n-1</sup>-1        |
+    | UINT_LEASTN_MAX | 2<sup>n</sup>-1          |
+    | INT_FASTN_MIN   | -(2<sup>n-1</sup>-1)     |
+    | INT_FASTN_MAX   | 2<sup>n-1</sup>-1        |
+    | UINT_FASN_MAX   | 2<sup>n</sup>-1          |
+    | INTPTR_MIN      | -(2<sup>15</sup>-1)      |
+    | INTPTR_MAX      | 2<sup>15</sup>-1         |
+    | UINTPTR_MAX     | 2<sup>16</sup>-1         |
+    | INTMAX_MIN      | -(2<sup>15</sup>-1)      |
+    | INTMAX_MAX      | 2<sup>63</sup>-1         |
+    | UINTMAX_MAX     | 2<sup>64</sup>-1         |
+
+  - **其他整型常量**
+
+    | 常量标识符     | 含义                      |
+    | -------------- | ------------------------- |
+    | PTRDIFF_MIN    | ptrdiff_t 类型的最小值    |
+    | PTRDIFF_MAX    | ptrdiff_t 类型的最大值    |
+    | SIG_ATOMIC_MIN | sig_atomic_t 类型的最小值 |
+    | SIG_ATOMIC_MAX | sig_atomic_t 类型的最大值 |
+    | WCHAR_MIN      | wchar_t 类型的最小值      |
+    | WCHAR_MAX      | wchar_t 类型的最大值      |
+    | WINT_MIN       | wint_t 类型的最小值       |
+    | WINT_MAX       | wint_t 类型的最大值       |
+    | SIZE_MAX       | size_t 类型的最大值       |
+
+- **标准 I/O 库**`stdio.h`
+
+  - **函数**
+
+    | 函数原型                                                                   | 描述                                                                                       |
+    | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+    | void clearerr(FILE \*);                                                    | 清除文件结尾和错误指示符                                                                   |
+    | int fclose(FILE \*);                                                       | 关闭指定的文件                                                                             |
+    | int feof(FILE \*);                                                         | 测试文件结尾                                                                               |
+    | int ferror(FILE \*);                                                       | 测试错误指示符                                                                             |
+    | int fflush(FILE \*);                                                       | 刷新指定的文件                                                                             |
+    | int fgetc(FILE \*);                                                        | 获得指定输入流的下一个字符                                                                 |
+    | int fgetpos(FILE \*restrict,restrict);                                     | 存储文件位置指示符的 fpos_t\*当前值                                                        |
+    | char fgets(char \*restrict,restrict);                                      | 从指定流中获取下一行(或 int、FILE\*指定的字符数)                                           |
+    | FILE fopen(const char \*restrict,const char \*restrict);                   | 打开指定的文件                                                                             |
+    | int fprintf(FILE \*restrict,const char \*restrict, ...);                   | 把格式化输出写入指定流                                                                     |
+    | int fputc(int,FILE \*);                                                    | 把指定字符写入指定流                                                                       |
+    | int fputs(const char \*restrict,FILE \*restrict);                          | 把第 1 个参数指向的字符串写入指定流                                                        |
+    | size_t fread(void \*restrict,size_t,size_t,FILE \*restrict);               | 读取指定流中的二进制数据                                                                   |
+    | FILE freopen(const char \*restrict,const char \*restrict,FILE \*restrict); | 打开指定文件，并将其与指定流相关联                                                         |
+    | int fscanf(FILE \*restrict,const char \*restrict,...);                     | 读取指定流中的格式化输入                                                                   |
+    | int fsetpos(FILE \*,const fpos_t \*);                                      | 设置文件位置指针指向指定的值                                                               |
+    | int fseek(FILE \*long,int);                                                | 设置文件位置指针指向指定的值                                                               |
+    | long ftell(FILE \*);                                                       | 获取当前文件位置                                                                           |
+    | size_t fwrite(const void \*restrict,size_t,size_t,FILE \*restrict);        | 把二进制数据写入指定流                                                                     |
+    | int getc(FILE \*);                                                         | 读取指定输入的下一个字符                                                                   |
+    | int getchar();                                                             | 读取标准输入的下一个字符                                                                   |
+    | char gets(char \*);                                                        | 获取标准输入的下一行(C11 库已删除)                                                         |
+    | void perror(const char\*);                                                 | 把系统错误信息写入标准错误中                                                               |
+    | int printf(const char \*restrict,...);                                     | 把格式化输出写入标准输出中                                                                 |
+    | int putc(int,FILE \*);                                                     | 把指定字符写入指定输出中                                                                   |
+    | int putchar(int);                                                          | 把指定字符写入指定输出中                                                                   |
+    | int puts(const char \*);                                                   | 把字符串写入标准输出中                                                                     |
+    | int remove(const char \*)                                                  | 移除已命名文件                                                                             |
+    | int rename(const char \*,const char \*)                                    | 重命名文件                                                                                 |
+    | void rewind(FILE \*)                                                       | 设置文件位置指针指向文件开始处                                                             |
+    | int scanf(const char \*restrict,...);                                      | 读取标准输入中的格式化输入                                                                 |
+    | void setbuf(FILE \*restrict,char \*restrict);                              | 设置缓冲区大小和位置                                                                       |
+    | int setvbuf(FILE \*restrict,char \*restrict,int,size_t);                   | 设置缓冲区大小、位置和模式                                                                 |
+    | int snprintf(char \*restrict,size_t n,const char \*restrict,...);          | 把格式化输出中的前 n 个字符写入指定字符串中                                                |
+    | int sprintf(char \*restrict,const char \*restrict,...);                    | 把格式化输出写入指定字符串中                                                               |
+    | int sscanf(const char \*restrict,const char \*restrict,...);               | 把格式化输入写入指定字符串中                                                               |
+    | FILE \*tmpfile(void);                                                      | 创建一个临时文件                                                                           |
+    | char \*tmpnam(char \*);                                                    | 为临时文件生成一个唯一的文件名                                                             |
+    | int ungetc(int,FILE \*)                                                    | 把指定字符放回输入流中                                                                     |
+    | int vfprintf(FILE \*restrict,const char \*restrict,va_list);               | 与 fprintf()类似，但该函数用一个 va_list 类型形参列表(由 va_start 初始化)代替变量参数列表  |
+    | int vprintf(const char \*restrict,va_list);                                | 与 printf()类似，但该函数用一个 va_list 类型形参列表(由 va_start 初始化)代替变量参数列表   |
+    | int vsnprintf(char \*restrict,size_t n,const char \*restrict,va_list);     | 与 snprintf()类似，但该函数用一个 va_list 类型形参列表(由 va_start 初始化)代替变量参数列表 |
+    | int vsprintf(char \*restrict,const char \*restrict,va_list);               | 与 sprintf()类似，但该函数用一个 va_list 类型形参列表(由 va_start 初始化)代替变量参数列表  |
+    | int vscanf(const char \*restrict,va_list);                                 | 与 scanf()类似，但该函数用一个 va_list 类型形参列表(由 va_start 初始化)代替变量参数列表    |
+    | int vsscanf(const char \*restrict,\*restrict,va_list);                     | 与 sscanf()类似，但该函数用一个 va_list 类型形参列表(由 va_start 初始化)代替变量参数列表   |
+
+- **通用工具**`stdlib.h`
+
+  - 码字中。。。
 
 ---
 
