@@ -4,7 +4,7 @@ author: 圣奇宝枣
 description: 有关于C语言的基础教程，包括基本语法、基础的底层逻辑知识与一部分数据结构，比较适合有一定经验的初学者上手
 sticky: 1
 date: 2022-05-09 08:21:06
-updated: 2022-12-02 21:14:52
+updated: 2022-12-03 21:14:52
 readmore: true
 tags:
   - C语言
@@ -9587,7 +9587,7 @@ int main(int argc, char *argv[])
 
 <div class="success">
 
-> **章节概要**：C 运算符；ANSI C 库函数、宏和类型
+> **章节概要**：C 运算符；ANSI C 库函数、宏和类型；拓展整数类型`inttypes.h`；拓展字符支持
 
 </div>
 
@@ -10490,7 +10490,120 @@ int main(int argc, char *argv[])
 
 - **宽字符分类和映射工具**`wctype.h`
 
-  - 74
+  - **类型/宏**
+
+    | 类型/宏   | 描述                                                                                                     |
+    | --------- | -------------------------------------------------------------------------------------------------------- |
+    | wint_t    | 整数类型，用于存储扩展字符集中的任意值，还可以存储至少一个不是扩展字符成员的值                           |
+    | wctrans_t | 标量类型，可以表示本地化指定的字符映射                                                                   |
+    | wctype_t  | 标量类型，可以表示本地化指定的字符分类                                                                   |
+    | WEOF      | wint_t 类型的常量表达式，不对应扩展字符集中的任何成员，相当于宽字符中的 EOF,用于表示宽字符输入的文件结尾 |
+
+  - **函数**
+
+    | 函数原型                                    | 描述                                                                                                                                                                                                                                     |
+    | ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+    | int iswalnum(wint_t wc);                    | 如果 wc 表示一个字母数字字符(字母或数字），函数返回真                                                                                                                                                                                    |
+    | int iswalpha(wint_t wc);                    | 如果 wc 表示一个字母字符，函数返回真                                                                                                                                                                                                     |
+    | int iswblank(wint_t wc);                    | 如果 wc 表示一个空格，函数返回真                                                                                                                                                                                                         |
+    | int iswcntrl(wint_t wc);                    | 如果 wc 表示一个控制字符，函数返回真                                                                                                                                                                                                     |
+    | int iswdigit(wint_t wc);                    | 如果 wc 表示一个数字，函数返回真                                                                                                                                                                                                         |
+    | int iswgraph(wint_t wc);                    | 如果 iswprint(wc)为真，且 iswspace(wc)为假，函数返回真                                                                                                                                                                                   |
+    | int iswlower(wint_t wc);                    | 如果 wc 表示一个小写字符，函数返回真                                                                                                                                                                                                     |
+    | int iswprint(wint_t wc);                    | 如果 wc 表示一个可打印字符，函数返回真                                                                                                                                                                                                   |
+    | int iswpunct(wint_t wc);                    | 如果 wc 表示一个标点字符，函数返回真                                                                                                                                                                                                     |
+    | int iswspace(wint_t wc);                    | 如果 wc 表示一个制表符、空格或换行符，函数返回真                                                                                                                                                                                         |
+    | int iswupper(wint_t wc);                    | 如果 wc 表示一个大写字符，函数返回真                                                                                                                                                                                                     |
+    | int iswxdigit(wint_t wc);                   | 如果 wc 表示一个十六进制数字，函数返回真                                                                                                                                                                                                 |
+    | int iswctype(wint_t wc,wctype_t desc);      | 如果 wc 具有 desc 描述的属性，函数返回真                                                                                                                                                                                                 |
+    | wctype_t wctype(const char \*property);     | wctype()函数构建了一个 wctpe_t 类型的值，它描述了由字符串参数 property 指定的宽字符分类。如果根据当前本地化的 LC_CTYPE 类别，property 识别宽字符分类有效，wctype()函数则返回非零值(可作为 iswctype()函数的第 2 个参数)；否则，函数返回 0 |
+    | wint_t towlower(wint_t wc);                 | 如果 wc 是大写字符，返回其小写形式；否则返回 wc                                                                                                                                                                                          |
+    | wint_t towupper(wint_t wc);                 | 如果 wc 是小写字符，返回其大写形式；否则返回 wc                                                                                                                                                                                          |
+    | wint_t towctrans(wint_t wc,wctrans_t desc); | 如果 desc 等于 wctrans("lower")的返回值，函数返回 wc 的小写形式(由 LC_CTYPE 设置确定)；如果 dest 等于 wctrans("upper")的返回值，函数返回 wc 的大写形式(由 LC_CTYPE 设置确定)                                                             |
+    | wctrans_t wctrans(const char \*property);   | 如果参数是"lower"或"upper'"，函数返回一个 wctrans_t 类型的值，可用作 towctrans()的参数并反映 LC_CTYPE 设置，否则函数返回 0                                                                                                               |
+
+##### **拓展整数类型**`inttypes.h`
+
+- **精确宽度类型**
+
+  |  类型名  | printf()说明符 | scanf()说明符 |  最小值   |   最大值   |
+  | :------: | :------------: | :-----------: | :-------: | :--------: |
+  |  int8_t  |     PRId8      |     SCNd8     | INT8_MIN  |  INT8_MAX  |
+  | int16_t  |     PRId16     |    SCNd16     | INT16_MIN | INT16_MAX  |
+  | int32_t  |     PRId32     |    SCNd32     | INT32_MIN | INT32_MAX  |
+  | int64_t  |     PRId64     |    SCNd64     | INT64_MIN | INT64_MAX  |
+  | uint8_t  |     PRIu8      |     SCNu8     |     0     | UINT8_MAX  |
+  | uint16_t |     PRIu16     |    SCNu16     |     0     | UINT16_MAX |
+  | uint32_t |     PRIu32     |    SCNu32     |     0     | UINT32_MAX |
+  | uint64_t |     PRIu64     |    SCNu64     |     0     | UINT64_MAX |
+
+- **最小宽度类型**
+
+  |     类型名     | printf()说明符 | scanf()说明符 |     最小值      |      最大值      |
+  | :------------: | :------------: | :-----------: | :-------------: | :--------------: |
+  |  int_least8_t  |   PRILEASTd8   |  SCNLEASTd8   | INT_LEAST8_MIN  |  INT_LEAST8_MAX  |
+  | int_least16_t  |  PRILEASTd16   |  SCNLEASTd16  | INT_LEAST16_MIN | INT_LEAST16_MAX  |
+  | int_least32_t  |  PRILEASTd32   |  SCNLEASTd32  | INT_LEAST32_MIN | INT_LEAST32_MAX  |
+  | int_least64_t  |  PRILEASTd64   |  SCNLEASTd64  | INT_LEAST64_MIN | INT_LEAST64_MAX  |
+  | uint_least8_t  |   PRILEASTu8   |  SCNLEASTu8   |        0        | UINT_LEAST8_MAX  |
+  | uint_least16_t |  PRILEASTu16   |  SCNLEASTu16  |        0        | UINT_LEAST16_MAX |
+  | uint_least32_t |  PRILEASTu32   |  SCNLEASTu32  |        0        | UINT_LEAST32_MAX |
+  | uint_least64_t |  PRILEASTu64   |  SCNLEASTu64  |        0        | UINT_LEAST64_MAX |
+
+- **最快最小宽度类型**
+
+  |    类型名     | printf()说明符 | scanf()说明符 |     最小值     |     最大值      |
+  | :-----------: | :------------: | :-----------: | :------------: | :-------------: |
+  |  int_fast8_t  |   PRIFASTd8    |   SCNFASTd8   | INT_FAST8_MIN  |  INT_FAST8_MAX  |
+  | int_fast16_t  |   PRIFASTd16   |  SCNFASTd16   | INT_FAST16_MIN | INT_FAST16_MAX  |
+  | int_fast32_t  |   PRIFASTd32   |  SCNFASTd32   | INT_FAST32_MIN | INT_FAST32_MAX  |
+  | int_fast64_t  |   PRIFASTd64   |  SCNFASTd64   | INT_FAST64_MIN | INT_FAST64_MAX  |
+  | uint_fast8_t  |   PRIFASTu8    |   SCNFASTu8   |       0        | UINT_FAST8_MAX  |
+  | uint_fast16_t |   PRIFASTu16   |  SCNFASTu16   |       0        | UINT_FAST16_MAX |
+  | uint_fast32_t |   PRIFASTu32   |  SCNFASTu32   |       0        | UINT_FAST32_MAX |
+  | uint_fast64_t |   PRIFASTu64   |  SCNFASTu64   |       0        | UINT_FAST64_MAX |
+
+- **最大宽度类型**
+
+  |  类型名   | printf()说明符 | scanf()说明符 |   最小值   |   最大值    |
+  | :-------: | :------------: | :-----------: | :--------: | :---------: |
+  | intmax_t  |    PRIdMAX     |    SCNdMAX    | INTMAX_MIN | INTMAX_MAX  |
+  | uintmax_t |    PRIuMAX     |    SCNuMAX    |     0      | UINTMAX_MAX |
+
+- **可存储指针值的整型**
+
+  |  类型名   | printf()说明符 | scanf()说明符 |   最小值   |   最大值    |
+  | :-------: | :------------: | :-----------: | :--------: | :---------: |
+  | intptr_t  |    PRIdPTR     |    SCNdPTR    | INTPTR_MIN | INTPTR_MAX  |
+  | uintptr_t |    PRIuPTR     |    SCNuPTR    |     0      | UINTPTR_MAX |
+
+- **拓展的整型常量**
+
+  > 1、在整数后面加上`L`后缀可表示 long 类型的常量，如`445566L`。如何表示 int32_t 类型的常量？  
+  > 2、要使用`inttypes.h`头文件中定义的宏。例如，表达式`INT32_C(445566)`展开为一个 int32_t 类型的常量  
+  > 3、从本质上看，这种宏相当于把当前类型强制转换成底层类型，即特殊实现中表示 int32_t 类型的基本类型  
+  > 4、宏名把相应类型名中的`_C`用`_t`替换，再把名称中所有的字母大写。例如，要把 1000 设置为 unit_least64_t 类型的常量，可以使用表达式`UNIT_LEAST_64C(1000)`
+
+##### **拓展字符支持**
+
+- **三字符序列**
+
+  | 三字符序列 | 符号 | 三字符序列 | 符号 | 三字符序列 | 符号 |
+  | :--------: | :--: | :--------: | :--: | :--------: | :--: |
+  |    ??=     |  #   |    ??(     |  [   |    ??)     |  ]   |
+  |    ??'     |  ^   |    ??<     |  {   |    ??>     |  }   |
+  |    ??-     |  ~   |    ??/     |  \\  |    ??!     |  \|  |
+
+- **双字符**(C99，但不会替换双引号中的双字符)
+
+  | 双字符序列 | 符号 | 双字符序列 | 符号 | 双字符序列 | 符号 |
+  | :--------: | :--: | :--------: | :--: | :--------: | :--: |
+  |     <:     |  [   |     :>     |  ]   |     <%     |  {   |
+  |     %>     |  }   |     %:     |  #   |    %:%:    |  ##  |
+
+- **可选拼写**`iso646.h`
+
+  - 见前函数介绍
 
 ---
 
