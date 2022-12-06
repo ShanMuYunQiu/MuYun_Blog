@@ -155,8 +155,6 @@ categories:
 - 想要调试运行，点击**运行与调试**(Ctrl+Shift+D)，选择**GDB/LLDB**，**g++.exe**，按**F5**运行调试，也可以在**行号**前打**断点**进行调试，上方**按步运行**按键来控制运行(调试全路径不能有中文)
 - **Encoding**：将**UTF-8**改为**GB18030**以正常显示中文
 
-[参考 bilibili 视频教程](https://www.bilibili.com/video/BV1UL411b7B4?spm_id_from=333.337.search-card.all.click)
-
 ---
 
 #### **Python 环境配置**
@@ -171,8 +169,6 @@ categories:
 - **VScode**中安装**Python Extension Pack**插件包
 - 重启，打开存代码的文件夹，新建文件为`.py`文件即可
 - 代码运行点击右上角**Run** **Code**中**Run Python File**即可运行
-
-[参考菜鸟教程文字教程](https://www.runoob.com/python3/python3-install.html)
 
 ---
 
@@ -191,8 +187,6 @@ categories:
 - **VScode**中安装**Extension Pack for Java**插件包
 - **VScode 设置**，**用户**类别下，找到**Code Actions On Save**，在.json 中编辑，将新增的`"editor.codeActionsOnSave"`这一些代码删除，在第一层缩进下，在`"workbench.iconTheme": "vscode-icons",`前写入`"java.jdt.ls.java.home": "JDK的路径(注意反斜杠转义)"`
 - 重启**VScode**，创建`.java`文件即可使用，运行前需要在**VScode**的**调试**处调试并自动生成文件，后续可以直接使用**Run**运行
-
-[参考 bilibili 视频教程](https://www.bilibili.com/video/BV16y4y177b9)
 
 ---
 
