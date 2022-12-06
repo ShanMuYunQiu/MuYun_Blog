@@ -2,7 +2,7 @@ favicon: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/user2.png
 
 notice:
   enable: true
-  content: 木有BUG！站点正常运行(ﾉﾟ∀ﾟ)ﾉ | 最近更新：C++基础教程 | 更新时间：2022-12-05
+  content: 木有BUG！站点正常运行(ﾉﾟ∀ﾟ)ﾉ | 最近更新：C++基础教程 | 更新时间：2022-12-06
 # 木有BUG！站点正常运行(ﾉﾟ∀ﾟ)ﾉ
 
 tags:
@@ -33,11 +33,13 @@ tags:
   Linux: "#ffc266"
   系统操作: "#ff3333"
   Github Calendar: "#cc33ff"
-  私密: "#808080"
+  私密1: "#808080"
+  私密2: "#808080"
   测试: "#9999ff"
   Vercel: "#ff944d"
   C++: "#6699ff"
   技巧: "#9999ff"
+  理论: "#ffc266"
 
 categories:
   编程语言入门: "#ff944d"
