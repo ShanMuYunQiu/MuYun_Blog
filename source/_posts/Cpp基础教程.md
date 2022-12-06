@@ -1,5 +1,5 @@
 ---
-title: C++基础教程
+title: Cpp基础教程
 author: 圣奇宝枣
 description: 有关于C++的基础教程，该教程建立在学习过C语言的基础上，进行对比学习，了解不同的特性和更多新内容
 sticky: 2
@@ -9,6 +9,7 @@ readmore: true
 tags:
   - C++
   - 基础语法
+  - 私密
 categories:
   - 编程语言入门
 ---
