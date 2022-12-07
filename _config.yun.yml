@@ -2,19 +2,17 @@ favicon: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/user2.png
 
 notice:
   enable: true
-  content: 木有BUG！站点正常运行(ﾉﾟ∀ﾟ)ﾉ | 最近更新：C++基础教程 | 更新时间：2022-12-06
+  content: 木有BUG！站点正常运行(ﾉﾟ∀ﾟ)ﾉ | 最近更新：算法复杂度分析 | 更新时间：2022-12-07
 # 木有BUG！站点正常运行(ﾉﾟ∀ﾟ)ﾉ
 
 tags:
   Git: "#ff4d4d"
   基础技能: "#ff99dd"
   网络爬虫: "#ff4d4d"
-  Microsoft 5E 订阅: "#00b300"
   基础语法: "#cc33ff"
   版本管理工具: "#00b300"
   Markdown: "#b35900"
   VScode: "#6699ff"
-  Office 365: "#ff944d"
   PicGO: "#6699ff"
   环境配置: "#00b300"
   Python3: "#ffc266"
@@ -32,9 +30,7 @@ tags:
   搜索引擎: "#ffc266"
   Linux: "#ffc266"
   系统操作: "#ff3333"
-  Github Calendar: "#cc33ff"
-  私密1: "#808080"
-  私密2: "#808080"
+  私密: "#808080"
   测试: "#9999ff"
   Vercel: "#ff944d"
   C++: "#6699ff"

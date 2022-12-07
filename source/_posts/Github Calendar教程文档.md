@@ -7,7 +7,6 @@ date: 2022-06-21 17:06:22
 updated: 2022-06-21 17:06:22
 sticky: 0
 tags:
-  - Github Calendar
   - Hexo博客
   - 配置项
 categories:
