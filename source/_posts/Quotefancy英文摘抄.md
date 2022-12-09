@@ -13,6 +13,10 @@ categories:
 
 ---
 
+#### **Motivational Quotes**
+
+---
+
 - **Work hard in silence, let your success be your noise.**  
   **安静沉默地努力工作，让你的成功为你发声**
 
