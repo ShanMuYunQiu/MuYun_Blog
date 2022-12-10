@@ -11,7 +11,7 @@ tags:
   - VScode
   - 环境配置
 categories:
-  - 代码编辑器
+  - 编辑器与IDE
 ---
 
 ---
