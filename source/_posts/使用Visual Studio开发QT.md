@@ -35,6 +35,8 @@ categories:
 
 - 安装 QT，记住**QT 安装的路径**，选择**组件**时，在**QT**一栏选择需要的**QT 版本**与**对应所需的组件**
 
+<!-- more -->
+
 - VS 中安装**QT Visual Studio Tools**拓展插件并重启
 
 ---
@@ -48,8 +50,6 @@ categories:
 - 打开 VS，在**Qt VS Tools**选项中选择**Qt Options**，在**Qt Versions**中添加 QT 路径，路径为**安装路径下**-**Qt x.xx.x**-**MSVC**的路径
 
 - 此时 VS 创建工程已经可以创建 QT 的项目，选择**QT GUI**创建图形程序，出现**QT 创建引导**，选择**对应需要的模块**
-
-<!-- more -->
 
 - **自动创建文件的说明**
 
