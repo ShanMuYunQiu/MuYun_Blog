@@ -45,11 +45,11 @@ categories:
 
 ---
 
-- **控制面板**-**程序**-**启用或关闭 Windows 功能**，启用`.NET 4.7`(或更高版本)
+- **控制面板**-**程序**-**启用或关闭 Windows 功能**，启用`.NET 4.8`(或更高版本)
 
-- 打开 VS，在**Qt VS Tools**选项中选择**Qt Options**，在**Qt Versions**中添加 QT 路径，路径为**安装路径下**-**Qt x.xx.x**-**MSVC**的路径
+- 打开 VS，在**Qt VS Tools**选项中选择**Qt Options**，在**Qt Versions**中添加 QT 路径，路径为**安装路径下**-**Qt x.xx.x**-**MSVC**，找到其中**qmake.exe**的路径
 
-- 此时 VS 创建工程已经可以创建 QT 的项目，选择**QT GUI**创建图形程序，出现**QT 创建引导**，选择**对应需要的模块**
+- 此时 VS 创建工程已经可以创建 QT 的项目，选择**QT Widgets Application**创建图形程序，出现**QT 创建引导**，选择**对应需要的模块**
 
 - **自动创建文件的说明**
 
