@@ -4,7 +4,7 @@ author: 圣奇宝枣
 description: 有关于C语言的基础教程，包括基本语法、基础的底层逻辑知识与一部分数据结构，比较适合有一定经验的初学者上手
 sticky: 1
 date: 2022-05-09 08:21:06
-updated: 2022-12-03 09:18:30
+updated: 2022-12-20 20:18:30
 readmore: true
 tags:
   - C语言
@@ -361,7 +361,7 @@ categories:
   {
       int x = 100;
       printf("dec=%d ; octal=%o ; hex=%x  \n", x, x, x);
-      printf("dec=%#o ; octal=%#x ; hex=%#X", x, x, x);
+      printf("dec=%#d ; octal=%#o ; hex=%#X", x, x, x);
       return 0;
   }
   ```
