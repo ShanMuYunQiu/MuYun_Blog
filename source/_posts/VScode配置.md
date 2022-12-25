@@ -82,7 +82,8 @@ categories:
 > **Markdown Preview Enhanced**：分屏 markdown 预览  
 > **One Dark Pro**：黑灰色主题，好看  
 > **Github Copilot**：AI 自动补全写代码，需要 github 账号登录，并且需要提前申请，通过后才可以使用(已收费，[官网](https://copilot.github.com/))  
-> **Tabnine AI Autocomplete**：上面 github copilot 的下位替代，有免费版本([官网](https://www.tabnine.com/))  
+> **CodeGeeX**：github copilot 的下位替代，开源免费的 AI 补全([github 仓库](https://github.com/THUDM/CodeGeeX))
+> **Tabnine AI**：github copilot 的下位替代，有免费版本([官网](https://www.tabnine.com/))  
 > **Power Mode**：打字炫酷特效，需要在设置里自行设定  
 > **Auto Close Tag**：自动闭合标签(已内置于 VScode 的**Auto Closing Tags**设置项)  
 > **Auto Rename Tag**：自动重命名相对应的闭合 HTML 标签(已内置于 VScode 的**Linked Editing**设置项)  
