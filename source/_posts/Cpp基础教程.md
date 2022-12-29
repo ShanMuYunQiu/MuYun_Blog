@@ -4,7 +4,7 @@ author: 圣奇宝枣
 description: 有关于C++的基础教程，该教程建立在学习过C语言的基础上，进行对比学习，了解不同的特性和更多新内容
 sticky: 2
 date: 2022-12-03 10:11:16
-updated: 2022-12-27 10:53:22
+updated: 2022-12-29 10:53:22
 readmore: true
 tags:
   - C++
@@ -116,7 +116,7 @@ _此外本文章中没有特殊重申的，大多语句和特性都与 C 语言�
 
 <div class="success">
 
-> **章节概要**：基本内置类型；指定字面量类型；变量；对象；列表初始化
+> **章节概要**：基本内置类型；指定字面量类型；变量；对象；列表初始化；C++关键字；复合类型；引用；指针；const 限定符
 
 </div>
 
@@ -173,7 +173,97 @@ _此外本文章中没有特殊重申的，大多语句和特性都与 C 语言�
 
 - **列表初始化**
 
-  - 码字中。。。
+  - C++定义了**初始化**的**好几种不同形式**，如下：
+
+    ```cpp
+    int units_sold = 0;
+    int units_sold(0);
+    int units_sold = {0}; // 列表初始化
+    int units_sold{0};    // 列表初始化
+    ```
+
+  - **列表初始化**
+
+    > 1、作为**C++11 新标准**的一部分，用**花括号**来**初始化变量**得到了全面应用。这种初始化形式被称为**列表初始化**  
+    > 2、现在，无论是**初始化对象**还是某些时候**为对象赋新值**，都可以使用这样一组**由花括号括起来的初始值**了  
+    > 3、当用于**内置类型**变量时，这种初始化形式有一个**重要特点**：如果我们**使用列表初始化**且**初始值存在丢失信息的风险**，**编译器将报错**(如下例)  
+    > 4、这样的介绍看似无关紧要，因为我们不会故意**用 long double 值初始化 int 变量**，然而这种初始化**可能在不经意间发生**，因此这种赋值更加**保守安全**
+
+    ```cpp
+    long double ld = 3.1415926536;
+    int a{ld}, b = {ld};    // 报错：转换未执行，因为存在丢失信息的风险(丢失浮点精度)
+    int c(ld), d = ld;      // 正确：转换执行，且确实丢失了部分值(丢失了小数点后的浮点部分)
+    ```
+
+- **C++关键字**
+
+  |   关键字   |    关键字    |  关键字   |      关键字      |  关键字  |
+  | :--------: | :----------: | :-------: | :--------------: | :------: |
+  |  alignas   |   continue   |  friend   |     register     |   true   |
+  |  alignof   |   decltype   |   goto    | reinterpret_cast |   try    |
+  |    asm     |   default    |    if     |      return      | typedef  |
+  |    auto    |    delete    |  inline   |      short       |  typeid  |
+  |    bool    |      do      |    int    |      signed      | typename |
+  |   break    |    double    |   long    |      sizeof      |  union   |
+  |    case    | dynamic_cast |  mutable  |      static      | unsigned |
+  |   catch    |     else     | namespace |  static_assert   |  using   |
+  |    char    |     enum     |    new    |   static_cast    | virtual  |
+  |  char16_t  |   explicit   | noexcept  |      struct      |   void   |
+  |  char32_t  |    export    |  nullptr  |      switch      | volatile |
+  |   class    |    extern    | operator  |     template     | wchar_t  |
+  |   const    |    false     |  private  |       this       |  while   |
+  | constexpr  |    float     | protected |   thread_local   |          |
+  | const_cast |     for      |  public   |      throw       |          |
+
+##### **复合类型**
+
+- **复合类型**是指**基于其他类型**定义的类型。C++有几种复合类型，在此主要了解其中两种：**引用**和**指针**
+
+- **引用**
+
+  - **示例**
+
+    ```cpp
+    int ival = 1024;
+    int &refVal = ival;     // 定义引用，refVal 指向 ival
+    int &refVal2;           // 报错：引用必须被初始化
+
+    refVal = 2;             // 实际赋值给 refVal 指向的 ival
+    int &refVal3 = refVal;  // refVal3 指向 refVal 指向的 ival
+
+    double dval = 10;
+    int &refVal4 = dval;    // 报错：refVal4 为int类型，其指向对象必须为int类型
+    int &refVal5 = 10;      // 报错：引用只能绑定在对象上
+    ```
+
+  - **引用介绍**
+
+    > 1、**引用**为对象**起了另外一个名字**，通过将声明符写成`&变量名`来**定义引用类型**  
+    > 2、**定义引用时**，程序把**引用**和它的**初始值**绑定在一起。一旦初始化完成，**引用**将和它的**初始值对象**一直绑定在一起。因为**无法**令引用**重新绑定另外一个对象**，所以**引用必须初始化**  
+    > 3、引用**并非对象**，它只是为一个**已经存在的对象**所起的**另外一个名字**。定义一个引用之后，**对其进行的所有操作**都是在**与之绑定的对象**上进行的  
+    > 4、所有**引用的类型**都要和**与之绑定的对象**严格匹配，且**引用只能绑定在对象上**
+
+- **指针**
+
+  - C++的指针整体与 C 语言的指针相同，在此写出一些差异
+
+  - **空指针**
+
+    > 1、**空指针**不指向**任何对象**，下为三种**生成空指针**的方法  
+    > 2、第一种方法是使用**字面值**`nullptr`来初始化指针。`nullptr`是一种**特殊类型**的字面值，它可以**被转换成任意其他的指针类型**  
+    > 3、第二种方法是使用**字面值 0**来生成空指针(注意不是 int 值)  
+    > 4、第三种方法是使用**NULL 预处理器变量**，这个变量在头文件`cstdlib`中定义，**预处理变量**不属于**命名空间**`std`。在新标准下，现在的 C++程序**最好使用**`nullptr`，同时**尽量避免使用**`NULL`
+
+    ```cpp
+    int *p1 = nullptr;
+    int *pt = 0;
+    // 使用 NULL 需要调用 cstdlib 头文件
+    int *p3 = NULL;
+    ```
+
+##### **const 限定符**
+
+- 码字中。。。
 
 ---
 
