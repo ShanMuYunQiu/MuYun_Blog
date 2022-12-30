@@ -1,7 +1,7 @@
 ---
 layout: links
 title: 我的小伙伴们
-date: 2022-05-21 09:30:20
+date: 2022-12-30 09:30:20
 keywords: 链接
 description: 友情链接
 comments: true
@@ -12,12 +12,6 @@ links:
     blog: 云游君的小站
     desc: All at sea.
     color: "#0078e7"
-
-  - url: https://www.ender.ml/
-    avatar: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/icon1.png
-    blog: ender's_blog
-    desc: 不念过往，不惧将来
-    color: "#ff944d"
 
   - url: https://www.ffnb.top/
     avatar: http://www.ffnb.top/wp-content/uploads/2022/02/仙鸣背景.jpg
@@ -30,12 +24,6 @@ links:
     blog: 栖梦云溪
     desc: 一个专注于网络活动、资源的收集共享、分享学习经验的站点
     color: "#6699ff"
-
-  - url: https://blog.huran.xyz/
-    avatar: https://img.huran.xyz/avatar.png
-    blog: 忽然笔记
-    desc: 长风破浪会有时，直挂云帆济沧海
-    color: "#20df20"
 
   - url: https://blog.ssycs.com
     avatar: https://blog.ssycs.com/image/avatar.png
@@ -55,29 +43,11 @@ links:
     desc: 永远年轻，永远热泪盈眶.
     color: "#9e75f0"
 
-  - url: https://ciraos.top
-    avatar: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/congling.png
-    blog: 葱苓的小窝
-    desc: Dare && Do
-    color: "#ffad33"
-
-  - url: https://www.travele.cc
-    avatar: https://image.travele.cc/trave.jpg
-    blog: Travele_
-    desc: 笔记，生活琐碎
-    color: "#ffb3d9"
-
   - url: https://www.falling42.top/
     avatar: https://npm.elemecdn.com/falling42-cdn@2.0.0/avatar.png
     blog: 低熵体的博客
     desc: 藏好自己，做好清理
     color: "#6699ff"
-
-  - url: https://www.codingshen.com
-    avatar: https://www.codingshen.com/logo
-    blog: Alex’s Blog
-    desc: 技术小白的成长之路
-    color: "#ff5050"
 
   - url: https://www.cikian.cn/
     avatar: https://img.cikian.cn/mypic/cikian.jpg
@@ -103,35 +73,11 @@ links:
     desc: 宁静致远,倾尘轻笑
     color: "#ffad33"
 
-  - url: https://www.mrzefr.cn
-    avatar: https://cdn.afdelivr.top/npm/hexo-mrzefr-filebed@1.3.4/image/ICO/Doraemon.ico
+  - url: https://blog.mrzefr.cn
+    avatar: https://npm.mrzefr.cn/hexo-mrzefr-filebed@1.3.4/image/ICO/Doraemon.ico
     blog: MrZeFr的小窝
     desc: Hello World
     color: "#20df20"
-
-  - url: https://blog.mrzefr.cn/
-    avatar: https://pub.gahotx.cn/photo/cat.jpg
-    blog: Gahotx
-    desc: Don't repeat yourself
-    color: "#ffb3d9"
-
-  - url: https://Slcp.top
-    avatar: https://img.slcp.top/bg.jpg
-    blog: Slcpの童话镇
-    desc: 你若盛开,阳光自来。
-    color: "#03c0ff"
-
-  - url: https://blog.godgy.xyz
-    avatar: https://dreamwld.top/images/avatar1.png
-    blog: 梦境学习站
-    desc: 一个乐于免费分享的网站
-    color: "#00d8a2"
-
-  - url: https://blog.fullcomb.top
-    avatar: https://cloud.fullcomb.top/private/source/image/build/roselia/avatar.webp
-    blog: Sato
-    desc: 祝愿我们都能够保持初心，做兴趣使然的英雄
-    color: "#ff5050"
 
   - url: https://undf.top
     avatar: https://c.undf.top/icon/android-chrome-144x144.png
