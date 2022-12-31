@@ -96,12 +96,18 @@ links:
     blog: Vincent文朔
     desc: 太阳出来了 雾就会散的
     color: "#fb7299"
-  
+
   - url: https://akilar.top/
     avatar: https://npm.elemecdn.com/akilar-friends@latest/avatar/akilar.top.jpg
     blog: Akilarの糖果屋
     desc: 欢迎光临糖果屋
     color: "#ffb3b3"
+
+  - url: https://blog.fullcomb.top
+    avatar: https://cloud.fullcomb.top/private/source/image/build/Ryza/avatar.png
+    blog: 砂糖
+    desc: Just be a learner
+    color: "#9966ff"
 
   - url:
     avatar: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/akalin.jpg
