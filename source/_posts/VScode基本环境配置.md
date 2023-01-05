@@ -1,10 +1,10 @@
 ---
-title: VScode配置
+title: VScode基本环境配置
 author: 圣奇宝枣
 description: 个人以及大众最爱的编辑器，新手时期被繁杂的配置劝退过，而本教程将带你渡过难关
 sticky: 0
 date: 2022-04-27 12:56:14
-updated: 2022-08-04 21:04:13
+updated: 2023-01-05 15:04:13
 readmore: true
 tags:
   - 前置准备
@@ -70,7 +70,7 @@ categories:
 
 <div class="warning">
 
-> **xxx Extension Pack**：**xxx**改为需要的语言，此拓展为微软配置的开发环境支持拓展  
+> **xxx Extension Pack**：**xxx**改为需要的语言，此拓展为微软配置的开发环境支持拓展包  
 > **Live Server**：实时显示刷新页面，网页使用  
 > ----运行时右下角**Go Live**，或鼠标右键，选择**Open with Live Server**即可  
 > **indent-rainbow**：彩色缩进，缩进错误会报大红  
@@ -94,7 +94,9 @@ categories:
 > **Bookmarks**：书签跳转，使用右键在需要的行上设置书签以快速跳转  
 > **GitLens**：侧边栏显示光标所在位置的历史 git 提交并快速访问，拓展 VScode 自带 git 管理器的功能  
 > **Git Graph**：将 git 提交记录转换为可视化图表  
-> **CodeSnap**：快速美观代码截图
+> **CodeSnap**：快速美观代码截图  
+> **Clangd**：提供比默认 C++拓展更强的代码提示，速度更快，需要关闭原 C++拓展  
+> ----配置：下载后需要额外下载 Clangd([github 下载地址](https://github.com/clangd/clangd))，解压配置 bin 目录为 Path 环境变量，在拓展设置设置路径为 cland
 
 </div>
 
@@ -125,11 +127,11 @@ categories:
 
 - **配置说明**
 
-  - **对象名**：任意
-  - **prefix**：触发所需的关键字
-  - **body**：触发后的代码片段
-  - **description**：描述
-  - _占位符_：使用**Dollar 符**`$`表示占位，放置 Dollar 符可以使代码片段的**鼠标光标**默认出现在**占位符**处，使用**Tab**可以**快速跳转**到下一个占位符处。此外可以给 Dollar 符编号，即使用`$1`，`$2`等符号设置光标切换的顺序。还可以给占位符处设置默认的值，比如`printf("&{1:hello} ${2:world}");`，这样片段默认带有**hello**和**world**，且鼠标光标定位到对应占位符时**自动选中默认的值**以便修改
+  > 1、**对象名**：任意  
+  > 2、**prefix**：触发所需的关键字  
+  > 3、**body**：触发后的代码片段  
+  > 4、**description**：描述  
+  > 5、_占位符_：使用**Dollar 符**`$`表示占位，放置 Dollar 符可以使代码片段的**鼠标光标**默认出现在**占位符**处，使用**Tab**可以**快速跳转**到下一个占位符处。此外可以给 Dollar 符编号，即使用`$1`，`$2`等符号设置光标切换的顺序。还可以给占位符处设置默认的值，比如`printf("&{1:hello} ${2:world}");`，这样片段默认带有**hello**和**world**，且鼠标光标定位到对应占位符时**自动选中默认的值**以便修改
 
 ---
 
@@ -137,24 +139,34 @@ categories:
 
 ---
 
-- 下载**mingw64**编译器
+- **下载编译器**(速度慢，可复制下载链接使用最下面的站点加速)
 
-[MinGW64 官方下载网站(已废弃)](https://www.mingw-w64.org/downloads/)
+[MinGW-w64 官方下载网站(已废弃下载，只提供其他集成支持下载地址)](https://www.mingw-w64.org/downloads/)
 
-[SourceForge 下载 MinGW64](https://sourceforge.net/projects/mingw-w64/files/?source=navbar)
+[MinGW-w64 单独下载(github 仓库地址)](https://github.com/niXman/mingw-builds-binaries)
 
-- **下载注意事项**
+[下载 LLVM/Clang(github 仓库地址)](https://github.com/llvm/llvm-project/tree/llvmorg-15.0.6)
+
+[winlibs.com 下载 WinLibs 套件(套件包含 GCC + LLVM/Clang/LLD/LLDB + MinGW-w64)](https://winlibs.com/)
+
+[github 加速站点 1](https://github.welab.eu.org/) [github 加速站点 2](https://d.serctl.com/)
+
+- **MinGW-w64 下载说明**(下载 WinLibs 套件可忽略)
+
   > 1、下载时**向下翻**下载**压缩包**文件，不要使用在线安装，无法使用  
   > 2、**64 位系统**选择**x86_64**，**32 位系统**选择**i686**  
   > 3、开发**Windows 下程序**选择**Win32**，开发**其他操作系统下程序**选择**posix**  
   > 4、**异常处理模型**中，**seh**是**新发明**的且**性能好**，但**不支持 32 位**，**sjlj**较为**古老**，**稳定性好**且**支持 32 位**
-- 解压后找地方存放，复制目录下的**bin**目录的路径
-- 环境变量设置：**此电脑**-**属性**-**高级系统设置**-**环境变量**-**Path**-(一个框)选择到最后，加一个英文的分号`;`，粘贴你的`bin`路径。(列表)选择到最下方，新建，粘贴路径
-- **VScode**中安装**C/C++ Extension Pack**插件包
-- 重启，打开存代码的文件夹，新建文件为`.cpp`文件即可
-- 代码运行点击右上角**Run** **Code**(Ctrl+Alt+N)即可运行
-- 想要调试运行，点击**运行与调试**(Ctrl+Shift+D)，选择**GDB/LLDB**，**g++.exe**，按**F5**运行调试，也可以在**行号**前打**断点**进行调试，上方**按步运行**按键来控制运行(调试全路径不能有中文)
-- **Encoding**：将**UTF-8**改为**GB18030**以正常显示中文
+
+- **配置环境**
+
+  > 1、解压后找地方存放，复制目录下的**bin**目录的路径  
+  > 2、环境变量设置：**此电脑**-**属性**-**高级系统设置**-**环境变量**-**Path**-(如果一个框)选择到最后，加一个英文的分号`;`，粘贴你的`bin`路径。(如果列表)选择到最下方，新建，粘贴路径  
+  > 3、**VScode**中安装**C/C++ Extension Pack**插件包  
+  > 4、重启，打开存代码的文件夹，新建文件为`.cpp`文件即可  
+  > 5、代码运行点击右上角**Run** **Code**(Ctrl+Alt+N)即可运行  
+  > 6、想要调试运行，点击**运行与调试**(Ctrl+Shift+D)，选择**GDB/LLDB**，**g++.exe**，按**F5**运行调试，也可以在**行号**前打**断点**进行调试，上方**按步运行**按键来控制运行(调试全路径不能有中文)  
+  > 7、**Encoding**：将编码格式**UTF-8**改为**GB18030**以正常显示中文
 
 ---
 
@@ -166,10 +178,12 @@ categories:
 
 [Python 官方网站](https://www.python.org/)
 
-- 检查环境变量设置，查漏补缺添加环境变量(同 C/C++环境配置)，将 python**根目录**添加到环境变量中
-- **VScode**中安装**Python Extension Pack**插件包
-- 重启，打开存代码的文件夹，新建文件为`.py`文件即可
-- 代码运行点击右上角**Run** **Code**中**Run Python File**即可运行
+- **配置环境**
+
+  > 1、检查环境变量设置，查漏补缺添加环境变量(同 C/C++环境配置)，将 python**根目录**添加到环境变量中  
+  > 2、**VScode**中安装**Python Extension Pack**插件包  
+  > 3、重启，打开存代码的文件夹，新建文件为`.py`文件即可  
+  > 4、代码运行点击右上角**Run** **Code**中**Run Python File**即可运行
 
 ---
 
@@ -181,13 +195,15 @@ categories:
 
 [Oracle 官方网站](https://www.oracle.com/cn/java/)
 
-- 环境变量设置：同 C/C++环境配置进入环境变量设置
-  - 新建系统变量**JAVA_HOME**，路径设置为**JDK 总文件夹的路径**
-  - 新建**CLASSPATH**，填入以下内容：`.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar`
-  - 找到**Path**变量，添加 **%JAVA_HOME%\bin** 和 **%JAVA_HOME%\jre\bin**
-- **VScode**中安装**Extension Pack for Java**插件包
-- **VScode 设置**，**用户**类别下，找到**Code Actions On Save**，在.json 中编辑，将新增的`"editor.codeActionsOnSave"`这一些代码删除，在第一层缩进下，在`"workbench.iconTheme": "vscode-icons",`前写入`"java.jdt.ls.java.home": "JDK的路径(注意反斜杠转义)"`
-- 重启**VScode**，创建`.java`文件即可使用，运行前需要在**VScode**的**调试**处调试并自动生成文件，后续可以直接使用**Run**运行
+- **配置环境**：
+
+  > 1、同 C/C++环境配置进入环境变量设置  
+  > 2、新建系统变量**JAVA_HOME**，路径设置为**JDK 总文件夹的路径**  
+  > 3、新建**CLASSPATH**，填入以下内容：`.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\tools.jar`  
+  > 4、找到**Path**变量，添加 **%JAVA_HOME%\bin** 和 **%JAVA_HOME%\jre\bin**  
+  > 5、**VScode**中安装**Extension Pack for Java**插件包  
+  > 6、**Language Support For Java 拓展设置**下，找到**Java›Jdt›Ls›Java:Home**设置项，**在.json 中编辑**，在`"java.jdt.ls.java.home:"`后写入`"JDK的路径(有双引号，注意反斜杠转义)"`  
+  > 7、重启**VScode**，创建`.java`文件即可使用，运行前需要在**VScode**的**调试**处调试并自动生成文件，后续可以直接使用**Run**运行
 
 ---
 
