@@ -1,5 +1,5 @@
 ---
-title: VScode配置Clang+Cmake环境
+title: VScode配置Clang和Cmake环境
 author: 圣奇宝枣
 description: Vscode进阶篇，学习.vscode配置文件和Clang+Cmake的配置与使用
 sticky: 0
@@ -127,6 +127,14 @@ categories:
       ]
   }
   ```
+
+---
+
+#### **VScode 配置 Cmake**
+
+---
+
+- 码字中。。。
 
 ---
 
