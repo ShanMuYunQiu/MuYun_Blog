@@ -134,7 +134,20 @@ categories:
 
 ---
 
-- 码字中。。。
+- **下载 Cmake 和 Ninja**
+
+[Cmake 官网](https://cmake.org/)
+[Ninja github仓库](https://github.com/ninja-build/ninja)
+
+- **配置环境**
+
+  > 1、一定注意**安装 Cmake**时勾选**添加进环境变量**(英文选项)。如果忘记勾选，则需要手动将**bin 目录**添加进**Path 环境变量**。此外还需要将`Ninja.exe`**所在的目录**添加到**Path 环境变量**  
+  > 2、下载**Cmake**和**Cmake Tools**拓展  
+  > 3、具体**Cmake 如何使用**请**另行学习**，当写好`CMakeLists.txt`后，唤出**控制台**，输入**Cmake**，选择**Cmake：Configure**，选择工具链。便会开始构建项目，生成 build 目录，生成编译后的文件
+
+- **Cmake 的调试**
+
+  - 码字中。。。
 
 ---
 
