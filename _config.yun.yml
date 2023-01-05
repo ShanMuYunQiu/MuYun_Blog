@@ -2,7 +2,7 @@ favicon: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/user2.png
 
 notice:
   enable: true
-  content: 木有BUG！站点正常运行(ﾉﾟ∀ﾟ)ﾉ | 最近更新：Cpp基础教程 | 更新时间：2023-01-03
+  content: 木有BUG！站点正常运行(ﾉﾟ∀ﾟ)ﾉ | 最近更新：Cpp基础教程 | 更新时间：2023-01-05
 # 木有BUG！站点正常运行(ﾉﾟ∀ﾟ)ﾉ
 
 tags:
@@ -13,7 +13,6 @@ tags:
   版本管理工具: "#00b300"
   Markdown: "#b35900"
   VScode: "#6699ff"
-  Visual Studio: "#9999ff"
   QT: "#00b300"
   PicGO: "#6699ff"
   环境配置: "#00b300"
