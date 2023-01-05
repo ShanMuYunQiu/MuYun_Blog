@@ -57,6 +57,7 @@ categories:
 > **Auto Save**：改为**afterDelay**，随后**Auto Delay Save**为自动保存时间(1000=1 秒)  
 > **git.mergeEditor**：git merge 合并编辑器，可以更方便地处理冲突，建议设置 true  
 > **Snippets Prevent Quick Suggestions**：阻止快速建议，建议关闭，关闭后可以在使用代码补全后仍继续收到提示  
+> **smooth**：搜索出的结果，分别代表四项不同的平滑效果设置，按需开启  
 > **Font Family**：配置字体(如写入**JetBrains Mono**)  
 > **Font Ligatures**：配置是否启用字体连字特性(在 JSON 中打开，设置为 true)
 
@@ -95,8 +96,7 @@ categories:
 > **GitLens**：侧边栏显示光标所在位置的历史 git 提交并快速访问，拓展 VScode 自带 git 管理器的功能  
 > **Git Graph**：将 git 提交记录转换为可视化图表  
 > **CodeSnap**：快速美观代码截图  
-> **Clangd**：提供比默认 C++拓展更强的代码提示，速度更快，需要关闭原 C++拓展  
-> ----配置：下载后需要额外下载 Clangd([github 下载地址](https://github.com/clangd/clangd))，解压配置 bin 目录为 Path 环境变量，在拓展设置设置路径为 cland
+> **project manager**：更方便的管理文件夹和项目
 
 </div>
 
@@ -139,7 +139,7 @@ categories:
 
 ---
 
-- **下载编译器**(速度慢，可复制下载链接使用最下面的站点加速)
+- **下载编译器**(按需下载，不需要都下载，新手推荐使用下面第二个链接。速度慢，可复制下载链接使用最下面的站点加速)
 
 [MinGW-w64 官方下载网站(已废弃下载，只提供其他集成支持下载地址)](https://www.mingw-w64.org/downloads/)
 
@@ -151,7 +151,7 @@ categories:
 
 [github 加速站点 1](https://github.welab.eu.org/) [github 加速站点 2](https://d.serctl.com/)
 
-- **MinGW-w64 下载说明**(下载 WinLibs 套件可忽略)
+- **MinGW-w64 下载说明**(下载其他编译器可忽略)
 
   > 1、下载时**向下翻**下载**压缩包**文件，不要使用在线安装，无法使用  
   > 2、**64 位系统**选择**x86_64**，**32 位系统**选择**i686**  
@@ -164,7 +164,7 @@ categories:
   > 2、环境变量设置：**此电脑**-**属性**-**高级系统设置**-**环境变量**-**Path**-(如果一个框)选择到最后，加一个英文的分号`;`，粘贴你的`bin`路径。(如果列表)选择到最下方，新建，粘贴路径  
   > 3、**VScode**中安装**C/C++ Extension Pack**插件包  
   > 4、重启，打开存代码的文件夹，新建文件为`.cpp`文件即可  
-  > 5、代码运行点击右上角**Run** **Code**(Ctrl+Alt+N)即可运行  
+  > 5、代码运行点击右上角**Run Code**(Ctrl+Alt+N)即可运行  
   > 6、想要调试运行，点击**运行与调试**(Ctrl+Shift+D)，选择**GDB/LLDB**，**g++.exe**，按**F5**运行调试，也可以在**行号**前打**断点**进行调试，上方**按步运行**按键来控制运行(调试全路径不能有中文)  
   > 7、**Encoding**：将编码格式**UTF-8**改为**GB18030**以正常显示中文
 
