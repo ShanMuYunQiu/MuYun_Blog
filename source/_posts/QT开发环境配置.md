@@ -4,7 +4,7 @@ author: 圣奇宝枣
 description: QT环境配置，以及使用其他IDE或编辑器开发QT
 sticky: 0
 date: 2022-12-10 20:10:11
-updated: 2022-12-10 20:10:11
+updated: 2023-01-06 20:10:11
 readmore: true
 tags:
   - 前置准备
@@ -58,6 +58,23 @@ categories:
   > 4、`main.cpp`中包含**刚才的头文件**和**QtWidgets 界面类**
 
 - 此时可以**调试运行**查看目前结果
+
+---
+
+#### **使用 VScode 配置 QT 环境**
+
+---
+
+- **配置环境**
+
+  > 1、安装**Qt Configure**插件(前置需配置好 Cmake 及其拓展)，唤出**命令台**(`F1`或`Ctrl+Shift+P`)，输入**qt**，选择**Set Qt Dir**，选择**QT 根目录**  
+  > 2、进入**拓展设置**，按照指引设置**Mingw Path**(即 QT 根目录-Tools-编译器名文件夹目录)和**Qt Kit Dir**(即 QT 根目录-名为 QT 版本号的文件夹-编译器名-bin 目录)
+  > 3、**配置环境变量**：进入**QT 根目录**-**Tools**-**你下载的编译器**-**bin**，将该目录添加到**Path 环境变量**  
+  > 4、如果使用**Clangd**插件，需要**将其关闭**，并**打开微软 C/C++拓展**  
+  > 5、可以在**命令台**使用**qt:new project**创建项目，重启**激活 Cmake 拓展**，在下方选择**Cmake kit 编译器版本**，一定要**与 qt 所需版本对应**，找不到就选择**scan for kits**搜索(搜索不到就重启电脑刷新环境变量再次搜索)  
+  > 6、自行更改`launch.json`与`CMakeLists.txt`中的文件，配置为对应版本  
+  > 7、准备就绪，可以使用`F5`**构建运行**。可能会出错，因为可能还安装了其他的编译器，所以需要**配置调试目录**，在`.vscode\launch.json`中添加`miDebuggerPath: "上面的bin目录/gdb.exe"`(调试器请自行选择)，即可正常运行  
+  > 8、如果想要**编辑 UI 界面**，可以唤出**命令台**-**Open Qt Designer**
 
 ---
 

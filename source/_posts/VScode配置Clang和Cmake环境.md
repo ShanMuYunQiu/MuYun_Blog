@@ -326,7 +326,10 @@ categories:
     UseTab:	Never
     ```
 
-- 上述为**文件配置**，现在可以下载使用**clang-format 插件**，设置**Fallback Style**项为**继承模板名**(如`Microsoft`)，其余自定义设置请自行学习
+- **插件推荐**
+
+  > 1、上述为**文件配置**，现在可以下载使用**clang-format 插件**，设置**Fallback Style**项为**继承模板名**(如`Microsoft`)，其余自定义设置请自行学习  
+  > 2、此外可以安装**clang-tidy 插件**来提供代码优化建议
 
 ---
 
