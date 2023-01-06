@@ -329,7 +329,7 @@ categories:
 - **插件推荐**
 
   > 1、上述为**文件配置**，现在可以下载使用**clang-format 插件**，设置**Fallback Style**项为**继承模板名**(如`Microsoft`)，其余自定义设置请自行学习  
-  > 2、此外可以安装**clang-tidy 插件**来提供代码优化建议
+  > 2、此外可以安装**clang-tidy 插件**来提供代码优化建议。由于设置了自动保存，所以推荐将**Lint On Save**关闭，并在**快捷键设置**手动设置**Lint File**快捷键为`Ctrl + S`
 
 ---
 
@@ -355,7 +355,7 @@ categories:
 
 - **Clangd 插件配置**
 
-  > 1、打开**Clangd 拓展设置**-**Arguments**，添加如下项
+  > 1、打开**Clangd 拓展设置**-**Arguments**，添加如下项  
   > 2、`--compile-commands-dir=${workspaceFolder}/build`：引导 Clang 找到**编译指令文件**  
   > 3、`--header-insertion=never`：关闭**头文件自动添加**功能(按需)  
   > 4、`--background-index`：在**后台进行代码分析**  
