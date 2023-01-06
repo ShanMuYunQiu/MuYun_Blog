@@ -85,15 +85,15 @@ categories:
       "version": "0.2.0",
       "configurations": [
           {
-              "type": "lldb",
+              "type": "lldb",   // 调试器名
               "request": "launch",
               "name": "Debug",
-              "program": "${workspaceFolder}/${fileBasenameNoExtension}.exe",
+              "program": "${workspaceFolder}/${fileBasenameNoExtension}.exe",   // 调试启动的程序
               "args": [],
               "cwd": "${workspaceFolder}",
-              "preLaunchTask": "Build C++",           // 创建前置编译任务
+              "preLaunchTask": "Build C++",           // 创建前置编译任务，后为启动的任务名
               "internalConsoleOptions": "neverOpen",  // 不默认切换到调试控制台
-              "console": "integratedTerminal"         // 使用内置终端
+              "console": "integratedTerminal",        // 终端：使用内置终端
           }
       ]
   }
@@ -109,15 +109,15 @@ categories:
       "tasks": [
           {
               "type": "shell",
-              "label": "Build C++",
+              "label": "Build C++",                                       // 任务名，与 launch.json 中对应
               "command": "clang++",                                       // 编译器名
               "args": [                                                   // 给编译器的参数
+                  "${file}",                                              // 当前打开的源代码
                   "-std=c++20",                                           // C++标准
                   "-g",                                                   // 表示debug模式，可以使用断点
                   "-Wall",                                                // 打开所有警告
                   "-o",                                                   // 重命名
                   "${workspaceFolder}/${fileBasenameNoExtension}.exe",    // 重命名的名称
-                  "${file}"                                               // 当前打开的源代码
               ],
               "group": {
                   "kind": "build",
@@ -345,7 +345,10 @@ categories:
   > 2、下载**Cmake**和**Cmake Tools**拓展  
   > 3、具体**Cmake 如何使用**请**另行学习**，当写好`CMakeLists.txt`后，唤出**控制台**，输入**Cmake**，选择**Cmake：Configure**，选择工具链。便会开始构建项目，生成 build 目录，生成编译后的文件
 
-- **Cmake 的调试**：**Cmake调试**不需要`tasks.json`，同时把`launch.json`中的`"preLaunchTask"`项删除
+- **Cmake 的调试**
+
+  > 1、**Cmake调试**不需要`tasks.json`，删除该文件，同时把`launch.json`中的`"preLaunchTask"`项删除  
+  > 2、更改`launch.json`文件的`"program"`项为`${command:cmake.launchTargetPath}`(为Cmake Tools拓展的预定义替换变量)
 
 - **Clangd 插件配置**
 
