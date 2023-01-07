@@ -124,6 +124,145 @@ categories:
 
 ---
 
+- **上面的例子**实际上就是**内部构建**，其产生的**临时文件特别多**，**不方便清理**
+
+- **外部构建**，就会把生成的**临时文件**放在**build 文件夹**，强烈推荐使用**外部构建**
+
+- **使用外部构建**
+
+  > 1、建立一个**build 目录**，可以在**任何地方**，推荐在**项目当前目录下**  
+  > 2、进入**build 目录**，运行`cmake ..`(`..`表示上级目录，仅适用于 build 在当前目录下的情况)，当然也可以写`CMakeLists.txt`所在的**绝对路径**  
+  > 3、现在，生成的文件都在**build 目录**下了，在**build 目录**中使用`make`来构建工程
+
+- **注意外部构建的两个变量**
+
+  > 1、`HELLO_BINARY_DIR`：是**编译路经**，即编译时**build 文件夹的路径**  
+  > 2、`HELLO_SOURCE_DIR`：是**工程路径**，仍然是之前的**工程路径**
+
+---
+
+#### **构建一个工程的规则与操作**
+
+---
+
+- 一个工程的**开发和管理**通常有以下规则：
+
+  > 1、为工程添加一个**子目录 src**，用于存放**工程源码**  
+  > 2、添加一个**子目录 doc**，用来放置这个**工程的文档**`hello.txt`  
+  > 3、在工程目录**添加文本文件**：`COPYRIGHT`**版权文件**、`README`**用户说明**  
+  > 4、在工程目录**添加**`runhello.sh`**脚本**，用来**调用 hello 二进制文件**  
+  > 5、将**构建后的目标文件**放入**构建目录**的**bin 子目录**  
+  > 6、将**doc 目录的内容**以及`COPYRIGHT`、`README`安装到`/usr/share/doc/cmake`(此为 linux 路径)
+
+- **将目标文件放入构建目录的 bin 子目录**
+
+  - 创建一个**src 目录**，将源码移入**src**。注意工程的**每个目录下**都有要`CMakeLists.txt`，所以**src**下也需要
+
+  - **重写**`CMakelists.txt`
+
+    ```
+    目录树结构：
+
+    .
+    |---build
+    |---CMakeLists.txt
+    |---src
+        |---CMakeLists.txt
+        |---main.cpp
+    ```
+
+    ```cmake
+    # 根目录CMakeLists.txt
+
+    project(HELLO)
+
+    add_subdirectory(src ./bin)
+    ```
+
+    ```cmake
+    # src目录CMakelists.txt
+
+    add_executable(hello main.cpp)
+    ```
+
+  - `add_subdirectory`**命令**
+
+    > 1、**完整参数**：`add_subdirectory(source_dir [binary_dir] [EXCLUDE_FROM_ALL])`  
+    > 2、该命令用于**向当前工程添加存放源文件的子目录**，并可以**指定中间二进制和目标二进制存放的位置**，写在**最外层的**`CMakeLists.txt`来**首先告知**  
+    > 3、`EXCLUDE_FROM_ALL`函数是**将写的目录从编译中排除**，如程序中的 example  
+    > 4、`add_subdirectory(src bin)`：将**src 目录加入工程**并指定**编译输出的路径为 bin 目录**。如果不指定 bin 目录，则所有编译结果都会存放在 src 目录中
+
+  - **更改二进制的保存路径**
+
+    > 1、可以使用`set`**命令**重新定义`EXECUTABlE_OUTPUT_PATH`和`LIBRARY_OUTPUT_PATH`变量，来指定最终的**目标二进制**的位置  
+    > 2、`set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)`  
+    > 3、`set(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/lib)`
+
+---
+
+#### **使用 CMake 来进行安装**
+
+---
+
+- **安装的命令**
+
+  > 1、一种是从**代码编译后**直接`make install`安装  
+  > 2、一种是**打包时**的**指定目录安装**。两种指定目录的方法，`make install DESTDIR=/tmp/test`或`./configure -prefix=/usr`
+
+- **如何安装 hello world**
+
+  > 1、使用 Cmake 一个**新的命令**：`install`，`install`的安装可以包括**二进制**、**动态库**、**静态库**以及**文件**、**目录**、**脚本**等  
+  > 2、使用 Cmake 一个**新的变量**：`CMAKE_INSTALL_PREFIX`，该变量用于指定**安装的路径**
+
+  ```
+  目录树结构：
+
+  .
+  |---build
+  |---CMakeLists.txt
+  |---COPYRIGHT
+  |---README
+  |---doc
+      |---hello.txt
+  |---runhello.sh
+  |---src
+      |---CMakeLists.txt
+      |---main.cpp
+  ```
+
+- **安装文件**`COPYRIGHT`和`README`
+
+  > 1、在**根目录**`CMakeLists.txt`中添加：`install(FILES COPYRIGHT README DESTINATION share/doc/cmake)`  
+  > 2、`FILES`：安装的是**文件**  
+  > 3、`DESTINATION`：写**绝对路径**。也可以写**相对路径**，但相对路径的**实际路径**是`${CMAKE_INSTALL_PREFIX}/<DESTINATION定义的路径>`  
+  > 4、`CMAKE_INSTALL_PREFIX`默认是在`/usr/local/`(此为 linux 路径，windows 默认`C:\Program Files (x86)\`)，在**cmake**时使用`cmake -DCMAKE_INSTALL_PREFIX=/usr`可以**指定该变量的路径**，也可以使用`set`命令更改变量地址
+
+- **安装脚本**`runhello.sh`
+
+  > 1、在**根目录**`CMakeLists.txt`中添加：`install(PROGRAMS runhello.sh DESTINATION bin)`  
+  > 2、`PROGRAMS`：**非目标文件的可执行程序的安装**(比如脚本)
+
+- **安装目录 doc**
+
+  > 1、可以通过**在 doc 目录下**创建`CMakeLists.txt`，在其中**安装目录下的文件**
+  > 2、也可以在**根目录**`CMakeLists.txt`中添加：`install(DIRECTORY doc/ DESTINATION share/doc/cmake)`  
+  > 3、`DIRECTORY`：安装的是**目录**。后面连接的是**所在目录的相对路径**  
+  > 4、注意，`doc`和`doc/`**差别很大**。目录**以**`/`**结尾**，将这个**目录中的内容**安装到指定目录；目录**不以**`/`**结尾**，则会将**这个目录**安装到指定目录
+
+- **安装过程**
+
+  ```bash
+  cmake
+  make
+  make install
+  ```
+
+---
+
+#### **Cmake 构建共享库**
+
+---
+
 - 码字中。。。
 
 ---
