@@ -140,7 +140,7 @@ categories:
 
   - **官方文档**：[网页链接](https://clang.llvm.org/docs/ClangFormatStyleOptions.html)
 
-  - 如果习惯了**Prittier 插件**的**格式化风格**，直接使用下面的配置文件
+  - 如果习惯了**Prettier 插件**的**格式化风格**，直接使用下面的配置文件
 
     ```yaml
     BasedOnStyle: Microsoft

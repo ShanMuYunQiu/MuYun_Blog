@@ -152,7 +152,7 @@ categories:
   > 3、在工程目录**添加文本文件**：`COPYRIGHT`**版权文件**、`README`**用户说明**  
   > 4、在工程目录**添加**`runhello.sh`**脚本**，用来**调用 hello 二进制文件**  
   > 5、将**构建后的目标文件**放入**构建目录**的**bin 子目录**  
-  > 6、将**doc 目录的内容**以及`COPYRIGHT`、`README`安装到`/usr/share/doc/cmake`(此为 linux 路径)
+  > 6、将**doc 目录的内容**以及`COPYRIGHT`、`README`安装(拷贝)到`/usr/share/doc/cmake`(此为 linux 路径)
 
 - **将目标文件放入构建目录的 bin 子目录**
 
@@ -249,6 +249,12 @@ categories:
   > 3、`DIRECTORY`：安装的是**目录**。后面连接的是**所在目录的相对路径**  
   > 4、注意，`doc`和`doc/`**差别很大**。目录**以**`/`**结尾**，将这个**目录中的内容**安装到指定目录；目录**不以**`/`**结尾**，则会将**这个目录**安装到指定目录
 
+- 补充：**安装二进制**、**动态库**、**静态库**
+
+  > 1、安装上述都使用`TARGETS`说明，如`install(TARGETS test.exe DESTINATION bin)`  
+  > 2、可以用`ARCHIVE`**特指静态库**、`LIBRARY`**特指动态库**、`RUNTIME`**特指二进制**  
+  > 3、可以**通过特指分别指定安装路径**，如`install(TARGETS test.so test.exe LIBRARY DESTINATION lib RUNTIME DESTINATION bin)`
+
 - **安装过程**
 
   ```bash
@@ -259,11 +265,145 @@ categories:
 
 ---
 
-#### **Cmake 构建共享库**
+#### **Cmake 构建动态库**
 
 ---
 
-- 码字中。。。
+- **静态库与动态库的区别**
+
+  > 1、**静态库**的**拓展名**一般为`.a`或`.lib`，**动态库**的**拓展名**一般为`.so`或`.dll`  
+  > 2、**静态库**在编译时会**直接整合**到目标程序中，编译成功的**可执行文件可独立运行**  
+  > 3、**动态库**在编译时**不会链接到目标程序**中，即**可执行文件无法单独运行**
+
+- **构建实例**
+
+  - **目前目录中的内容**
+
+    ```
+    目录树结构：
+
+    ·
+    |---build
+    |---CMakeLists.txt
+    |---lib
+        |---CMakeLists.txt
+        |---hello.hpp
+        |---hello.cpp
+    ```
+
+    ```cpp
+    // hello.hpp
+    #ifndef HELLO_HPP
+    #define HELLO_HPP
+
+    void hellofunc();
+
+    #endif
+    ```
+
+    ```cpp
+    // hello.cpp
+    #include "hello.hpp"
+    #include <iostream>
+
+    void hellofunc()
+    {
+        std::cout << "hello world";
+    }
+    ```
+
+    ```cmake
+    # 根目录CMakeLists.txt
+
+    project(HELLO)
+
+    add_subdirectory(lib ./bin)
+    ```
+
+    ```cmake
+    # lib中的CMakeLists.txt
+
+    set(LIBHELLO_SRC hello.cpp)
+
+    add_library(hello SHARED ${LIBHELLO_SRC})
+    ```
+
+  - `add_library`**命令**
+
+    > 1、`add_library(hello SHARED ${LIBHELLO_SRC})`  
+    > 2、`hello`：就是正常的**库名**，生成的**名字前会加上 lib**，最终产生的文件是`libhello.so`(linux 下为`.so`)  
+    > 3、`SHARED`：表示**生成动态库**，此外`STATIC`表示**生成静态库**  
+    > 4、`${LIBHELLO_SRC}`：**源文件**
+
+---
+
+#### **重命名和安装动态库及使用**
+
+---
+
+- **同时构建静态和动态库**
+
+  - **错误理解**
+
+    ```cmake
+    # 如果用这种方式，两种库名字是一样的，只会构建一个动态库，不会构建出静态库，尽管静态库后缀是.a
+    add_library(hello SHARED ${LIBHELLO_SRC})
+    add_library(hello STATIC ${LIBHELLO_SRC})
+
+    # 修改静态库的名字，这样是可以的，但往往我们希望两种库名字相同
+    add_library(hello SHARED ${LIBHELLO_SRC})
+    add_library(hello_static STATIC ${LIBHELLO_SRC})
+    ```
+
+  - `set_target_properties`**命令**
+
+    > 1、`set_target_properties`可以**用来设置输出的名称**  
+    > 2、对于**动态库**，还可以用来**指定动态库版本**和**API 版本**  
+    > 3、注意命令**只是更改了输出的名称**，在**Cmake**里**操作仍然使用原始名称**
+
+    ```cmake
+    # lib中的CMakeLists.txt
+
+    set(LIBHELLO_SRC hello.cpp)
+
+    # 创建静态库名为 hello_static
+    add_library(hello_static STATIC ${LIBHELLO_SRC})
+
+    # 重命名静态库名称为 hello
+    set_target_properties(hello_static PROPERTIES OUTPUT_NAME "hello")
+    # Cmake 在构建一个新的 target 时，会尝试清理掉其他使用这个名字的库，因此在下面构建动态库 libhello.so 时，就会清理掉 libhello.a，所以需要添加该设置(较新版本的 CMake 可以不用)
+    set_target_properties(hello_static PROPERTIES CLEAN_DIRECT_OUTPUTS true)
+
+    add_library(hello SHARED ${LIBHELLO_SRC})
+    ```
+
+- **安装共享库和头文件**
+
+  - 本例我们要将`hello.so`**动态库**安装到`/lib`目录，将`hello.hpp`**头文件**安装到`/include/hello`目录(下方内容继续写入`lib`中的`CMakeLists.txt`中)
+
+    ```cmake
+    # 文件放到该目录下
+    install(FILES hello.hpp DESTINATION include/hello)
+
+    # 二进制、静态库、动态库安装都使用 TARGETS
+    # ARCHIVE 特指静态库，LIBRARY 特指动态库，RUNTIME 特指二进制
+    install(TARGETS hello hello_static LIBRARY DESTINATION lib ARCHIVE DESTINATION lib)
+    ```
+
+- **使用头文件即动态链接库**
+
+  - **找不到头文件**
+
+    > 1、使用`include_directories`**命令**可以**向工程添加**多个特定的**头文件搜索路径**，路径之间**用空格隔开**  
+    > 2、在`CMakeLists.txt`中写入：`include_directories(路径1 路径2)`
+
+  - **找不到引用函数**
+
+    > 1、方法一：使用`link_directories`**命令**可以**添加非标准的动态库搜索路径**  
+    > 2、指定**第三方库所在的路径**：`link_directories(路径1 路径2)`  
+    > 3、方法二：使用`target_link_libraries`**命令**可以**添加需要链接的动态库**  
+    > 4、用这种方法只要给出**动态库的名字**就行(这种方法对**静态库也通用**)  
+    > 5、注意要**写在**`executable`**命令生成可执行文件后**：`target_link_libraries(可执行文件名 动态库名)`
 
 ---
 
