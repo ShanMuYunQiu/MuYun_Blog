@@ -3,8 +3,8 @@ title: VScode基本环境配置
 author: 圣奇宝枣
 description: 个人以及大众最爱的编辑器，新手时期被繁杂的配置劝退过，而本教程将带你渡过难关
 sticky: 0
-date: 2022-04-27 12:56:14
-updated: 2023-01-05 15:04:13
+date: 2022-04-27
+updated: 2023-01-05
 readmore: true
 tags:
   - 前置准备

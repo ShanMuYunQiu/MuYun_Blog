@@ -3,8 +3,8 @@ title: hexo-encrypt密码插件测试
 author: 圣奇宝枣
 description: 使用了hexo-encrypt插件，对文章进行了加密，本文章密码为123456
 sticky:
-date: 2022-07-03 08:26:06
-updated: 2022-07-03 08:26:06
+date: 2022-07-03
+updated: 2022-07-03
 readmore: true
 password: 123456
 abstract: ヾ(✿ﾟ▽ﾟ)ノ这篇文章被加密了！输入密码才能查看哦！

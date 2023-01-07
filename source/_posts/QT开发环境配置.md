@@ -3,8 +3,8 @@ title: QT 开发环境配置
 author: 圣奇宝枣
 description: QT环境配置，以及使用其他IDE或编辑器开发QT
 sticky: 0
-date: 2022-12-10 20:10:11
-updated: 2023-01-06 20:10:11
+date: 2022-12-10
+updated: 2023-01-06
 readmore: true
 tags:
   - 前置准备

@@ -1,5 +1,5 @@
 ---
-date: 2022-05-21 09:28:12
+date: 2022-05-21
 comments: false
 type: tags
 ---

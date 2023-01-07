@@ -3,8 +3,8 @@ title: Python3爬虫基础
 author: 圣奇宝枣
 description: Python3的爬虫教程，完全可以满足个人基本需求，有一定理解难度，内含爬虫所用各个模块教程与信息提取教程
 sticky: 0
-date: 2022-04-28 09:04:03
-updated: 2022-05-09 14:25:06
+date: 2022-04-28
+updated: 2022-05-09
 readmore: true
 tags:
   - Python3
@@ -31,7 +31,7 @@ categories:
 
 <!-- more -->
 
-##### **手刃一个小爬虫(request模块实现)**
+##### **手刃一个小爬虫(request 模块实现)**
 
 - **简单试做**：将百度搜索源码爬取：
 
@@ -430,54 +430,55 @@ categories:
 
 [豆瓣 top250](https://movie.douban.com/top250)
 
-  ```python
-  #数据在页面源代码中
-  #思路：拿到页面源代码，通过re正则提取我们想要的有效信息
-  from email import header
-  import requests,re,csv
+```python
+#数据在页面源代码中
+#思路：拿到页面源代码，通过re正则提取我们想要的有效信息
+from email import header
+import requests,re,csv
 
-  url = "https://movie.douban.com/top250"
-  ua = {"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36"}
-  resp = requests.get(url,headers=ua)             #简单的提取源代码和反反爬
-  #print(resp.text)            #检查页面源码
-  page_content = resp.text            #保存源代码至变量
+url = "https://movie.douban.com/top250"
+ua = {"User-Agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.80 Safari/537.36"}
+resp = requests.get(url,headers=ua)             #简单的提取源代码和反反爬
+#print(resp.text)            #检查页面源码
+page_content = resp.text            #保存源代码至变量
 
-  #解析数据
-  #正则表达式定位，建议找需要数据的上几层标签做定位
-  #<li>为上层标签，换行时的空白可能是换行可能是空格，使用.*?表示，继续匹配到下一行，后面多行都用.*?匹配，直接找到需要的title，在需要部分单独列组()，补充后面的截止部分(此处截止至</span>处)，后略
-  obj = re.compile('<li>.*?<div class="item">.*?<span class="title">(?P<title>.*?)</span>.*?<p class="">.*?<br>(?P<year>.*?)&nbsp.*?<span class="rating_num" property="v:average">(?P<score>.*?)</span>',re.S)               #编写正则方法
+#解析数据
+#正则表达式定位，建议找需要数据的上几层标签做定位
+#<li>为上层标签，换行时的空白可能是换行可能是空格，使用.*?表示，继续匹配到下一行，后面多行都用.*?匹配，直接找到需要的title，在需要部分单独列组()，补充后面的截止部分(此处截止至</span>处)，后略
+obj = re.compile('<li>.*?<div class="item">.*?<span class="title">(?P<title>.*?)</span>.*?<p class="">.*?<br>(?P<year>.*?)&nbsp.*?<span class="rating_num" property="v:average">(?P<score>.*?)</span>',re.S)               #编写正则方法
 
-  #使用finditer进行正则筛选
-  result = obj.finditer(page_content)
-  #遍历result，得到数据
-  for it in result:
-      print("\n电影名：",it.group("title"),"\n年份：",it.group("year").strip(),"\n评分：",it.group("score"))            #group中的名字均为正则中的组名， .strip()为去除空白(空格)
+#使用finditer进行正则筛选
+result = obj.finditer(page_content)
+#遍历result，得到数据
+for it in result:
+    print("\n电影名：",it.group("title"),"\n年份：",it.group("year").strip(),"\n评分：",it.group("score"))            #group中的名字均为正则中的组名， .strip()为去除空白(空格)
 
-  #将数据存入文件，建议存储为csv格式。引入csv模块，.csv文件默认以逗号进行数据分割
-  f = open("data.csv",mode="w",encoding="utf-8")          #打开文件data.csv，没有文件自动创建，模式为r写入，打开格式为utf-8
-  csvwriter = csv.writer(f)               #创建csvwriter，写入数据时写入f文件，注意写入数据格式应为字典
-  result = obj.finditer(page_content)     #同18行
-  for it in result:
-      dic= it.groupdict()                 #创建字典，将上述20-21行数据整理进字典
-      dic["year"] = dic["year"].strip()           #单独处理需要去掉空格的year组
-      csvwriter.writerow(dic.values())              #writerow为写入一行函数，括号()内为写入数据，写入的为字典的数据.values()
-  f.close()                               #关闭文件
-  print("over!")
+#将数据存入文件，建议存储为csv格式。引入csv模块，.csv文件默认以逗号进行数据分割
+f = open("data.csv",mode="w",encoding="utf-8")          #打开文件data.csv，没有文件自动创建，模式为r写入，打开格式为utf-8
+csvwriter = csv.writer(f)               #创建csvwriter，写入数据时写入f文件，注意写入数据格式应为字典
+result = obj.finditer(page_content)     #同18行
+for it in result:
+    dic= it.groupdict()                 #创建字典，将上述20-21行数据整理进字典
+    dic["year"] = dic["year"].strip()           #单独处理需要去掉空格的year组
+    csvwriter.writerow(dic.values())              #writerow为写入一行函数，括号()内为写入数据，写入的为字典的数据.values()
+f.close()                               #关闭文件
+print("over!")
 
-  #目前完成了top25的整理，而翻页数据只需要修改url后的参数即可，比如第二页url为https://movie.douban.com/top250?start=25&filter=
-  #由此得第一页参数start=0，第三页start=50，所以输出top250排行榜，可以此为方向研究
-  ```
+#目前完成了top25的整理，而翻页数据只需要修改url后的参数即可，比如第二页url为https://movie.douban.com/top250?start=25&filter=
+#由此得第一页参数start=0，第三页start=50，所以输出top250排行榜，可以此为方向研究
+```
 
 参考源代码：  
 ![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/pythoncankao1.png)
 
 ##### **屠戮盗版天堂电影信息**
 
-[盗版天堂](https://dytt89.com/)  
+[盗版天堂](https://dytt89.com/)
+
 - 补充 html 中 a 标签超链接知识
 
-  > 1、确认数据在页面源码中，定位到2022必看热片  
-  > 2、从2022必看热片中提取到子页面链接地址  
+  > 1、确认数据在页面源码中，定位到 2022 必看热片  
+  > 2、从 2022 必看热片中提取到子页面链接地址  
   > 3、请求子页面的链接地址，拿到想要的下载地址
 
 - 实际操作
@@ -524,7 +525,7 @@ categories:
   ```
 
 - 参考源代码：
-![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/pythoncankao2.png)
+  ![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/pythoncankao2.png)
 
 ![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/pythoncankao3.png)
 
@@ -545,7 +546,7 @@ categories:
 ##### **抓取示例：北京新发地菜价**(已失效，仅可参考)
 
 - **注**：页面重构，下示例代码仅可参考，无法运行，网站改为浏览器渲染，使用 POST 请求
-[北京新发地地址(已重构)](http://www.xinfadi.com.cn/priceDetail.html)  
+  [北京新发地地址(已重构)](http://www.xinfadi.com.cn/priceDetail.html)
 
   ```python
   # 页面源代码中能找到数据，所以直接爬取，后使用bs4提取数据即可
@@ -593,54 +594,54 @@ categories:
 
 [优美图库(已失效)](https://umei.cc/bizhitupian/weimeibizhi)
 
-  ```python
-  # 1.拿到主页面的源代码，然后提取到子页面的链接地址，href
-  # 2.通过href拿到子页面的数据内容，提取图片的下载地址，img->src
-  # 3.下载图片
+```python
+# 1.拿到主页面的源代码，然后提取到子页面的链接地址，href
+# 2.通过href拿到子页面的数据内容，提取图片的下载地址，img->src
+# 3.下载图片
 
-  import requests
-  import time         # 对应37行代码
-  from bs4 import BeautifulSoup
+import requests
+import time         # 对应37行代码
+from bs4 import BeautifulSoup
 
-  url = "https://umei.cc/bizhitupian/weimeibizhi"
-  resp = requests.get(url)
-  resp.encoding = "utf-8"          # 解码处理
-  # print(resp.text)            #测试
+url = "https://umei.cc/bizhitupian/weimeibizhi"
+resp = requests.get(url)
+resp.encoding = "utf-8"          # 解码处理
+# print(resp.text)            #测试
 
-  # 把源代码交给bs4
-  main_page = BeautifulSoup(resp.text, "html.parser")
-  # 取得typelist后提取a标签
-  alist = main_page.find("div", class_="TypeList").find_all("a")
-  # print(alist)            #测试
-  for a in alist:             # 循环遍历每一个a标签
-      # print(a.get("href"))        #测试，直接通过get就可以得到属性值
-      href = a.get("href")
-      # 至此任务1完成。进行任务2
+# 把源代码交给bs4
+main_page = BeautifulSoup(resp.text, "html.parser")
+# 取得typelist后提取a标签
+alist = main_page.find("div", class_="TypeList").find_all("a")
+# print(alist)            #测试
+for a in alist:             # 循环遍历每一个a标签
+    # print(a.get("href"))        #测试，直接通过get就可以得到属性值
+    href = a.get("href")
+    # 至此任务1完成。进行任务2
 
-      # 拿到子页面源代码
-      child_resp = requests.get(href)
-      child_resp.encoding = "utf-8"
-      child_page_text = child_resp.text
-      # 从子页面中拿到图片的下载路径
-      child_page = BeautifulSoup(child_page_text, "html.parser")
-      p = child_page.find("p", align="center")
-      img = p.find("img")
-      src = img.get("src")
+    # 拿到子页面源代码
+    child_resp = requests.get(href)
+    child_resp.encoding = "utf-8"
+    child_page_text = child_resp.text
+    # 从子页面中拿到图片的下载路径
+    child_page = BeautifulSoup(child_page_text, "html.parser")
+    p = child_page.find("p", align="center")
+    img = p.find("img")
+    src = img.get("src")
 
-      # 下载图片
-      img_resp = requests.get(src)
-      # img_resp.content         # content获取到的是字节，写回到文件就是图片
-      img_name = src.split("/")[-1]        # 图片命名，对src链接以"/"切割，并取最后一部分命名
-      with open(img_name, mode="wb") as f:          # wb写入二进制图片
-          f.write(img_resp.content)       # 写入图片
-      print("part success!", img_name)
-      time.sleep(1)           # 防止访问过于频繁被封ip，休息1秒钟
-  print("all over!")
-  ```
+    # 下载图片
+    img_resp = requests.get(src)
+    # img_resp.content         # content获取到的是字节，写回到文件就是图片
+    img_name = src.split("/")[-1]        # 图片命名，对src链接以"/"切割，并取最后一部分命名
+    with open(img_name, mode="wb") as f:          # wb写入二进制图片
+        f.write(img_resp.content)       # 写入图片
+    print("part success!", img_name)
+    time.sleep(1)           # 防止访问过于频繁被封ip，休息1秒钟
+print("all over!")
+```
 
 - 参考源代码：  
-![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/pythoncankao5.png)  
-![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/pythoncankao6.png)
+  ![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/pythoncankao5.png)  
+  ![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/pythoncankao6.png)
 
 ---
 
@@ -675,6 +676,7 @@ categories:
   ```
 
 - **补充**
+
   - `etree`可以打开存有 html 代码的文件：`tree = etree.parse(存有html的文件)`
   - `etree.xxx`需要跟相对应的类型，如源码为 html 则为`etree.HTML()`
   - 可以在需要的路径后跟`[n]`，表示索引，提取第 n 个节点(**注：从 1 开始**)，如：`/book[1]/name/text()`
@@ -1138,7 +1140,7 @@ categories:
 
 ##### **概述**
 
-  - 发送请求时，原先的`requests.get()`是一个同步操作，会将异步程序转为同步，需要换成 **异步请求操作**
+- 发送请求时，原先的`requests.get()`是一个同步操作，会将异步程序转为同步，需要换成 **异步请求操作**
 
 ##### **Python 的 aiohttp 模块使用**
 

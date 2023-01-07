@@ -3,8 +3,8 @@ title: Quotefancy英文摘抄
 author: 圣奇宝枣
 description: Quotefancy网站中摘抄的英文美句
 sticky: 0
-date: 2022-06-21 13:01:00
-updated: 2022-08-05 08:10:01
+date: 2022-06-21
+updated: 2022-08-05
 readmore: true
 tags:
 categories:

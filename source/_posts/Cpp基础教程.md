@@ -3,8 +3,8 @@ title: Cpp基础教程
 author: 圣奇宝枣
 description: 有关于C++的基础教程，该教程建立在学习过C语言的基础上，进行对比学习，了解不同的特性和更多新内容
 sticky: 2
-date: 2022-12-03 10:11:16
-updated: 2023-01-05 19:54:22
+date: 2022-12-03
+updated: 2023-01-05
 readmore: true
 tags:
   - C++

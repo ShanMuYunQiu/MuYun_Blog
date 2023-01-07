@@ -3,8 +3,8 @@ title: Markdown语法教程
 author: 圣奇宝枣
 description: 简单易上手的标记语言Markdown，无论用来写文章还是记概要整理知识都很出众
 sticky: 0
-date: 2022-04-24 09:31:00
-updated: 2022-06-15 16:34:02
+date: 2022-04-24
+updated: 2022-06-15
 readmore: true
 tags:
   - 基础技能

@@ -1,7 +1,7 @@
 ---
 layout: links
 title: 我的小伙伴们
-date: 2022-12-30 09:30:20
+date: 2022-12-30
 keywords: 链接
 description: 友情链接
 comments: true

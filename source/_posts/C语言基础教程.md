@@ -3,8 +3,8 @@ title: C语言基础教程
 author: 圣奇宝枣
 description: 有关于C语言的基础教程，包括基本语法、基础的底层逻辑知识与一部分数据结构，比较适合有一定经验的初学者上手
 sticky: 1
-date: 2022-05-09 08:21:06
-updated: 2022-12-20 20:18:30
+date: 2022-05-09
+updated: 2022-12-20
 readmore: true
 tags:
   - C语言
@@ -128,7 +128,7 @@ categories:
     > 2、`int main()`中`int`是函数的**返回类型**，表明函数**返回操作系统**的是**整数**，此处将在后续探讨  
     > 3、如果浏览旧式的 C 代码，会发现程序如`main()`开始，C90 标准勉强接受这种形式，但 C99 和 C11 标准不允许，因此不要这样写  
     > 4、你还会看到`void main()`的形式，部分编译器允许这样写，但所有标准都未认可，因此也不要这样写
-    
+
   - **注释**
 
     > 1、注释是一种**记录程序信息**的方式，**被注释的部分不会被程序运行**  
@@ -136,7 +136,7 @@ categories:
     > 3、也可以使用`//`进行注释(C99 新加入)，此类注释不能换行，直到行尾为止
 
   - **花括号**
-  
+
     > 1、程序中花括号`{}`把`main()`括起来，一般而言，所有的**C 函数**都**使用花括号标记**函数体的**开始和结束**  
     > 2、花括号还可用于把函数中**多条语句**合并为一个**单元**和**块**
 
@@ -10411,8 +10411,8 @@ int main(int argc, char *argv[])
     | time_t mktime(struct tm \*tmptr);                                                                      | 把 tmptr 指向的结构中的分解时间转换为日历时间。其编码与 time()函数相同，但是结构改变了，以便对结构中超出范围的值进行调整(例如，2 分 100 秒会调整为 4 分 40 秒)，而且把 tm_wday 和 tm_yday 设置为其他成员指定的值。如果无法表示日历时间，该函数返回(time_t)(-1);否则以 time_t 格式返回日历时间 |
     | time_t time(time_t \*ptm)                                                                              | 返回当前日历时间，并将其存储在 ptm 指向的位置，假设 ptm 不是空指针。如果日期时间不可用，该函数返回(time_t)(-1)                                                                                                                                                                                |
     | int timespec_get(struct timespec \*ts,int base);                                                       | 根据指定的时基，把 ts 指向的结构设置为当前日历时间。如果成功，返回 base(非 0 值)，否则返回 0(C11)                                                                                                                                                                                             |
-    | char *asctime(const struct tm *tmpt);                                                                  | 把 tmpt 指向的结构中的分解时间转换成"Thu Feb 26 13:14:33 1998\n\0"格式的字符串，并返回指向该字符串的指针                                                                                                                                                                                      |
-    | char \*ctime(const time_t \*ptm);                                                                      | 把 ptm 指向的结构中的分解时间转换成"Wed Aug 11 10:48:24 1999\n\0"格式的字符串，并返回指向该字符串的指针                                                                                                                                                                                       |
+    | char *asctime(const struct tm *tmpt);                                                                  | 把 tmpt 指向的结构中的分解时间转换成"Thu Feb 26 1998\n\0"格式的字符串，并返回指向该字符串的指针                                                                                                                                                                                               |
+    | char \*ctime(const time_t \*ptm);                                                                      | 把 ptm 指向的结构中的分解时间转换成"Wed Aug 11 1999\n\0"格式的字符串，并返回指向该字符串的指针                                                                                                                                                                                                |
     | struct tm *gmtime(const time_t *ptm);                                                                  | 把 ptm 指向的日历时间转换成协调世界时(UTC)表示的分解时间，返回一个指向结构的指针，该结构中储时间信息。如果 UTC 不可用，则返回 NULL                                                                                                                                                            |
     | struct tm *localtime(const time_t *ptm);                                                               | 把 ptm 指向的日历时间转换成本地时间表示的分解时间，存储 tm 结构并返回指向该结构的指针                                                                                                                                                                                                         |
     | size_t strftime(char *restrict s,size_t max,const char *restrict fmt,const struct tm \*restrict tmpt); | 把字符串 fmt 拷贝到字符串 s 中，用 tmp 指向的分解时间结构中的合适数据替换 fmt 中的转换说明(见后表)。最多在 s 中放入 max 个字符。该函数返回放入 s 中的字符数(不包括空格)；如果字符串中的字符数大于 max,函数返回 0，且 s 中的内容不确定                                                         |
