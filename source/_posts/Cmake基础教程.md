@@ -407,6 +407,41 @@ categories:
 
 ---
 
+#### **补充**
+
+---
+
+- `cmake_minimum_required`**命令**
+
+  > 1、`cmake_minimum_required(VERSION 2.7)`  
+  > 2、**指定 Cmake 最低版本**，如上指定 Cmake 不能低于 2.7 版本
+
+- `find_package`**命令**
+
+  > 1、`find_package(imgui [REQUIRED])`  
+  > 2、在计算机中**查找第三方库**，首先应确保**安装好了对应的库**  
+  > 3、`REQUIRED`表示**这个库是必须的**，没有则会报错
+
+- `file(GLOB)`**命令**
+
+  > 1、`file(GLOB SRC_FILES "${PROJECT_SOURCE_DIR}/src/*.cpp" "${PROJECT_SOURCE_DIR}/src/*.hpp")`
+  > 2、通过**通配符**可以**便捷引入源码文件**，注意**双引号**
+
+- `${CMAKE_PROJECT_NAME}`**关键字**：替换为`project()`指定的**工程名**
+
+- `target_compile_features`**命令**
+
+  > 1、`target_compile_features(${CMAKE_PROJECT_NAME} xcc_std_17)`  
+  > 2、打开对**C++17 标准**的支持
+
+- **C++第三方库的安装**
+
+  > 1、可以**直接下载源码**，然后**手动构建并指定 Cmake 库的路径**  
+  > 2、对于 Linux 和 Mac，可以直接使用**包管理工具安装**  
+  > 3、使用**微软开源工具 Vcpkg 安装**，类似于 python 的 pip，[github 地址](https://github.com/microsoft/vcpkg)。只需要**调用 vcpkg 安装第三方库**，然后在 Cmake 构建时**指定 vcpkg 工具链**即可。**命令行**只需要**额外传递一个参数**：`-DCMAKE_TOOLCHAIN_FILE=<vcpkg安装路径>/scripts/buildsystems/vcpkg.cmake`，如果用的是**VScode 插件**，只需要在设置**Configure Settings**中添加：`"CMAKE_TOOLCHAIN_FILE": "路径"`即可
+
+---
+
 #### **页底评论**
 
 ---
