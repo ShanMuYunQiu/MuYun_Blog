@@ -64,7 +64,7 @@ categories:
 
 ---
 
-- **插件配置**
+- **环境配置**
 
   > 1、安装**Clangd**：提供比默认 C++ 拓展更强更快的代码提示，**需要关闭微软的原 C++ 拓展**。配置方法：下载后**需要额外下载 Clangd**([github 下载地址](https://github.com/clangd/clangd))，解压配置`bin`目录为**Path 环境变量**，在**拓展设置**设置**路径为 clangd**  
   > 2、安装**CodeLLDB**：下载后会**默认下载一个文件**，如果下载失败，在右下角**手动下载**，下载后在 VScode 调出**命令台**(`F1`或`Ctrl+Shift+P`)，搜索**从 VSIX 安装**-**显示本地**-**选择下载的文件**，完成后重载  
@@ -127,6 +127,20 @@ categories:
       ]
   }
   ```
+
+- **Clangd 插件配置**
+
+  > 1、打开**Clangd 拓展设置**-**Arguments**，添加如下项  
+  > 2、`--compile-commands-dir=${workspaceFolder}/build`：引导 Clang 找到**编译指令文件**  
+  > 3、`--all-scopes-completion`：**全局补全**(会自动补充头文件)  
+  > 4、`--completion-style=detailed`：**更详细地补全内容**  
+  > 5、`--header-insertion=iwyu`：**补充头文件的形式**(如果为`never`则关闭头文件补全)  
+  > 6、`--background-index`：在**后台进行代码分析**  
+  > 7、`--clang-tidy`：启用**clang-tidy**功能，自行配置`.clang-tidy`，配置**静态分析**  
+  > 8、`--pch-storage=memory`：设置缓存文件**在内存读写**(还有一个选项为`disk`，即在磁盘读写)  
+  > 9、`-j=12`：**代码分析**可以使用**多少个线程**，根据电脑配置合理更改
+
+- 如果配置正常后，写代码**调用函数**时**Clangd**会**自动显示函数的形参名**，如果需要关闭，将**Inlay Hints**设置项关闭即可
 
 ---
 
@@ -352,16 +366,6 @@ categories:
 
   > 1、**Cmake调试**不需要`tasks.json`，删除该文件，同时把`launch.json`中的`"preLaunchTask"`项删除  
   > 2、更改`launch.json`文件的`"program"`项为`${command:cmake.launchTargetPath}`(为Cmake Tools拓展的预定义替换变量)
-
-- **Clangd 插件配置**
-
-  > 1、打开**Clangd 拓展设置**-**Arguments**，添加如下项  
-  > 2、`--compile-commands-dir=${workspaceFolder}/build`：引导 Clang 找到**编译指令文件**  
-  > 3、`--header-insertion=never`：关闭**头文件自动添加**功能(按需)  
-  > 4、`--background-index`：在**后台进行代码分析**  
-  > 5、`--clang-tidy`：启用**clang-tidy**功能，自行配置`.clang-tidy`，配置**静态分析**  
-  > 6、`--pch-storage=memory`：设置缓存文件**在内存读写**(还有一个选项为`disk`，即在磁盘读写)  
-  > 7、`-j=12`：**代码分析**可以使用**多少个线程**，根据电脑配置合理更改
 
 ---
 
