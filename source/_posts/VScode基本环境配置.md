@@ -80,23 +80,28 @@ categories:
 > **Prettier**：格式化代码，自动排版  
 > ----设置：**Format On Save**，保存时自动排版  
 > ----代码格式化大括号不独立换行：**C_Cpp:Clang_format_style**设置为`{BasedOnStyle: Chromium, IndentWidth: 4}`  
-> **Markdown Preview Enhanced**：分屏 markdown 预览  
 > **One Dark Pro**：黑灰色主题，好看  
+> **Material Icon Theme**：图标主题，好看且易分辨  
 > **Github Copilot**：AI 自动补全写代码，需要 github 账号登录，并且需要提前申请，通过后才可以使用(已收费，[官网](https://copilot.github.com/))  
 > **CodeGeeX**：github copilot 的下位替代，开源免费的 AI 补全([官网](https://models.aminer.cn/codegeex/))
 > **Tabnine AI**：github copilot 的下位替代，有免费版本([官网](https://www.tabnine.com/))  
 > **Power Mode**：打字炫酷特效，需要在设置里自行设定  
 > **Auto Close Tag**：自动闭合标签(已内置于 VScode 的**Auto Closing Tags**设置项)  
 > **Auto Rename Tag**：自动重命名相对应的闭合 HTML 标签(已内置于 VScode 的**Linked Editing**设置项)  
-> **Better Comments**：更好的注释，注释信息变色  
-> ----使用：星号\*高亮亮绿色，叹号!警告红色，问号?记录问题蓝色，关键词 TODO 规划区域橙色  
 > **Color Highlight**：显示色码(#000000)颜色，在设置中设置**Marker Type**设置显示样式，推荐**dot-before**  
+> **Markdown all in one**：分屏 markdown 预览，更多 Markdown 功能  
 > **Excel Viewer**：在 VScode 中打开 Excel 表格  
+> **Hex Editor**：在 VScode 中编辑二进制文件  
+> **exe Runner**：右键更方便的执行.exe 文件  
 > **Bookmarks**：书签跳转，使用右键在需要的行上设置书签以快速跳转  
 > **GitLens**：侧边栏显示光标所在位置的历史 git 提交并快速访问，拓展 VScode 自带 git 管理器的功能  
 > **Git Graph**：将 git 提交记录转换为可视化图表  
 > **CodeSnap**：快速美观代码截图  
-> **project manager**：更方便的管理文件夹和项目
+> **Project Manager**：更方便的管理文件夹和项目  
+> **Better Comments**：更好的注释，注释信息变色：包括`TODO`、`!`、`?`、`*`、`//`等注释高亮  
+> **Todo Tree**：自动集合整理所有 TODO 待办事项  
+> **Draw.io Integration**：将**Draw.io**集成到 VScode 中，画流程图，文件后缀为`.drawio`  
+> **Codelf**：变量命名插件(注意名字是l不是i)  
 
 </div>
 
