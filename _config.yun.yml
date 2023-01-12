@@ -108,7 +108,7 @@ bg_image:
   enable: true
   url: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/background10.png
   dark: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/background8.jpg
-  blur: 5px
+  blur: 2px
   opacity: 0.8
 
 fireworks:
