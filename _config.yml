@@ -175,7 +175,7 @@ githubcalendar:
   pc_minheight: 280px
   mobile_minheight: 0px
   color: "['#ebedf0', '	#b3d9ff', '#80bfff', '#66b3ff', '	#59acff', '#4da6ff', '#409fff', '#3399ff', '	#2693ff', '#198cff', '#0080ff']"
-  api: https://www.sqbztest.eu.org/api/
+  api: https://calendar.shengqibaozao.eu.org/api/
   # api: https://python-gitee-calendar-api.vercel.app/api
   calendar_js: https://jsd.cky.codes/gh/Zfour/hexo-github-calendar@1.21/hexo_githubcalendar.js
   plus_style: ""
