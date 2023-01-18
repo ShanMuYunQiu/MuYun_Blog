@@ -4,7 +4,7 @@ author: 圣奇宝枣
 description: 有关于C++的基础教程，该教程建立在学习过C语言的基础上，进行对比学习，了解不同的特性和更多新内容
 sticky: 2
 date: 2022-12-03
-updated: 2023-01-09
+updated: 2023-01-18
 readmore: true
 tags:
   - C++
@@ -977,8 +977,8 @@ _此外本文章中没有特殊重申的，大多语句和特性都与 C 语言�
     /*-----------------------------*/
     const char *cp;
     char *q = static_cast<char*>(cp);   // 错误：static_cast不能转换掉const性质
-    char *q = const_cast<string>(cp);   // 错误，const_cast只能改变常量属性
-    char *q = static_cast<string>(cp);  // 正确
+    const_cast<string>(cp);             // 错误，const_cast只能改变常量属性
+    static_cast<string>(cp);            // 正确
     ```
 
   - `reinterpret_cast`**模式**
