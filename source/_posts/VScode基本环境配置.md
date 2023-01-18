@@ -89,7 +89,7 @@ categories:
 > **Auto Close Tag**：自动闭合标签(已内置于 VScode 的**Auto Closing Tags**设置项)  
 > **Auto Rename Tag**：自动重命名相对应的闭合 HTML 标签(已内置于 VScode 的**Linked Editing**设置项)  
 > **Color Highlight**：显示色码(#000000)颜色，在设置中设置**Marker Type**设置显示样式，推荐**dot-before**  
-> **Markdown all in one**：分屏 markdown 预览，更多 Markdown 功能  
+> **Markdown Preview Enhanced**：分屏 markdown 预览  
 > **Excel Viewer**：在 VScode 中打开 Excel 表格  
 > **Hex Editor**：在 VScode 中编辑二进制文件  
 > **exe Runner**：右键更方便的执行.exe 文件  
