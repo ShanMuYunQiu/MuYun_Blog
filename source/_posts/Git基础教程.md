@@ -76,7 +76,7 @@ categories:
 
 - `git init`：在需要管理的**文件夹**下使用`git init`**初始化**本地仓库，随后文件夹下会多出`.git`的隐藏文件夹,用于 git 存储信息
 - `git add`：使用`git add .`将目录下所有文件**添加更新**到**暂存区**，也可将点变为文件名添加指定文件
-- `git commit`：使用`git commit -m "提交说明"`将**暂存区**的修改提交到**本地仓库**
+- `git commit`：使用`git commit -m "提交说明"`将**暂存区**的修改提交到**本地仓库**，使用`git commit --amend -m “提交说明”`更改补充当前**本地已提交**的节点(不能 push 过)
 - `git status`：使用`git status`查看文件状态
 - `git log` ：使用`git log`查看文件提交历史，可以用**后缀**来**优化显示**，执行下列指令，将使用`git lg`作为别名
   ```

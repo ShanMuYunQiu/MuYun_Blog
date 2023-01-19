@@ -101,7 +101,7 @@ categories:
 > **Better Comments**：更好的注释，注释信息变色：包括`TODO`、`!`、`?`、`*`、`//`等注释高亮  
 > **Todo Tree**：自动集合整理所有 TODO 待办事项  
 > **Draw.io Integration**：将**Draw.io**集成到 VScode 中，画流程图，文件后缀为`.drawio`  
-> **Codelf**：变量命名插件(注意名字是l不是i)  
+> **Codelf**：变量命名插件(注意名字是 l 不是 i)
 
 </div>
 
