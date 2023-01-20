@@ -4,7 +4,7 @@ author: 圣奇宝枣
 description: 有关于C++的基础教程，该教程建立在学习过C语言的基础上，进行对比学习，了解不同的特性和更多新内容
 sticky: 2
 date: 2022-12-03
-updated: 2023-01-19
+updated: 2023-01-20
 readmore: true
 tags:
   - C++
@@ -1129,7 +1129,7 @@ _此外本文章中没有特殊重申的，大多语句和特性都与 C 语言�
 
 <div class="success">
 
-> **章节概要**：含有可变形参的函数；`initializer_list`形参；函数的返回值；不要返回局部对象的引用或指针；返回数组指针的函数；函数重载；定义重载函数
+> **章节概要**：含有可变形参的函数；`initializer_list`形参；函数的返回值；不要返回局部对象的引用或指针；返回数组指针的函数；函数重载；定义重载函数；重载和`const`形参；`const_cast`和重载；特殊用途语言特性；默认实参；内联函数；`constexpr`函数
 
 </div>
 
@@ -1280,6 +1280,118 @@ _此外本文章中没有特殊重申的，大多语句和特性都与 C 语言�
   void lookup(Phone&);
   void lookup(Telno&);      // 相同，使用了类型别名
   ```
+
+- **重载和 const 形参**
+
+  > 1、**顶层**`const`不影响传入函数的**对象**，一个拥有**顶层**`const`**的形参**无法和另一个**没有顶层**`const`**的形参**区分开来  
+  > 2、如果**形参**是某种类型的**指针或引用**，则通过**区分**其**指向**的是**常量对象**还是**非常量对象**可以实现**函数重载**，注意此时的`const`**是底层的**
+
+  ```cpp
+  void lookup(Phone);
+  void lookup(const Phone);       // 重复声明了void lookup(Phone)
+  void lookup(Phone*);
+  void lookup(Phone* const);      // 重复声明了void lookup(Phone*)，顶层const
+  /*------------------------------------------------------*/
+  void lookup(Account&);          // 作用于Account的引用
+  void lookup(const Account&);    // 新函数，作用于常量引用
+  void lookup(Account*);          // 作用于指向Account的指针
+  void lookup(const Account*);    // 新函数，作用于指向常量的指针，底层const
+  ```
+
+- **const_cast 和重载**
+
+  > 1、`const_cast`在**重载函数**的情境中最有用，如下例  
+  > 2、**原函数**的**参数**和**返回类型**都是`const string`**的引用**。虽然我们可以对两个**非常量的**`string`调用这个函数，但**返回结果**仍是`const string`，我们并**不希望返回的是常量**  
+  > 3、此时我们需要一种**新的函数**，当它的**实参不是常量**时，得到的结果是一个**非常量引用**，使用`const_cast`可以很方便做到这一点  
+  > 4、**新函数**内通过`const_cast`把参数先转为**常量**，调用**原函数**，再将**原函数结果**转为**非常量**
+
+  ```cpp
+  // 原函数，返回 const string 的引用
+  const string &shorterString(const string &s1, const string &s2)
+  {
+      return s1.size() <= s2.size() ? s1 : s2;
+  }
+  // 重载函数，返回非 const 的引用
+  string &shorterString(string &s1, string &s2)
+  {
+      auto &r = shorterString(const_cast<const string&>(s1), const_cast<const string&>(s2));
+      return const_cast<string&>(r);
+  }
+  ```
+
+##### **特殊用途语言特性**
+
+- **默认实参**
+
+  > 1、可以将**函数**的**形参列表**中的值赋予初始值，这便是**默认实参**。当**函数调用**时，如果**没有给定这个值的实参**，便会使用**默认实参**  
+  > 2、我们可以为**一个或多个形参**赋予默认值。但要注意，一旦某个形参被赋予了默认值，它**后面的所有形参**都**必须有默认值**  
+  > 3、**函数调用**时，实参按照**位置顺序**解析，**默认实参**负责填补函数调用**缺少的尾部实参**(即靠右侧位置的形参)。即**不能省略前面的参数值**，**只能省略尾部的参数值**
+
+  ```cpp
+  // 默认实参函数定义
+  typedef string::size_type sz;
+  string screen(sz ht = 24, sz wid = 24, char background = ' ');
+  // 函数调用
+  string window;
+  window = screen();            // screen(24, 80, ' ')
+  window = screen(66);          // screen(66, 80, ' ')
+  window = screen(66,256,'#')   // screen(66, 256, '#')
+  // 错误调用
+  window = screen(, , '?');     // 错误
+  window = screen('?');         // 错误，screen('?', 80, ' ')
+  ```
+
+- **内联函数**
+
+  > 1、使用`inline`将函数指定为**内联函数**，通常就是将它在**每个调用点**上**内联地展开**，可以**避免函数调用的开销**。说明如下示例  
+  > 2、**内联**只是向**编译器**发出的**一个请求**，**编译器**可以选择**忽略这个请求**  
+  > 3、一般来说，**内联机制**用于**优化规模较小**、**流程直接**、**调用频繁**的函数。很多编译器不支持**内联递归函数**，而且一个**大于 75 行**的函数也不大可能在**调用点内联展开**
+
+  ```cpp
+  // 原函数即程序调用
+  inline string shorterString(string &s1, string &s2)
+  {
+      return s1.size() <= s2.size() ? s1 : s2;
+  }
+  string s1 = "abcde", s2 = "abcdef";
+  cout << shorterString(s1, s2);
+
+  // 在编译过程中，函数调用将直接展开成下面形式，从而不经过shorterString，减少了函数调用的开销
+  cout << (s1.size() <= s2.size() ? s1 : s2);
+  ```
+
+- **constexpr 函数**
+
+  > 1、`constexpr`**函数**是指能用于**常量表达式**的函数。定义的方法与其他函数类似，但**有如下规定**：函数的**返回类型**及**所有形参**都必须是**字面值类型**，而且函数体中必须**有且仅有一条**`return`**语句**  
+  > 2、执行**初始化任务**时，**编译器**把**对**`constexpr`**函数的调用**都替换成其**结果值**。为了能在编译过程中**随时展开**，`constexpr`**函数**被**隐式指定为内联函数**  
+  > 3、`constexpr`**函数**不一定返回常量表达式
+
+  ```cpp
+  constexpr size_t scale(size_t ct)
+  {
+      return 3 * ct;
+  }
+
+  int arr[scale(2)];      // 正确，编译时 scale(2) 将被内联展开为 6
+  int i = 2;
+  int a2[scale(i)];       // 错误，i不是常量表达式
+  ```
+
+---
+
+#### **类**
+
+---
+
+<div class="success">
+
+> **章节概要**：定义抽象数据类型
+
+</div>
+
+##### **定义抽象数据类型**
+
+- 码字中。。。
 
 ---
 
