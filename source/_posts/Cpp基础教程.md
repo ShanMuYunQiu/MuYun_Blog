@@ -1385,7 +1385,7 @@ _此外本文章中没有特殊重申的，大多语句和特性都与 C 语言�
 
 <div class="success">
 
-> **章节概要**：定义抽象数据类型；设计`Sales_data`类；定义`Sales_data`类；分析与设计；`this`参数；`const`成员函数；返回`this`对象的函数；该类相关的非成员函数；构造函数；合成的默认构造函数；合成的默认构造函数的局限性；定义构造函数；`= default`的含义；构造函数初始值列表；类外定义构造函数；拷贝、赋值和析构；访问控制与封装；提高封装性
+> **章节概要**：定义抽象数据类型；设计`Sales_data`类；定义`Sales_data`类；分析与设计；`this`参数；`const`成员函数；返回`this`对象的函数；该类相关的非成员函数；构造函数；合成的默认构造函数；合成的默认构造函数的局限性；定义构造函数；`= default`的含义；构造函数初始值列表；类外定义构造函数；拷贝、赋值和析构；访问控制与封装；`public`和`private`；`class`和`struct`；友元；类的其他特性；类成员再探；
 
 </div>
 
@@ -1759,16 +1759,67 @@ _此外本文章中没有特殊重申的，大多语句和特性都与 C 语言�
 
 ##### **访问控制与封装**
 
-- **提高封装性**
+- **public 和 private**
 
   > 1、对目前为止，我们已经为类**定义了接口**，但没有任何机制**强制用户使用这些接口**。我们的类**还没有封装**，也就是说，用户可以**直达**`Sales_data`**对象内部**并**控制它的具体细节**  
   > 2、C++中，我们使用**访问说明符**来加强类的**封装性**，如下说明。我们可以使用这些说明符再次定义`Sales_data`类，如后示例程序  
   > 3、`public`**说明符**：定义在`publib`后的成员**可以在整个程序内被访问**，`public`成员**定义类的接口**  
-  > 4、`private`**说明符**：定义在`private`后的成员**只可以被类的成员函数访问**，不能被使用该类的代码访问，`private`部分封装了**类的实现细节**
+  > 4、`private`**说明符**：定义在`private`后的成员**只可以被类的成员函数访问**，不能被使用该类的代码访问，`private`部分封装了**类的实现细节**  
+  > 5、通常**构造函数**和**部分成员函数**跟在`public`后，而**数据成员**和**作为实现部分的函数**跟在`private`后  
+  > 6、一个类可以包含**任意数量**的**访问说明符**，每个**访问说明符**指定了接下来的**成员访问级别**，其**有效范围**直到出现**下一个访问说明符**或**类的结尾**
 
   ```cpp
-  
+  class Sales_data
+  {
+      public:
+          Sales_data() = default;
+          Sales_data(const std::string &s, unsigned n, double p) : bookNo(s), units_sold(n), revenue(p * n)
+          {
+          }
+          Sales_data(const std::string &s) : bookNo(s)
+          {
+          }
+          Sales_data(std::istream &);
+
+          std::string isbn() const
+          {
+              return bookNo;
+          }
+          Sales_data &combine(const Sales_data &);
+
+      private:
+          double avg_price() const
+          {
+              return units_sold ? revenue / units_sold : 0;
+          }
+          unsigned units_sold = 0;
+          std::string bookNo;
+          double revenue = 0.0;
+  };
   ```
+
+- **class 和 struct**
+
+  > 1、上例我们使用了`class`而非`struct`**定义类**，这种变化只是**形式上有所不同**，可以**任意选择**。**唯一区别**是它们的**默认访问权限不一样**  
+  > 2、类可以在它**第一个访问说明符前**定义成员，这种成员的**访问权限**依赖于**类定义的方式**  
+  > 3、使用`struct`则这种成员**默认是**`public`的，而`class`这种成员**默认是**`private`的
+
+- **友元**
+
+  > 1、既然`Sales_data`的**数据成员**是`private`的，那么我们的`add`、`print`、`add`函数就**无法正常编译**了。这是因为这几个函数虽然**是类接口的一部分**，但**不是类的成员**  
+  > 2、类可以允许**其他类或函数**访问它的**非公有成员**，方法是令它们成为该类的**友元**。对于函数，只需要增加一条`friend`**关键字**开头的**函数声明**即可  
+  > 3、**友元声明**只能出现在**类定义内部**，但友元**不是类的成员**也**不受访问控制的约束**  
+  > 4、**友元声明**仅仅指定了**访问权限**，而非一个通常意义上的**函数声明**。如果我们希望**类的用户**能够调用某个**友元函数**，就必须在**友元声明外**再次专门进行一次**函数声明**
+
+  ```cpp
+  friend Sales_data add(const Sales_data &, const Sales_data &);
+  friend std::istream &read(std::istream &, Sales_data &);
+  friend std::ostream &print(std::ostream &, const Sales_data &);
+  ```
+
+##### **类的其他特性**
+
+- **类成员再探**
 
 ---
 
