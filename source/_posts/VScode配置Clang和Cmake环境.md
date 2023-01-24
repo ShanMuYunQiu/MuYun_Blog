@@ -79,23 +79,23 @@ categories:
   // launch.json
   // 此处所写都是调试任务如何执行
   {
-      // 使用 IntelliSense 了解相关属性。
-      // 悬停以查看现有属性的描述。
-      // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
-      "version": "0.2.0",
-      "configurations": [
-          {
-              "type": "lldb",   // 调试器名
-              "request": "launch",
-              "name": "Debug",
-              "program": "${workspaceFolder}/${fileBasenameNoExtension}.exe",   // 调试启动的程序
-              "args": [],
-              "cwd": "${workspaceFolder}",
-              "preLaunchTask": "Build C++",           // 创建前置编译任务，后为启动的任务名
-              "internalConsoleOptions": "neverOpen",  // 不默认切换到调试控制台
-              "console": "integratedTerminal",        // 终端：使用内置终端
-          }
-      ]
+    // 使用 IntelliSense 了解相关属性。
+    // 悬停以查看现有属性的描述。
+    // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "lldb", // 调试器名
+        "request": "launch",
+        "name": "Debug",
+        "program": "${workspaceFolder}/${fileBasenameNoExtension}.exe", // 调试启动的程序
+        "args": [],
+        "cwd": "${workspaceFolder}",
+        "preLaunchTask": "Build C++", // 创建前置编译任务，后为启动的任务名
+        "internalConsoleOptions": "neverOpen", // 不默认切换到调试控制台
+        "console": "integratedTerminal" // 终端：使用内置终端
+      }
+    ]
   }
   ```
 
@@ -103,28 +103,29 @@ categories:
   // task.json
   // 此处所写都是编译任务
   {
-      // See https://go.microsoft.com/fwlink/?LinkId=733558
-      // for the documentation about the tasks.json format
-      "version": "2.0.0",
-      "tasks": [
-          {
-              "type": "shell",
-              "label": "Build C++",                                       // 任务名，与 launch.json 中对应
-              "command": "clang++",                                       // 编译器名
-              "args": [                                                   // 给编译器的参数
-                  "${file}",                                              // 当前打开的源代码
-                  "-std=c++20",                                           // C++标准
-                  "-g",                                                   // 表示debug模式，可以使用断点
-                  "-Wall",                                                // 打开所有警告
-                  "-o",                                                   // 重命名
-                  "${workspaceFolder}/${fileBasenameNoExtension}.exe",    // 重命名的名称
-              ],
-              "group": {
-                  "kind": "build",
-                  "isDefault": true
-              }
-          }
-      ]
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "type": "shell",
+        "label": "Build C++", // 任务名，与 launch.json 中对应
+        "command": "clang++", // 编译器名
+        "args": [
+          // 给编译器的参数
+          "${file}", // 当前打开的源代码
+          "-std=c++20", // C++标准
+          "-g", // 表示debug模式，可以使用断点
+          "-Wall", // 打开所有警告
+          "-o", // 重命名
+          "${workspaceFolder}/${fileBasenameNoExtension}.exe" // 重命名的名称
+        ],
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        }
+      }
+    ]
   }
   ```
 
@@ -144,13 +145,13 @@ categories:
 
 ---
 
-#### **Clang Format代码整理**
+#### **Clang Format 代码整理**
 
 ---
 
 - **Clang Format**可以进行代码整理格式化
 
-- 在**文件夹根目录**创建`.clang-format`文件，进行配置(该文件格式实际是yaml，可以自行设置文件关联)
+- 在**文件夹根目录**创建`.clang-format`文件，进行配置(该文件格式实际是 yaml，可以自行设置文件关联)
 
   - **官方文档**：[网页链接](https://clang.llvm.org/docs/ClangFormatStyleOptions.html)
 
@@ -197,7 +198,7 @@ categories:
     AllowShortLoopsOnASingleLine: false
     # 总是在定义返回类型后换行(deprecated)
     AlwaysBreakAfterDefinitionReturnType: None
-    # 总是在返回类型后换行: None, All, TopLevel(顶级函数，不包括在类中的函数), 
+    # 总是在返回类型后换行: None, All, TopLevel(顶级函数，不包括在类中的函数),
     #   AllDefinitions(所有的定义，不包括声明), TopLevelDefinitions(所有的顶级函数的定义)
     AlwaysBreakAfterReturnType: None
     # 总是在多行string字面量前换行
@@ -208,13 +209,13 @@ categories:
     BinPackArguments: true
     # false表示所有形参要么都在同一行，要么都各自一行
     BinPackParameters: true
-    # 在大括号前换行: Attach(始终将大括号附加到周围的上下文), Linux(除函数、命名空间和类定义，与Attach类似), 
-    #   Mozilla(除枚举、函数、记录定义，与Attach类似), Stroustrup(除函数定义、catch、else，与Attach类似), 
+    # 在大括号前换行: Attach(始终将大括号附加到周围的上下文), Linux(除函数、命名空间和类定义，与Attach类似),
+    #   Mozilla(除枚举、函数、记录定义，与Attach类似), Stroustrup(除函数定义、catch、else，与Attach类似),
     #   Allman(总是在大括号前换行), GNU(总是在大括号前换行，并对于控制语句的大括号增加额外的缩进), WebKit(在函数前换行), Custom
     #   注：这里认为语句块也属于函数
     BreakBeforeBraces: Custom
     # 大括号换行，只有当BreakBeforeBraces设置为Custom时才有效
-    BraceWrapping:   
+    BraceWrapping:
       # class定义后面
       AfterClass: false
       # 控制语句后面
@@ -246,7 +247,7 @@ categories:
     # 每行字符的限制，0表示没有限制
     ColumnLimit: 200
     # 描述具有特殊意义的注释的正则表达式，它不应该被分割为多行或以其它方式改变
-    CommentPragmas: '^ IWYU pragma:'
+    CommentPragmas: "^ IWYU pragma:"
     # 构造函数的初始化列表要么都在同一行，要么都各自一行
     ConstructorInitializerAllOnOneLineOrOnePerLine: false
     # 构造函数的初始化列表的缩进宽度
@@ -262,15 +263,15 @@ categories:
     # 自动检测函数的调用和定义是否被格式为每行一个参数(Experimental)
     ExperimentalAutoDetectBinPacking: false
     # 需要被解读为foreach循环而不是函数调用的宏
-    ForEachMacros: [ foreach, Q_FOREACH, BOOST_FOREACH ]
+    ForEachMacros: [foreach, Q_FOREACH, BOOST_FOREACH]
     # 对#include进行排序，匹配了某正则表达式的#include拥有对应的优先级，匹配不到的则默认优先级为INT_MAX(优先级越小排序越靠前)，
     #   可以定义负数优先级从而保证某些#include永远在最前面
-    IncludeCategories: 
+    IncludeCategories:
       - Regex: '^"(llvm|llvm-c|clang|clang-c)/'
         Priority: 2
       - Regex: '^(<|"(gtest|isl|json)/)'
         Priority: 3
-      - Regex: '.*'
+      - Regex: ".*"
         Priority: 1
     # 缩进case标签
     IndentCaseLabels: false
@@ -281,9 +282,9 @@ categories:
     # 保留在块开始处的空行
     KeepEmptyLinesAtTheStartOfBlocks: true
     # 开始一个块的宏的正则表达式
-    MacroBlockBegin: ''
+    MacroBlockBegin: ""
     # 结束一个块的宏的正则表达式
-    MacroBlockEnd: ''
+    MacroBlockEnd: ""
     # 连续空行的最大数量
     MaxEmptyLinesToKeep: 1
     # 命名空间的缩进: None, Inner(缩进嵌套的命名空间中的内容), All
@@ -338,6 +339,8 @@ categories:
     TabWidth: 4
     # 使用tab字符: Never, ForIndentation, ForContinuationAndIndentation, Always
     UseTab: Never
+    # 识别 public、private 等关键字缩进
+    IndentAccessModifiers: true
     ```
 
 - **插件推荐**
@@ -354,7 +357,7 @@ categories:
 - **下载 Cmake 和 Ninja**
 
 [Cmake 官网](https://cmake.org/)
-[Ninja github仓库](https://github.com/ninja-build/ninja)
+[Ninja github 仓库](https://github.com/ninja-build/ninja)
 
 - **配置环境**
 
@@ -364,8 +367,8 @@ categories:
 
 - **Cmake 的调试**
 
-  > 1、**Cmake调试**不需要`tasks.json`，删除该文件，同时把`launch.json`中的`"preLaunchTask"`项删除  
-  > 2、更改`launch.json`文件的`"program"`项为`${command:cmake.launchTargetPath}`(为Cmake Tools拓展的预定义替换变量)
+  > 1、**Cmake 调试**不需要`tasks.json`，删除该文件，同时把`launch.json`中的`"preLaunchTask"`项删除  
+  > 2、更改`launch.json`文件的`"program"`项为`${command:cmake.launchTargetPath}`(为 Cmake Tools 拓展的预定义替换变量)
 
 ---
 

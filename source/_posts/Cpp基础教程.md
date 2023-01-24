@@ -4,7 +4,7 @@ author: 圣奇宝枣
 description: 有关于C++的基础教程，该教程建立在学习过C语言的基础上，进行对比学习，了解不同的特性和更多新内容
 sticky: 2
 date: 2022-12-03
-updated: 2023-01-23
+updated: 2023-01-24
 readmore: true
 tags:
   - C++
@@ -1385,7 +1385,7 @@ _此外本文章中没有特殊重申的，大多语句和特性都与 C 语言�
 
 <div class="success">
 
-> **章节概要**：定义抽象数据类型；设计`Sales_data`类；定义`Sales_data`类；分析与设计；`this`参数；`const`成员函数；返回`this`对象的函数；该类相关的非成员函数；构造函数；合成的默认构造函数；合成的默认构造函数的局限性；定义构造函数；`= default`的含义；构造函数初始值列表；类外定义构造函数；拷贝、赋值和析构
+> **章节概要**：定义抽象数据类型；设计`Sales_data`类；定义`Sales_data`类；分析与设计；`this`参数；`const`成员函数；返回`this`对象的函数；该类相关的非成员函数；构造函数；合成的默认构造函数；合成的默认构造函数的局限性；定义构造函数；`= default`的含义；构造函数初始值列表；类外定义构造函数；拷贝、赋值和析构；访问控制与封装；提高封装性
 
 </div>
 
@@ -1645,7 +1645,130 @@ _此外本文章中没有特殊重申的，大多语句和特性都与 C 语言�
 
 - **拷贝、赋值和析构**
 
-  - 码字中。。。
+  > 1、除了定义类的对象**如何初始化**外，类还需要控制**拷贝**、**赋值**和**销毁对象时发生的行为**  
+  > 2、如果我们不**主动定义**这些操作，编译器将替我们**合成它们**。一般来说，编译器生成的版本将对对象的**每个成员**执行**拷贝**、**赋值**和**销毁操作**  
+  > 3、我们将在 13 章介绍如何**自定义上述操作**
+
+- **完整的类与使用**
+
+  ```cpp
+  #include <iostream>
+  #include <string>
+
+  struct Sales_data
+  {
+      // 新增的构造函数
+      Sales_data() = default;
+      Sales_data(const std::string &s) : bookNo(s)
+      {
+      }
+      Sales_data(const std::string &s, unsigned n, double p) : bookNo(s), units_sold(n), revenue(p * n)
+      {
+      }
+      Sales_data(std::istream &);
+
+      // 数据成员
+      std::string bookNo;
+      unsigned units_sold = 0;
+      double revenue = 0.0;
+      // 成员函数
+      std::string isbn() const
+      {
+          return bookNo;
+      }
+      Sales_data &combine(const Sales_data &);
+      double avg_price() const;
+  };
+
+
+  // 非成员接口函数
+  Sales_data add(const Sales_data &, const Sales_data &);
+  std::ostream &print(std::ostream &, const Sales_data &);
+  std::istream &read(std::istream &, Sales_data &);
+
+  double Sales_data::avg_price() const
+  {
+      if (units_sold)
+          return revenue / units_sold;
+      else
+          return 0;
+  }
+
+  Sales_data &Sales_data::combine(const Sales_data &rhs)
+  {
+      // 把 rhs 的成员加到 this 的成员上
+      units_sold += rhs.units_sold;
+      revenue += rhs.revenue;
+      // 返回调用该函数的对象
+      return *this;
+  }
+
+  // 输入的交易信息包括 ISBN、售出总数、售出单价
+  std::istream &read(std::istream &is, Sales_data &item)
+  {
+      double price = 0;
+      is >> item.bookNo >> item.units_sold >> price;
+      item.revenue = price * item.units_sold;
+      return is;
+  }
+
+  std::ostream &print(std::ostream &os, const Sales_data &item)
+  {
+      os << item.isbn() << ' ' << item.units_sold << ' ' << item.revenue << ' ' << item.avg_price();
+      return os;
+  }
+
+  Sales_data add(const Sales_data &lhs, const Sales_data &rsh)
+  {
+      Sales_data sum = lhs; // 把 lhs 的数据成员拷贝给 sum
+      sum.combine(rsh);     // 把 rsh 的数据成员添加到 sum
+      return sum;           // 返回新的 Sales_data 对象
+  }
+
+  // 构造函数
+  Sales_data::Sales_data(std::istream &is)
+  {
+      read(is, *this);
+  }
+
+  int main()
+  {
+      Sales_data total;          // 保存当前求和结果的变量
+      if (read(std::cin, total)) // 读入第一笔交易
+      {
+          Sales_data trans;             // 保存下一条交易数据的变量
+          while (read(std::cin, trans)) // 读入剩余的交易
+          {
+              if (total.isbn() == trans.isbn()) // 检查 isbn
+                  total.combine(trans);         // 更新变量 total 当前的值
+              else
+              {
+                  print(std::cout, total) << std::endl; // 输出结果
+                  total = trans;                        // 处理下一本书
+              }
+          }
+          print(std::cout, total) << std::endl; // 输出最后一条交易
+      }
+      else // 如果没有输入
+      {
+          std::cerr << "No data?" << std::endl; // 通知用户
+      }
+      return 0;
+  }
+  ```
+
+##### **访问控制与封装**
+
+- **提高封装性**
+
+  > 1、对目前为止，我们已经为类**定义了接口**，但没有任何机制**强制用户使用这些接口**。我们的类**还没有封装**，也就是说，用户可以**直达**`Sales_data`**对象内部**并**控制它的具体细节**  
+  > 2、C++中，我们使用**访问说明符**来加强类的**封装性**，如下说明。我们可以使用这些说明符再次定义`Sales_data`类，如后示例程序  
+  > 3、`public`**说明符**：定义在`publib`后的成员**可以在整个程序内被访问**，`public`成员**定义类的接口**  
+  > 4、`private`**说明符**：定义在`private`后的成员**只可以被类的成员函数访问**，不能被使用该类的代码访问，`private`部分封装了**类的实现细节**
+
+  ```cpp
+  
+  ```
 
 ---
 
