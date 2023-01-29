@@ -4,7 +4,7 @@ author: 圣奇宝枣
 description: 有关于C++的基础教程，该教程建立在学习过C语言的基础上，进行对比学习，了解不同的特性和更多新内容
 sticky: 2
 date: 2022-12-03
-updated: 2023-01-25
+updated: 2023-01-29
 readmore: true
 tags:
   - C++
@@ -1385,7 +1385,7 @@ _此外本文章中没有特殊重申的，大多语句和特性都与 C 语言�
 
 <div class="success">
 
-> **章节概要**：定义抽象数据类型；设计`Sales_data`类；定义`Sales_data`类；分析与设计；`this`参数；`const`成员函数；返回`this`对象的函数；该类相关的非成员函数；构造函数；合成的默认构造函数；合成的默认构造函数的局限性；定义构造函数；`= default`的含义；构造函数初始值列表；类外定义构造函数；拷贝、赋值和析构；访问控制与封装；`public`和`private`；`class`和`struct`；友元；类的其他特性；类成员再探；`mutable`可变数据成员；返回`*this`的成员函数；从`const`成员函数返回`*this`；基于`const`的重载；友元再探；类之间的友元关系；令函数成员作为友元；友元函数重载和作用域；类的作用域；名字查找与类作用域
+> **章节概要**：定义抽象数据类型；设计`Sales_data`类；定义`Sales_data`类；分析与设计；`this`参数；`const`成员函数；返回`this`对象的函数；该类相关的非成员函数；构造函数；合成的默认构造函数；合成的默认构造函数的局限性；定义构造函数；`= default`的含义；构造函数初始值列表；类外定义构造函数；拷贝、赋值和析构；访问控制与封装；`public`和`private`；`class`和`struct`；友元；类的其他特性；类成员再探；`mutable`可变数据成员；返回`*this`的成员函数；从`const`成员函数返回`*this`；基于`const`的重载；友元再探；类之间的友元关系；令函数成员作为友元；友元函数重载和作用域；类的作用域；名字查找与类作用域；构造函数再探；委托构造函数
 
 </div>
 
@@ -2191,8 +2191,110 @@ _此外本文章中没有特殊重申的，大多语句和特性都与 C 语言�
     // 作用域::返回类型 类名::函数名(形参列表)
     window_mgr::ScreenIndex Window_mgr::addScreen(const Screen &s)
     ```
-  
+
 - **名字查找与类作用域**
+
+  - **用于类成员声明的名字查找**
+
+    ```cpp
+    typedef double Money;
+    std::string bal;
+
+    class Account
+    {
+        public:
+            Money balance()
+            {
+                return bal;
+            }
+
+        private:
+            Money bal;
+    };
+    ```
+
+    > 1、**编译器**看到`balance`函数的声明语句时，将先在`Account`**类内查找 Money 的声明**，没找到就到**类外的作用域**去查找，找到**Money**的`typedef`语句  
+    > 2、`balance`函数体由于在**整个类可见后**才被处理，因此其`return`语句返回**名为 bal 的成员**而不是外层的`string`对象
+
+  - **类型名要特殊处理**
+
+    ```cpp
+    typedef double Money;
+
+    class Account
+    {
+        public:
+            Money balance()
+            {
+                return bal;             // 已经使用了外层作用域的 Money
+            }
+
+        private:
+            typedef double Money;       // 错误：不能重新定义 Money
+            Money bal;
+    };
+    ```
+
+    > 1、一般来说，**内层作用域**可以重新定义**外层作用域**的名字，即使该名字已经在**内层作用域**中使用过  
+    > 2、然而**在类中**，如果**成员使用了外层作用域中的名字**，而该名字**代表一种类型**，则类**不能在之后重新定义**该名字  
+    > 3、尽管**重新定义类型名字**是一种错误的行为，但是**编译器并不为此负责**，一些编译器将顺利通过这样的代码
+
+  - **成员定义中的普通块作用域的名字查找**
+
+    ```cpp
+    int height; // 定义了一个名字，稍后将在 Screen 中使用
+
+    class Screen
+    {
+        public:
+            typedef std::string::size_type pos;
+            void dummy_fcn(pos height)
+            {
+                cursor = width * height; // 使用的是函数的形参 height
+            }
+
+        private:
+            pos cursor = 0;
+            pos height = 0, width = 0;
+    };
+    ```
+
+    > 1、该例中，**编译器**处理函数中的**乘法表达式**时，它首先在**函数作用域**内查找名字，即先查找**形参列表**的**同名形参**。因此该例使用的是**形参 height**而非**成员 height**或**全局 height**  
+    > 2、如果要在这种情况下单独使用**其他作用域的名字**，可以使用`::height`调用**全局 height**，使用`this -> height`或`Screen::height`调用**成员 height**
+
+##### **构造函数再探**
+
+- **委托构造函数**
+
+  > 1、C++11 新标准拓展了**构造函数初始值**的功能，使得我们可以定义所谓的**委托构造函数**。一个**委托构造函数**，使用它**所属类的其他构造函数**执行它自己的初始化过程  
+  > 2、和其他构造函数一样，一个**委托构造函数**也有一个**成员初始值列表**和一个**函数体**。与其他成员初始值一样，**类名后面**紧跟圆括号括起来的**参数列表**，**列表必须与类中另一个构造函数匹配**
+
+  ```cpp
+  class Sales_data
+  {
+      public:
+          // 非委托构造函数使用对应的实参初始化成员
+          Sales_data(std::string s, unsigned ct, double price) : bookNo(s), units_sold(ct), revenue(ct * price)
+          {
+          }
+          // 其余构造函数全部委托给另一个构造函数
+          Sales_data() : Sales_data("", 0, 0)
+          {
+          }
+          Sales_data(std::string s) : Sales_data(s, 0, 0)
+          {
+          }
+          Sales_data(std::istream &is) : Sales_data()
+          {
+              read(is, *this); // 之前上文类中定义过的函数
+          }
+
+      private:
+          std::string bookNo;
+          unsigned units_sold = 0;
+          double revenue = 0.0;
+  };
+  ```
 
 ---
 
