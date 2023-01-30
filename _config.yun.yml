@@ -502,6 +502,81 @@ aplayer:
         url: https://music.163.com/song/media/outer/url?id=1843986876.mp3
         cover: http://p2.music.126.net/djVhMQ8TgaI517Lrg4Fm9w==/109951165968113069.jpg
         lrc: /lrc/听书.lrc
+      - name: 神のまにまに
+        artist: 初音ミク / 鏡音リン / GUMI / れるりり
+        url: https://music.163.com/song/media/outer/url?id=32431066.mp3
+        cover: http://p2.music.126.net/DCxO3b9pfFQ8wkREgg16UQ==/109951163743139874.jpg
+        lrc: /lrc/神のまにまに.lrc
+      - name: This Game
+        artist: ORZVK
+        url: https://music.163.com/song/media/outer/url?id=1295235928.mp3
+        cover: http://p1.music.126.net/pp37MDYGpDFkqZM3U6Aeww==/109951163174415073.jpg
+        lrc: /lrc/This Game.lrc
+      - name: ふわふわ時間
+        artist: 放課後ティータイム
+        url: https://music.163.com/song/media/outer/url?id=26201899.mp3
+        cover: http://p1.music.126.net/B_sCLXthAHgoVEMIRNU1hw==/109951163559682176.jpg
+        lrc: /lrc/ふわふわ時間.lrc
+      - name: 朝焼けのスターマイン
+        artist: 今井麻美
+        url: https://music.163.com/song/media/outer/url?id=35345760.mp3
+        cover: http://p2.music.126.net/UrHFbNNr1e96Z9EWTQPX7w==/2912606303912879.jpg
+        lrc: /lrc/朝焼けのスターマイン.lrc
+      - name: 鼓動
+        artist: カグラナナ
+        url: https://music.163.com/song/media/outer/url?id=1872078983.mp3
+        cover: http://p1.music.126.net/D-3JSGUU_pdOn6c91Wkb6w==/109951166313861666.jpg
+        lrc: /lrc/鼓動.lrc
+      - name: In Your Eyes
+        artist: DG812
+        url: https://music.163.com/song/media/outer/url?id=1397502846.mp3
+        cover: http://p2.music.126.net/anSN1ptUo10Jj2tltSrqew==/109951164432466046.jpg
+        lrc: /lrc/In Your Eyes.lrc
+      - name: YUMEND
+        artist: MYUKKE.
+        url: https://music.163.com/song/media/outer/url?id=1474404251.mp3
+        cover: http://p1.music.126.net/TjCQkgXcQ7WgyYPgb1FquA==/109951166330371133.jpg
+        lrc: /lrc/YUMEND.lrc
+      - name: RyAL-All I know
+        artist: Champer
+        url: https://music.163.com/song/media/outer/url?id=1824058027.mp3
+        cover: http://p2.music.126.net/5gerzS_NGUn3TPbgha5rbQ==/109951165770952681.jpg
+        lrc: /lrc/RyAL-All I know.lrc
+      - name: “Fall Silent”
+        artist: Game Tape
+        url: https://music.163.com/song/media/outer/url?id=1498957758.mp3
+        cover: http://p1.music.126.net/fFUKQs4fLeBNWZA-jAhTgg==/109951165505365193.jpg
+        lrc: /lrc/“Fall Silent”.lrc
+      - name: 4038
+        artist: JuggShots_RADI8 / 夏璃夜 / Reggie Yang / RADI8
+        url: https://music.163.com/song/media/outer/url?id=1406885246.mp3
+        cover: http://p1.music.126.net/ntaw2ZudfFxKzFFAPV0OKQ==/109951164985255855.jpg
+        lrc: /lrc/4038.lrc
+      - name: I Don't Wanna Live Forever
+        artist: Kiso / Kayla Diamond
+        url: https://music.163.com/song/media/outer/url?id=446875978.mp3
+        cover: http://p1.music.126.net/45fNfzNyXv-kAgdrHFFQyg==/109951165983293996.jpg
+        lrc: /lrc/I Don't Wanna Live Forever.lrc
+      - name: Outerspace
+        artist: BEAUZ
+        url: https://music.163.com/song/media/outer/url?id=1478293828.mp3
+        cover: http://p1.music.126.net/nnhkuAvDHZI44e1xFLuLHQ==/109951165308881338.jpg
+        lrc: /lrc/Outerspace.lrc
+      - name: Bring Me Back
+        artist: Miles Away
+        url: https://music.163.com/song/media/outer/url?id=1488212875.mp3
+        cover: http://p1.music.126.net/m8u6XqT7V8Db8sXdw7d3ow==/109951165400340890.jpg
+        lrc: /lrc/Bring Me Back.lrc
+      - name: You & Me
+        artist: MrWhite
+        url: https://music.163.com/song/media/outer/url?id=1421548502.mp3
+        cover: http://p2.music.126.net/kpGXL_CtNoRjzHDTaQZNrw==/109951164684537350.jpg
+        lrc: /lrc/You & Me.lrc
+      - name: Starry Skies
+        artist: The Darkmaker / GY
+        url: https://music.163.com/song/media/outer/url?id=1836533888.mp3
+        cover: http://p2.music.126.net/EOiPbTxVJJCwtj-ftKePhQ==/109951165881650817.jpg
+        lrc: /lrc/Starry Skies.lrc
     meting:
       enable: false
       id: 7514736165
