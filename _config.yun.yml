@@ -356,22 +356,67 @@ aplayer:
         artist: Wild Culture / Shel Bee
         url: https://music.163.com/song/media/outer/url?id=1459697279.mp3
         cover: http://p2.music.126.net/oK9lZOiyKUlSSk7vBP7HpQ==/109951165104873935.jpg
-        lrc: lrc/What U Do.lrc
+        lrc: /lrc/What U Do.lrc
       - name: 花と水飴、最終電車
         artist: n-buna / 初音ミク
         url: https://music.163.com/song/media/outer/url?id=33367346.mp3
         cover: http://p2.music.126.net/MLoChdXEUHXrpZSwsFPqYw==/7814229139683634.jpg
-        lrc: lrc/花と水飴、最終電車.lrc
-      - name: ハレハレヤ
+        lrc: /lrc/花と水飴、最終電車.lrc
+      - name: ハレハレヤ-朗朗晴天
         artist: 鹿小丸
         url: https://music.163.com/song/media/outer/url?id=1346946492.mp3
         cover: http://p1.music.126.net/JRZD6Yb5AVtIcTX7ocyF5w==/109951163872790053.jpg
-        lrc: lrc/ハレハレヤ.lrc
+        lrc: /lrc/ハレハレヤ-朗朗晴天.lrc
       - name: 飞
         artist: 大神慧 / 十七草
         url: https://music.163.com/song/media/outer/url?id=1412030522.mp3
         cover: http://p1.music.126.net/moCls2ann4OX8aAoffXEyg==/109951164579487317.jpg
-        lrc: lrc/飞.lrc
+        lrc: /lrc/飞.lrc
+      - name: ☾˚‧º
+        artist: Esther
+        url: https://music.163.com/song/media/outer/url?id=1501922887.mp3
+        cover: http://p1.music.126.net/Qld58JrezsYbw6SJz20jXA==/109951165531240985.jpg
+        lrc: /lrc/☾˚‧º.lrc
+      - name: Antisocial
+        artist: BEAUZ / Heather Sommer
+        url: https://music.163.com/song/media/outer/url?id=550124208.mp3
+        cover: http://p2.music.126.net/An4OF_5qGdI0t5MDDSNNwQ==/109951168223377068.jpg
+        lrc: /lrc/Antisocial.lrc
+      - name: Void
+        artist: Kirara Magic
+        url: https://music.163.com/song/media/outer/url?id=1465790878.mp3
+        cover: http://p2.music.126.net/nc5H97uZ-OXgjGW45XtiJA==/109951165172063291.jpg
+        lrc: /lrc/Void.lrc
+      - name: Freefall
+        artist: 暴君de
+        url: https://music.163.com/song/media/outer/url?id=1392203256.mp3
+        cover: http://p1.music.126.net/_6L3TL_r61aU9HcjnWeoFw==/109951164376305943.jpg
+        lrc: /lrc/Freefall.lrc
+      - name: 碎梦（short ver.）
+        artist: COP / 乐正绫
+        url: https://music.163.com/song/media/outer/url?id=515964379.mp3
+        cover: http://p1.music.126.net/MBUOR-eADofn53ksY3takw==/109951163052186407.jpg
+        lrc: /lrc/碎梦（short ver.）.lrc
+      - name: Carousel
+        artist: DEAMN
+        url: https://music.163.com/song/media/outer/url?id=1406443093.mp3
+        cover: http://p2.music.126.net/JiQHxzcKFEJ6s8Ge_QHp5Q==/109951164515259189.jpg
+        lrc: /lrc/Carousel.lrc
+      - name: The Last String
+        artist: Jacoo
+        url: https://music.163.com/song/media/outer/url?id=29544534.mp3
+        cover: http://p2.music.126.net/GPv_mcfeaD5aZ5L70udTtg==/109951163298570854.jpg
+        lrc: /lrc/The Last String.lrc
+      - name: 17さいのうた。
+        artist: 『ユイカ』
+        url: https://music.163.com/song/media/outer/url?id=1951665069.mp3
+        cover: http://p1.music.126.net/1bcwLzrrKPWcs137biKbpw==/109951167488734005.jpg
+        lrc: /lrc/17さいのうた。.lrc
+      - name: ただ声一つ
+        artist: ロクデナシ
+        url: https://music.163.com/song/media/outer/url?id=1905586708.mp3
+        cover: http://p1.music.126.net/WMAHZRjSjackfXUmA5GVWw==/109951166778043030.jpg
+        lrc: /lrc/ただ声一つ.lrc
     meting:
       enable: false
       id: 7514736165
