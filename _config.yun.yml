@@ -417,6 +417,91 @@ aplayer:
         url: https://music.163.com/song/media/outer/url?id=1905586708.mp3
         cover: http://p1.music.126.net/WMAHZRjSjackfXUmA5GVWw==/109951166778043030.jpg
         lrc: /lrc/ただ声一つ.lrc
+      - name: ねぇねぇねぇ。
+        artist: ピノキオピー
+        url: https://music.163.com/song/media/outer/url?id=1859603835.mp3
+        cover: http://p1.music.126.net/ScwYuq88dnahampgDQ9Hxw==/109951166158713797.jpg
+        lrc: /lrc/ねぇねぇねぇ。.lrc
+      - name: 懒人
+        artist: 三无MarBlue
+        url: https://music.163.com/song/media/outer/url?id=1462427219.mp3
+        cover: http://p2.music.126.net/ExC40_fFwxUgydQINzjqAQ==/109951164669111492.jpg
+        lrc: /lrc/懒人.lrc
+      - name: An Old Song
+        artist: MoreanP
+        url: https://music.163.com/song/media/outer/url?id=462177081.mp3
+        cover: http://p2.music.126.net/JoPwp8la7lf2bFi0UQKn_g==/109951162866713272.jpg
+        lrc: /lrc/An Old Song.lrc
+      - name: 不问天
+        artist: 说说Crystal
+        url: https://music.163.com/song/media/outer/url?id=1824454149.mp3
+        cover: http://p1.music.126.net/h9fwhS2GHKKmhhu-08MU_w==/109951165774793134.jpg
+        lrc: /lrc/不问天.lrc
+      - name: 雨道
+        artist: Otokaze
+        url: https://music.163.com/song/media/outer/url?id=493903.mp3
+        cover: http://p2.music.126.net/fEvTj3iuLsIcoFWBNFTC4w==/4447524534356140.jpg
+        lrc: /lrc/雨道.lrc
+      - name: 夏恋
+        artist: Otokaze
+        url: https://music.163.com/song/media/outer/url?id=493911.mp3
+        cover: http://p2.music.126.net/5gNt0nW6l-2hSAtJAnaNCw==/4450823069239492.jpg
+        lrc: /lrc/夏恋.lrc
+      - name: Cold Winter
+        artist: July
+        url: https://music.163.com/song/media/outer/url?id=33495597.mp3
+        cover: http://p2.music.126.net/-VVoBbON0-XHXnTg-PVXSw==/7946170535465788.jpg
+        lrc: /lrc/Cold Winter.lrc
+      - name: Where are you
+        artist: AniFace
+        url: https://music.163.com/song/media/outer/url?id=453843751.mp3
+        cover: http://p1.music.126.net/AUfXMljLBgB3PBV731IzRg==/109951162857118370.jpg
+        lrc: /lrc/Where are you.lrc
+      - name: 青空
+        artist: Candy_Wind
+        url: https://music.163.com/song/media/outer/url?id=32717172.mp3
+        cover: http://p1.music.126.net/1uWLxBVZ5MLunwuVo5hrzg==/8002245627462629.jpg
+        lrc: /lrc/青空.lrc
+      - name: 寂静之空
+        artist: 傅许
+        url: https://music.163.com/song/media/outer/url?id=461074907.mp3
+        cover: http://p1.music.126.net/SWO7UuIF2yOPpguwI4vXvw==/109951162863193280.jpg
+        lrc: /lrc/寂静之空.lrc
+      - name: Feeling The Rain
+        artist: MoreanP
+        url: https://music.163.com/song/media/outer/url?id=496774187.mp3
+        cover: http://p1.music.126.net/p9Frozdg_luAkO6ENOtTXg==/109951162997219545.jpg
+        lrc: /lrc/Feeling The Rain.lrc
+      - name: 森林
+        artist: 灰澈
+        url: https://music.163.com/song/media/outer/url?id=495562302.mp3
+        cover: http://p1.music.126.net/gtnxIZw1IKVV6UoxYQoA5A==/109951163393955301.jpg
+        lrc: /lrc/森林.lrc
+      - name: 夏野与暗恋
+        artist: 闫东炜
+        url: https://music.163.com/song/media/outer/url?id=421934070.mp3
+        cover: http://p1.music.126.net/v6LnBC1A14Xkl4D1bRLNWg==/109951167720626044.jpg
+        lrc: /lrc/夏野与暗恋.lrc
+      - name: Umbrella
+        artist: Matte / Ember Island
+        url: https://music.163.com/song/media/outer/url?id=518904426.mp3
+        cover: http://p1.music.126.net/1LrtvH8EpKb5iHKR9qEU0Q==/109951163063843501.jpg
+        lrc: /lrc/Umbrella.lrc
+      - name: 说书人
+        artist: 暗杠 / 寅子
+        url: https://music.163.com/song/media/outer/url?id=1303019637.mp3
+        cover: http://p1.music.126.net/JHXgLgO7SIaVYacrW_wJuw==/109951165246765187.jpg
+        lrc: /lrc/说书人.lrc
+      - name: 千里行走
+        artist: 暗杠 / 寅子
+        url: https://music.163.com/song/media/outer/url?id=1385144622.mp3
+        cover: http://p1.music.126.net/K_xxF_4b_BuvsIRR55gqIQ==/109951164305611287.jpg
+        lrc: /lrc/千里行走.lrc
+      - name: 听书
+        artist: 暗杠 / 寅子
+        url: https://music.163.com/song/media/outer/url?id=1843986876.mp3
+        cover: http://p2.music.126.net/djVhMQ8TgaI517Lrg4Fm9w==/109951165968113069.jpg
+        lrc: /lrc/听书.lrc
     meting:
       enable: false
       id: 7514736165
