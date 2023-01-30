@@ -177,7 +177,7 @@ reward: true
 
 <div class="danger">
 
-> 01-30 | `aplayer`歌词没法双语对应，手动给歌词打轴  
+> 01-31 | `aplayer`歌词没法双语对应，手动给歌词打轴  
 > 01-30 | 由于`meting`经常出错，决定关闭`meting`并手写`aplayer`歌单，添加了歌词文件实现歌词功能  
 > 01-13 | 将`Waline`和`Github Calendar`域名更换为站点域名下的二级域名  
 > 01-12 | 更换背景图片  
