@@ -106,9 +106,9 @@ mode: time
 
 bg_image:
   enable: true
-  url: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/background10.png
+  url: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/background.png
   dark: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/background8.jpg
-  blur: 2px
+  blur: 5px
   opacity: 0.8
 
 fireworks:
