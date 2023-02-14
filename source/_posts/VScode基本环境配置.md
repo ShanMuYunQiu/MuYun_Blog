@@ -83,8 +83,9 @@ categories:
 > **One Dark Pro**：黑灰色主题，好看  
 > **vscode-icons**：图标主题，文件图标与类型更加易分辨  
 > **Github Copilot**：AI 自动补全写代码，需要 github 账号登录，并且需要提前申请，通过后才可以使用(已收费，[官网](https://copilot.github.com/))  
-> **CodeGeeX**：github copilot 的下位替代，开源免费的 AI 补全([官网](https://models.aminer.cn/codegeex/))
+> **CodeGeeX**：github copilot 的下位替代，开源免费的 AI 补全([官网](https://models.aminer.cn/codegeex/))  
 > **Tabnine AI**：github copilot 的下位替代，有免费版本([官网](https://www.tabnine.com/))  
+> **Bito**：一个编程领域的 AI，可理解为编程版 ChatGPT  
 > **Power Mode**：打字炫酷特效，需要在设置里自行设定  
 > **Auto Close Tag**：自动闭合标签(已内置于 VScode 的**Auto Closing Tags**设置项)  
 > **Auto Rename Tag**：自动重命名相对应的闭合 HTML 标签(已内置于 VScode 的**Linked Editing**设置项)  
