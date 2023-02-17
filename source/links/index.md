@@ -38,7 +38,7 @@ links:
     color: "#4ddbff"
 
   - url: https://sady0.com
-    avatar: https://cdn.ideaopen.cn/xiaojun/gzRMsL4X.jpg
+    avatar: https://cdn.sady0.com/pic/91531896_p0.jpg
     blog: Sady'Blog
     desc: 永远年轻，永远热泪盈眶.
     color: "#9e75f0"
@@ -74,7 +74,7 @@ links:
     color: "#ffad33"
 
   - url: https://blog.mrzefr.cn
-    avatar: https://npm.mrzefr.cn/hexo-mrzefr-filebed@1.3.4/image/ICO/Doraemon.ico
+    avatar: https://cdn.mrzefr.cn/avatar.png
     blog: MrZeFr的小窝
     desc: Hello World
     color: "#20df20"
