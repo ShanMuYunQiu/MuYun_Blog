@@ -4,7 +4,7 @@ author: 圣奇宝枣
 description: 有关于C++的基础教程，该教程建立在学习过C语言的基础上，进行对比学习，了解不同的特性和更多新内容
 sticky: 2
 date: 2022-12-03
-updated: 2023-02-25
+updated: 2023-02-26
 readmore: true
 tags:
   - C++
@@ -3447,7 +3447,7 @@ _此外本文章中没有特殊重申的，大多语句和特性都与 C 语言�
 
 <div class="success">
 
-> **章节概要**：概述；算法如何工作；算法不执行容器操作；初识泛型算法；只读算法；`accumulate`；算法和元素类型；操作两个序列的`equal`；写容器元素的算法；`fill`；算法不检查写操作；介绍`back_inserter`；`copy`；`replace`；重排容器元素的算法；`sort`和`unique`；定制操作；谓词与向算法传参；`lambda`表达式；向`lambda`传参；使用捕获列表；`lambda`捕获和返回；`lambda`捕获列表；可变`lambda`；指定`lambda`返回类型；参数绑定
+> **章节概要**：概述；算法如何工作；算法不执行容器操作；初识泛型算法；只读算法；`accumulate`；算法和元素类型；操作两个序列的`equal`；写容器元素的算法；`fill`；算法不检查写操作；介绍`back_inserter`；`copy`；`replace`；重排容器元素的算法；`sort`和`unique`；定制操作；谓词与向算法传参；`lambda`表达式；向`lambda`传参；使用捕获列表；`lambda`捕获和返回；`lambda`捕获列表；可变`lambda`；指定`lambda`返回类型；参数绑定；`bind`；使用`placeholders`名字；`bind`重排参数顺序；绑定引用参数；再探迭代器
 
 </div>
 
@@ -3784,6 +3784,85 @@ _此外本文章中没有特殊重申的，大多语句和特性都与 C 语言�
     ```
 
 - **参数绑定**
+
+  - **引入**
+
+    > 1、对于那种只在**一两个地方**使用的**简单操作**，`lambda`**表达式**是最有用的。如果我们需要在很多地方使用**相同的操作**，通常应该**定义一个函数**，而不是**多次编写相同的**`lambda`。类似的，如果一个操作需要**很多语句才能完成**，通常使用**函数**更好  
+    > 2、如果`lambda`**捕获列表为空**，通常可以**用函数来代替**，既可以用`lambda`也可以用**函数**来实现  
+    > 3、但是对于**捕获局部变量**的`lambda`，**用函数代替**就**没那么容易**了。例如如果**调用的一个函数**接受一个**一元谓词**，`lambda`可以**通过捕获列表从形参获取额外信息**，而**函数**必须解决如何作为**一元谓词**的问题
+
+  - `bind`
+
+    > 1、为了解决**向作为一元谓词的函数传递多个参数**的问题，方法是使用一个名为`bind`的**标准库函数**，它定义在**头文件**`functional`中  
+    > 2、可以将`bind`看作一个**通用的函数适配器**，它接受一个**可调用对象**，生成一个**新的可调用对象**来**适应原对象的形参列表**  
+    > 3、调用`bind`的一般形式如：`auto newCallable = bind(callable, arg_list)`。其中，`newCallable`本身是一个**可调用对象**，`arg_list`是**形参列表**。当**调用**`newCallable`时，会**调用**`callable`，并**使用**`arg_list`**作为**`callable`**的形参**  
+    > 4、`arg_list`中可能出现**形如**`_n`**的名字**，其中**n**是一个**整数**，这些参数是**占位符**，它们占据了**传递给**`newCallable`**的参数的位置**：`_1`为`newCallable`**第一个参数**，`_2`为**第二个参数**，以此类推
+
+  - **使用**`bind`**绑定参数**
+
+    > 1、一个简单的例子，我们将**使用**`bind`生成一个**调用**`check_size`**的对象**，如下  
+    > 2、此`bind`调用**只有一个占位符**，表示`check6`**接受一个参数**；**占位符**出现在`arg_list`**第一个位置**上，表示`check6`**的此参数**对应`check_size`**的第一个参数**
+
+    ```cpp
+    // 原函数
+    bool check_size(const string &s, string::size_type sz)
+    {
+        return s.size() >= sz;
+    }
+
+    // 绑定参数
+    auto check6 = bind(check_size, _1, 6);
+
+    // 调用
+    string s = "hello";
+    bool b1 = check6(s);    // 即调用 check_size(s, 6)
+
+    // 作为一元谓词
+    auto wc = find_if(words.begin(), words.end(), check6);
+    auto wc = find_if(words.begin(), words.end(), bind(check_size, _1, sz));
+    ```
+
+  - **使用**`placeholders`**名字**
+
+    > 1、**名字**`_n`都定义在**命名空间**`placeholders`中(定义在头文件`functional`中)，而这个**命名空间**定义在`std`**命名空间**中，因此为了**使用这些名字**，两个命名空间都要写上(如`std::placeholders::_1`)  
+    > 2、为了**更方便的使用**，我们通常使用`using`声明：`using std::placeholders::_1`。但这样对于**每个占位符名字**都要**单独声明**，不仅繁琐还易出错  
+    > 3、我们可以使用**另一种**`using`**声明形式**：`using namespace namespace_name`，表示希望**所有来自**`namespace_name`**的名字**都可以在我们的程序中**直接使用**，如此处可写作`using namespace std::placeholders`
+
+  - `bind`**重排参数顺序**
+
+    > 1、如前文所述，我们可以用`bind`**修正参数的值**，更一般的，可以用`bind`**绑定**给定可调用对象中的**参数**或是**重新安排其顺序**  
+    > 2、例如，`func`是一个**可调用对象**，它有**5 个参数**，则允许下面的调用
+
+    ```cpp
+    auto g = bind(func, a, b, _2, c, _1);
+
+    g(d, e);    // 等同于 func(a, b, e, c, d)
+    ```
+
+  - **绑定引用参数**
+
+    > 1、默认情况下，`bind`的那些**不是占位符的参数**被**拷贝**到**返回的可调用对象**中。但与`lambda`类似，有时对于有些**绑定的参数**我们希望**以引用方式传递**，或是希望**绑定参数的类型无法拷贝**  
+    > 2、如下例，为了替换一个**引用方式捕获**`ostream`的`lambda`，可以很容易编写一个函数**完成相同工作**，但不能直接用`bind`来**代替对**`os`**的捕获**。原因在于`bind`**拷贝其参数**，而我们**不能拷贝一个**`ostream`  
+    > 3、如果我们希望**传给**`bind`**一个对象**而**不拷贝它**，必须使用**标准库函数**`ref`，它定义在**头文件**`functional`中。`ref`**返回一个对象**，包含**给定的引用**，此对象是**可以拷贝的**；**标准库**还有一个`cref`，生成一个**保存**`const`**引用的类**
+
+    ```cpp
+    // os 是一个局部变量，引用一个输出流
+    // c 是一个局部变量，类型为 char
+    for_each(words.begin(), words.end(), [&os, c](const string &s) { os << s << c; });
+
+    // 同功能函数
+    ostream &print(ostream &os, char c, const string &s)
+    {
+        return os << s << c;
+    }
+    // 错误：不能拷贝 os
+    for_each(words.begin(), words.end(), bind(print, os, ' ', _1));
+
+    // 使用 ref
+    for_each(words.begin(), words.end(), bind(print, ref(os), ' ', _1));
+    ```
+
+##### **再探迭代器**
 
 ---
 
