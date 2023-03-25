@@ -13,10 +13,10 @@ links:
     desc: All at sea.
     color: "#0078e7"
 
-  - url: https://www.ffnb.top/
+  - url: https://ffnb.top/
     avatar: http://www.ffnb.top/wp-content/uploads/2022/02/仙鸣背景.jpg
-    blog: HOMIE 工作室
-    desc: 欢迎大家访问HOMIE工作室，大家可以在这里学习浏览交流！★大家有什么需求、或者是更好的意见可以加我QQ联系推荐~
+    blog: HOMIE 笔记
+    desc: 记录生活也是一种艺术
     color: "#ff4d4d"
 
   - url: https://www.molimy.cn
@@ -74,7 +74,7 @@ links:
     color: "#ffad33"
 
   - url: https://blog.mrzefr.cn
-    avatar: https://cdn.mrzefr.cn/avatar.png
+    avatar: https://npm.mrzefr.cn/hexo-mrzefr-filebed@1.3.4/image/ICO/Doraemon.ico
     blog: MrZeFr的小窝
     desc: Hello World
     color: "#20df20"
