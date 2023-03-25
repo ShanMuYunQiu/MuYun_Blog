@@ -55,7 +55,7 @@ https://shengqibaozao-admin.sharepoint.com/_layouts/15/online/AdminHome.aspx#/se
 https://qyi.io/archives/687.html
 
 管理应用程序(两年刷新证书和密码的许可)：  
-https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationMenuBlade/Overview/quickStartType//sourceType/Microsoft_AAD_IAM/appId/0804dba3-6d26-46dc-b682-db77dace12bd/objectId/151a865f-0acd-459d-88e0-c74ac15b01ce/isMSAApp//defaultBlade/Overview/appSignInAudience/AzureADandPersonalMicrosoftAccount/servicePrincipalCreated/true
+https://portal.azure.com/#view/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/~/RegisteredApps
 
 自动订阅程序：  
 https://e5.qyi.io/
