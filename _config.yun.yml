@@ -2,7 +2,7 @@ favicon: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/user2.png
 
 notice:
   enable: true
-  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：Cpp基础教程 | 更新时间：2023-03-27
+  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：Cpp基础教程 | 更新时间：2023-03-28
 # 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ
 
 tags:
@@ -352,6 +352,31 @@ aplayer:
     listFolded: false
     listMaxHeight: 340px
     audio:
+      - name: 破旧世界（最终）
+        artist: 魔鬼花园
+        url: https://music.163.com/song/media/outer/url?id=1890770509.mp3
+        cover: http://p1.music.126.net/t0Rta9_jLJaAI0Hq8LKXGA==/109951166567802142.jpg
+        lrc: /lrc/破旧世界（最终）.lrc
+      - name: 第105天
+        artist: Pianoboy高至豪
+        url: https://music.163.com/song/media/outer/url?id=139737.mp3
+        cover: http://p1.music.126.net/3HT3AxHq8uXHPbFbH7Qoyw==/109951167208222169.jpg
+        lrc: /lrc/第105天.lrc
+      - name: De Ortu Solis
+        artist: Charun
+        url: https://music.163.com/song/media/outer/url?id=4015520.mp3
+        cover: http://p1.music.126.net/qSZds9TgolZf51XpcYsciw==/703687441819461.jpg
+        lrc: /lrc/De Ortu Solis.lrc
+      - name: Long Journey
+        artist: JINBAO
+        url: https://music.163.com/song/media/outer/url?id=1857012588.mp3
+        cover: http://p1.music.126.net/nVyoxD5yriYaDJPzhaN8Eg==/109951166129162887.jpg
+        lrc: /lrc/Long Journey.lrc
+      - name: Welcome Home
+        artist: Radical Face
+        url: https://music.163.com/song/media/outer/url?id=18495436.mp3
+        cover: http://p1.music.126.net/TRW7_0KbJXHsb5t3sqZsaw==/6659741930385748.jpg
+        lrc: /lrc/Welcome Home.lrc
       - name: What U Do
         artist: Wild Culture / Shel Bee
         url: https://music.163.com/song/media/outer/url?id=1459697279.mp3
