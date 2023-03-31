@@ -166,9 +166,9 @@ menu:
     #   icon: ri:cloud-line
     #   count: 你猜
   custom:
-    title: 留言板
-    path: /comment/
-    icon: ri:clipboard-line
+    title: 后台
+    path: https://bk.shengqibaozao.eu.org
+    icon: ri:line-chart-fill
 
 pages:
   - name: 我的小伙伴们
