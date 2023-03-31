@@ -26,7 +26,7 @@ categories:
 设定分支：master 或 main
 
 Token 秘钥：github 主页-头像-设置-Developer setting-Personal access tokens，新建：只选择 repo  
-Token(示例)：ghp_WGxZemKeB2aRql2RMgXxOY9CwIQVFW3Q9f3q
+Token(示例)：ghp_6OWL9OSpzhW6LMsQc5WO5KnoT5quat459f3a
 
 <!-- more -->
 
@@ -35,7 +35,7 @@ Token(示例)：ghp_WGxZemKeB2aRql2RMgXxOY9CwIQVFW3Q9f3q
 自定义域名：https://jsd.cky.codes/gh/用户名/仓库名  
 例如：https://jsd.cky.codes/gh/ShengQiBaoZao/Image
 
-4-2oXV
+4-KRFB
 4+Pco4
 
 ---
