@@ -14,16 +14,10 @@ links:
     color: "#0078e7"
 
   - url: https://ffnb.top/
-    avatar: http://www.ffnb.top/wp-content/uploads/2022/02/仙鸣背景.jpg
+    avatar: https://s1.ax1x.com/2023/04/19/p9kAiX8.jpg
     blog: HOMIE 笔记
     desc: 记录生活也是一种艺术
     color: "#ff4d4d"
-
-  - url: https://www.molimy.cn
-    avatar: http://www.molimy.cn/wp-content/uploads/2022/05/logo_20220506_uugai.com-16518403603981_gaitubao_154x1501.png
-    blog: 栖梦云溪
-    desc: 一个专注于网络活动、资源的收集共享、分享学习经验的站点
-    color: "#6699ff"
 
   - url: https://blog.ssycs.com
     avatar: https://blog.ssycs.com/image/avatar.png
@@ -37,10 +31,10 @@ links:
     desc: I am ordinary yet unique.
     color: "#4ddbff"
 
-  - url: https://sady0.com
-    avatar: https://cdn.sady0.com/pic/91531896_p0.jpg
-    blog: Sady'Blog
-    desc: 永远年轻，永远热泪盈眶.
+  - url: https://xrss.cc
+    avatar: https://clouds.totime.cn/20230216093653176.jpg
+    blog: 小染笔记
+    desc: 遇见即是上上签.
     color: "#9e75f0"
 
   - url: https://www.falling42.top/
@@ -74,7 +68,7 @@ links:
     color: "#ffad33"
 
   - url: https://blog.mrzefr.cn
-    avatar: https://npm.mrzefr.cn/hexo-mrzefr-filebed@1.3.4/image/ICO/Doraemon.ico
+    avatar: https://cdn.mrzefr.cn/avatar.png
     blog: MrZeFr的小窝
     desc: Hello World
     color: "#20df20"
@@ -86,7 +80,7 @@ links:
     color: "#4ddbff"
 
   - url: https://www.askahh.com/
-    avatar: https://askahh.com/usr/uploads/2022/02/690804522.jpg
+    avatar: https://pic.imgdb.cn/item/6440a6670d2dde57770f6d42.jpg
     blog: askahh的博客
     desc: Error 404
     color: "#ff6600"
