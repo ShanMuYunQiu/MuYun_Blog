@@ -4,7 +4,7 @@ author: 圣奇宝枣
 description: 有关于C++的基础教程，该教程建立在学习过C语言的基础上，进行对比学习，了解不同的特性和更多新内容
 sticky: 2
 date: 2022-12-03
-updated: 2023-05-02
+updated: 2023-05-03
 readmore: true
 tags:
   - C++
@@ -4128,7 +4128,7 @@ _此外本文章中没有特殊重申的，大多语句和特性都与 C 语言�
 
 <div class="success">
 
-> **章节概要**：使用关联容器;`map`；`set`；关联容器概述；通用操作；重复关联容器；关键字类型要求；关键字类型的比较函数；`pair`类型；创建`pair`的函数；关联容器操作；关联容器迭代器；迭代器解引用；关联容器和算法；添加元素；`insert`操作；`insert`返回值；删除元素；`erase`操作；`map`下标操作；下标操作的返回值；访问元素
+> **章节概要**：使用关联容器;`map`；`set`；关联容器概述；通用操作；重复关联容器；关键字类型要求；关键字类型的比较函数；`pair`类型；创建`pair`的函数；关联容器操作；关联容器迭代器；迭代器解引用；关联容器和算法；添加元素；`insert`操作；`insert`返回值；删除元素；`erase`操作；`map`下标操作；下标操作的返回值；访问元素；在`multimap`或`multiset`中查找元素；示例：单词转换程序；无序容器
 
 </div>
 
@@ -4394,7 +4394,8 @@ _此外本文章中没有特殊重申的，大多语句和特性都与 C 语言�
 
     > 1、`map`和`unordered_map`提供了**下标运算符**和一个对应的`at`**函数**  
     > 2、`set`类型**不支持下标**，因为`set`中没有**与关键字相关联**的**值**  
-    > 3、我们不能对一个`multimap`或一个`unordered_multimap`进行**下标操作**，因为这些容器中可能有**多个值与一个关键字相关联**
+    > 3、我们不能对一个`multimap`或一个`unordered_multimap`进行**下标操作**，因为这些容器中可能有**多个值与一个关键字相关联**  
+    > 4、下标和`at`操作只适用于非`const`的`map`和`unordered_map`
 
     | 下标操作 | 描述                                                                                 |
     | -------- | ------------------------------------------------------------------------------------ |
@@ -4415,6 +4416,88 @@ _此外本文章中没有特殊重申的，大多语句和特性都与 C 语言�
     ```
 
 - **访问元素**
+
+  - **访问操作**
+
+    > 1、**关联容器**提供多种**查找一个指定元素**的方法，如下表。具体应该使用哪个操作依赖于我们要解决什么问题  
+    > 2、对于**不允许重复关键字**的容器，使用`find`和`count`**没什么区别**；对于**允许重复关键字**的容器，`count`额外还会统计**有多少个元素有相同的关键字**  
+    > 3、`lower_bound`和`upper_bound`不适用于**无序容器**
+
+    ```cpp
+    set<int> iset = {0,1,2,3,4,5,6,7,8,9};
+    iset.find(1);       // 返回一个迭代器，指向 key == 1 的元素
+    iset.find(11);      // 返回一个迭代器，其值等于 iset.end()
+    iset.count(1);      // 返回 1
+    iset.count(11);     // 返回 0
+
+    // 使用 find 检查一个元素是否存在
+    if(word_count.find("foobar") == word_count.end())
+    ```
+
+    | 访问操作         | 描述                                                                                           |
+    | ---------------- | ---------------------------------------------------------------------------------------------- |
+    | c.find(k)        | 返回一个迭代器，指向第一个关键字为 k 的元素，若 k 不在容器中，则返回尾后迭代器                 |
+    | c.count(k)       | 返回关键字等于 k 的元素的数量                                                                  |
+    | c.lower_bound(k) | 返回一个迭代器，指向第一个关键字不小于 k 的元素(首个具有给定关键字的元素的位置)                |
+    | c.upper_bound(k) | 返回一个迭代器，指向第一个关键字大于 k 的元素(最后一个匹配给定关键字的元素之后的位置)          |
+    | c.equal_range(k) | 返回一个迭代器 pair，表示关键字等于 k 的元素的范围。若 k 不存在，pair 的两个成员均等于 c.end() |
+
+  - **在**`multimap`**或**`multiset`**中查找元素**
+
+    > 1、在一个**不允许重复关键字**的关联容器中**查找一个元素**是一件**很简单**的事情——**元素要么在**容器中，**要么不在**；但对于**允许重复关键字**的容器过程**更为复杂**：在容器中可能有**很多元素**具有**给定的关键字**  
+    > 2、如果一个`multimap`或`multiset`中有**多个元素**具有**给定关键字**，则**这些元素**在容器中会**相邻储存**  
+    > 3、例如，给定一个**从作者到书籍**的映射，我们可能想**打印一个特定作者的所有著作**，共有**三种方法**解决这个问题
+
+    ```cpp
+    // 最直观的方法：使用 find 和 count
+
+    string search_item("Alain de Botton");        // 要查找的作者
+    auto entries = authors.count(search_item);    // 元素的数量
+    auto iter = authors.find(search_item);        // 作者的第一本书
+    // 用一个循环来查找此作者的所有著作
+    while(entries)
+    {
+        cout << iter->second << endl;             // 打印书籍名
+        ++iter;                                   // 前进到下一本书
+        --entries;                                // 记录已经打印了多少本书
+    }
+    ```
+
+    ```cpp
+    // 面向迭代器的解决方法：使用 lower_bound 和 upper_bound
+
+    string search_item("Alain de Botton");        // 要查找的作者
+    // beg 和 end 表示对应此作者的元素的范围
+    for(auto beg = authors.lower_bound(search_item), end = authors.upper_bound(search_item); beg != end; beg++)
+        cout << beg->second << endl;              // 打印书籍名
+    ```
+
+    ```cpp
+    // 最直接的方法：使用 euqal_range
+
+    string search_item("Alain de Botton");        // 要查找的作者
+    // pos 保存迭代器时，表示与关键字匹配的元素范围，是一个 pair
+    for(auto pos = authors.equal_range(search_item); pos.first != pos.second; pos.first++)
+        cout << pos.first->second << endl;        // 打印书籍名
+    ```
+
+- **示例：单词转换程序**
+
+  - **需求描述**：向程序输入一段文字，将如下单词转换成对应单词
+
+    ```
+    where r u
+    y dont u send me a pic
+    k thk 18r
+    ```
+
+    ```
+    where are you
+    why dont you send me a picture
+    okay? thanks! later
+    ```
+
+  
 
 ---
 
