@@ -2,7 +2,7 @@ favicon: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/user2.png
 
 notice:
   enable: true
-  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：排序算法 | 更新时间：2023-05-08
+  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：排序算法 | 更新时间：2023-05-09
 # 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ
 
 tags:
@@ -64,10 +64,6 @@ social:
     link: https://github.com/ShengQiBaoZao
     icon: ri:github-line
     color: "#181717"
-  - name: E-Mail：lty15376767691@gmail.com
-    link: mailto:lty15376767691@gmail.com
-    icon: ri:mail-line
-    color: "#8E71C1"
   - name: 网易云音乐(点此跳转)
     link: https://music.163.com/#/user/home?id=509242587
     icon: ri:netease-cloud-music-line
@@ -76,6 +72,10 @@ social:
     link: https://space.bilibili.com/347061710
     icon: ri:bilibili-line
     color: "#FF8EB3"
+  - name: 仪表盘(点此跳转)
+    link: https://bk.shengqibaozao.eu.org
+    icon: ri:line-chart-fill
+    color: "#8E71C1"
 
 banner:
   enable: true
@@ -160,16 +160,13 @@ menu:
     - type: categories
       path: /categories/
       icon: ri:folder-2-line
-    - type: tags
-      path: /tags/
-      icon: ri:price-tag-3-line
     # - path: https://www.yunyoujun.cn
     #   icon: ri:cloud-line
     #   count: 你猜
   custom:
-    title: 后台
-    path: https://bk.shengqibaozao.eu.org
-    icon: ri:line-chart-fill
+    title: 说说
+    path: /talks/
+    icon: ri:chat-smile-3-line
 
 pages:
   - name: 我的小伙伴们
