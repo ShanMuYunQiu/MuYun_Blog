@@ -4,7 +4,25 @@ date: 2023-05-09
 reward: true
 ---
 
-<script src="https://jsd.cky.codes/npm/qexo-static/hexo/talks.min.js"></script>
-<link rel="stylesheet" href="https://jsd.cky.codes/npm/qexo-static/hexo/talks.min.css">
-<div id="qexot"></div>
-<script>showQexoTalks("qexot", "https://bk.shengqibaozao.eu.org", 7)</script>
+<head>
+  <!-- ... -->
+  <script src="https://jsd.cky.codes/gh/Uyoahz26/daodao@main/dist/qexo-dao.min.js"></script>
+  <!-- ... -->
+</head>
+<body>
+  <!-- ... -->
+  <div id="qexoDaoDao"></div>
+  <script>
+    qexoDaodao?.init({
+      el: "#qexoDaoDao",
+      avatar: "https://jsd.cky.codes/gh/ShengQiBaoZao/Image/user2.png",
+      name: "圣奇宝枣",
+      title: "博主的碎碎念",
+      limit: 7,
+      useLoadingImg: false,
+      baseURL: "https://bk.shengqibaozao.eu.org",
+    }).then(function (){
+      console.log("说说加载完成");
+    })
+  </script>
+</body>
