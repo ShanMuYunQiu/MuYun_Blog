@@ -184,6 +184,26 @@ girls:
     avatar: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/tianwangsilinai.jpg
     from: LoveLive! 虹咲学院学院偶像同好会
     url: https://zh.moegirl.org.cn/%E5%A4%A9%E7%8E%8B%E5%AF%BA%E7%92%83%E5%A5%88
+  
+  - name: 后藤一里
+    avatar: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/houtengyili.jpg
+    from: 孤独摇滚
+    url: https://zh.moegirl.org.cn/%E5%90%8E%E8%97%A4%E4%B8%80%E9%87%8C
+  
+  - name: 喜多郁代
+    avatar: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/xiduoyudai.jpg
+    from: 孤独摇滚
+    url: https://zh.moegirl.org.cn/%E5%96%9C%E5%A4%9A%E9%83%81%E4%BB%A3
+  
+  - name: 伊地知虹夏
+    avatar: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/yidizhihongxia.jpg
+    from: 孤独摇滚
+    url: https://zh.moegirl.org.cn/%E4%BC%8A%E5%9C%B0%E7%9F%A5%E8%99%B9%E5%A4%8F
+  
+  - name: 山田凉
+    avatar: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/shantianliang.jpg
+    from: 孤独摇滚
+    url: https://zh.moegirl.org.cn/%E5%B1%B1%E7%94%B0%E5%87%89
 
   - name: 博丽灵梦
     avatar: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/lingmeng.jpg
