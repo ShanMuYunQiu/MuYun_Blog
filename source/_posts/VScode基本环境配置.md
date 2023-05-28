@@ -58,7 +58,7 @@ categories:
 > **git.mergeEditor**：git merge 合并编辑器，可以更方便地处理冲突，建议设置 true  
 > **Snippets Prevent Quick Suggestions**：阻止快速建议，建议关闭，关闭后可以在使用代码补全后仍继续收到提示  
 > **smooth**：搜索出的结果，分别代表四项不同的平滑效果设置，按需开启  
-> **Font Family**：配置字体(如写入**JetBrains Mono**)  
+> **Font Family**：配置字体(如写入**JetBrainsMono Nerd Font Propo**，[下载地址](https://github.com/ryanoasis/nerd-fonts/releases))  
 > **Font Ligatures**：配置是否启用字体连字特性(在 JSON 中打开，设置为 true)
 
 </div>
