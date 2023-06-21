@@ -83,7 +83,7 @@ categories:
 > **One Dark Pro**：黑灰色主题，好看  
 > **vscode-icons**：图标主题，文件图标与类型更加易分辨  
 > **Github Copilot**：AI 自动补全写代码，需要 github 账号登录(已收费)  
-> ----下位替代：CodeGeex、Codeium、Tabnine AI  
+> ----下位替代：CodeGeex、Codeium、Tabnine AI、Amazon CodeWhisperer  
 > **Bito**：一个编程领域的 AI，可理解为编程版 ChatGPT  
 > **Power Mode**：打字炫酷特效，需要在设置里自行设定  
 > **Auto Close Tag**：自动闭合标签(已内置于 VScode 的**Auto Closing Tags**设置项)  
