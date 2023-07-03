@@ -4,7 +4,7 @@ author: 圣奇宝枣
 description: 个人以及大众最爱的编辑器，新手时期被繁杂的配置劝退过，而本教程将带你渡过难关
 sticky: 0
 date: 2022-04-27
-updated: 2023-01-05
+updated: 2023-07-03
 readmore: true
 tags:
   - 前置准备
@@ -97,11 +97,14 @@ categories:
 > **GitLens**：侧边栏显示光标所在位置的历史 git 提交并快速访问，拓展 VScode 自带 git 管理器的功能  
 > **Git Graph**：将 git 提交记录转换为可视化图表  
 > **CodeSnap**：快速美观代码截图  
+> **Codelf**：变量命名插件(注意名字是 l 不是 i)  
 > **Project Manager**：更方便的管理文件夹和项目  
 > **Better Comments**：更好的注释，注释信息变色：包括`TODO`、`!`、`?`、`*`、`//`等注释高亮  
+> **Error Lens**：高亮显示错误和警告，行内显示错误信息  
 > **Todo Tree**：自动集合整理所有 TODO 待办事项  
 > **Draw.io Integration**：将**Draw.io**集成到 VScode 中，画流程图，文件后缀为`.drawio`  
-> **Codelf**：变量命名插件(注意名字是 l 不是 i)
+> **Path Intellisense**：路径提示与自动补全  
+> **Easy Snippet**：方便快速的代码片段管理
 
 </div>
 
@@ -111,7 +114,7 @@ categories:
 
 ---
 
-- VScode 允许用户**配置**自己的**代码片段**，以快速完成**经常重复输入的代码**
+- VScode 允许用户**配置**自己的**代码片段**，以快速完成**经常重复输入的代码**(但更推荐使用**Easy Snippet**插件管理代码片段)
 
 - **进入配置文件**：**文件**-**首选项**-**配置用户代码片段**-**选择配置的语言**
 

@@ -2094,7 +2094,7 @@ categories:
 
   > 1、假定**Linux 系统**中安装了**GNU C 编译器 GCC**，假设**file1.c**和**file2.c**是两个内涵 C 函数的文件  
   > 2、使用`gcc file1.c file2.c`可以将**两个文件**编译成**一个**名为**a.out**的可执行文件，并**生成**两个名为**file1.o**和**file2.o**的目标文件  
-  > 3、如果后来改动了**file1.c**而没有改动**file2.c**，可以使用`cc file1.c file2.o`来编译(如果**file2.o**文件还存在)
+  > 3、如果后来改动了**file1.c**而没有改动**file2.c**，可以使用`gcc file1.c file2.o`来编译(如果**file2.o**文件还存在)
 
 - **DOS 命令行编译器**
 
