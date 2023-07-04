@@ -104,7 +104,7 @@ categories:
 > **Todo Tree**：自动集合整理所有 TODO 待办事项  
 > **Draw.io Integration**：将**Draw.io**集成到 VScode 中，画流程图，文件后缀为`.drawio`  
 > **Path Intellisense**：路径提示与自动补全  
-> **Easy Snippet**：方便快速的代码片段管理
+> **Easy Snippet**：方便快速的代码片段管理(如果总是自动换行，可以修改插件的代码片段文件，右下角行尾序列的`CRLF`改为`LF`)
 
 </div>
 
