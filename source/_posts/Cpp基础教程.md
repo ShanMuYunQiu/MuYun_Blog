@@ -4630,7 +4630,7 @@ _本文中没有特殊重申的，大多语句和特性都与 C 语言相同，C
 
 <div class="success">
 
-> **章节概要**：动态内存与智能指针；动态内存；智能指针；`shared_ptr`类；定义与使用智能指针；智能指针操作；`make_shared`函数；`shared_ptr`的拷贝与赋值；`shared_ptr`的销毁与释放；设计使用动态生存期资源的类
+> **章节概要**：动态内存与智能指针；动态内存；智能指针；`shared_ptr`类；定义与使用智能指针；智能指针操作；`make_shared`函数；`shared_ptr`的拷贝与赋值；`shared_ptr`的销毁与释放；设计使用动态生存期资源的类；直接管理内存；使用`new`动态分配和初始化对象
 
 </div>
 
@@ -4765,6 +4765,133 @@ _本文中没有特殊重申的，大多语句和特性都与 C 语言相同，C
     ```
 
 - **设计使用动态生存期资源的类**
+
+  - **使用动态内存的场景**
+
+    > 1、程序不知道**自己需要使用多少对象**  
+    > 2、程序不知道**所需对象的准确类型**  
+    > 3、程序需要在**多个对象间共享数据**
+
+  - **因共享数据而使用动态内存的情景**
+
+    > 1、**容器类**是出于上述**第一种原因**而使用**动态内存**的典型例子；我们还将在**第 15 章**见到出于**第二种原因**而使用**动态内存**的例子；而在此，我们将举出因**第三种原因**而使用**动态内存**的例子  
+    > 2、到目前为止，我们**使用过的类**中，**分配的资源**具有**与原对象一致的生存期**。例如每个`vector`都**拥有**自己的**元素**，当我们**拷贝**`vector`时，**原**`vector`和**副本**`vector`中的**元素是相互分离的**。此外，一个`vector`**的元素**只有当这个`vector`**还存在时才存在**，当`vector`**被销毁**，则**对应元素也销毁**  
+    > 3、但**某些类**中，**分配的资源**具有**与原对象相独立的生存期**。例如，假设我们希望**定义一个名为**`Blob`**的类**，保存一组元素。与容器不同，我们希望`Blob`**对象**的**不同拷贝**之间**共享相同的元素**。即，当我们**拷贝一个**`Blob`**元素**时，**原**`Blob`和**副本**`Blob`应该**引用相同的底层元素**  
+    > 4、一般而言，如果**两个对象共享底层的数据**，当**某个对象被销毁**时，不能**单方面销毁底层数据**。此外，**允许多个对象共享相同的状态**是**使用动态内存**的一个很常见的原因
+
+    ```cpp
+    Blob<string> b1;                              // 空 blob
+    // 任意一个新作用域
+    {
+        Blob<string> b2 = {"a", "an", "the"};
+        b1 = b2;                                  // b1 和 b2 共享相同的元素
+    }
+    // 此时 b2 由于离开作用域而被销毁，但其元素不能被销毁，因为 b1 仍指向这些元素
+    ```
+
+  - **定义**`StrBlob`**类**
+
+    > 1、由于后续才会学习**模板**有关内容，因此现在我们先定义一个**管理**`string`**的类**，命名为`StrBlob`，如下例  
+    > 2、实现一个新的**集合类型**的最简单方法是**使用某个标准库容器来管理元素**。采用这种方法，我们可以借助**标准库类型**管理**元素所使用的内存**。本例中，我们将**使用**`vector`**保存元素**。但是，我们不能在一个`Blob`**对象**内**直接保存**`vector`，因为一个**对象的成员**在**对象销毁时**也会**被销毁**。为了保证**元素继续存在**，我们将`vector`保存在**动态内存**中  
+    > 3、为了实现我们希望的**数据共享**，我们为每个`StrBlob`设置了一个`shared_ptr`来**管理动态分配的**`vector`，使用**动态指针**能自动完成对`vector`的**管理与释放**。此外，我们还需要为**类**定义一些**操作**和**构造函数**
+
+    ```cpp
+    #include <initializer_list>
+    #include <iostream>
+    #include <memory>
+    #include <string>
+    #include <vector>
+
+    using std::initializer_list;
+    using std::make_shared;
+    using std::shared_ptr;
+    using std::string;
+    using std::vector;
+
+    class StrBlob
+    {
+        public:
+            // 定义类型
+            using size_type = vector<string>::size_type;
+
+            // 构造函数(使用初始化列表构造)
+            StrBlob() : data(make_shared<vector<string>>())
+            {
+            }
+            StrBlob(initializer_list<string> il) : data(make_shared<vector<string>>(il))
+            {
+            }
+
+            // 成员函数，其中 data-> 实际上就是使用 vector 的成员函数
+            size_type size() const
+            {
+                return data->size();
+            }
+            bool empty() const
+            {
+                return data->empty();
+            }
+            // 添加或删除元素
+            void push_back(const string &t)
+            {
+                data->push_back(t);
+            }
+            void pop_back();
+            // 元素访问
+            string &front();
+            string &back();
+
+        private:
+            // 动态指针操控的动态内存数据成员
+            shared_ptr<vector<string>> data;
+            // 检查操作，如果 data[i] 不合法，抛出一个异常
+            void check(size_type i, const string &msg) const;
+    };
+    ```
+
+  - **元素访问成员函数**
+
+    > 1、由于要使用`pop_back`、`front`、`back`**操作访问**`vector`**中的元素**，且它们在**访问元素前**都必须**检查元素是否存在**，因此我们定义了一个名为`check`的`private`**工具函数**，用于**检查给定索引是否在合法范围内**。该函数还**接受一个**`string`，会将此参数传递给**异常处理程序**，`string`用于**描述错误内容**  
+    > 2、`pop_back`和**元素访问成员函数**首先调用`check`，如果`check`成功，再继续**利用底层**`vector`**的操作**完成自己的工作
+
+    ```cpp
+    void StrBlob::check(size_type i, const string &msg) const
+    {
+        if (i >= data->size())
+            throw std::out_of_range(msg);
+    }
+
+    string &StrBlob::front()
+    {
+        // 如果 vector 为空，check 会抛出一个异常
+        check(0, "front on empty StrBlob");
+        return data->front();
+    }
+
+    string &StrBlob::back()
+    {
+        // 如果 vector 为空，check 会抛出一个异常
+        check(0, "back on empty StrBlob");
+        return data->back();
+    }
+
+    void StrBlob::pop_back()
+    {
+        // 如果 vector 为空，check 会抛出一个异常
+        check(0, "pop_back on empty StrBlob");
+        data->pop_back();
+    }
+    ```
+
+  - `StrBlob`**的拷贝、赋值和销毁**
+
+    > 1、类似先前设计的`Sales_data`**类**，`StrBlob`**类**也使用**默认版本**的拷贝、赋值和销毁**成员函数**来对**此类对象**进行**这些操作**  
+    > 2、我们的`StrBlob`只有一个**数据成员**，它是`shared_ptr`类型。因此当我们对`StrBlob`**对象**执行这些操作时，它的`shared_ptr`**成员**就会被执行这些操作  
+    > 3、如前所述，使用了**智能指针**，其会**自动统计引用计数**，且会在**引用计数为 0**时**自动销毁**
+
+##### **直接管理内存**
+
+- **使用 new 动态分配和初始化对象**
 
 ---
 
