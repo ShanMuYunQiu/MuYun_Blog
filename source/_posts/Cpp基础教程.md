@@ -4630,7 +4630,7 @@ _本文中没有特殊重申的，大多语句和特性都与 C 语言相同，C
 
 <div class="success">
 
-> **章节概要**：动态内存与智能指针；`shared_ptr`类(智能指针)；定义与使用智能指针；智能指针操作；`make_shared`函数；`shared_ptr`的拷贝与赋值；`shared_ptr`的销毁与释放；设计使用动态生存期资源的类；直接管理内存(动态内存指针)；`new`动态分配和初始化对象；`delete`释放内存；结合使用与异常；`shared_ptr`和`new`结合使用；智能指针和异常；自定义的释放；其他智能指针；`unique_ptr`类；
+> **章节概要**：动态内存与智能指针；`shared_ptr`类(智能指针)；定义与使用智能指针；智能指针操作；`make_shared`函数；`shared_ptr`的拷贝与赋值；`shared_ptr`的销毁与释放；设计使用动态生存期资源的类；直接管理内存(动态内存指针)；`new`动态分配和初始化对象；`delete`释放内存；结合使用与异常；`shared_ptr`和`new`结合使用；智能指针和异常；自定义的释放；其他智能指针；`unique_ptr`类；`weak_ptr`类；设计核查指针类；动态数组
 
 </div>
 
@@ -5164,7 +5164,201 @@ _本文中没有特殊重申的，大多语句和特性都与 C 语言相同，C
 
 ##### **其他智能指针**
 
-- **unique_ptr 类** 
+- **unique_ptr 类**
+
+  - `unique_ptr`**操作**
+
+    > 1、一个`unique_ptr`**拥有**它所指向的对象，与`shared_ptr`不同，某个时刻**只能有一个**`unique_ptr`**指向一个给定对象**。当`unique_ptr`**被销毁**时，其指向的**对象也被销毁**。下表列出了`unique_ptr`**特有的操作**(通用操作同前表)  
+    > 2、与`shared_ptr`不同，**没有**类似`make_shared`的**标准库函数**，因此当我们**定义**`unique_ptr`时，需要将其**绑定到**`new`**返回的指针**上  
+    > 3、初始化`unique_ptr`必须采用**直接初始化**，此外其**不支持普通拷贝或赋值**。虽然我们**不能拷贝或赋值**`unique_ptr`，但可以通过`release`或`reset`将**指针所有权**转移给另一个`unique_ptr`。但注意如果我们不用**另一个智能指针**来**保存**`release`**返回的指针**，程序就要负责**释放资源**
+
+    | unique_ptr 独有的操作                   | 描述                                                                                                          |
+    | --------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+    | unique_ptr<T> u1，unique_ptr<T, D> u2   | 空 unique_ptr，可以指向类型为 T 的对象。u1 会使用 delete 释放它的指针；u2 会使用类型为 D 的可调用对象释放指针 |
+    | unique_ptr<T, D> u(d)                   | 空 unique_ptr，指向类型为 T 的对象，用类型为 D 的对象 d 代替 delete                                           |
+    | u = nullptr                             | 释放 u 指向的对象，将 u 置空                                                                                  |
+    | u.release()                             | u 放弃对指针的控制权，返回指针，并将 u 置空                                                                   |
+    | u.reset()，u.reset(q)，u.reset(nullptr) | 释放 u 指向的对象。如果提供了内置指针 q，则令 u 指向这个对象，否则将 u 置空                                   |
+
+    ```cpp
+    unique_ptr<double> p1;                              // 定义可以指向 double 的空 unique_ptr
+    unique_ptr<int> p2(new int(42));                    // p2 指向一个值为 42 的 int
+
+    unique_ptr<string> p3(new string("hello world"));
+    unique_ptr<string> p4(p3);                          // 错误：不支持拷贝
+    unique_ptr<string> p5;
+    p5 = p3;                                            // 错误：不支持赋值
+
+    // 将所有权从 ps1 转移给 ps2
+    unique_ptr<string> ps1(new string("hello"));
+    unique_ptr<string> ps2(ps1.release());              // release 将 ps1 置空，并返回指针
+    // 将所有权从 ps3 转移给 ps2
+    unique_ptr<string> ps3(new string("world"));
+    ps2.reset(ps3.release());                           // reset 释放了 ps2 原来指向的内存
+
+    // 易错：不使用智能指针接收 release 返回的指针
+    ps2.release();                                      // 错误：ps2 不会释放内存，而且我们丢失了指针
+    auto ps = ps2.release();                            // 正确：但也要记得 delete(ps)
+    ```
+
+  - **局部变量和返回值可以拷贝**
+
+    > 1、**不能拷贝**`unique_ptr`的规则有一个例外：我们**可以拷贝或赋值**一个**将要被销毁的**`unique_ptr`  
+    > 2、最常见的例子是**从函数返回一个**`unique_ptr`，此外还可以**返回一个局部变量的拷贝**  
+    > 3、对于这两种情况，**编译器**知道**要返回的对象即将被销毁**，这种情况下，编译器会执行一种**特殊的拷贝**，后续介绍
+
+    ```cpp
+    unique_ptr<int> clone(int p)
+    {
+        // 正确：从 int* 创建一个 unique_ptr<int>，并作为返回值拷贝
+        return unique_ptr<int>(new int(p));
+
+        // 正确：也可以将局部变量作为返回值拷贝
+        unique_ptr<int> ret(new int(p));
+        return ret;
+    }
+    ```
+
+  - **向**`unique_ptr`**传递删除器**
+
+    > 1、类似`shared_ptr`，`unique_ptr`**默认情况**下用`delete`释放它**指向的对象**。与`shared_ptr`相同，我们**可以重载**一个`unique_ptr`**默认的删除器**，但其**管理删除器的方式**与`shared_ptr`不同，其原因后续介绍  
+    > 2、**重载**一个`unique_ptr`**删除器**会影响到其**类型**以及**如何构造**(或`reset`)**该类型对象**。与**重载关联容器**的**比较操作**类似，必须在**尖括号中**提供**删除器类型**。在**创建**和`reset`一个对象时，必须提供一个**指定类型的可调用对象**(删除器)  
+    > 3、作为更具体的例子，我们将**重写先前用**`shared_ptr`**写的连接程序**，用`unique_ptr`代替`shared_ptr`
+
+    ```cpp
+    // p 指向一个类型为 objT 的对象，并使用一个类型为 delT 的对象释放 objT 对象
+    // 它会调用一个名为 fcn 的 delT 类型对象
+    unique_ptr<objT, delT> p(new objT, fcn);
+
+    void f(destination &d /* 其他需要的参数 */)
+    {
+        connection c = connect(&d);   // 打开链接
+        // 当 p 被销毁，链接将自动关闭
+        unique_ptr<connection, decltype(end_connection)*> p(&c, end_connection);
+        // ...使用连接
+        // 当 f 退出时(即使由于异常)，connection 会被正确关闭
+    }
+    ```
+
+- **weak_ptr 类**
+
+  - `weak_ptr`**操作**
+
+    > 1、`weak_ptr`是一种**不控制所指向对象生存期**的**智能指针**，他指向由`shared_ptr`**管理的对象**。将一个`weak_ptr`**绑定到**`shared_ptr`**不会增加其引用计数**，当`shared_ptr`**被释放**，即使还有`weak_ptr`**指向对象**，**对象也会被释放**。因此`weak_ptr`具有**弱共享对象**的特点  
+    > 2、下表列出了`weak_ptr`的操作。当我们**创建一个**`weak_ptr`时，要**用**`shared_ptr`**初始化**它  
+    > 3、由于对象**可能不存在**，我们**不能使用**`weak_ptr`**直接访问对象**，**必须调用**`lock`检查**指向的对象是否存在**。如果存在，`lock`返回一个**指向共享对象的**`shared_ptr`。与其他任何`shared_ptr`类似，只要此`shared_ptr`**存在**，其指向的**底层对象就一直存在**
+
+    | weak_ptr 独有的操作 | 描述                                                                                |
+    | ------------------- | ----------------------------------------------------------------------------------- |
+    | weak_ptr<T> w       | 空 weak_ptr 可以指向类型为 T 的对象                                                 |
+    | weak_ptr<T> w(sp)   | 与 shared_ptr sp 指向相同对象的 weak_ptr。T 必须能转换为 sp 指向的类型              |
+    | w = p               | p 可以是一个 shared_ptr 或一个 weak_ptr。赋值后 w 与 p 共享对象                     |
+    | w.reset()           | 将 w 置空                                                                           |
+    | w.use_count()       | 与 w 共享对象的 shared_ptr 的数量                                                   |
+    | w.expired()         | 若 w.use_count() 为 0，返回 true，否则返回 false                                    |
+    | w.lock()            | 如果 expired 为 true，返回一个空 shared_ptr，否则返回一个指向 w 的对象的 shared_ptr |
+
+    ```cpp
+    auto p = make_shared<int>(42);
+    weak_ptr<int> wp(p);                    // wp 弱共享 p，p 的引用计数未改变
+
+    if(shared_ptr<int> np = wp.lock())      // 如果 np 不为空则条件成立
+    {
+        // 在 if 中，np 与 p 共享对象
+        // ...使用 np
+    }
+    ```
+  
+- **设计核查指针类**
+
+  - **核查指针类**
+
+    > 1、作为`weak_ptr`用途的一个展示，我们将为**先前定义过的**`StrBlob`**类**定义一个**伴随指针类**。该类命名为`StrBlobPtr`，保存一个`weak_ptr`，**指向**`StrBlob`的`data`**成员**，且是**初始化时提供给它**的  
+    > 2、通过使用`weak_ptr`，**不会影响**一个给定的`StrBlob`**所指向的**`vector`**的生存期**，但可以**阻止用户访问**一个**不再存在的**`vector`
+
+    ```cpp
+    // 对于访问一个不存在元素的尝试，StrBlobPtr 抛出一个异常
+    class StrBlobPtr
+    {
+        public:
+            // 构造函数
+            StrBlobPtr() : curr(0)
+            {
+            }
+            StrBlobPtr(StrBlob &a, size_t sz = 0) : wptr(a.data), curr(sz)
+            {
+            }
+
+            // 成员函数
+            string &deref() const; // 解引用
+            StrBlobPtr &incr();    // 前缀递增
+
+        private:
+            // 若检查成功，check 返回一个指向 vector 的 shared_ptr
+            shared_ptr<vector<string>> check(size_t i, const string &msg) const;
+            // 保存一个 weak_ptr，意味着底层 vector 可能被销毁
+            weak_ptr<vector<string>> wptr;
+            // 在数组中的当前位置
+            size_t curr;
+    };
+
+    shared_ptr<vector<string>> StrBlobPtr::check(size_t i, const string &msg) const
+    {
+        auto ret = wptr.lock(); // 判断 vector 是否存在
+
+        // 抛出错误
+        if (!ret)
+            throw std::runtime_error("unbound StrBlobPtr");
+        if (i >= ret->size())
+            throw std::out_of_range(msg);
+
+        return ret; // 返回指向 vector 的 shared_ptr
+    }
+    ```
+  
+  - **指针操作**
+
+    > 1、我们将在第14章学习如何**定义自己的运算符**。现在我们将定义名为`deref`和`incr`的**函数**，分别用来**解引用**和**递增**`StrBlobPtr`，且这两个函数**都将调用**`check`**函数**  
+    > 2、当然，为了**访问**`StrBlob`的`data`**成员**，我们的`StrBlobStr`**类**必须声明为`StrBlob`的**友元**。我们还要为`StrBlob`定义`begin`和`end`**操作**，返回**指向它自身**的`StrBlobPtr`
+
+    ```cpp
+    string &StrBlobPtr::deref() const
+    {
+        auto p = check(curr, "dereference past end");
+        return (*p)[curr]; // (*p) 是对象所指向的 vector
+    }
+
+    // 前缀递增：返回递增后对象的引用
+    StrBlobPtr &StrBlobPtr::incr()
+    {
+        // 如果 curr 已经指向容器尾后位置，就不能递增它
+        check(curr, "increment past end of StrBlobPtr");
+        ++curr; // 推进当前位置
+        return *this;
+    }
+
+    class StrBlobPtr;
+    class StrBlob
+    {
+        public:
+            // 友元
+            friend class StrBlobPtr;
+            // 返回指向首元素和尾后元素的 StrBlobPtr
+            StrBlobPtr begin()
+            {
+                return StrBlobPtr(*this);
+            }
+            StrBlobPtr end()
+            {
+                auto ret = StrBlobPtr(*this, data->size());
+                return ret;
+            }
+        
+        // ...相同部分省略
+    }
+    ```
+
+##### **动态数组**
 
 ---
 
