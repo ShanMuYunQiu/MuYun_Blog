@@ -180,6 +180,7 @@ reward: true
 
 <div class="danger">
 
+> 07-08 | 更新`npm`和`yarn`，更新`hexo`版本至`7.0.0`
 > 05-09 | 新增了说说页面，并接入`Qexo`后台。使用`qexo-daodao`美化说说页面  
 > 05-08 | 将博客的友链接入`Qexo`后台  
 > 03-31 | 使用`Qexo`搭建了本`Hexo`博客后台  
