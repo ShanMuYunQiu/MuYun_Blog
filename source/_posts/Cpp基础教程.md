@@ -4,7 +4,7 @@ author: 圣奇宝枣
 description: 有关于C++的基础教程，该教程建立在学习过C语言的基础上，进行对比学习，了解不同的特性和更多新内容
 sticky: 2
 date: 2022-12-03
-updated: 2023-07-09
+updated: 2023-07-10
 readmore: true
 tags:
   - C++
@@ -5603,7 +5603,7 @@ _本文中没有特殊重申的，大多语句和特性都与 C 语言相同，C
     > 1、我们的`QueryResult`要表达**查询的结果**，其中包括**行号的**`set`和**行对应的文本**，而这些数据都**保存在**`TextQuery`**类型对象**中，因此我们必须确定**如何访问它们**  
     > 2、可能我们可以**拷贝**`set`，但这样**非常耗时**，而且我们**不希望拷贝**`vector`，这可能引起**整个文件的拷贝**。而通过返回**指向**`TextQuery`**对象内部**的**迭代器**(或指针)，虽然可以**避免拷贝**，但会开启**新的陷阱**：如果`TextQuery`**对象**在对应的`QueryResult`**对象**之前**被销毁**，`QueryResult`将引用一个**不存在的对象**中的数据  
     > 3、因此，对于这两个类**生存期应该同步**，考虑到两个类**概念上共享了数据**，就可以使用`shared_ptr`反映**数据结构**中的这种**共享关系**
-  
+
   - **使用**`TextQuery`**类**
 
     ```cpp
@@ -5615,7 +5615,7 @@ _本文中没有特殊重申的，大多语句和特性都与 C 语言相同，C
         // 与用户交互：提示用户输入要查询的单词，完成查询并打印结果
         while (true)
         {
-            cout << "enter word to look for, or q to quit:";
+            cout << "enter word to look for, or q to quit: ";
             string s;
             // 若遇到文件末尾或用户输入了 q，终止循环
             if (!(cin >> s) || s == "q")
@@ -5627,6 +5627,270 @@ _本文中没有特殊重申的，大多语句和特性都与 C 语言相同，C
     ```
 
 - **程序详细的类定义**
+
+  - `TextQuery`**类定义**
+
+    > 1、我们先从`TextQuery`**类定义**开始。**创建类对象**时**构造函数**接受一个`istream`，用来**读取输入文件**。该类还提供`query`**操作**，接受一个`string`，返回`QueryResult`**表示**`string`**出现的那些行**  
+    > 2、设计类的**数据成员**时，要考虑`QueryResult`**共享数据**的需求，其共享**保存输入文件**的`vector`和**保存单词关联行号**的`set`
+
+    ```cpp
+    using line_no = vector<string>::size_type; // 行号
+
+    class QueryResult; // 为了定义 TextQuery::query() 的返回类型，这个定义是必须的
+
+    // TextQuery 类定义
+    class TextQuery
+    {
+        public:
+            TextQuery(ifstream &is);                       // 构造函数
+            QueryResult query(const string &sought) const; // 查询操作
+
+        private:
+            shared_ptr<vector<string>> file;          // 输入文件
+            map<string, shared_ptr<set<line_no>>> wm; // 每个单词到它所在行号的集合的映射
+    };
+    ```
+
+  - `TextQuery`**构造函数**
+
+    ```cpp
+    // TextQuery 类构造函数：读取输入文件并建立单词到行号的映射
+    TextQuery::TextQuery(ifstream &is) : file(new vector<string>)
+    {
+        string text;
+        while (std::getline(is, text)) // 对文件中的每一行
+        {
+            file->push_back(text);    // 保存此行文本
+            int n = file->size() - 1; // 当前行号
+
+            istringstream line(text); // 用于将行文本分解为单词
+            string word;              // 用于接收并处理行中每个单词
+
+            while (line >> word) // 对行中每个单词
+            {
+                // 如果单词不在 wm 中，以之为下标在 wm 中添加一项
+                auto &lines = wm[word];            // lines 是一个 shared_ptr
+                if (!lines)                        // 第一次遇到这个单词时，此指针为空
+                    lines.reset(new set<line_no>); // 分配一个新的 set
+                lines->insert(n);                  // 将此行号插入 set 中
+            }
+        }
+    }
+    ```
+
+  - `QueryResult`**类**
+
+    > 1、`QueryResult`**类**有三个**数据成员**：一个`string`，**保存查询单词**；一个`shared_ptr`，指向**保存输入文件**的`vector`；一个`shared_ptr`，指向**保存单词出现行号**的`set`  
+    > 2、它唯一的一个**成员函数**是一个**构造函数**，其工作是**将参数保存**在**对应的数据成员**中
+
+    ```cpp
+    // QueryResult 类
+    class QueryResult
+    {
+        public:
+            // 打印函数的友元
+            friend ostream &print(ostream &os, const QueryResult &qr);
+
+            // 构造函数
+            QueryResult(string s, shared_ptr<set<line_no>> p, shared_ptr<vector<string>> f) : sought(s), lines(p), file(f)
+            {
+            }
+
+        private:
+            string sought;                   // 查询单词
+            shared_ptr<set<line_no>> lines;  // 出现的行号
+            shared_ptr<vector<string>> file; // 输入文件
+    };
+    ```
+
+  - `TextQuery::query`**函数**
+
+    > 1、`query`**函数**接受一个`string`**参数**，即**要查询的单词**，`query`用它在`map`中**定位对应行号**的`set`。如果找到了这个`string`，该函数**构造并返回**`QueryResult`  
+    > 2、唯一的问题是：如果给定`string`**未找到**，应该返回什么？此时**没有可返回的**`set`，为此我们定义了一个**局部**`static`**对象**，它是一个指向**空行号**`set`**的**`shared_ptr`。当**未找到给定单词**时，**返回此对象的一个拷贝**
+
+    ```cpp
+    // TextQuery::query() 函数
+    QueryResult TextQuery::query(const string &sought) const
+    {
+        // 如果找到 sought，我们将返回一个指向此 set 的指针
+        static shared_ptr<set<line_no>> nodata(new set<line_no>);
+
+        // 使用 find 而不是下标运算符来查找单词，避免将单词添加到 wm 中
+        auto loc = wm.find(sought);
+        if (loc == wm.end())
+            return QueryResult(sought, nodata, file); // 未找到
+        else
+            return QueryResult(sought, loc->second, file);
+    }
+    ```
+
+  - **打印结果**
+
+    ```cpp
+    // 打印结果：print() 函数
+    ostream &print(ostream &os, const QueryResult &qr)
+    {
+        // 如果找到了单词，打印出现次数和所有出现的位置
+        os << qr.sought << " occurs " << qr.lines->size() << " time" << (qr.lines->size() > 1 ? "s" : "") << endl;
+
+        // 打印单词出现的每一行
+        for (auto num : *qr.lines) // 对 set 中每个单词
+            // 避免行号从 0 开始给用户带来困惑
+            os << "\t(line " << num + 1 << ") " << *(qr.file->begin() + num) << endl;
+
+        return os;
+    }
+    ```
+
+- **完整的类**
+
+  ```cpp
+  #include <fstream>
+  #include <iostream>
+  #include <map>
+  #include <memory>
+  #include <set>
+  #include <sstream>
+  #include <string>
+  #include <vector>
+
+  using std::cin;
+  using std::cout;
+  using std::endl;
+  using std::ifstream;
+  using std::istringstream;
+  using std::map;
+  using std::ostream;
+  using std::set;
+  using std::shared_ptr;
+  using std::string;
+  using std::vector;
+
+  using line_no = vector<string>::size_type; // 行号
+
+  class QueryResult; // 为了定义 TextQuery::query() 的返回类型，这个定义是必须的
+
+  // TextQuery 类定义
+  class TextQuery
+  {
+      public:
+          TextQuery(ifstream &is);                       // 构造函数
+          QueryResult query(const string &sought) const; // 查询操作
+
+      private:
+          shared_ptr<vector<string>> file;          // 输入文件
+          map<string, shared_ptr<set<line_no>>> wm; // 每个单词到它所在行号的集合的映射
+  };
+
+  // TextQuery 类构造函数：读取输入文件并建立单词到行号的映射
+  TextQuery::TextQuery(ifstream &is) : file(new vector<string>)
+  {
+      string text;
+      while (std::getline(is, text)) // 对文件中的每一行
+      {
+          file->push_back(text);    // 保存此行文本
+          int n = file->size() - 1; // 当前行号
+
+          istringstream line(text); // 用于将行文本分解为单词
+          string word;              // 用于接收并处理行中每个单词
+
+          while (line >> word) // 对行中每个单词
+          {
+              // 如果单词不在 wm 中，以之为下标在 wm 中添加一项
+              auto &lines = wm[word];            // lines 是一个 shared_ptr
+              if (!lines)                        // 第一次遇到这个单词时，此指针为空
+                  lines.reset(new set<line_no>); // 分配一个新的 set
+              lines->insert(n);                  // 将此行号插入 set 中
+          }
+      }
+  }
+
+  // QueryResult 类
+  class QueryResult
+  {
+      public:
+          // 打印函数的友元
+          friend ostream &print(ostream &os, const QueryResult &qr);
+
+          // 构造函数
+          QueryResult(string s, shared_ptr<set<line_no>> p, shared_ptr<vector<string>> f) : sought(s), lines(p), file(f)
+          {
+          }
+
+      private:
+          string sought;                   // 查询单词
+          shared_ptr<set<line_no>> lines;  // 出现的行号
+          shared_ptr<vector<string>> file; // 输入文件
+  };
+
+  // TextQuery::query() 函数
+  QueryResult TextQuery::query(const string &sought) const
+  {
+      // 如果找到 sought，我们将返回一个指向此 set 的指针
+      static shared_ptr<set<line_no>> nodata(new set<line_no>);
+
+      // 使用 find 而不是下标运算符来查找单词，避免将单词添加到 wm 中
+      auto loc = wm.find(sought);
+      if (loc == wm.end())
+          return QueryResult(sought, nodata, file); // 未找到
+      else
+          return QueryResult(sought, loc->second, file);
+  }
+
+  // 打印结果：print() 函数
+  ostream &print(ostream &os, const QueryResult &qr)
+  {
+      // 如果找到了单词，打印出现次数和所有出现的位置
+      os << qr.sought << " occurs " << qr.lines->size() << " time" << (qr.lines->size() > 1 ? "s" : "") << endl;
+
+      // 打印单词出现的每一行
+      for (auto num : *qr.lines) // 对 set 中每个单词
+          // 避免行号从 0 开始给用户带来困惑
+          os << "\t(line " << num + 1 << ") " << *(qr.file->begin() + num) << endl;
+
+      return os;
+  }
+
+  // 使用文本查询程序
+  void runQueries(ifstream &infile)
+  {
+      // infile 是一个 ifstream，指向我们要处理的文件
+      TextQuery tq(infile); // 保存文件并建立查询 map
+      // 与用户交互：提示用户输入要查询的单词，完成查询并打印结果
+      while (true)
+      {
+          cout << "enter word to look for, or q to quit: ";
+          string s;
+          // 若遇到文件末尾或用户输入了 q，终止循环
+          if (!(cin >> s) || s == "q")
+              break;
+          // 指向查询并打印结果
+          print(cout, tq.query(s)) << endl;
+      }
+  }
+
+  int main()
+  {
+      string filename = "passage.txt";
+      ifstream infile(filename);
+      runQueries(infile);
+      return 0;
+  }
+  ```
+
+---
+
+#### **拷贝控制**
+
+---
+
+<div class="success">
+
+> **章节概要**：拷贝、赋值与销毁；
+
+</div>
+
+##### **拷贝、赋值与销毁**
 
 ---
 
