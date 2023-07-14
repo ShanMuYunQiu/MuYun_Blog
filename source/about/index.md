@@ -7,13 +7,15 @@ reward: true
 ---
 
 > #### _**有朋自远方来，不亦乐乎，愿与你相识，得闲饮茶**_
+>
 > ---
+>
 > _Hello world! Welcome!_
 > 那些光辉的岁月，那些逝去的时光，伴着远去的人和事物，流向远方
 
 ---
 
-##### _**Chrome浏览器请在 `Chrome://flags` 开启 `Windows Scrolling Personality` 选项以获得最佳体验**_
+##### _**Chrome 浏览器请在 `Chrome://flags` 开启 `Windows Scrolling Personality` 选项以获得最佳体验**_
 
 恭喜你能找到这个 ~~_不起眼_~~ **隐秘**的，但充斥着 ~~_黑历史_~~ **光辉历史**的介绍！
 
@@ -38,7 +40,7 @@ reward: true
 
 </div>
 
-![](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/user.png)_一个笨蛋画渣竭尽所能所画的怪图_
+![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/user.png)_一个笨蛋画渣竭尽所能所画的怪图_
 
 ##### **关于这个站点：**
 
@@ -159,8 +161,8 @@ reward: true
 <div class="yellow">
 
 > 虽然侧边栏有我的联系方式了，但这里也放一份吧！  
-> **微信**：[lty1099501402](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/wechat.jpg)(可能会更正式一些，如果想认识认识建议加 QQ 哦)  
-> **QQ**：[1099501402](https://jsd.cky.codes/gh/ShengQiBaoZao/Image/QQ.jpg)(好友位极大空缺，欢迎来聊聊！如果不想 QQ，也可以 B 站私信聊聊哦!!)  
+> **微信**：[lty1099501402](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/wechat.jpg)(可能会更正式一些，如果想认识认识建议加 QQ 哦)  
+> **QQ**：[1099501402](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/QQ.jpg)(好友位极大空缺，欢迎来聊聊！如果不想 QQ，也可以 B 站私信聊聊哦!!)  
 > **E-mail**：[lty15376767691@gmail.com](mailto:lty15376767691@gmail.com)(可能看的更少，一般只用来注册账号和收验证码)  
 > **github**：[https://github.com/ShengQiBaoZao](https://github.com/ShengQiBaoZao)(现在可能没啥好看的，但指不定将来就有了呢(~~_诶嘿_~~))  
 > **网易云音乐**：[https://music.163.com/#/user/home?id=509242587](https://music.163.com/#/user/home?id=509242587)(虽然你会看到我曾经编曲的黑历史，但强烈不建议去听!!)  
@@ -182,6 +184,7 @@ reward: true
 
 <div class="danger">
 
+> 07-14 | 由于`jsd.cky.codes`常不稳定，CDN 更换为`cdn.jsdelivr.net`  
 > 07-08 | 更新`npm`和`yarn`，更新`hexo`版本至`7.0.0`  
 > 05-09 | 新增了说说页面，并接入`Qexo`后台。使用`qexo-daodao`美化说说页面  
 > 05-08 | 将博客的友链接入`Qexo`后台  

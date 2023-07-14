@@ -1,4 +1,7 @@
-favicon: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/user2.png
+favicon: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/user2.png
+# https://jsd.cky.codes
+# https://jsdelivr.codeqihan.com
+# https://cdn.jsdelivr.net
 
 notice:
   enable: true
@@ -53,11 +56,11 @@ categories:
 
 social:
   - name: 微信(请扫描二维码添加)
-    link: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/wechat.jpg
+    link: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/wechat.jpg
     icon: ri:wechat-2-line
     color: "#1AAD19"
   - name: QQ(请扫描二维码添加)
-    link: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/QQ.jpg
+    link: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/QQ.jpg
     icon: ri:qq-line
     color: "#12B7F5"
   - name: GitHub(个人页面)
@@ -90,7 +93,7 @@ banner:
 
 say:
   enable: true
-  api: https://jsd.cky.codes/gh/ElpsyCN/say@gh-pages/sentences.json
+  api: https://cdn.jsdelivr.net/gh/ElpsyCN/say@gh-pages/sentences.json
   # https://developer.hitokoto.cn/sentence/
   hitokoto:
     enable: true
@@ -107,8 +110,8 @@ mode: time
 
 bg_image:
   enable: true
-  url: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/background.png
-  dark: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/background8.jpg
+  url: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/background.png
+  dark: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/background8.jpg
   blur: 5px
   opacity: 0.8
 
@@ -132,7 +135,7 @@ cursor:
   text: https://cdn.yunyoujun.cn/css/md-cursors/text.cur
 
 sidebar:
-  bg_image: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/background7.jpg
+  bg_image: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/background7.jpg
   bg_position: bottom 3rem center
   tagcloud:
     enable: true
@@ -140,7 +143,7 @@ sidebar:
 
 avatar:
   enable: true
-  url: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/user2.png
+  url: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/user2.png
   rounded: true
   opacity: 1
   mickey_mouse: false
@@ -214,15 +217,15 @@ reward:
   comment: 手头阔绰?点这点这!money得斯!
   methods:
     - name: 微信支付
-      path: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/wechatpay.png
+      path: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/wechatpay.png
       color: "#2DC100"
       icon: ri:wechat-pay-line
     - name: 支付宝
-      path: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/alipay.png
+      path: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/alipay.png
       color: "#00A3EE"
       icon: ri:alipay-line
     - name: QQ 支付
-      path: https://jsd.cky.codes/gh/ShengQiBaoZao/Image/QQpay.png
+      path: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/QQpay.png
       color: "#12B7F5"
       icon: ri:qq-line
 
@@ -326,7 +329,7 @@ medium_zoom: true
 
 vendors:
   # 以 '/' 结尾
-  host: "https://jsd.cky.codes/npm/"
+  host: "https://cdn.jsdelivr.net/npm/"
   # 下方代表覆盖 waline CDN 为别的链接，默认不用修改
   # waline:
   #   css: '@waline/client@v2/dist/waline.css'

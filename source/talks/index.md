@@ -6,7 +6,7 @@ reward: true
 
 <head>
   <!-- ... -->
-  <script src="https://jsd.cky.codes/gh/Uyoahz26/daodao@main/dist/qexo-dao.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/Uyoahz26/daodao@main/dist/qexo-dao.min.js"></script>
   <!-- ... -->
 </head>
 <body>
@@ -15,7 +15,7 @@ reward: true
   <script>
     qexoDaodao?.init({
       el: "#qexoDaoDao",
-      avatar: "https://jsd.cky.codes/gh/ShengQiBaoZao/Image/user2.png",
+      avatar: "https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/user2.png",
       name: "圣奇宝枣",
       title: "博主的碎碎念",
       limit: 7,
