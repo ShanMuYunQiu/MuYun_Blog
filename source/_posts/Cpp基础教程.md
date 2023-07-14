@@ -5642,8 +5642,8 @@ _本文中没有特殊重申的，大多语句和特性都与 C 语言相同，C
     class TextQuery
     {
         public:
-            TextQuery(ifstream &is);                       // 构造函数
-            QueryResult query(const string &sought) const; // 查询操作
+            TextQuery(ifstream &);                         // 构造函数
+            QueryResult query(const string &) const;       // 查询操作
 
         private:
             shared_ptr<vector<string>> file;          // 输入文件
@@ -5774,8 +5774,8 @@ _本文中没有特殊重申的，大多语句和特性都与 C 语言相同，C
   class TextQuery
   {
       public:
-          TextQuery(ifstream &is);                       // 构造函数
-          QueryResult query(const string &sought) const; // 查询操作
+          TextQuery(ifstream &);                         // 构造函数
+          QueryResult query(const string &) const;       // 查询操作
 
       private:
           shared_ptr<vector<string>> file;          // 输入文件
@@ -6356,7 +6356,7 @@ _本文中没有特殊重申的，大多语句和特性都与 C 语言相同，C
   > 2、作为类需要**拷贝控制**来进行**簿记工作**的例子，我们将定义`Message`和`Folder`**类**，分别表示**电子邮件消息**和**消息目录**。每个`Message`的内容**只有一个副本**，以确保**从任何**`Folder`查看此`Message`都会看到**修改后的内容**。为了记录`Message`**位于哪些**`Folder`中，每个`Message`都保存一个**它所在**`Folder`**的**`set`；同样，每个`Folder`都保存一个**它包含**`Message`**的指针的**`set`  
   > 3、篇幅原因，我们在此只设计`Message`类，但我们假定`Folder`类有`addMsg`和`remMsg`两个**成员函数**，分别用于在**给定**`Folder`**对象**中**添加或删除**`Message`
 
-- **设计 Message 类的操作**
+- **Message 类的设计**
 
   > 1、`Message`将提供`save`和`remove`**操作**，向一个**给定**`Folder`**添加或删除**`Message`。创建`Message`时**只需指明消息内容**，**不会指出**`Folder`，而将`Message`**放到特定**`Folder`中**必须调用**`save`  
   > 2、当**拷贝**`Message`时，**副本**和**原对象**是**不同的**`Message`**对象**，但两个`Message`出现在**相同的**`Folder`中。因此，**拷贝操作**包括**消息内容**和`Folder`**指针**`set`的拷贝，而且我们必须在**所有其所在的**`Folder`中**添加指向新创建**`Message`**的指针**  
@@ -6370,25 +6370,25 @@ _本文中没有特殊重申的，大多语句和特性都与 C 语言相同，C
   {
       public:
           friend class Folder;                          // 友元 Folder 类
-          friend void swap(Message &lhs, Message &rhs); // 友元 swap 函数
+          friend void swap(Message &, Message &);       // 友元 swap 函数
 
           // 默认构造函数：数据成员 folders 被隐式初始化为空 set
           explicit Message(const string &str = "") : contents(str)
           {
           }
           // 拷贝控制成员：管理指向本 Message 的指针
-          Message(const Message &m);                    // 拷贝构造函数
-          Message& operator=(const Message &rhs);       // 拷贝赋值运算符
+          Message(const Message &);                     // 拷贝构造函数
+          Message& operator=(const Message &);          // 拷贝赋值运算符
           ~Message();                                   // 析构函数
           // 从给定 Folder 的 set 中增加/删除本 Message
-          void save(Folder &f);
-          void remove(Folder &f);
+          void save(Folder &);
+          void remove(Folder &);
 
       private:
           string contents;                              // 实际消息文本
           set<Folder*> folders;                         // 包含本 Message 的 Folder
           // 拷贝控制对象所使用的工具函数
-          void add_to_Folders(const Message &m);        // 将 Message 添加到指向参数的 Folder 中
+          void add_to_Folders(const Message &);         // 将 Message 添加到指向参数的 Folder 中
           void remove_from_Folders();                   // 从 folders 中的每个 Folder 中移除本 Message
   };
   ```
@@ -6490,6 +6490,92 @@ _本文中没有特殊重申的，大多语句和特性都与 C 语言相同，C
   ```
 
 ##### **动态内存管理类**
+
+- **描述**、
+
+  > 1、某些类需要**在运行时**分配**可变大小**的内存。这种类通常可以使用**标准库容器**来**保存**它们的**数据**，例如之前定义的`StrBlob`使用`vector`来**管理其元素**的**底层内存**  
+  > 2、但是，这一策略并**不适用于全部类**，某些类需要**自己分配内存**，这些类通常必须**自定义拷贝控制成员**来**管理分配的内存**  
+  > 3、我们将实现**标准库**`vector`的**简化版本**，我们只实现其**针对**`string`**的版本**，命名为`StrVec`(只实现部分功能)
+
+- **StrVec 类的设计**
+
+  > 1、回忆`std::vector`**的行为**：其将**元素**保存在**连续内存**中，**预先分配足够内存**来保存可能需要的更多元素。**添加元素**的**成员函数**将检查**是否有空间容纳更多元素**：如果有，将在下个可用位置**构造一个对象**；如果没有，则**重新分配空间**，将**已有元素移入新获得的空间**，**释放旧内存**，**添加新元素**  
+  > 2、`StrVec`**类**使用**类似的策略**，我们将使用一个`allocator`来**获得原始内存**。由于`allocator`**分配的内存**是**未构造**的，我们将在需要**添加元素**时用其`construct`**成员**创建对象；类似的，我们将使用`destroy`**成员**销毁元素  
+  > 3、每个`StrVec`有**三个指针**指向**其元素所使用的内存**：`elements`指向**已分配的内存**的**首元素**；`first_free`指向**最后一个实际元素之后的位置**(已分配内存的尾后，未分配内存的首)；`cap`指向**分配的整个内存的尾后位置**。除了这些指针，`StrVec`还有一个类型为`allocator<string>`的`alloc`**静态成员**，用于**分配**`StrVec`**使用的内存**  
+  > 4、该类还有**四个工具函数**：`alloc_n_copy`会**分配内存**，并**拷贝给定范围的元素**；`free`会**销毁构造的元素**并**释放内存**；`chk_n_alloc`**保证**`StrVec`至少有**容纳一个新元素的空间**，如果不够则**添加新元素**，调用`reallocate`**分配内存**；`reallocate`的**内存用完时**为`StrVec`**分配新内存**
+
+- **定义 StrVec 类**
+
+  > 1、
+
+  ```cpp
+  // 类 vector 的内存分配策略的简化实现
+  class StrVec
+  {
+      public:
+          // allocator 成员进行默认初始化
+          StrVec() : elements(nullptr), first_free(nullptr), cap(nullptr)
+          {
+          }
+          StrVec(const StrVec &);            // 拷贝构造函数
+          StrVec &operator=(const StrVec &); // 拷贝赋值运算符
+          ~StrVec();                         // 析构函数
+          void push_back(const string &);    // 拷贝元素
+
+          size_t size() const
+          {
+              return first_free - elements;
+          }
+          size_t capacity() const
+          {
+              return cap - elements;
+          }
+          string *begin() const
+          {
+              return elements;
+          }
+          string *end() const
+          {
+              return first_free;
+          }
+          // ...
+
+      private:
+          static allocator<string> alloc; // 分配元素
+
+          // 被添加元素的函数所使用
+          void chk_n_alloc()
+          {
+              if (size() == capacity())
+                  reallocate();
+          }
+
+          // 工具函数，被拷贝构造函数、赋值运算符和析构函数所使用
+          pair<string *, string *> alloc_n_copy(const string *, const string *);
+          void free();        // 销毁元素并释放内存
+          void reallocate();  // 获得更多内存并拷贝已有元素
+          string *elements;   // 指向数组首元素的指针
+          string *first_free; // 指向数组第一个空闲元素的指针(未分配内存的首)
+          string *cap;        // 指向数组尾后位置的指针
+  };
+  ```
+
+- **使用 construct**
+
+  > 1、函数`push_back`**调用**`chk_n_alloc`确保**有空间容纳新元素**，如果需要，`chk_n_alloc`会调用`reallocate`。当`chk_n_alloc`**返回**时，`push_back`知道**必定有空间**容纳新元素，便可以要求`allocator`**类型成员**来`construct`**新的尾元素**  
+  > 2、`construct`**第一个参数**是一个**指针**，指向调用`allocate`所分配的**未构造内存空间**；**剩余参数**用于确定**用哪个构造函数**来**构造对象**  
+  > 3、值得注意的是，对`construct`**的调用**也会**递增**`first_free`，表示**已经构造了新元素**，其使用**前置递增**
+
+  ```cpp
+  // push_back 函数
+  void StrVec::push_back(const string &s)
+  {
+      chk_n_alloc();                    // 确保有空间分配元素
+      alloc.construct(first_free++, s); // 在 first_free 指向的元素中构造 s 的副本
+  }
+  ```
+
+- **alloc_n_copy 成员**
 
 ---
 
