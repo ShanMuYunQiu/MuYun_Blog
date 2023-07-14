@@ -4,7 +4,7 @@ author: 圣奇宝枣
 description: 有关于C++的基础教程，该教程建立在学习过C语言的基础上，进行对比学习，了解不同的特性和更多新内容
 sticky: 2
 date: 2022-12-03
-updated: 2023-07-13
+updated: 2023-07-14
 readmore: true
 tags:
   - C++
@@ -5886,7 +5886,7 @@ _本文中没有特殊重申的，大多语句和特性都与 C 语言相同，C
 
 <div class="success">
 
-> **章节概要**：拷贝、赋值与销毁；拷贝控制；拷贝构造函数；拷贝赋值运算符；重载赋值运算符；析构函数；三/五法则；阻止拷贝；定义删除的函数；拷贝控制和资源管理；行为像值的类；行为像指针的类；交换操作；类的`swap`；拷贝控制示例
+> **章节概要**：拷贝、赋值与销毁；拷贝控制；拷贝构造函数；拷贝赋值运算符；重载赋值运算符；析构函数；三/五法则；阻止拷贝；定义删除的函数；拷贝控制和资源管理；行为像值的类；行为像指针的类；交换操作；类的`swap`；拷贝控制示例；动态内存管理类；
 
 </div>
 
@@ -6349,6 +6349,147 @@ _本文中没有特殊重申的，大多语句和特性都与 C 语言相同，C
   ```
 
 ##### **拷贝控制示例**
+
+- **描述**
+
+  > 1、虽然通常来说**分配资源**的类更需要**拷贝控制**，但**资源管理**不是一个**类需要拷贝控制**的**唯一原因**，一些类也需要**拷贝控制**来进行**簿记工作**和**其他操作**  
+  > 2、作为类需要**拷贝控制**来进行**簿记工作**的例子，我们将定义`Message`和`Folder`**类**，分别表示**电子邮件消息**和**消息目录**。每个`Message`的内容**只有一个副本**，以确保**从任何**`Folder`查看此`Message`都会看到**修改后的内容**。为了记录`Message`**位于哪些**`Folder`中，每个`Message`都保存一个**它所在**`Folder`**的**`set`；同样，每个`Folder`都保存一个**它包含**`Message`**的指针的**`set`  
+  > 3、篇幅原因，我们在此只设计`Message`类，但我们假定`Folder`类有`addMsg`和`remMsg`两个**成员函数**，分别用于在**给定**`Folder`**对象**中**添加或删除**`Message`
+
+- **设计 Message 类的操作**
+
+  > 1、`Message`将提供`save`和`remove`**操作**，向一个**给定**`Folder`**添加或删除**`Message`。创建`Message`时**只需指明消息内容**，**不会指出**`Folder`，而将`Message`**放到特定**`Folder`中**必须调用**`save`  
+  > 2、当**拷贝**`Message`时，**副本**和**原对象**是**不同的**`Message`**对象**，但两个`Message`出现在**相同的**`Folder`中。因此，**拷贝操作**包括**消息内容**和`Folder`**指针**`set`的拷贝，而且我们必须在**所有其所在的**`Folder`中**添加指向新创建**`Message`**的指针**  
+  > 3、**销毁一个**`Message`，它将**不复存在**。因此，我们必须从**所有其所在的**`Folder`中**删除指向该**`Message`**的指针**  
+  > 4、当将**一个**`Message`**赋予另一个**`Message`**对象**时，**左侧对象内容**会被**右侧对象内容**所替代。我们还**必须更新**`Folder`**的**`set`，从原来**左侧对象**的`Folder`中**将它删除**，并将它**添加到右侧对象**的`Folder`中
+
+- **定义 Message 类**
+
+  ```cpp
+  class Message
+  {
+      public:
+          friend class Folder;                          // 友元 Folder 类
+          friend void swap(Message &lhs, Message &rhs); // 友元 swap 函数
+
+          // 默认构造函数：数据成员 folders 被隐式初始化为空 set
+          explicit Message(const string &str = "") : contents(str)
+          {
+          }
+          // 拷贝控制成员：管理指向本 Message 的指针
+          Message(const Message &m);                    // 拷贝构造函数
+          Message& operator=(const Message &rhs);       // 拷贝赋值运算符
+          ~Message();                                   // 析构函数
+          // 从给定 Folder 的 set 中增加/删除本 Message
+          void save(Folder &f);
+          void remove(Folder &f);
+
+      private:
+          string contents;                              // 实际消息文本
+          set<Folder*> folders;                         // 包含本 Message 的 Folder
+          // 拷贝控制对象所使用的工具函数
+          void add_to_Folders(const Message &m);        // 将 Message 添加到指向参数的 Folder 中
+          void remove_from_Folders();                   // 从 folders 中的每个 Folder 中移除本 Message
+  };
+  ```
+
+- **save 和 remove 成员函数**
+
+  ```cpp
+  // 将 Message 保存到 Folder
+  void Message::save(Folder &f)
+  {
+      folders.insert(&f);         // 将给定 Folder 添加到 folders 中
+      f.addMsg(this);             // 将本 Message 添加到 f 的 set 中
+  }
+
+  // 将 Message 从 Folder 移除
+  void Message::remove(Folder &f)
+  {
+      folders.erase(&f);          // 将给定 Folder 从 folders 中移除
+      f.remMsg(this);             // 将本 Message 从 f 的 set 中移除
+  }
+  ```
+
+- **拷贝构造函数**
+
+  ```cpp
+  // 公共操作：将 Message 添加到指向参数的 Folder 中
+  void Message::add_to_Folders(const Message &m)
+  {
+      for (auto f : m.folders) // 对每个包含 m 的 Folder
+          f->addMsg(this);     // 向该 Folder 添加指向本 Message 的指针
+  }
+
+  // 拷贝构造函数：拷贝 contents 和 folders 数据成员
+  Message::Message(const Message &m) : contents(m.contents), folders(m.folders)
+  {
+      add_to_Folders(m); // 将本 Message 添加到指向 m 的 Folder 中
+  }
+  ```
+
+- **析构函数**
+
+  ```cpp
+  // 公共操作：从 folders 中的每个 Folder 中移除本 Message
+  void Message::remove_from_Folders()
+  {
+      for (auto f : folders) // 对 folders 中每个指针
+          f->remMsg(this);   // 从该 Folder 中移除本 Message
+  }
+
+  // 析构函数
+  Message::~Message()
+  {
+      remove_from_Folders();
+  }
+  ```
+
+- **拷贝复制运算符**
+
+  ```cpp
+  // 拷贝赋值运算符
+  Message &Message::operator=(const Message &rhs)
+  {
+      // 通过先删除指针再插入对象，来处理自赋值情况
+      remove_from_Folders();   // 更新 folders，删除左侧对象所在的 Folder 的记录
+      contents = rhs.contents; // 从 rhs 拷贝消息内容
+      folders = rhs.folders;   // 从 rhs 拷贝 folders
+      add_to_Folders(rhs);     // 将该 Message 添加到指向 rhs 的 Folder 中
+      return *this;
+  }
+  ```
+
+- **swap 函数**
+
+  > 1、**标准库**中**定义了**`string`**和**`set`**的**`swap`版本。因此如果我们的`Message`**自定义它的**`swap`，那么它将**从中受益**，**避免**对`contents`和`folders`进行**不必要的拷贝**  
+  > 2、但同时，我们的**自定义的**`swap`还要**管理被交换的指针**，在`Message`**被交换后**，**原本指向**`m1`**的**`Folder`就要**指向**`m2`，反之亦然。这需要我们在`swap`中**定义相关操作**
+
+  ```cpp
+  // swap 函数
+  void swap(Message &lhs, Message &rhs)
+  {
+      using std::swap; // 本例中严格来说并不需要，但这是一个好习惯
+
+      // 将每个 Message 的指针从它原来所在 Folder 中删除
+      for (auto f : lhs.folders)
+          f->remMsg(&lhs);
+      for (auto f : rhs.folders)
+          f->remMsg(&rhs);
+
+      // 交换 contents 和 folders
+      swap(lhs.contents, rhs.contents); // 使用 string 类的 swap(string&, string&)
+      swap(lhs.folders, rhs.folders);   // 使用 set 类的 swap(set&, set&)
+
+      // 将每个 Message 的指针添加到新的 Folder 中
+      for (auto f : lhs.folders)
+          f->addMsg(&lhs);
+      for (auto f : rhs.folders)
+          f->addMsg(&rhs);
+  }
+  ```
+
+##### **动态内存管理类**
 
 ---
 
