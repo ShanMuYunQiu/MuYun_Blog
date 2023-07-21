@@ -5,7 +5,7 @@ favicon: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/user2.png
 
 notice:
   enable: true
-  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：Cpp基础教程 | 更新时间：2023-07-20
+  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：Cpp基础教程 | 更新时间：2023-07-21
 # 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ
 
 tags:
@@ -110,9 +110,9 @@ mode: time
 
 bg_image:
   enable: true
-  url: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/background.png
-  dark: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/background8.jpg
-  blur: 5px
+  url: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/background.jpg
+  dark: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/background_n.jpg
+  blur: 2px
   opacity: 0.8
 
 fireworks:
@@ -135,7 +135,7 @@ cursor:
   text: https://cdn.yunyoujun.cn/css/md-cursors/text.cur
 
 sidebar:
-  bg_image: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/background7.jpg
+  bg_image: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/background_side.jpg
   bg_position: bottom 3rem center
   tagcloud:
     enable: true
@@ -217,15 +217,15 @@ reward:
   comment: 手头阔绰?点这点这!money得斯!
   methods:
     - name: 微信支付
-      path: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/wechatpay.png
+      path: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/wechatpay.jpg
       color: "#2DC100"
       icon: ri:wechat-pay-line
     - name: 支付宝
-      path: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/alipay.png
+      path: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/alipay.jpg
       color: "#00A3EE"
       icon: ri:alipay-line
     - name: QQ 支付
-      path: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/QQpay.png
+      path: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/QQpay.jpg
       color: "#12B7F5"
       icon: ri:qq-line
 

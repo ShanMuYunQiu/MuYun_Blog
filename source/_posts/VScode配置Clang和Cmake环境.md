@@ -161,6 +161,10 @@ categories:
     BasedOnStyle: Microsoft
     UseTab: Never
     IndentWidth: 4
+
+    # 下面是我使用时额外添加的规则
+    IndentAccessModifiers: true
+    IndentCaseLabels: true
     ```
 
   - **自定义修改模板**(可能随版本更新与官网文档有出入)
