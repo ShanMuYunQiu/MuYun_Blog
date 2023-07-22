@@ -4,7 +4,7 @@ author: 圣奇宝枣
 description: 有关于C++的基础教程，该教程建立在学习过C语言的基础上，进行对比学习，了解不同的特性和更多新内容
 sticky: 2
 date: 2022-12-03
-updated: 2023-07-21
+updated: 2023-07-22
 readmore: true
 tags:
   - C++
@@ -6965,7 +6965,7 @@ _本文中没有特殊重申的，大多语句和特性都与 C 语言相同，C
 
 <div class="success">
 
-> **章节概要**：重载运算符；使用重载运算符；重载运算符的设计；输入输出运算符；算术和关系运算符；赋值运算符；下标运算符；递增递减运算符；成员访问运算符
+> **章节概要**：重载运算符；使用重载运算符；重载运算符的设计；输入输出运算符；算术和关系运算符；赋值运算符；下标运算符；递增递减运算符；成员访问运算符；`lambda`是函数对象；标准库函数对象；可调用对象与`function`；
 
 </div>
 
@@ -7305,6 +7305,162 @@ _本文中没有特殊重申的，大多语句和特性都与 C 语言相同，C
   ```
 
 ##### **函数调用运算符**
+
+- **函数调用运算符**
+
+  - **描述**
+
+    > 1、如果类重载了**函数调用运算符**，则我们可以像**使用函数**一样**使用该类对象**。因为这样的类**同时也能存储状态**，所以与**普通函数**相比它们**更灵活**  
+    > 2、**函数调用运算符**必须是**成员函数**。如下例，我们设计`absInt`类含有一个**调用运算符**，其**返回参数的绝对值**。使用时，令一个`absInt`的**对象**`absObj`作用于一个**实参列表**，这一过程看起来**非常像函数调用**的过程。即使`absObj`**只是一个对象**，**而非函数**，但我们也能**调用该对象**  
+    > 3、如果类**定义了调用运算符**，则**该类对象**称作**函数对象**，因为**可以调用**这些对象，所以说这些对象**行为像函数一样**
+
+    ```cpp
+    struct absInt
+    {
+        // 函数调用运算符 operator()
+        int operator()(int val) const
+        {
+            return val < 0 ? -val : val;
+        }
+    };
+
+    int i = -42;
+    absInt absObj;        // 含有函数调用运算符的对象
+    int ui = absObj(i);   // 将 i 传递给 absObj.operator()
+    ```
+
+  - **含有状态的函数对象类**
+
+    > 1、和其他类一样，**函数对象类**除了`operator()`之外也可以包含其他成员。**函数对象类**通常含有一些**数据成员**，这些成员被用于**定制调用运算符中的操作**  
+    > 2、如下例，我们定义一个**打印**`string`**实参内容**的类。该类的**构造函数**接受一个**输出流引用**和一个**用于分隔的字符**，且都设置了**默认值**，之后的**函数调用运算符**中使用**数据成员**来协助打印给定的`string`  
+    > 3、**函数对象**常常作为**泛型算法**的**实参**，例如可以使用**标准库**`for_each`**算法**和我们的`PrintString`来**打印容器内容**：`for_each(vs.begin(), vs.end(), PrintString(cerr, '\n'))`。其中**第三个实参**是`PrintString`的一个**临时对象**，用`cerr`和`'\n'`**初始化该对象**，我们将把**容器**`vs`**中的元素**依次**打印到**`cout`**中**并**用换行符分隔**
+
+    ```cpp
+    class PrintString
+    {
+        public:
+            // 默认构造函数
+            PrintString(ostream &o = cout, char c = ' ') : os(o), sep(c)
+            {
+            }
+            // 函数调用运算符
+            void operator()(const string &s) const
+            {
+                os << s << sep;
+            }
+
+        private:
+            ostream &os;  // 用于写入的目的流
+            char sep;     // 用于将不同输出隔开的字符
+    };
+
+    PrintString printer;              // 使用默认值，打印到 cout
+    printer(s);                       // 在 cout 中打印 s，后面跟一个空格
+    PrintString errors(cerr, '\n');   // 构造新的 PrintString 函数对象并初始化
+    errors(s);                        // 在 cerr 中打印 s，后面跟一个换行符
+    ```
+
+- **lambda 是函数对象**
+
+  - **描述**
+
+    > 1、上一小节，我们使用一个`PrintString`**对象**作为调用`for_each`**的实参**，这个用法和我们先前编写的**使用**`lambda`**表达式**的程序类似。实际上，当我们编写了一个`lambda`后，**编译器**将该表达式**翻译成**一个**未命名类**的**未命名对象**  
+    > 2、在`lambda`**表达式**产生的类中含有一个**重载的函数调用运算符**。如下例，对于我们传递给`stable_sort`作为**最后一个实参**的`lambda`**表达式**来说，其行为类似于下面的**类**的一个**未命名对象**，我们也可以用**这个对象**替换实参中的`lambda`
+
+    ```cpp
+    // 根据单词长度对其排序，对于长度相同的单词按照字母表顺序排序
+    stable_sort(words.begin(), words.end(), [](const string &a, const string &b) { return s1.size() < s2.size(); });
+
+    // lambda 等同于下面的类的未命名对象
+    class ShorterString
+    {
+        public:
+            bool operator()(const string &s1, const string &s2) const
+            {
+                return s1.size() < s2.size();
+            }
+    };
+
+    // 可以用这个对象替换 lambda
+    stable_sort(words.begin(), words.end(), ShorterString());
+    ```
+
+  - **表示**`lambda`**及相应捕获行为的类**
+
+    > 1、当一个`lambda`**通过引用捕获变量**时，将由程序负责**确保**`lambda`**执行时**引用的对象**确实存在**，因此编译器可以**直接使用该引用**而**无须在**`lambda`**产生的类中**将其**存储为数据成员**。相反，**通过值捕获变量**时，变量被**拷贝到**`lambda`中，则必须为每个值**建立对应的数据成员**，同时创建**构造函数**以**初始化数据成员**  
+    > 2、如下例，有一个`lambda`，作用是**找到第一个长度不小于给定值的**`string`，其**产生的类**类似于下面的类。与上面的`ShorterString`**不同**，该类含有**数据成员**和**构造函数**，合成的类不含有**默认构造函数**，因此要使用这个类**必须提供一个实参**
+
+    ```cpp
+    // 获得第一个指向满足条件元素的迭代器，该元素满足 size() >= sz
+    auto wc = find_if(words.begin(), words.end(), [sz](const string &a) { return a.size() >= sz; });
+
+    // 该 lambda 产生的类类似于下面的类
+    class SizeComp
+    {
+        public:
+            // 构造函数，形参对应捕获的变量，没有默认值
+            SizeComp(size_t n) : sz(n)
+            {
+            }
+            // 函数调用运算符
+            bool operator()(const string &s) const
+            {
+                return s.size() >= sz;
+            }
+
+        private:
+            size_t sz;  // 对应通过值捕获的变量
+    };
+
+    // 使用该类必须提供实参
+    auto wc = find_if(words.begin(), words.end(), SizeComp(sz));
+    ```
+
+- **标准库函数对象**
+
+  - **介绍**
+
+    > 1、**标准库**定义了一组表示**算术运算符**、**关系运算符**、**逻辑运算符**的**类**，每个**类**分别定义了一个**执行命名操作**的**调用运算符**。例如`plus`类定义**函数调用运算符**用于对一些对象**执行**`+`**操作**，`modulus`类**执行二元的**`%`**操作**，`equal_to`类**执行**`==`**操作**等  
+    > 2、这些**类**都被定义成**模板**，我们可以为其**指定具体应用类型**，即**调用运算符**的**形参类型**，类似于使用`vector`  
+    > 3、下标列出了这些**标准库函数对象**，它们定义在**头文件**`functional`中
+
+    | 算术运算         | 关系运算            | 逻辑运算          |
+    | ---------------- | ------------------- | ----------------- |
+    | plus<Type>       | equal_to<Type>      | logical_and<Type> |
+    | minus<Type>      | not_equal_to<Type>  | logical_or<Type>  |
+    | multiplies<Type> | greater<Type>       | logical_not<Type> |
+    | divides<Type>    | greater_equal<Type> |                   |
+    | modulus<Type>    | less<Type>          |                   |
+    | negate<Type>     | less_equal<Type>    |                   |
+
+    ```cpp
+    plus<int> intAdd;                   // 可执行 int 加法的函数对象
+    negate<int> intNegate;              // 可对 int 值取相反数的函数对象
+    // 使用 intAdd::operator(int, int) 求和
+    int sum = intAdd(10, 20);           // sum = 30
+    sum = intNegate(intAdd(10, 20));    // sum = -30
+    // 使用 intNegate::operator(int) 生成 -10，再将 -10 作为 intAdd 的第二个参数
+    sum = intAdd(10, intNegate(10));    // sum = 0
+    ```
+
+  - **在算法中使用标准库函数对象**
+
+    > 1、**表示运算符**的**函数对象类**常用来**替换**算法中的**默认运算符**。如我们所知，默认情况下**标准库排序算法**使用`operator<`将序列**升序排列**。现在，如果要**降序排列**，我们可以传入一个`greater`**类型对象**，该类将产生一个**调用运算符**并负责执行**待排序类型**的`>`**运算**，如下  
+    > 2、需要注意的是，**标准库**规定其函数**对于指针同样适用**。我们之前介绍过**比较两个无关指针**将产生**未定义行为**，然而我们可能会希望通过**比较指针内存地址**来排序**指针的**`vector`。**直接这么做**将产生**未定义行为**，因此我们可以使用**标准库函数对象**来实现此目的，如下
+
+    ```cpp
+    // 使用 greater 降序排列
+    sort(svec.begin(), svec.end(), greater<string>());
+
+    // 有关指针的排序
+    vector<string *> nameTable;       // 指针的 vector
+    // 错误：直接比较将产生未定义行为
+    sort(nameTable.begin(), nameTable.end(), [](string *a, string *b) { return a < b; });
+    // 正确：标准库规定指针的 less 是定义良好的
+    sort(nameTable.begin(), nameTable.end(), less<string *>());
+    ```
+
+- **可调用对象与 function**
 
 ---
 
