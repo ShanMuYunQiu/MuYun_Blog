@@ -5,7 +5,7 @@ favicon: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/user2.png
 
 notice:
   enable: true
-  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：Cpp基础教程 | 更新时间：2023-07-25
+  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：Cpp基础教程 | 更新时间：2023-07-30
 # 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ
 
 tags:
@@ -356,16 +356,41 @@ aplayer:
     listFolded: false
     listMaxHeight: 340px
     audio:
-      - name: 绝世丑角【V5】
-        artist: 洛天依 / 雨狸 / DELA / 文舞bin
-        url: https://music.163.com/song/media/outer/url?id=1906598235.mp3
-        cover: http://p1.music.126.net/MixPbhTToHexST8S6pJOHw==/109951166914559500.jpg
-        lrc: /lrc/绝世丑角【V5】.lrc
+      - name: Miracle
+        artist: Tiborg
+        url: /lrc/Miracle.mp3
+        cover: http://p1.music.126.net/Yr28yJDbF_Pi5Mr108Od3A==/109951164548560768.jpg
+        lrc: /lrc/Miracle.lrc
+      - name: Dirty Paws - 电影《白日梦想家》插曲
+        artist: Of Monsters And Men
+        url: /lrc/Dirty Paws.mp3
+        cover: http://p2.music.126.net/yU_pXqN1KAjjNdKa_fXveQ==/2534374302309080.jpg
+        lrc: /lrc/Dirty Paws.lrc
+      - name: Stay Alive - 电影《白日梦想家》插曲
+        artist: José González
+        url: /lrc/Stay Alive.mp3
+        cover: http://p2.music.126.net/yU_pXqN1KAjjNdKa_fXveQ==/2534374302309080.jpg
+        lrc: /lrc/Stay Alive.lrc
+      - name: Can We Kiss Forever?
+        artist: Kina / Adriana Proenza
+        url: /lrc/Can We Kiss Forever？.mp3
+        cover: http://p1.music.126.net/BgsCl01scHEbWJG0ijOS4A==/109951165687403090.jpg
+        lrc: /lrc/Can We Kiss Forever？.lrc
+      - name: 曾是惊鸿照影来
+        artist: 木冬为柊 / 若华 / 屿Yukiri / 青魏
+        url: https://music.163.com/song/media/outer/url?id=1922714013.mp3
+        cover: http://p1.music.126.net/9-lra0_ym-mD3pnnc2XizQ==/109951167081855726.jpg
+        lrc: /lrc/曾是惊鸿照影来.lrc
       - name: 那些我恐惧至极的事
         artist: 洛天依 / 乐正绫 / 雨狸 / DJ Soviet
         url: https://music.163.com/song/media/outer/url?id=1495910047.mp3
         cover: http://p1.music.126.net/LdLaFlCsd2DW6nfUrMtpdQ==/109951165474867933.jpg
         lrc: /lrc/那些我恐惧至极的事.lrc
+      - name: 绝世丑角【V5】
+        artist: 洛天依 / 雨狸 / DELA / 文舞bin
+        url: https://music.163.com/song/media/outer/url?id=1906598235.mp3
+        cover: http://p1.music.126.net/MixPbhTToHexST8S6pJOHw==/109951166914559500.jpg
+        lrc: /lrc/绝世丑角【V5】.lrc
       - name: 泠重乞愿
         artist: 洛天依 / 雨狸 / DELA
         url: https://music.163.com/song/media/outer/url?id=413829225.mp3
