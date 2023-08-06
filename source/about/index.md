@@ -40,7 +40,7 @@ reward: true
 
 </div>
 
-![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/user.png)_一个笨蛋画渣竭尽所能所画的怪图_
+![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/info/sqbz.png)_一个笨蛋画渣竭尽所能所画的怪图_
 
 ##### **关于这个站点：**
 
@@ -185,6 +185,7 @@ reward: true
 
 <div class="danger">
 
+> 08-06 | 重新分类整理了图床图片，全站图片更新链接  
 > 07-21 | 重新设置了网站的部分信息(头像图、背景图、联系地址、整理图床等)，编辑了介绍页  
 > 07-14 | 由于`jsd.cky.codes`常不稳定，CDN 更换为`cdn.jsdelivr.net`  
 > 07-08 | 更新`npm`和`yarn`，更新`hexo`版本至`7.0.0`  

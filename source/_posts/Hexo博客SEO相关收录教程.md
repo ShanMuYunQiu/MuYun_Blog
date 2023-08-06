@@ -158,7 +158,7 @@ categories:
 
 - **提交 Sitemap**
 
-![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/SEOsitemap.jpg)
+![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/blog/专业技能/SEO站点地图.jpg)
 
 - 推荐提交以下站点地图
 

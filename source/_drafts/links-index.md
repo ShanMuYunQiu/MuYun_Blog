@@ -104,7 +104,7 @@ links:
     color: "#9966ff"
 
   - url:
-    avatar: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/akalin.jpg
+    avatar: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/info/akalin.jpg
     blog: 等待申请中。。。
     desc: 在下方评论区申请友链哦！
     color: "#c2c2d6"
@@ -127,7 +127,7 @@ tip: 友链加载中～如失败请刷新重试～
 ##### **本站站点友链信息**
 
 > 地址：shengqibaozao.eu.org  
-> 图片：https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/user2.png  
+> 图片：https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/info/user.png  
 > 名称：圣奇宝枣的博客小站  
 > 描述：有朋自远方来，不亦乐乎。愿与你相识，得闲饮茶
 

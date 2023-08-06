@@ -196,7 +196,7 @@ categories:
 
 ##### **优先级**
 
-![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/pythonyouxianji.png)
+![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/blog/Python3基础教程/优先级.png)
 
 ---
 
@@ -1067,7 +1067,7 @@ categories:
 
 ##### **编程两大思想**
 
-![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/pythonsixiang.png)
+![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/blog/Python3基础教程/思想.png)
 
 ##### **类与对象认识**
 
@@ -1339,17 +1339,17 @@ categories:
 ##### **继承及其实现方式**
 
 - **继承**
-  ![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/pythonjicheng1.png)
-  ![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/pythonjicheng2.png)
+  ![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/blog/Python3基础教程/继承1.png)
+  ![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/blog/Python3基础教程/继承2.png)
 - **方法重写**
-  ![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/pythonchongxie.png)
+  ![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/blog/Python3基础教程/重写.png)
 - **object 类**
-  ![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/pythonobjectlei.png)
+  ![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/blog/Python3基础教程/object类.png)
 
 ##### **多态**
 
 - **多态**
-  ![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/pythonduotai.png)
+  ![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/blog/Python3基础教程/多态.png)
 - 静态语言和动态语言关于**多态的区别**
   - 静态语言实现多态的三个必要条件
     > 1、继承  
@@ -1470,7 +1470,7 @@ categories:
   ```
 
 - **传参过程**  
-  ![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/pythonchuancan.png)
+  ![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/blog/Python3基础教程/传参.png)
 
 ##### **类的赋值与深浅拷贝**
 
@@ -1690,7 +1690,7 @@ categories:
 
 ##### **编码格式介绍**
 
-![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/pythonbianma.png)
+![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/blog/Python3基础教程/编码.png)
 
 ##### **文件读写**
 
@@ -1732,12 +1732,12 @@ categories:
 
 ##### **文件对象常用方式**
 
-![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/pythonduixiangfangshi.png)
+![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/blog/Python3基础教程/对象方式.png)
 
 ##### **with 语句(上下文管理器)**
 
 - with 语句可以自动管理上下文资源，不论什么原因跳出 with 块，都能确保文件正确的关闭，以此来达到释放资源的目的
-  ![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/pythonwith.png)
+  ![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/blog/Python3基础教程/with.png)
 
 ##### **os 模块的常用函数**
 
