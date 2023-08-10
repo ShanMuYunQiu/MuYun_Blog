@@ -5,7 +5,7 @@ favicon: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/info/user.png
 
 notice:
   enable: true
-  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：离散化 | 更新时间：2023-08-09
+  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：快速幂 | 更新时间：2023-08-10
 # 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ
 
 tags:
@@ -48,6 +48,7 @@ tags:
   二分答案: "#9999ff"
   双指针: "#9999ff"
   离散化: "#9999ff"
+  快速幂: "#9999ff"
   理论: "#ffc266"
 
 categories:
