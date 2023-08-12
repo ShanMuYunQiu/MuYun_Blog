@@ -4,7 +4,7 @@ author: 圣奇宝枣
 description: 学习求 gcd 和 lcm 的方法，学习拓展欧几里得算法
 sticky: 0
 date: 2023-08-11
-updated: 2023-08-12
+updated: 2023-08-11
 readmore: true
 tags:
   - gcd
