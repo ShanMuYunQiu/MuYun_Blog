@@ -15,7 +15,6 @@ tags:
   基础语法: "#cc33ff"
   版本管理工具: "#00b300"
   Markdown: "#b35900"
-  KaTex: "#b35900"
   VScode: "#6699ff"
   Qt: "#00b300"
   PicGO: "#6699ff"
@@ -850,8 +849,3 @@ widget_tree:
     # max_depth:
     # min_depth:
     # list_number:
-
-katex:
-  copy_tex: true
-  global: true
-  options: {}
