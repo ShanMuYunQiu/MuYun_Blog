@@ -850,3 +850,8 @@ widget_tree:
     # max_depth:
     # min_depth:
     # list_number:
+
+katex:
+  copy_tex: true
+  global: true
+  options: {}
