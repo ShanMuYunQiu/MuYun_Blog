@@ -1732,7 +1732,7 @@ categories:
 
 ##### **文件对象常用方式**
 
-![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/blog/Python3基础教程/对象方式.png)
+  ![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/blog/Python3基础教程/对象方式.png)
 
 ##### **with 语句(上下文管理器)**
 
