@@ -7,7 +7,6 @@ date: 2023-01-07
 updated: 2023-01-07
 readmore: true
 tags:
-  - C语言
   - C++
   - Cmake
 categories:

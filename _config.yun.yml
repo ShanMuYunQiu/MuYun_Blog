@@ -5,17 +5,17 @@ favicon: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/info/user.png
 
 notice:
   enable: true
-  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：乘法逆元 | 更新时间：2023-08-13
+  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：KaTex汉化文档 | 更新时间：2023-08-13
 # 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ
 
 tags:
   Git: "#ff4d4d"
   Cmake: "#ff4d4d"
-  基础技能: "#ff99dd"
   网络爬虫: "#ff4d4d"
   基础语法: "#cc33ff"
   版本管理工具: "#00b300"
   Markdown: "#b35900"
+  KaTex: "#b35900"
   VScode: "#6699ff"
   Qt: "#00b300"
   PicGO: "#6699ff"

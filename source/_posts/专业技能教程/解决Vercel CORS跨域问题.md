@@ -7,7 +7,6 @@ date: 2022-07-19
 updated: 2022-07-19
 readmore: true
 tags:
-  - 基础技能
   - Vercel
 categories:
   - 专业技能教程

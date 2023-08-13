@@ -7,7 +7,6 @@ date: 2022-06-20
 updated: 2022-06-20
 readmore: true
 tags:
-  - 基础技能
   - Linux
   - 系统操作
 categories:

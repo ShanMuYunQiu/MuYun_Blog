@@ -7,7 +7,6 @@ date: 2022-04-24
 updated: 2022-06-15
 readmore: true
 tags:
-  - 基础技能
   - Markdown
   - 标记语言
 categories:
