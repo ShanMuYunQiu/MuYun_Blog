@@ -9,6 +9,7 @@ readmore: true
 tags:
   - gcd
   - lcm
+  - 数学
   - C++
 categories:
   - 数据结构与算法
