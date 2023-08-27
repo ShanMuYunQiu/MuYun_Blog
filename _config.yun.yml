@@ -5,7 +5,7 @@ favicon: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/info/user.png
 
 notice:
   enable: true
-  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：树 | 更新时间：2023-08-27
+  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：二叉树 | 更新时间：2023-08-27
 # 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ
 
 tags:
@@ -52,13 +52,11 @@ tags:
   gcd: "#9999ff"
   lcm: "#9999ff"
   二叉树: "#9999ff"
-  AVL: "#9999ff"
-  哈夫曼: "#9999ff"
   理论: "#ffc266"
 
 categories:
   编程语言入门: "#ff944d"
-  算法: "#ff944d"
+  数据结构与算法: "#ff944d"
   专业技能教程: "#cc33ff"
   其他教程: "#ffc266"
   编辑器与IDE: "#9999ff"
