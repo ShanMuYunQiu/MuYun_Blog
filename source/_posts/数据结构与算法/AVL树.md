@@ -4,7 +4,7 @@ author: 圣奇宝枣
 description: 学习构建和使用二叉查找树，再进一步学习AVL树
 sticky: 0
 date: 2023-09-03
-updated: 2023-09-05
+updated: 2023-09-06
 readmore: true
 tags:
   - 二叉查找树
@@ -33,15 +33,11 @@ categories:
   ![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/blog/算法/二叉查找树.png)
   ![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/blog/算法/二叉查找树删除.png)
 
-- **代码实现：查找**
-
   ```cpp
   #include <iostream>
   #include <memory>
   using namespace std;
 
-  // 树的最大节点个数
-  #define MAX_TREE_SIZE 256
   // 树的节点的数据类型
   typedef int ElemType;
 
@@ -56,7 +52,11 @@ categories:
           {
           }
   } Node;
+  ```
 
+- **代码实现：查找**
+
+  ```cpp
   // 查找数据
   shared_ptr<Node> Search(shared_ptr<Node> root, ElemType key)
   {
@@ -226,6 +226,43 @@ categories:
 #### **AVL 树**
 
 ---
+
+- **AVL 树**
+
+  > 1、**AVL 树**：又称**平衡二叉树**，是**二叉查找树**的一种**改进形式**。其**任意节点**的**左右子树高度差不超过 1**，且仍拥有**二叉查找树**的**节点大小关系**，如下图  
+  > 2、**插入或删除元素**时，会**动态调整**树的结构，以便提高下次的**搜索效率**(解决了二叉查找树搜索次数不均衡，最极端情况下甚至会变为链表的问题)  
+  > 3、其代码实现如下，**平衡因子**(值为 -1 / 0 / 1)为**左子树高度**减去**右子树高度**。其**插入和删除操作**需要调整**最小不平衡树**，平衡的方法便是进行**对应方案的旋转**
+
+  ![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/blog/算法/AVL树.png)
+
+  ```cpp
+  #include <iostream>
+  #include <memory>
+  using namespace std;
+
+  // 树的节点的数据类型
+  typedef int ElemType;
+
+  // 树的节点
+  typedef struct AVLNode
+  {
+          ElemType value;                  // 存储的数据
+          shared_ptr<AVLNode> left, right; // 指向左子节点、右子节点
+          int balance;                     // 平衡因子
+  } Node;
+  ```
+
+- **平衡旋转方案**
+
+  > 1、**右单旋转**：**LL 平衡旋转**，第一个 L 表示**当前节点**(11)的**左子节点**(8)，第二个 L 表示**左子节点**(8)的**左子树**(7)不平衡。这种情况下进行**右单旋转**(向右旋转一次)，如下图  
+  > 2、**左单旋转**：**RR 平衡旋转**，第一个 R 表示**当前节点**(14)的**右子节点**(15)，第二个 R 表示**右子节点**(15)的**右子树**(16)不平衡。这种情况下进行**左单旋转**(向左旋转一次)，如下图  
+  > 3、**先左后右双旋转**：**LR 平衡旋转**，第一个 L 表示**当前节点**(15)的**左子节点**(8)，第二个 R 表示**左子节点**(8)的**右子树**(12-左 10/右 13)不平衡。这种情况下进行**先左后右双旋转**(先向左旋转一次，再向右旋转一次)，如下图  
+  > 4、**先右后左双旋转**：**RL 平衡旋转**，第一个 R 表示**当前节点**(15)的**右子节点**(19)，第二个 L 表示**右子节点**(19)的**左子树**(17-左 16/右 18)不平衡。这种情况下进行**先右后左双旋转**(先向右旋转一次，再向左旋转一次)，如下图  
+  > 5、**所旋转的节点**都是**第一个字母指代的节点**，即**当前节点**的**左/右子节点**，将其提升为**父节点**；**其余节点**如果能**跟随旋转**(且不影响大小关系)则**直接跟随**，否则**重新安排合适位置**
+
+  ![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/blog/算法/AVL树单旋转.png)
+  ![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/blog/算法/AVL树LR旋转.png)
+  ![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/blog/算法/AVL树RL旋转.png)
 
 ---
 
