@@ -5,7 +5,7 @@ favicon: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/info/user.png
 
 notice:
   enable: true
-  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：二叉树 | 更新时间：2023-09-16
+  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：质数筛 | 更新时间：2023-09-18
 # 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ
 
 tags:
@@ -52,6 +52,7 @@ tags:
   二叉查找树: "#9999ff"
   AVL树: "#9999ff"
   哈夫曼树: "#9999ff"
+  质数筛: "#9999ff"
   理论: "#ffc266"
   数学: "#4ddbff"
   排序: "#4ddbff"
