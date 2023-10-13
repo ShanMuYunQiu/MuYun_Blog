@@ -372,6 +372,36 @@ aplayer:
     listFolded: false
     listMaxHeight: 340px
     audio:
+      - name: 漫步
+        artist: UnicornPhantom
+        url: https://music.163.com/song/media/outer/url?id=1990251011.mp3
+        cover: http://p2.music.126.net/tpSYVkCGmQxbmlkJYfRrvA==/109951167975764401.jpg
+        lrc: /lrc/漫步.lrc
+      - name: 独角
+        artist: UnicornPhantom
+        url: https://music.163.com/song/media/outer/url?id=1934213146.mp3
+        cover: http://p1.music.126.net/1HOpmf61G-QHQmm5xIv9rg==/109951167230524234.jpg
+        lrc: /lrc/独角.lrc
+      - name: 青空
+        artist: THE ROLLING GIRLS
+        url: https://music.163.com/song/media/outer/url?id=474567081.mp3
+        cover: http://p1.music.126.net/_lMvCfJvymqXqI5d6R9esQ==/109951163597998554.jpg
+        lrc: /lrc/青空.lrc
+      - name: 夕暮れ(カバー)
+        artist: THE ROLLING GIRLS
+        url: /lrc/夕暮れ(カバー).mp3
+        cover: http://p1.music.126.net/3K3K5wWj3v9IjOn5TkTyPw==/109951163597992477.jpg
+        lrc: /lrc/夕暮れ(カバー).lrc
+      - name: Polaris
+        artist: Asia D / JAMMERC
+        url: https://music.163.com/song/media/outer/url?id=1824513851.mp3
+        cover: http://p1.music.126.net/34x_GGDI47WYG-sZobR8dw==/109951165775251579.jpg
+        lrc: /lrc/Polaris.lrc
+      - name: Seasons
+        artist: Rival / Cadmium / Harley Bird
+        url: https://music.163.com/song/media/outer/url?id=1313014216.mp3
+        cover: http://p1.music.126.net/Aeh-xCT2sl-i0tF8K5qU7w==/109951163571120456.jpg
+        lrc: /lrc/Seasons.lrc
       - name: Miracle
         artist: Tiborg
         url: /lrc/Miracle.mp3
@@ -397,6 +427,11 @@ aplayer:
         url: https://music.163.com/song/media/outer/url?id=1922714013.mp3
         cover: http://p1.music.126.net/9-lra0_ym-mD3pnnc2XizQ==/109951167081855726.jpg
         lrc: /lrc/曾是惊鸿照影来.lrc
+      - name: 纸片人
+        artist: 洛天依 / Padi / 亚小琨
+        url: https://music.163.com/song/media/outer/url?id=2074846547.mp3
+        cover: http://p2.music.126.net/6G9LMjVbWigsq1671oxiuw==/109951168853776195.jpg
+        lrc: /lrc/纸片人.lrc
       - name: 那些我恐惧至极的事
         artist: 洛天依 / 乐正绫 / 雨狸 / DJ Soviet
         url: https://music.163.com/song/media/outer/url?id=1495910047.mp3
@@ -571,7 +606,7 @@ aplayer:
         artist: Candy_Wind
         url: https://music.163.com/song/media/outer/url?id=32717172.mp3
         cover: http://p1.music.126.net/1uWLxBVZ5MLunwuVo5hrzg==/8002245627462629.jpg
-        lrc: /lrc/青空.lrc
+        lrc: /lrc/青空1.lrc
       - name: 寂静之空
         artist: 傅许
         url: https://music.163.com/song/media/outer/url?id=461074907.mp3
