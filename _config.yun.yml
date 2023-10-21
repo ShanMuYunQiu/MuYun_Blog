@@ -5,7 +5,7 @@ favicon: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/info/user.png
 
 notice:
   enable: true
-  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：质数筛 | 更新时间：2023-10-18
+  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：图 | 更新时间：2023-10-21
 # 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ
 
 tags:
@@ -53,12 +53,17 @@ tags:
   AVL树: "#9999ff"
   哈夫曼树: "#9999ff"
   质数筛: "#9999ff"
+  DFS: "#9999ff"
+  BFS: "#9999ff"
+  回溯法: "#9999ff"
+  剪枝: "#9999ff"
   理论: "#ffc266"
   数学: "#4ddbff"
   排序: "#4ddbff"
   高精度: "#4ddbff"
   顺序表: "#4ddbff"
   二叉树: "#4ddbff"
+  图: "#4ddbff"
 
 categories:
   编程语言入门: "#ff944d"
