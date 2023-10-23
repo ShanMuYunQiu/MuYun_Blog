@@ -5,7 +5,7 @@ favicon: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/info/user.png
 
 notice:
   enable: true
-  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：图 | 更新时间：2023-10-21
+  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：贪心算法 | 更新时间：2023-10-23
 # 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ
 
 tags:
@@ -64,6 +64,7 @@ tags:
   顺序表: "#4ddbff"
   二叉树: "#4ddbff"
   图: "#4ddbff"
+  贪心: "#4ddbff"
 
 categories:
   编程语言入门: "#ff944d"

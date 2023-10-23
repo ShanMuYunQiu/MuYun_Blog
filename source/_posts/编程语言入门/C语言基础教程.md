@@ -2,7 +2,7 @@
 title: C语言基础教程
 author: 圣奇宝枣
 description: 有关于C语言的基础教程，包括基本语法、基础的底层逻辑知识与部分数据结构内容，比较适合有一定学习经验的初学者上手
-sticky: 1
+sticky: 0
 date: 2022-05-09
 updated: 2022-12-20
 readmore: true
