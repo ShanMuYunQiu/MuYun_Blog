@@ -105,7 +105,7 @@ categories:
 > **Draw.io Integration**：将**Draw.io**集成到 VScode 中，画流程图，文件后缀为`.drawio`  
 > **Path Intellisense**：路径提示与自动补全  
 > **Easy Snippet**：方便快速的代码片段管理(如果总是自动换行，可以修改插件的代码片段文件，右下角行尾序列的`CRLF`改为`LF`)  
-> **Competitive Programming Helper(cph)**：做算法题使用，可以在 VScode 实现类似 CP Editor 的多数据测试功能  
+> **Competitive Programming Helper**(cph)：做算法题使用，可以在 VScode 实现类似 CP Editor 的多数据测试功能  
 > ----需要配合浏览器插件**Competitive Companion**，浏览器安装插件后，在洛谷、CodeForce、AtCoder 等 OJ 试题页面点击浏览器插件按钮，再回到 VScode 选择语言
 
 </div>
