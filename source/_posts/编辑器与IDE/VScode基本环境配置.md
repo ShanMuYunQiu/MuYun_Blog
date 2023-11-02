@@ -83,7 +83,7 @@ categories:
 > **One Dark Pro**：黑灰色主题，好看  
 > **vscode-icons**：图标主题，文件图标与类型更加易分辨  
 > **Github Copilot**：AI 自动补全写代码，需要 github 账号登录(已收费)  
-> ----下位替代：CodeGeex、Codeium、Tabnine AI、Amazon CodeWhisperer  
+> ----下位替代：CodeGeex、Tabnine AI、Codeium、Amazon CodeWhisperer、通义灵码  
 > **Bito**：一个编程领域的 AI，可理解为编程版 ChatGPT  
 > **Power Mode**：打字炫酷特效，需要在设置里自行设定  
 > **Auto Close Tag**：自动闭合标签(已内置于 VScode 的**Auto Closing Tags**设置项)  
@@ -104,7 +104,9 @@ categories:
 > **Todo Tree**：自动集合整理所有 TODO 待办事项  
 > **Draw.io Integration**：将**Draw.io**集成到 VScode 中，画流程图，文件后缀为`.drawio`  
 > **Path Intellisense**：路径提示与自动补全  
-> **Easy Snippet**：方便快速的代码片段管理(如果总是自动换行，可以修改插件的代码片段文件，右下角行尾序列的`CRLF`改为`LF`)
+> **Easy Snippet**：方便快速的代码片段管理(如果总是自动换行，可以修改插件的代码片段文件，右下角行尾序列的`CRLF`改为`LF`)  
+> **Competitive Programming Helper(cph)**：做算法题使用，可以在 VScode 实现类似 CP Editor 的多数据测试功能  
+> ----需要配合浏览器插件**Competitive Companion**，浏览器安装插件后，在洛谷、CodeForce、AtCoder 等 OJ 试题页面点击浏览器插件按钮，再回到 VScode 选择语言
 
 </div>
 
