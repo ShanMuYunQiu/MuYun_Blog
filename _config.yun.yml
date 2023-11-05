@@ -5,7 +5,7 @@ favicon: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/info/user.png
 
 notice:
   enable: true
-  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：排序算法 | 更新时间：2023-11-02
+  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：单调栈与单调队列 | 更新时间：2023-11-05
 # 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ
 
 tags:
@@ -57,6 +57,8 @@ tags:
   BFS: "#9999ff"
   回溯法: "#9999ff"
   剪枝: "#9999ff"
+  单调栈: "#9999ff"
+  单调队列: "#9999ff"
   理论: "#ffc266"
   数学: "#4ddbff"
   排序: "#4ddbff"
@@ -64,6 +66,8 @@ tags:
   顺序表: "#4ddbff"
   二叉树: "#4ddbff"
   图: "#4ddbff"
+  栈: "#4ddbff"
+  队列: "#4ddbff"
   贪心: "#4ddbff"
 
 categories:
