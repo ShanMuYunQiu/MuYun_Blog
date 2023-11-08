@@ -5,7 +5,7 @@ favicon: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/info/user.png
 
 notice:
   enable: true
-  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：离散化 | 更新时间：2023-11-07
+  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：树状数组 | 更新时间：2023-11-08
 # 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ
 
 tags:
@@ -49,6 +49,7 @@ tags:
   乘法逆元: "#9999ff"
   gcd: "#9999ff"
   lcm: "#9999ff"
+  二叉树: "#9999ff"
   二叉查找树: "#9999ff"
   AVL树: "#9999ff"
   哈夫曼树: "#9999ff"
@@ -59,12 +60,13 @@ tags:
   剪枝: "#9999ff"
   单调栈: "#9999ff"
   单调队列: "#9999ff"
+  树状数组: "#9999ff"
   理论: "#ffc266"
   数学: "#4ddbff"
   排序: "#4ddbff"
   高精度: "#4ddbff"
   顺序表: "#4ddbff"
-  二叉树: "#4ddbff"
+  树: "#4ddbff"
   图: "#4ddbff"
   栈: "#4ddbff"
   队列: "#4ddbff"
