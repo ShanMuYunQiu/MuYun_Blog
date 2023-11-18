@@ -39,7 +39,7 @@ i18n_dir: :lang
 skip_render:
   - README.md
   - google82a910db0c35b229.html
-  - baidu_verify_code-sN7cVoeX06.html
+  - baidu_verify_codeva-vJpaJzBznm.html
   - vercel.json
   - api/proxy.js
 
