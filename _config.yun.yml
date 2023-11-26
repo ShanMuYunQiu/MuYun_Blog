@@ -5,7 +5,7 @@ favicon: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/info/user.png
 
 notice:
   enable: true
-  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：组合数 | 更新时间：2023-11-26
+  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：背包问题 | 更新时间：2023-11-26
 # 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ
 
 tags:
@@ -66,6 +66,7 @@ tags:
   Prim: "#9999ff"
   Kruskal: "#9999ff"
   组合数: "#9999ff"
+  背包问题: "#9999ff"
   理论: "#ffc266"
   数学: "#4ddbff"
   排序: "#4ddbff"
@@ -77,6 +78,7 @@ tags:
   队列: "#4ddbff"
   贪心: "#4ddbff"
   并查集: "#4ddbff"
+  动态规划: "#4ddbff"
 
 categories:
   编程语言入门: "#ff944d"
