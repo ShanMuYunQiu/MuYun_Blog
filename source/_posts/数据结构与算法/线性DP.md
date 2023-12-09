@@ -140,6 +140,52 @@ categories:
   }
   ```
 
+- **一维优化**
+
+  > 1、在**滚动数组**中`dp[cur][j] = max(dp[cur ^ 1][j], dp[cur ^ 1][j - t[i]] + v[i]);`，其本质可看作**先将上一行复制到当前行**，再**进行转移**比较，因此可以再将其**压缩为一维**(省去了复制的步骤)，`dp[j]`表示**到目前为止**，**花费了 j 时间**的**最大价值**  
+  > 2、此时**转移方程**变为`dp[j] = max(dp[j], dp[j - t[i]] + v[i])`，但**转移时**应使用**上一行时的数据**，如果**自左向右**遍历，**左侧的数据已被更新**(即`dp[j - t[i]]`已经变为当前行数据)。因此要**自右向左**遍历，范围从**最大时间开始**，始终满足`j - t[i] >= 0`
+
+  ```cpp
+  #include <bits/stdc++.h>
+  using namespace std;
+
+  int T, M;
+  int dp[1010]; // dp[j] 表示到当前为止花费 j 的时间的最大价值
+  int t[110], v[110];
+
+  void solve()
+  {
+      // 初始化
+      for (int i = 0; i <= T; i++)
+          dp[i] = 0;
+
+      // 输入
+      for (int i = 1; i <= M; i++)
+          cin >> t[i] >> v[i];
+
+      // 状态转移，dp[j] = max(dp[j], dp[j - t[i]] + v[i])
+      for (int i = 1; i <= M; i++)
+          // j 自右向左遍历，注意转移范围要保证 j - t[i] >= 0
+          for (int j = T; j - t[i] >= 0; j--)
+              dp[j] = max(dp[j], dp[j - t[i]] + v[i]);
+
+      // 输出，到最后花费 T 时间的最大价值
+      cout << dp[T] << '\n';
+  }
+
+  int main()
+  {
+      ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
+      while (cin >> T >> M)
+      {
+          if (T == 0 && M == 0)
+              break;
+          solve();
+      }
+      return 0;
+  }
+  ```
+
 ---
 
 #### **完全背包-无穷背包**
@@ -271,7 +317,110 @@ categories:
 - **多重背包**
 
   > 1、[多重背包](https://cdn.oj.eriktse.com/problem.php?id=1103)：给定**容积为 m 的背包**，有 **n 种商品**(m,n 不超过 100)，其中每种商品**只有 s 件**，**价值为 w**，**体积为 v**(都不超过 100)。若**可以重复放入**同一商品，输出**最多可以带走多少价值**的物品  
-  > 2、
+  > 2、**多重背包**可以看作**商品限量**的**完全背包**。对于**每种商品有 s 件**，可以将其展开为 **s 件单独的只能选 1 次的商品**，即如**有 3 件商品 a**，可看作**有 3 个只能选 1 次的商品 a**，此时即将其转化为**01 背包**解决  
+  > 3、实际实现中，**并不会**将展开的商品**存储下来**，而是**读到一件商品**，跑`s[i]`遍**一维 01 背包**。但注意，只适合**数据量较小**的情况
+
+- **代码实现**
+
+  ```cpp
+  #include <bits/stdc++.h>
+  using namespace std;
+
+  const int N = 110;
+  int dp[N]; // 一维 01 背包，到当前为止花费 j 容量的最大价值
+
+  void solve()
+  {
+      int m, n;
+      cin >> m >> n;
+
+      for (int i = 1; i <= n; i++)
+      {
+          int s, w, v;
+          cin >> s >> w >> v;
+
+          // 执行 s 次 01 背包
+          while (s--)
+              // 一维 01 背包
+              for (int j = m; j - v >= 0; j--)
+                  dp[j] = max(dp[j], dp[j - v] + w);
+      }
+
+      // 输出到最后花费 m 容积的最大价值
+      cout << dp[m];
+  }
+
+  int main()
+  {
+      ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
+      int T = 1;
+      // cin >> T;
+      while (T--)
+          solve();
+      return 0;
+  }
+  ```
+
+- **二进制优化**
+
+  > 1、[多重背包二周目](https://cdn.oj.eriktse.com/problem.php?id=1104)：在上题基础上，**n,m,s 范围**改为不超过 2000  
+  > 2、由于**原思路**时间复杂度 O(n\*m\*s)，一定**超时**。原先的**拆分思路**为**将 s 拆分**为 **s 个 1 相加**，再来表示选择`[0, s]`**个物品**的情况(如 84 个商品相当于从中选 84 个 1 个商品相加表示)  
+  > 3、还可以用**二进制拆分**的方式优化，从**二进制低位向高位**拆分，**剩余不够拆的**放在最后，例如`s = 116`时**可拆分为**`s = 1 + 2 + 4 + 8 + 16 + 32 + 53`，这样选择`[0, s]`**个物品**一定能够**被这些数组合得到**(如`84 = 1 + 2 + 4 + 8 + 16 + 53`)，也可以达到**原思路相同的效果**  
+  > 4、此时执行**01 背包**时，可看作**拆分出的商品**被**打包在一起**，如上`s = 116`时即对 1 个商品、2 个商品、4 个商品、8 个商品等**进行选择**(其 w,v 也乘以对应的系数)
+
+  ```cpp
+  #include <bits/stdc++.h>
+  using namespace std;
+
+  #define int long long
+
+  const int N = 2010;
+  int dp[N]; // 一维 01 背包，到当前为止花费 j 容量的最大价值
+
+  void solve()
+  {
+      int m, n;
+      cin >> m >> n;
+
+      for (int i = 1; i <= n; i++)
+      {
+          int s, w, v;
+          cin >> s >> w >> v;
+
+          vector<int> vec; // 记录 s 的拆分
+          // 从二进制低位向高位拆分 s
+          int x = 1;
+          while (s >= x)
+          {
+              vec.push_back(x);
+              s -= x;
+              x <<= 1;
+          }
+          // 如果还有剩余，也加入 vec
+          if (s)
+              vec.push_back(s);
+
+          // 从 vec 中取 k 作为系数，用于表示 [0, s] 之间的所有可能
+          for (int &k : vec)
+              // 一维 01 背包(注意范围，v 也要乘系数)
+              for (int j = m; j - k * v >= 0; j--)
+                  dp[j] = max(dp[j], dp[j - k * v] + k * w);
+      }
+
+      // 输出到最后花费 m 容积的最大价值
+      cout << dp[m];
+  }
+
+  signed main()
+  {
+      ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
+      int T = 1;
+      // cin >> T;
+      while (T--)
+          solve();
+      return 0;
+  }
+  ```
 
 ---
 
