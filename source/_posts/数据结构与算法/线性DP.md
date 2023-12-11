@@ -4,7 +4,7 @@ author: 圣奇宝枣
 description: 学习动态规划中的线性DP(背包问题)，学习01背包、完全背包、多重背包
 sticky: 0
 date: 2023-11-26
-updated: 2023-12-10
+updated: 2023-12-11
 readmore: true
 tags:
   - 线性DP
@@ -519,6 +519,87 @@ categories:
       }
 
       cout << ans;
+  }
+
+  int main()
+  {
+      ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
+      int T = 1;
+      // cin >> T;
+      while (T--)
+          solve();
+      return 0;
+  }
+  ```
+
+---
+
+#### **线性 DP-导弹拦截**
+
+---
+
+- **导弹拦截**
+
+  > 1、[导弹拦截](https://cdn.oj.eriktse.com/problem.php?id=1028)：有**导弹拦截系统**，对于每个系统，其**首发可以拦截任意高度**的导弹，**之后发射的每一发**都**不能高于前一发的高度**。输入**来袭的导弹高度**(导弹数不超过 1000，高度不超过 30000)，询问如果只有一套系统时**最多能拦截多少发**，以及**需要多少套系统**才能**全部拦截**，依次输出  
+  > 2、**第一问**询问的是**最长下降子序列**(非升)的长度，类似于**最长上升子序列**，使用**单调栈**实现。显然，当**准备入栈的元素 i**的`a[i]`**比栈内某些元素大**时，查找栈内**第一个小于**`a[i]`的元素 k，**将其替换**。其余细节**与先前相似**  
+  > 3、**第二问**询问**最少需要多少套系统**。需要根据**狄尔沃斯定理**：如果要使用**最少个数的非升子序列**覆盖一整个数组，其**所需序列数量**等同于**最长的相反规则子序列**的**长度**，此处即**最长上升子序列**的**长度**。因此需要求最长上升子序列的长度，即为答案  
+  > 4、对于**最长上升子序列**，应维护一个严格**单调递增栈**。当**准备入栈的元素 i**的`a[i]`**大于栈顶元素**时，才可以**入栈**；当**准备入栈的元素 i**的`a[i]`**小于等于栈内某些元素**时；查找栈内**第一个大于等于**`a[i]`的元素 k，**将其替换**。其余细节**与先前相似**
+
+- **代码实现**
+
+  ```cpp
+  #include <bits/stdc++.h>
+  using namespace std;
+
+  const int N = 1010;
+  int a[N];
+  int stk[N], top = 0;
+
+  void solve()
+  {
+      // 输出数据
+      int n = 0;
+      while (cin >> a[++n])
+          ;
+      --n;
+
+      // 求最长非升子序列长度
+      int ans = 0;
+      for (int i = 1; i <= n; i++)
+      {
+          // upper_bound 原先用于查找第一个 > a[i] 的元素的位置
+          // 查找第一个 < a[i] 的元素的位置，由于 stk 是降序，所以使用 lambda 更改 upper_bound 的比较规则
+          int pos = (upper_bound(stk + 1, stk + 1 + top, a[i], [](const int &u, const int &v) { return u > v; }) - stk - 1) + 1;
+
+          // pos 指向栈顶之上的位置，入栈，top++
+          if (pos == top + 1)
+              top++;
+
+          // 替换 pos 位置的元素，更新 ans
+          stk[pos] = a[i];
+          ans = max(ans, top);
+      }
+      cout << ans << '\n';
+
+      // 初始化
+      top = 0, ans = 0;
+
+      // 求最长上升子序列长度
+      for (int i = 1; i <= n; i++)
+      {
+          // lower_bound 用于查找第一个 >= a[i] 的元素的位置
+          // 查找第一个 >= a[i] 的元素的位置
+          int pos = (lower_bound(stk + 1, stk + 1 + top, a[i]) - stk - 1) + 1;
+
+          // pos 指向栈顶之上的位置，入栈，top++
+          if (pos == top + 1)
+              top++;
+
+          // 替换 pos 位置的元素，更新 ans
+          stk[pos] = a[i];
+          ans = max(ans, top);
+      }
+      cout << ans << '\n';
   }
 
   int main()
