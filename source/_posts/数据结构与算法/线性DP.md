@@ -218,8 +218,8 @@ categories:
       cin >> m >> n;
 
       // 初始化
-      for (int i = 0; i <= n; i++)
-          dp[i][0] = 0;
+      for (int i = 0; i <= m; i++)
+          dp[0][i] = 0;
 
       // 输入
       for (int i = 1; i <= n; i++)
@@ -271,8 +271,8 @@ categories:
       cin >> m >> n;
 
       // 初始化
-      for (int i = 0; i <= n; i++)
-          dp[i][0] = 0;
+      for (int i = 0; i <= m; i++)
+          dp[0][i] = 0;
 
       // 输入
       for (int i = 1; i <= n; i++)
