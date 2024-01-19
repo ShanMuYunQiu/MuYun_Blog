@@ -5,7 +5,7 @@ favicon: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/info/user.png
 
 notice:
   enable: true
-  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：线性DP | 更新时间：2024-01-15
+  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：线性DP | 更新时间：2024-01-19
 # 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ
 
 tags:
@@ -66,7 +66,8 @@ tags:
   Prim: "#9999ff"
   Kruskal: "#9999ff"
   组合数: "#9999ff"
-  线性DP: "#9999ff"
+  背包问题: "#9999ff"
+  DP: "#9999ff"
   理论: "#ffc266"
   数学: "#4ddbff"
   排序: "#4ddbff"
