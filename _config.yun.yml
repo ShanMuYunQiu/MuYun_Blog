@@ -5,7 +5,7 @@ favicon: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/info/user.png
 
 notice:
   enable: true
-  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：动态规划 | 更新时间：2024-01-20
+  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：gcd 和 lcm | 更新时间：2024-01-21
 # 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ
 
 tags:
@@ -47,6 +47,7 @@ tags:
   离散化: "#9999ff"
   快速幂: "#9999ff"
   乘法逆元: "#9999ff"
+  exgcd: "#9999ff"
   gcd: "#9999ff"
   lcm: "#9999ff"
   二叉树: "#9999ff"

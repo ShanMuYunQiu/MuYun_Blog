@@ -1,12 +1,13 @@
 ---
 title: gcd 和 lcm
 author: 圣奇宝枣
-description: 学习求 gcd 和 lcm 的方法，学习拓展欧几里得算法
+description: 学习求 gcd 和 lcm 的方法，学习拓展欧几里得算法、唯一分解定理
 sticky: 0
 date: 2023-08-11
-updated: 2023-08-11
+updated: 2024-01-21
 readmore: true
 tags:
+  - exgcd
   - gcd
   - lcm
   - 数学
@@ -92,7 +93,7 @@ categories:
 
 ---
 
-- **引入**
+- **拓展欧几里得算法**
 
   > 1、**裴蜀定理**(最大公约数表示定理)：设**整数 a, b** 的**最大公约数**`gcd(a, b)`为 **d**，则必然存在**整数 s, t** 使得`as + bt = d`；特别地，当`gcd(a, b) = 1`(即 a, b 互素)，必然有`as + bt = 1`。在此基础上有**推论**：如果`d | v`(d 是 v 的因子)，那么也有 **s, t** 使得`as + bt = v = kd`；**逆向推导亦然**，如果**存在这样的 s, t**，那么**d 必然是 v 的因子**  
   > 2、与**裴蜀定理**相关的，有**拓展欧几里得算法**，其是用来**计算**`as + bt = gcd(a, b)`中的 **s 和 t** 的。该算法的**本质**是：在执行**欧几里得算法**的过程中，利用每一步计算出来的**余数**和副产品——**商**，顺道通过**迭代公式**计算出每一步的 **s, t**，**最后一步**(实际是倒数第二步)求得的 **s, t**，便是所求的 **s, t**  
@@ -159,6 +160,122 @@ categories:
       cin >> a >> b;
       int gcd = ex_gcd(a, b, s, t);
       printf("%d(a) * %d(s) + %d(b) * %d(t) = %d(gcd(a, b))", a, s, b, t, gcd);
+      return 0;
+  }
+  ```
+
+---
+
+#### **唯一分解定理**
+
+---
+
+- **唯一分解定理**
+
+  > 1、**内容**：任意一个**大于 1 的自然数 N**，都可以表示为**有限个质数的乘积**。即：N = P<sub>1</sub><sup>a1</sup> + P<sub>2</sub><sup>a2</sup> + P<sub>3</sub><sup>a3</sup> + ...，其中 P<sub>i</sub> 为**质数**，a<sub>i</sub> 为**指数**。例如 12 = 2<sup>2</sup> \* 3<sup>1</sup>  
+  > 2、**有关正因数个数**：对于**大于 1 的自然数 N**，其**正因数的个数**为：ct = (1 + a<sub>1</sub>) \* (1 + a<sub>2</sub>) \* (1 + a<sub>3</sub>) \* ... \* (1 + a<sub>n</sub>)  
+  > 3、**有关 gcd 和 lcm**：通过**唯一分解定理**可表示 gcd(a, b) = P<sub>1</sub><sup>min(a1,b1)</sup> + P<sub>2</sub><sup>min(a2,b2)</sup> + P<sub>3</sub><sup>min(a3,b3)</sup> + ...； lcm(a, b) = P<sub>1</sub><sup>max(a1,b1)</sup> + P<sub>2</sub><sup>max(a2,b2)</sup> + P<sub>3</sub><sup>max(a3,b3)</sup> + ...
+
+- **区间 lcm**
+
+  > 1、[区间 lcm](https://cdn.oj.eriktse.com/problem.php?id=1110)：给定 **l 和 r**(都不超过 40000)，输出`[l, r]`**区间内所有数**的**最小公倍数**，结果对 10<sup>9</sup> + 7 取模  
+  > 2、由上结论得：解决此问题，只需要通过**唯一分解定理**，对`[l, r]`间的数**分解质因数**，并分别记录所有**质因子**的**最大指数**，最后再**将所有质因子相乘**  
+  > 3、代码实现时，要先通过**质数筛**筛选**范围内的所有质数**；再依次**分解质因数**，分别记录**质因子**的**最大指数**，注意最后需要**特判**；为优化最后**质因子相乘**的效率，通过**快速幂**实现相乘  
+  > 4、同理可得，对于**区间 gcd**，只需要记录**所有质因子**的**最小指数**，但记录的数组需要提前**初始化为无穷**，并在最后**相乘时判断**只相乘**出现过的质因子**(数量不为无穷的质因子)
+
+- **代码实现**
+
+  ```cpp
+  #include <bits/stdc++.h>
+  using namespace std;
+
+  const int N = 4e4 + 10;
+  const int P = 1e9 + 7;
+
+  vector<int> prime;
+  bitset<N> not_prime;
+  int cnt[N]; // 表示 lcm 的指数
+
+  // 快速幂取模
+  long long ModExp(long long a, long long b)
+  {
+      long long res = 1;
+      while (b)
+      {
+          if (b & 1)
+              res = res * a % P;
+          a = a * a % P;
+          b >>= 1;
+      }
+      return res;
+  }
+
+  // 欧拉线性筛
+  void oler(int n)
+  {
+      for (int i = 2; i <= n; i++)
+      {
+          if (!not_prime[i])
+              prime.push_back(i);
+
+          for (int j = 0; prime[j] * i <= n; j++)
+          {
+              not_prime[prime[j] * i] = true;
+              if (i % prime[j] == 0)
+                  break;
+          }
+      }
+  }
+
+  // 唯一分解定理：质因数分解
+  void func(int n)
+  {
+      for (int i = 2; i <= n / i; i++)
+      {
+          // 如果 n 能整除 i，说明 i 不是 n 的质因子
+          if (n % i)
+              continue;
+
+          int tmp = 0;  // 记录质因子的指数
+          while (n % i == 0)
+          {
+              n /= i;
+              tmp++;
+          }
+          cnt[i] = max(cnt[i], tmp);  // 记录质因子 i 的最大指数
+      }
+
+      // 特判 n 为质数(此时 n > 1)的情况
+      if (n > 1)
+          cnt[n] = max(cnt[n], 1);
+  }
+
+  void solve()
+  {
+      oler(4e4);
+
+      int l, r;
+      cin >> l >> r;
+      for (int i = l; i <= r; i++)
+          func(i);
+
+      long long ans = 1;
+      // 相乘所有质因子，得到 lcm
+      for (int i = 2; i <= r; i++)
+      {
+          if (!not_prime[i])
+              ans = ans * ModExp(i, cnt[i]) % P;
+      }
+      cout << ans;
+  }
+
+  int main()
+  {
+      ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
+      int T = 1;
+      // cin >> T;
+      while (T--)
+          solve();
       return 0;
   }
   ```
