@@ -5,7 +5,7 @@ favicon: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/info/user.png
 
 notice:
   enable: true
-  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：动态规划 | 更新时间：2024-01-21
+  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：圣奇宝枣的题库站 | 更新时间：2024-01-22
 # 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ
 
 tags:
@@ -101,22 +101,22 @@ social:
     link: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/social/QQ.jpg
     icon: ri:qq-line
     color: "#12B7F5"
-  - name: GitHub(个人页面)
-    link: https://github.com/ShengQiBaoZao
-    icon: ri:github-line
-    color: "#181717"
-  - name: 网易云音乐(点此跳转)
-    link: https://music.163.com/#/user/home?id=509242587
-    icon: ri:netease-cloud-music-line
-    color: "#C10D0C"
   - name: Bilibili(点此跳转)
     link: https://space.bilibili.com/347061710
     icon: ri:bilibili-line
     color: "#FF8EB3"
+  - name: GitHub(个人页面)
+    link: https://github.com/ShengQiBaoZao
+    icon: ri:github-line
+    color: "#181717"
+  - name: 评论管理(点此跳转)
+    link: https://waline.shengqibaozao.eu.org/ui
+    icon: ri:chat-settings-line
+    color: "#66b3ff"
   - name: 仪表盘(点此跳转)
     link: https://bk.shengqibaozao.eu.org
     icon: ri:line-chart-fill
-    color: "#8E71C1"
+    color: "#bb99ff"
 
 banner:
   enable: true

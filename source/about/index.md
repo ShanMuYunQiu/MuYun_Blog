@@ -189,6 +189,7 @@ reward: true
 
 <div class="warning">
 
+> **01-22** | 新增了副站 [圣奇宝枣的题库站](https://www.luogu.com.cn/blog/ShengQiBaoZao/)，使用洛谷博客，用于整理题目并记录解析  
 > **01-01** | Hello，2024
 
 </div>
