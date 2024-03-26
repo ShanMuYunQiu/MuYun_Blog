@@ -172,9 +172,9 @@ categories:
 
 - **唯一分解定理**
 
-  > 1、**内容**：任意一个**大于 1 的自然数 N**，都可以表示为**有限个质数的乘积**。即：N = P<sub>1</sub><sup>a1</sup> + P<sub>2</sub><sup>a2</sup> + P<sub>3</sub><sup>a3</sup> + ...，其中 P<sub>i</sub> 为**质数**，a<sub>i</sub> 为**指数**。例如 12 = 2<sup>2</sup> \* 3<sup>1</sup>  
+  > 1、**内容**：任意一个**大于 1 的自然数 N**，都可以表示为**有限个质数的乘积**。即：N = P<sub>1</sub><sup>a1</sup> \* P<sub>2</sub><sup>a2</sup> \* P<sub>3</sub><sup>a3</sup> \* ...，其中 P<sub>i</sub> 为**质数**，a<sub>i</sub> 为**指数**。例如 12 = 2<sup>2</sup> \* 3<sup>1</sup>  
   > 2、**有关正因数个数**：对于**大于 1 的自然数 N**，其**正因数的个数**为：ct = (1 + a<sub>1</sub>) \* (1 + a<sub>2</sub>) \* (1 + a<sub>3</sub>) \* ... \* (1 + a<sub>n</sub>)  
-  > 3、**有关 gcd 和 lcm**：通过**唯一分解定理**可表示 gcd(a, b) = P<sub>1</sub><sup>min(a1,b1)</sup> + P<sub>2</sub><sup>min(a2,b2)</sup> + P<sub>3</sub><sup>min(a3,b3)</sup> + ...； lcm(a, b) = P<sub>1</sub><sup>max(a1,b1)</sup> + P<sub>2</sub><sup>max(a2,b2)</sup> + P<sub>3</sub><sup>max(a3,b3)</sup> + ...
+  > 3、**有关 gcd 和 lcm**：通过**唯一分解定理**可表示 gcd(a, b) = P<sub>1</sub><sup>min(a1,b1)</sup> \* P<sub>2</sub><sup>min(a2,b2)</sup> \* P<sub>3</sub><sup>min(a3,b3)</sup> \* ...； lcm(a, b) = P<sub>1</sub><sup>max(a1,b1)</sup> \* P<sub>2</sub><sup>max(a2,b2)</sup> \* P<sub>3</sub><sup>max(a3,b3)</sup> \* ...
 
 - **区间 lcm**
 

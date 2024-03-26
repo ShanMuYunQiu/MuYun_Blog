@@ -83,8 +83,7 @@ categories:
 > **One Dark Pro**：黑灰色主题，好看  
 > **vscode-icons**：图标主题，文件图标与类型更加易分辨  
 > **Github Copilot**：AI 自动补全写代码，需要 github 账号登录(已收费)  
-> ----下位替代：CodeGeex、Tabnine AI、Codeium、Amazon CodeWhisperer、通义灵码  
-> **Bito**：一个编程领域的 AI，可理解为编程版 ChatGPT  
+> ----下位替代：CodeGeex、Tabnine AI、Codeium、Fitten Code、Amazon CodeWhisperer、通义灵码  
 > **Power Mode**：打字炫酷特效，需要在设置里自行设定  
 > **Auto Close Tag**：自动闭合标签(已内置于 VScode 的**Auto Closing Tags**设置项)  
 > **Auto Rename Tag**：自动重命名相对应的闭合 HTML 标签(已内置于 VScode 的**Linked Editing**设置项)  
@@ -141,7 +140,7 @@ categories:
   > 2、**prefix**：触发所需的关键字  
   > 3、**body**：触发后的代码片段  
   > 4、**description**：描述  
-  > 5、_占位符_：使用**Dollar 符**`$`表示占位，放置 Dollar 符可以使代码片段的**鼠标光标**默认出现在**占位符**处，使用**Tab**可以**快速跳转**到下一个占位符处。此外可以给 Dollar 符编号，即使用`$1`，`$2`等符号设置光标切换的顺序。还可以给占位符处设置默认的值，比如`printf("&{1:hello} ${2:world}");`，这样片段默认带有**hello**和**world**，且鼠标光标定位到对应占位符时**自动选中默认的值**以便修改
+  > 5、**占位符**：使用**Dollar 符**`$`表示占位，放置 Dollar 符可以使代码片段的**鼠标光标**默认出现在**占位符**处，使用**Tab**可以**快速跳转**到下一个占位符处。此外可以给 Dollar 符编号，即使用`$1`，`$2`等符号设置光标切换的顺序。还可以给占位符处设置默认的值，比如`printf("&{1:hello} ${2:world}");`，这样片段默认带有**hello**和**world**，且鼠标光标定位到对应占位符时**自动选中默认的值**以便修改
 
 ---
 
@@ -149,17 +148,15 @@ categories:
 
 ---
 
-- **下载编译器**(按需下载，不需要都下载，新手推荐使用下面第二个链接。速度慢，可复制下载链接使用最下面的站点加速)
+- **下载编译器**(按需下载，不需要都下载，新手推荐使用下面第二个链接。如速度慢可自行搜索 github 下载加速)
 
-[MinGW-w64 官方下载网站(已废弃下载，只提供其他集成支持下载地址)](https://www.mingw-w64.org/downloads/)
+  [MinGW-w64 官方下载网站(已废弃下载，只提供其他集成支持下载地址)](https://www.mingw-w64.org/downloads/)
 
-[MinGW-w64 单独下载(github 仓库地址)](https://github.com/niXman/mingw-builds-binaries)
+  [MinGW-w64 单独下载(github 仓库地址)](https://github.com/niXman/mingw-builds-binaries)
 
-[下载 LLVM/Clang(github 仓库地址)](https://github.com/llvm/llvm-project/tree/llvmorg-15.0.6)
+  [下载 LLVM/Clang(github 仓库地址)](https://github.com/llvm/llvm-project/tree/llvmorg-15.0.6)
 
-[winlibs.com 下载 WinLibs 套件(套件包含 GCC + LLVM/Clang/LLD/LLDB + MinGW-w64)](https://winlibs.com/)
-
-[github 加速站点 1](https://github.welab.eu.org/) [github 加速站点 2](https://d.serctl.com/)
+  [winlibs.com 下载 WinLibs 套件(套件包含 GCC + LLVM/Clang/LLD/LLDB + MinGW-w64)](https://winlibs.com/)
 
 - **MinGW-w64 下载说明**(下载其他编译器可忽略)
 
@@ -184,9 +181,9 @@ categories:
 
 ---
 
-- **Python**下载，一定勾选**Add Python to Path**(自动添加到环境变量)
+- **Python**下载，一定勾选**Add Python to Path**(自动添加到环境变量)，否则需要手动添加环境变量
 
-[Python 官方网站](https://www.python.org/)
+  [Python 官方网站](https://www.python.org/)
 
 - **配置环境**
 
@@ -203,7 +200,7 @@ categories:
 
 - **Java JDK**下载，VScode 插件支持目前只支持到 Java17 及以上，如需使用老版本 JDK 请自行将插件降版本
 
-[Oracle 官方网站](https://www.oracle.com/cn/java/)
+  [Oracle 官方网站](https://www.oracle.com/cn/java/)
 
 - **配置环境**：
 
