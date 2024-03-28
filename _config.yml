@@ -38,8 +38,7 @@ code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
   - README.md
-  - google82a910db0c35b229.html
-  - baidu_verify_codeva-vJpaJzBznm.html
+  - baidu_verify_codeva-NfyAifG02r.html
   - vercel.json
   - api/proxy.js
 
