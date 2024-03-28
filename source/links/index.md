@@ -11,13 +11,13 @@ reward: true
 <div id="links"></div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/qexo-friends/friends.css">
 <script src="https://cdn.jsdelivr.net/npm/qexo-friends/yun/friends.js"></script>
-<script>loadQexoFriends("links", "https://bk.shengqibaozao.eu.org", "#99bbff")</script>
+<script>loadQexoFriends("links", "https://bk.sqbz.eu.org", "#99bbff")</script>
 
 ---
 
 ##### **本站站点友链信息**
 
-> 地址：www.shengqibaozao.eu.org  
+> 地址：www.sqbz.eu.org  
 > 图片：https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/info/user.png  
 > 名称：圣奇宝枣的博客小站  
 > 描述：有朋自远方来，不亦乐乎。愿与你相识，得闲饮茶
@@ -35,4 +35,4 @@ reward: true
 
 <div id="friends-api"></div>
 <script src="https://cdn.jsdelivr.net/npm/qexo-friends/friends-api.js"></script>
-<script>qexo_friend_api("friends-api","https://bk.shengqibaozao.eu.org");</script>
+<script>qexo_friend_api("friends-api","https://bk.sqbz.eu.org");</script>

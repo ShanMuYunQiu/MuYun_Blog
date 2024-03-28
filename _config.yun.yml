@@ -5,7 +5,7 @@ favicon: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/info/user.png
 
 notice:
   enable: true
-  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：欧拉路径与哈密顿路径 | 更新时间：2024-03-26
+  content: 域名被墙了(悲)，正在解决 | 最近更新：欧拉路径与哈密顿路径 | 更新时间：2024-03-28
 # 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ
 # 圣奇宝枣的题库站
 
@@ -115,11 +115,11 @@ social:
     icon: ri:github-line
     color: "#181717"
   - name: 评论管理(点此跳转)
-    link: https://waline.shengqibaozao.eu.org/ui
+    link: https://waline.sqbz.eu.org/ui
     icon: ri:chat-settings-line
     color: "#66b3ff"
   - name: 仪表盘(点此跳转)
-    link: https://bk.shengqibaozao.eu.org
+    link: https://bk.sqbz.eu.org
     icon: ri:line-chart-fill
     color: "#bb99ff"
 
@@ -308,7 +308,7 @@ comment:
 
 waline:
   enable: true
-  serverURL: https://waline.shengqibaozao.eu.org/
+  serverURL: https://waline.sqbz.eu.org/
   visitor: false
   comment: true
   emoji:
