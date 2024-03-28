@@ -13,7 +13,7 @@ keywords:
   - 圣奇宝枣的小站
   - 编程知识
   - 教程
-  - sqbz.eu.org
+  - muyun.space
   - shengqibaozao
 author: 圣奇宝枣
 language: zh-CN
@@ -21,7 +21,7 @@ timezone: "Asia/Shanghai"
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://www.sqbz.eu.org
+url: https://www.muyun.space
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -175,7 +175,7 @@ githubcalendar:
   pc_minheight: 280px
   mobile_minheight: 0px
   color: "['#ebedf0', '	#b3d9ff', '#80bfff', '#66b3ff', '	#59acff', '#4da6ff', '#409fff', '#3399ff', '	#2693ff', '#198cff', '#0080ff']"
-  api: https://calendar.sqbz.eu.org/api/
+  api: https://calendar.muyun.space/api/
   # api: https://python-gitee-calendar-api.vercel.app/api
   calendar_js: https://cdn.jsdelivr.net/gh/Zfour/hexo-github-calendar@1.21/hexo_githubcalendar.js
   plus_style: ""

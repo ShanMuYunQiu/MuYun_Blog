@@ -20,7 +20,7 @@ reward: true
       title: "博主的碎碎念",
       limit: 7,
       useLoadingImg: false,
-      baseURL: "https://bk.sqbz.eu.org",
+      baseURL: "https://bk.muyun.space",
     }).then(function (){
       console.log("说说加载完成");
     })

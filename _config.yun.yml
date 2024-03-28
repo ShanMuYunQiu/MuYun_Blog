@@ -115,11 +115,11 @@ social:
     icon: ri:github-line
     color: "#181717"
   - name: 评论管理(点此跳转)
-    link: https://waline.sqbz.eu.org/ui
+    link: https://waline.muyun.space/ui
     icon: ri:chat-settings-line
     color: "#66b3ff"
   - name: 仪表盘(点此跳转)
-    link: https://bk.sqbz.eu.org
+    link: https://bk.muyun.space
     icon: ri:line-chart-fill
     color: "#bb99ff"
 
@@ -308,7 +308,7 @@ comment:
 
 waline:
   enable: true
-  serverURL: https://waline.sqbz.eu.org/
+  serverURL: https://waline.muyun.space/
   visitor: false
   comment: true
   emoji:
