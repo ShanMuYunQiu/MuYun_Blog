@@ -13,7 +13,7 @@ keywords:
   - 圣奇宝枣的小站
   - 编程知识
   - 教程
-  - muyun.space
+  - blog.muyun.space
   - shengqibaozao
 author: 圣奇宝枣
 language: zh-CN
@@ -21,7 +21,7 @@ timezone: "Asia/Shanghai"
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://www.muyun.space
+url: https://blog.muyun.space
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:

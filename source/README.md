@@ -1,6 +1,6 @@
 # 欢迎来到圣奇宝枣的博客小站
 
-## 博客地址：https://blog.muyun.space
+## 博客地址：https://blog.blog.muyun.space
 
 ## 有朋自远方来，不亦乐乎，愿与你相识，得闲饮茶
 
