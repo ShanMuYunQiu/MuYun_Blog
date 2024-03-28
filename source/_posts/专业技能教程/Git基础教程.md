@@ -3,14 +3,15 @@ title: Git基础教程
 author: 圣奇宝枣
 description: 版本管理工具Git的基本使用教程，内含常用本地命令，分支命令，远程命令以及一些优化
 sticky: 0
-date: 2022-05-20
-updated: 2022-09-08
 readmore: true
 tags:
   - Git
   - 版本管理工具
 categories:
   - 专业技能教程
+abbrlink: c4eece1e
+date: 2022-05-20 00:00:00
+updated: 2022-09-08 00:00:00
 ---
 
 ---

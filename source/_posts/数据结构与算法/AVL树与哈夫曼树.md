@@ -3,8 +3,6 @@ title: AVL树与哈夫曼树
 author: 圣奇宝枣
 description: 学习构建和使用二叉查找树，再进一步学习 AVL 树。了解哈夫曼树和哈夫曼编码
 sticky: 0
-date: 2023-09-03
-updated: 2023-09-14
 readmore: true
 tags:
   - 二叉查找树
@@ -14,6 +12,9 @@ tags:
   - C++
 categories:
   - 数据结构与算法
+abbrlink: 1d03a887
+date: 2023-09-03 00:00:00
+updated: 2023-09-14 00:00:00
 ---
 
 ---

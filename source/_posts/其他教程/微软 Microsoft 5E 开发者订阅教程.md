@@ -3,13 +3,14 @@ title: 微软 Microsoft 5E 开发者订阅教程
 author: 圣奇宝枣
 description: 有关于Microsoft 5E开发者订阅教程的简单介绍，包括开通与续订的基本方法，可以白嫖office 365和5T Onedrive
 sticky: 0
-date: 2022-05-14
-updated: 2022-05-14
 readmore: true
 tags:
   - 白嫖
 categories:
   - 其他教程
+abbrlink: '80339274'
+date: 2022-05-14 00:00:00
+updated: 2022-05-14 00:00:00
 ---
 
 ---

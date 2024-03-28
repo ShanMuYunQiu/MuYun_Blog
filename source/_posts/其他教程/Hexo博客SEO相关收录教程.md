@@ -3,8 +3,6 @@ title: Hexo博客SEO相关收录教程
 author: 圣奇宝枣
 description: 所有有关于网站收录SEO的注意事项，以及网站SEO相关的收录教程。
 sticky: 0
-date: 2022-06-16
-updated: 2022-07-03
 readmore: true
 tags:
   - Hexo博客
@@ -12,6 +10,9 @@ tags:
   - SEO收录
 categories:
   - 其他教程
+abbrlink: 7fa36b92
+date: 2022-06-16 00:00:00
+updated: 2022-07-03 00:00:00
 ---
 
 ---

@@ -3,8 +3,6 @@ title: Qt 开发环境配置
 author: 圣奇宝枣
 description: Qt环境配置，以及使用其他IDE或编辑器开发Qt
 sticky: 0
-date: 2022-12-10
-updated: 2023-01-06
 readmore: true
 tags:
   - 前置准备
@@ -12,6 +10,9 @@ tags:
   - Qt
 categories:
   - 编辑器与IDE
+abbrlink: f9bb8de7
+date: 2022-12-10 00:00:00
+updated: 2023-01-06 00:00:00
 ---
 
 ---

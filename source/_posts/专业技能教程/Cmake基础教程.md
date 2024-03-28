@@ -3,14 +3,15 @@ title: Cmake基础教程
 author: 圣奇宝枣
 description: 学习有关Cmake构建的知识，学会使用Cmake进行编译
 sticky: 0
-date: 2023-01-07
-updated: 2023-01-07
 readmore: true
 tags:
   - C++
   - Cmake
 categories:
   - 专业技能教程
+abbrlink: c6c59c74
+date: 2023-01-07 00:00:00
+updated: 2023-01-07 00:00:00
 ---
 
 ---

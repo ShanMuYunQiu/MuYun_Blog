@@ -3,14 +3,15 @@ title: Linux常用命令手册
 author: 圣奇宝枣
 description: Linux下的常用命令，方便查询相应的Linux命令
 sticky: 0
-date: 2022-06-20
-updated: 2022-06-20
 readmore: true
 tags:
   - Linux
   - 系统操作
 categories:
   - 专业技能教程
+abbrlink: 6bc3d8a
+date: 2022-06-20 00:00:00
+updated: 2022-06-20 00:00:00
 ---
 
 ---

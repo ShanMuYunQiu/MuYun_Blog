@@ -189,7 +189,8 @@ reward: true
 
 <div class="warning">
 
-> **03-28** | 博客的域名`shengqibaozao.eu.org`被墙了，新买了`muyun.space`作为域名，并由圣奇宝枣更换网名为山暮云秋，更换博客的信息  
+> **03-28** | 使用短链接优化博客文章链接长度，启用 Katex 数学公式  
+> **03-28** | 博客的域名`shengqibaozao.eu.org`被墙了，新买了`muyun.space`作为新域名投入使用  
 > **01-22** | 新增了副站 [圣奇宝枣的题库站](https://www.luogu.com.cn/blog/ShengQiBaoZao/)，使用洛谷博客，用于整理题目并记录解析  
 > **01-01** | Hello，2024
 

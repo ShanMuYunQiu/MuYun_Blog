@@ -3,8 +3,6 @@ title: gcd 和 lcm
 author: 圣奇宝枣
 description: 学习求 gcd 和 lcm 的方法，学习拓展欧几里得算法、唯一分解定理
 sticky: 0
-date: 2023-08-11
-updated: 2024-01-21
 readmore: true
 tags:
   - exgcd
@@ -14,6 +12,9 @@ tags:
   - C++
 categories:
   - 数据结构与算法
+abbrlink: 394de44a
+date: 2023-08-11 00:00:00
+updated: 2024-01-21 00:00:00
 ---
 
 ---

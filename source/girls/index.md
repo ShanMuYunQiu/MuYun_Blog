@@ -230,7 +230,7 @@ girls:
     from: ATRI -My Dear Moments-
     url: https://zh.moegirl.org.cn/%E4%BA%9A%E6%89%98%E8%8E%89
 
-  - name: ^丛雨^
+  - name: 丛雨
     avatar: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/ACG/丛雨.jpg
     from: 千恋*万花
     url: https://zh.moegirl.org.cn/%E4%B8%9B%E9%9B%A8
