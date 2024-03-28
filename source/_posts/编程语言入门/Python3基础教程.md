@@ -1,6 +1,6 @@
 ---
 title: Python3基础教程
-author: 圣奇宝枣
+author: 山暮云秋
 description: 有关Python3的基础教程，包括基本语法、python特有数据类型以及面向对象编程等，适合新手上手
 sticky: 0
 readmore: true
@@ -1733,7 +1733,7 @@ updated: 2022-04-27 00:00:00
 
 ##### **文件对象常用方式**
 
-  ![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/blog/Python3基础教程/对象方式.png)
+![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/blog/Python3基础教程/对象方式.png)
 
 ##### **with 语句(上下文管理器)**
 

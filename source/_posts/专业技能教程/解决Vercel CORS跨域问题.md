@@ -1,6 +1,6 @@
 ---
 title: 解决Vercel CORS跨域问题
-author: 圣奇宝枣
+author: 山暮云秋
 description: 在实现功能时常常会遇到跨域请求，而如果使用Vercel部署，则可以按此教程操作
 sticky: 0
 readmore: true

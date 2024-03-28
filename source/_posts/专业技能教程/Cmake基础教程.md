@@ -1,6 +1,6 @@
 ---
 title: Cmake基础教程
-author: 圣奇宝枣
+author: 山暮云秋
 description: 学习有关Cmake构建的知识，学会使用Cmake进行编译
 sticky: 0
 readmore: true
@@ -30,7 +30,7 @@ updated: 2023-01-07 00:00:00
 
 - **Cmake 的安装**
 
-  - 之前的[VScode 配置 Clang 和 Cmake 环境](https://blog.muyun.space/2023/01/04/%E7%BC%96%E8%BE%91%E5%99%A8%E4%B8%8EIDE/VScode%E9%85%8D%E7%BD%AEClang%E5%92%8CCmake%E7%8E%AF%E5%A2%83/)文章中写过 Cmake 的安装与环境变量配置，请参考此文章
+  - 之前的[VScode 配置 Clang 和 Cmake 环境](../e8dec52a/)文章中写过 Cmake 的安装与环境变量配置，请参考此文章
 
 ---
 

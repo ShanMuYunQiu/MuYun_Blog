@@ -1,6 +1,6 @@
 ---
 title: Markdown语法教程
-author: 圣奇宝枣
+author: 山暮云秋
 description: 简单易上手的标记语言Markdown，无论用来写文章还是记概要整理知识都很出众
 sticky: 0
 readmore: true
@@ -181,23 +181,23 @@ print(a)
 链接可以由两种形式生成：**行内式**和**参考式**。  
 **行内式**：
 
-> \[圣奇宝枣的 Github 个人页\]\(https://github.com/ShengQiBaoZao)。
+> \[山暮云秋的 Github 个人页\]\(https://github.com/ShengQiBaoZao)。
 
 效果：
 
-> [圣奇宝枣的 Github 个人页](https://github.com/ShengQiBaoZao)。
+> [山暮云秋的 Github 个人页](https://github.com/ShengQiBaoZao)。
 
 **参考式**：
 
-> \[圣奇宝枣的 Github 个人页\]\[1\]  
-> \[圣奇宝枣的个人博客\]\[2\]  
+> \[山暮云秋的 Github 个人页\]\[1\]  
+> \[山暮云秋的个人博客\]\[2\]  
 > \[1\]:https://github.com/ShengQiBaoZao  
 > \[2\]:blog.muyun.space
 
 效果：
 
-> [圣奇宝枣的 Github 个人页][1]  
-> [圣奇宝枣的个人博客][2]
+> [山暮云秋的 Github 个人页][1]  
+> [山暮云秋的个人博客][2]
 
 [1]: https://github.com/ShengQiBaoZao
 [2]: blog.muyun.space

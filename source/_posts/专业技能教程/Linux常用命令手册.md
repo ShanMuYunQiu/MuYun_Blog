@@ -1,6 +1,6 @@
 ---
 title: Linux常用命令手册
-author: 圣奇宝枣
+author: 山暮云秋
 description: Linux下的常用命令，方便查询相应的Linux命令
 sticky: 0
 readmore: true

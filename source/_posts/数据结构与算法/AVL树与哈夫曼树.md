@@ -1,6 +1,6 @@
 ---
 title: AVL树与哈夫曼树
-author: 圣奇宝枣
+author: 山暮云秋
 description: 学习构建和使用二叉查找树，再进一步学习 AVL 树。了解哈夫曼树和哈夫曼编码
 sticky: 0
 readmore: true

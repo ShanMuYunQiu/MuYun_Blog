@@ -18,8 +18,8 @@ reward: true
 ##### **本站站点友链信息**
 
 > 地址：www.muyun.space  
-> 图片：https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/info/user.png  
-> 名称：圣奇宝枣的博客小站  
+> 图片：https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/info/user.jpg  
+> 名称：山暮云秋的空间  
 > 描述：有朋自远方来，不亦乐乎。愿与你相识，得闲饮茶
 
 ##### **请在下方申请友链，欢迎各位来访！友链请按照以下要求填写申请，谢谢配合 φ(>ω<\*)**

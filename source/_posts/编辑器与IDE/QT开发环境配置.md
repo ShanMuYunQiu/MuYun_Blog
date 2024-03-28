@@ -1,6 +1,6 @@
 ---
 title: Qt 开发环境配置
-author: 圣奇宝枣
+author: 山暮云秋
 description: Qt环境配置，以及使用其他IDE或编辑器开发Qt
 sticky: 0
 readmore: true

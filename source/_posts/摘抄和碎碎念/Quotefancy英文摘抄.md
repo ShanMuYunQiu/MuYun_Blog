@@ -1,6 +1,6 @@
 ---
 title: Quotefancy英文摘抄
-author: 圣奇宝枣
+author: 山暮云秋
 description: Quotefancy网站中摘抄的英文美句
 sticky: 0
 readmore: true

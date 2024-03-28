@@ -1,6 +1,6 @@
 ---
 title: Python3爬虫基础
-author: 圣奇宝枣
+author: 山暮云秋
 description: Python3的爬虫教程，完全可以满足个人基本需求，有一定理解难度，内含爬虫所用各个模块教程与信息提取教程
 sticky: 0
 readmore: true

@@ -1,4 +1,4 @@
-favicon: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/info/user.png
+favicon: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/info/user.jpg
 # https://jsd.cky.codes
 # https://jsdelivr.codeqihan.com
 # https://cdn.jsdelivr.net
@@ -7,7 +7,7 @@ notice:
   enable: true
   content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：欧拉路径与哈密顿路径 | 更新时间：2024-03-28
 # 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ
-# 圣奇宝枣的题库站
+# 山暮云秋的题库站
 
 tags:
   Git: "#ff4d4d"
@@ -125,7 +125,7 @@ social:
 
 banner:
   enable: true
-  title: 圣奇宝枣的博客小站
+  title: 山暮云秋的空间
   border: true
   cloud:
     enable: true
@@ -189,7 +189,7 @@ sidebar:
 
 avatar:
   enable: true
-  url: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/info/user.png
+  url: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/info/user.jpg
   rounded: true
   opacity: 1
   mickey_mouse: false

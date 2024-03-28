@@ -1,6 +1,6 @@
 ---
 title: VScode基本环境配置
-author: 圣奇宝枣
+author: 山暮云秋
 description: 个人以及大众最爱的编辑器，新手时期被繁杂的配置劝退过，而本教程将带你渡过难关
 sticky: 0
 readmore: true

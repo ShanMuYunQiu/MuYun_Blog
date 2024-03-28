@@ -15,8 +15,8 @@ reward: true
   <script>
     qexoDaodao?.init({
       el: "#qexoDaoDao",
-      avatar: "https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/info/user.png",
-      name: "圣奇宝枣",
+      avatar: "https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/info/user.jpg",
+      name: "山暮云秋",
       title: "博主的碎碎念",
       limit: 7,
       useLoadingImg: false,

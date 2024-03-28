@@ -1,6 +1,6 @@
 ---
 title: PicGO图床配置
-author: 圣奇宝枣
+author: 山暮云秋
 description: 使用PicGO搭配各个平台做个人图床，简单易上手
 sticky: 0
 readmore: true

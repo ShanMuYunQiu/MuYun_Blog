@@ -1,6 +1,6 @@
 ---
 title: Git基础教程
-author: 圣奇宝枣
+author: 山暮云秋
 description: 版本管理工具Git的基本使用教程，内含常用本地命令，分支命令，远程命令以及一些优化
 sticky: 0
 readmore: true

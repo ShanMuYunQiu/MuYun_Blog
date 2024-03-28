@@ -1,6 +1,6 @@
 ---
 title: hexo-encrypt密码插件测试
-author: 圣奇宝枣
+author: 山暮云秋
 description: 使用了hexo-encrypt插件，对文章进行了加密，本文章密码为123456
 readmore: true
 password: 123456
@@ -8,7 +8,7 @@ abstract: ヾ(✿ﾟ▽ﾟ)ノ这篇文章被加密了！输入密码才能查�
 message: ヾ(๑╹◡╹)ﾉ"文章被加密，点击这里输入密码查看~~~
 theme: wave
 wrong_pass_message: 密码错误哦！如果不知道密码就不要试了！别想偷看！￣へ￣
-wrong_hash_message: 'sorry，出现了未知的错误，但您还是可以查看文章内容[・_・?]'
+wrong_hash_message: "sorry，出现了未知的错误，但您还是可以查看文章内容[・_・?]"
 tags:
   - Hexo博客
   - 测试

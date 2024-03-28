@@ -189,9 +189,10 @@ reward: true
 
 <div class="warning">
 
+> **03-28** | 更改昵称，由圣奇宝枣更换为山暮云秋(暮云)
 > **03-28** | 使用短链接优化博客文章链接长度，启用 Katex 数学公式  
 > **03-28** | 博客的域名`shengqibaozao.eu.org`被墙了，新买了`muyun.space`作为新域名投入使用  
-> **01-22** | 新增了副站 [圣奇宝枣的题库站](https://www.luogu.com.cn/blog/ShengQiBaoZao/)，使用洛谷博客，用于整理题目并记录解析  
+> **01-22** | 新增了副站 [山暮云秋的题库站](https://www.luogu.com.cn/blog/ShengQiBaoZao/)，使用洛谷博客，用于整理题目并记录解析  
 > **01-01** | Hello，2024
 
 </div>

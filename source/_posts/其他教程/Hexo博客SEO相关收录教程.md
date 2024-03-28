@@ -1,6 +1,6 @@
 ---
 title: Hexo博客SEO相关收录教程
-author: 圣奇宝枣
+author: 山暮云秋
 description: 所有有关于网站收录SEO的注意事项，以及网站SEO相关的收录教程。
 sticky: 0
 readmore: true

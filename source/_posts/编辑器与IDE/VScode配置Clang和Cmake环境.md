@@ -1,6 +1,6 @@
 ---
 title: VScode配置Clang和Cmake环境
-author: 圣奇宝枣
+author: 山暮云秋
 description: Vscode进阶篇，学习.vscode配置文件和Clang+Cmake的配置与使用
 sticky: 0
 readmore: true
@@ -23,7 +23,7 @@ updated: 2023-01-07 00:00:00
 
 - **前言及准备**
 
-  > 1、首先，请确保你已经根据[VScode 基本环境配置](https://blog.muyun.space/2022/04/26/%E7%BC%96%E8%BE%91%E5%99%A8%E4%B8%8EIDE/VScode%E5%9F%BA%E6%9C%AC%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/)文章学会了配置环境，并成功配置了 C/C++环境  
+  > 1、首先，请确保你已经根据[VScode 基本环境配置](../54ce768c/)文章学会了配置环境，并成功配置了 C/C++环境  
   > 2、比起前文的方案使用**GCC 编译器**，本方案使用**Clang + Cmake**配置环境，因此需要在上方文章所给链接下载**LLVM/Clang**套件  
   > 3、同**MinGW-w64**配置方法类似，将**bin 目录**添加到**Path 环境变量**中，确保在**cmd**中输入`clang -v`输出**clang 版本号**，配置完成后进入下面的步骤
 

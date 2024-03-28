@@ -1,6 +1,6 @@
 ---
 title: gcd 和 lcm
-author: 圣奇宝枣
+author: 山暮云秋
 description: 学习求 gcd 和 lcm 的方法，学习拓展欧几里得算法、唯一分解定理
 sticky: 0
 readmore: true
