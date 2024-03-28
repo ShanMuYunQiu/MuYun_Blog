@@ -203,9 +203,9 @@ hexo_submit_urls_to_search_engine:
   bing: 1 # 是否向 Bing 提交，可选值：1 / 0（0：否；1：是）
   baidu: 1 # 是否向 Baidu 提交，可选值：1 / 0（0：否；1：是）
   txt_path: submit_urls.txt
-  baidu_host: https://www.shengqibaozao.eu.org
+  baidu_host: https://blog.muyun.space
   baidu_token: A6dZMEMdwydPianF
-  bing_host: https://www.shengqibaozao.eu.org
+  bing_host: https://blog.muyun.space
   bing_token: c7114aa03dab43a696e023e65ba5b402
   google_host: https://jinghu-moon.top ## 在谷歌站长平台注册的域名。
   google_key_file: central-droplet-337107-098e588b1d98.json #存放google key 的 json 文件，与hexo _config.yml文件放于同一路径。不要把json 文件直接发布在公众仓库里!
