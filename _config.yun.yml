@@ -5,7 +5,7 @@ favicon: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/info/user.jpg
 
 notice:
   enable: true
-  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：欧拉路径与哈密顿路径 | 更新时间：2024-03-28
+  content: github_calendar插件等待修复 | 最近更新：欧拉路径与哈密顿路径 | 更新时间：2024-03-29
 # 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ
 # 山暮云秋的题库站
 
@@ -129,7 +129,7 @@ banner:
   border: true
   cloud:
     enable: true
-    color: white
+    color: "#ffc299"
   go_down:
     enable: true
     icon: ri:arrow-down-s-line
@@ -143,11 +143,11 @@ say:
     api: https://v1.hitokoto.cn?c=a&c=d&c=e&c=f&c=g&c=i&c=j&c=k
 
 colors:
-  primary: "#1975ff"
-  bg: "#F5F5F5"
-  selection_bg: "#1975ff"
-  tag_start_color: "#99bbff"
-  tag_end_color: "#1975ff"
+  primary: "	#ff8533"
+  bg: "#ffc299"
+  selection_bg: "	#ff8533"
+  tag_start_color: "#ffc299"
+  tag_end_color: "#ff8533"
 
 mode: time
 
@@ -161,9 +161,9 @@ bg_image:
 fireworks:
   enable: true
   colors:
-    - "102, 167, 221"
-    - "62, 131, 225"
-    - "33, 78, 194"
+    - "255, 117, 25"
+    - "255, 163, 102"
+    - "255, 209, 179"
 
 post_card:
   opacity: 0.6
@@ -229,7 +229,7 @@ pages:
   - name: 给点给点~
     url: /donate/
     icon: ri:hand-coin-line
-    color: "#ff944d"
+    color: "#ffa366"
 
 post_meta:
   item_text: true
@@ -282,7 +282,7 @@ footer:
   icon:
     name: ri:cloud-line
     animated: true
-    color: "#0078E7"
+    color: "#ff8533"
   live_time:
     enable: true
     prefix: 本博客已历经风霜坚持了
@@ -327,7 +327,7 @@ local_search:
 
 types:
   link:
-    color: "#1975ff"
+    color: "#ff8533"
     icon: ri:external-link-line
   bilibili:
     color: "#FF8EB3"

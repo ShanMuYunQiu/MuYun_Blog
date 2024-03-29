@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@barry-flynn/hexo-github-calendar@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.npmjs.org/@barry-flynn/hexo-github-calendar/-/hexo-github-calendar-1.0.4.tgz"
+  integrity sha512-5rjifVaoH5BMuG+NcIKNHsv0PHkn5Egvc4VNe5NRR6NUy6OYKJbQM6l4l3HIwHcXYRxtbqJ+eRcrXdHX1BG6mA==
+
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
   resolved "https://registry.npmjs.org/@sindresorhus/is/-/is-0.14.0.tgz"
@@ -2154,11 +2159,6 @@ hexo-generator-tag@^1.0.0:
   integrity sha512-JDoB2T1EncRlyGSjuAhkGxRfKkN8tq0i8tFlk9I4q2L6iYxPaUnFenhji0oxufTADC16/IchuPjmMk//dt8Msg==
   dependencies:
     hexo-pagination "1.0.0"
-
-hexo-githubcalendar@^1.2.3:
-  version "1.2.3"
-  resolved "https://registry.npmjs.org/hexo-githubcalendar/-/hexo-githubcalendar-1.2.3.tgz"
-  integrity sha512-xMfp2Z11F57s0/q7N9x+S2ui5dkrOiz5I3+TKPL+2IquWKj11wpaVZsPDgMxPAU8B6AYm/78S5e2APiHADPYSg==
 
 hexo-helper-live2d@^3.1.1:
   version "3.1.1"
