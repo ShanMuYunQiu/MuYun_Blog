@@ -189,7 +189,7 @@ reward: true
 
 <div class="warning">
 
-> **03-29** | 更新`Github Calendar`，更改网站主题色  
+> **03-29** | 更新`Github Calendar`，更改网站主题色，修复字体  
 > **03-28** | 更改昵称，由圣奇宝枣更换为山暮云秋(暮云)  
 > **03-28** | 使用短链接优化博客文章链接长度，启用 Katex 数学公式  
 > **03-28** | 博客的域名`shengqibaozao.eu.org`被墙了，新买了`muyun.space`作为新域名投入使用  

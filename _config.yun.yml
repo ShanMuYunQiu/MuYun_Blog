@@ -923,3 +923,21 @@ katex:
   copy_tex: true
   global: false
   options: {}
+
+head:
+  css:
+    fonts: https://fonts.font.im/css2?family=Noto+Serif+SC:wght@900&display=swap
+
+font:
+  cdn:
+    enable: false
+    lib:
+      - https://fonts.font.im/css2?family=Noto+Serif+SC:wght@900&display=swap
+  serif:
+    family: '''Songti SC'', ''Noto Serif SC'', STZhongsong, STKaiti, KaiTi, Roboto, serif'
+    weight: 900
+  sans_serif:
+    family: '''PingFang SC'', ''Microsoft YaHei'', Roboto, Arial, sans-serif'
+    weight: 400
+  monospace:
+    family: '''Source Code Pro'', ''Courier New'', Courier, Consolas, Monaco, monospace'
