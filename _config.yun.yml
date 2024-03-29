@@ -5,7 +5,7 @@ favicon: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/info/user.jpg
 
 notice:
   enable: true
-  content: github_calendar插件等待修复 | 最近更新：欧拉路径与哈密顿路径 | 更新时间：2024-03-29
+  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：欧拉路径与哈密顿路径 | 更新时间：2024-03-29
 # 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ
 # 山暮云秋的题库站
 
@@ -449,36 +449,6 @@ aplayer:
         url: /lrc/Can We Kiss Forever？.mp3
         cover: http://p1.music.126.net/BgsCl01scHEbWJG0ijOS4A==/109951165687403090.jpg
         lrc: /lrc/Can We Kiss Forever？.lrc
-      - name: 曾是惊鸿照影来
-        artist: 木冬为柊 / 若华 / 屿Yukiri / 青魏
-        url: https://music.163.com/song/media/outer/url?id=1922714013.mp3
-        cover: http://p1.music.126.net/9-lra0_ym-mD3pnnc2XizQ==/109951167081855726.jpg
-        lrc: /lrc/曾是惊鸿照影来.lrc
-      - name: 纸片人
-        artist: 洛天依 / Padi / 亚小琨
-        url: https://music.163.com/song/media/outer/url?id=2074846547.mp3
-        cover: http://p2.music.126.net/6G9LMjVbWigsq1671oxiuw==/109951168853776195.jpg
-        lrc: /lrc/纸片人.lrc
-      - name: 那些我恐惧至极的事
-        artist: 洛天依 / 乐正绫 / 雨狸 / DJ Soviet
-        url: https://music.163.com/song/media/outer/url?id=1495910047.mp3
-        cover: http://p1.music.126.net/LdLaFlCsd2DW6nfUrMtpdQ==/109951165474867933.jpg
-        lrc: /lrc/那些我恐惧至极的事.lrc
-      - name: 绝世丑角【V5】
-        artist: 洛天依 / 雨狸 / DELA / 文舞bin
-        url: https://music.163.com/song/media/outer/url?id=1906598235.mp3
-        cover: http://p1.music.126.net/MixPbhTToHexST8S6pJOHw==/109951166914559500.jpg
-        lrc: /lrc/绝世丑角【V5】.lrc
-      - name: 泠重乞愿
-        artist: 洛天依 / 雨狸 / DELA
-        url: https://music.163.com/song/media/outer/url?id=413829225.mp3
-        cover: http://p2.music.126.net/fPPLz_0Ilx3SV3r4yxlQlA==/18338754439883750.jpg
-        lrc: /lrc/泠重乞愿.lrc
-      - name: 零重祈愿
-        artist: 乐正绫 / 雨狸 / DELA
-        url: https://music.163.com/song/media/outer/url?id=462012620.mp3
-        cover: http://p2.music.126.net/fPPLz_0Ilx3SV3r4yxlQlA==/18338754439883750.jpg
-        lrc: /lrc/零重祈愿.lrc
       - name: 小孩小孩
         artist: 刷牙 / ilem
         url: /lrc/小孩小孩.mp3
@@ -499,11 +469,6 @@ aplayer:
         url: https://music.163.com/song/media/outer/url?id=1372188635.mp3
         cover: http://p1.music.126.net/OjiWGpbpC80EbQgkxEayiA==/109951164152228527.jpg
         lrc: /lrc/Daylight.lrc
-      - name: 破旧世界（最终）
-        artist: 魔鬼花园
-        url: https://music.163.com/song/media/outer/url?id=1890770509.mp3
-        cover: http://p1.music.126.net/t0Rta9_jLJaAI0Hq8LKXGA==/109951166567802142.jpg
-        lrc: /lrc/破旧世界（最终）.lrc
       - name: 第105天
         artist: Pianoboy高至豪
         url: https://music.163.com/song/media/outer/url?id=139737.mp3
@@ -521,7 +486,7 @@ aplayer:
         lrc: /lrc/Long Journey.lrc
       - name: Welcome Home
         artist: Radical Face
-        url: https://music.163.com/song/media/outer/url?id=18495436.mp3
+        url: /lrc/Welcome Home.mp3
         cover: http://p1.music.126.net/TRW7_0KbJXHsb5t3sqZsaw==/6659741930385748.jpg
         lrc: /lrc/Welcome Home.lrc
       - name: What U Do
@@ -544,11 +509,6 @@ aplayer:
         url: https://music.163.com/song/media/outer/url?id=1412030522.mp3
         cover: http://p1.music.126.net/moCls2ann4OX8aAoffXEyg==/109951164579487317.jpg
         lrc: /lrc/飞.lrc
-      - name: ☾˚‧º
-        artist: Esther
-        url: https://music.163.com/song/media/outer/url?id=1501922887.mp3
-        cover: http://p1.music.126.net/Qld58JrezsYbw6SJz20jXA==/109951165531240985.jpg
-        lrc: /lrc/☾˚‧º.lrc
       - name: Antisocial
         artist: BEAUZ / Heather Sommer
         url: https://music.163.com/song/media/outer/url?id=550124208.mp3
@@ -574,11 +534,6 @@ aplayer:
         url: https://music.163.com/song/media/outer/url?id=1406443093.mp3
         cover: http://p2.music.126.net/JiQHxzcKFEJ6s8Ge_QHp5Q==/109951164515259189.jpg
         lrc: /lrc/Carousel.lrc
-      - name: The Last String
-        artist: Jacoo
-        url: https://music.163.com/song/media/outer/url?id=29544534.mp3
-        cover: http://p2.music.126.net/GPv_mcfeaD5aZ5L70udTtg==/109951163298570854.jpg
-        lrc: /lrc/The Last String.lrc
       - name: 17さいのうた。
         artist: 『ユイカ』
         url: https://music.163.com/song/media/outer/url?id=1951665069.mp3
@@ -589,11 +544,6 @@ aplayer:
         url: https://music.163.com/song/media/outer/url?id=1905586708.mp3
         cover: http://p1.music.126.net/WMAHZRjSjackfXUmA5GVWw==/109951166778043030.jpg
         lrc: /lrc/ただ声一つ.lrc
-      - name: ねぇねぇねぇ。
-        artist: ピノキオピー
-        url: https://music.163.com/song/media/outer/url?id=1859603835.mp3
-        cover: http://p1.music.126.net/ScwYuq88dnahampgDQ9Hxw==/109951166158713797.jpg
-        lrc: /lrc/ねぇねぇねぇ。.lrc
       - name: 懒人
         artist: 三无MarBlue
         url: https://music.163.com/song/media/outer/url?id=1462427219.mp3
@@ -604,11 +554,6 @@ aplayer:
         url: https://music.163.com/song/media/outer/url?id=462177081.mp3
         cover: http://p2.music.126.net/JoPwp8la7lf2bFi0UQKn_g==/109951162866713272.jpg
         lrc: /lrc/An Old Song.lrc
-      - name: 不问天
-        artist: 说说Crystal
-        url: https://music.163.com/song/media/outer/url?id=1824454149.mp3
-        cover: http://p1.music.126.net/h9fwhS2GHKKmhhu-08MU_w==/109951165774793134.jpg
-        lrc: /lrc/不问天.lrc
       - name: 雨道
         artist: Otokaze
         url: https://music.163.com/song/media/outer/url?id=493903.mp3
@@ -621,7 +566,7 @@ aplayer:
         lrc: /lrc/夏恋.lrc
       - name: Cold Winter
         artist: July
-        url: https://music.163.com/song/media/outer/url?id=33495597.mp3
+        url: /lrc/Cold Winter.mp3
         cover: http://p2.music.126.net/-VVoBbON0-XHXnTg-PVXSw==/7946170535465788.jpg
         lrc: /lrc/Cold Winter.lrc
       - name: Where are you
@@ -634,11 +579,6 @@ aplayer:
         url: https://music.163.com/song/media/outer/url?id=32717172.mp3
         cover: http://p1.music.126.net/1uWLxBVZ5MLunwuVo5hrzg==/8002245627462629.jpg
         lrc: /lrc/青空1.lrc
-      - name: 寂静之空
-        artist: 傅许
-        url: https://music.163.com/song/media/outer/url?id=461074907.mp3
-        cover: http://p1.music.126.net/SWO7UuIF2yOPpguwI4vXvw==/109951162863193280.jpg
-        lrc: /lrc/寂静之空.lrc
       - name: Feeling The Rain
         artist: MoreanP
         url: https://music.163.com/song/media/outer/url?id=496774187.mp3
@@ -649,11 +589,6 @@ aplayer:
         url: https://music.163.com/song/media/outer/url?id=495562302.mp3
         cover: http://p1.music.126.net/gtnxIZw1IKVV6UoxYQoA5A==/109951163393955301.jpg
         lrc: /lrc/森林.lrc
-      - name: 夏野与暗恋
-        artist: 闫东炜
-        url: https://music.163.com/song/media/outer/url?id=421934070.mp3
-        cover: http://p1.music.126.net/v6LnBC1A14Xkl4D1bRLNWg==/109951167720626044.jpg
-        lrc: /lrc/夏野与暗恋.lrc
       - name: Umbrella
         artist: Matte / Ember Island
         url: https://music.163.com/song/media/outer/url?id=518904426.mp3
@@ -664,11 +599,6 @@ aplayer:
         url: https://music.163.com/song/media/outer/url?id=1303019637.mp3
         cover: http://p1.music.126.net/JHXgLgO7SIaVYacrW_wJuw==/109951165246765187.jpg
         lrc: /lrc/说书人.lrc
-      - name: 千里行走
-        artist: 暗杠 / 寅子
-        url: https://music.163.com/song/media/outer/url?id=1385144622.mp3
-        cover: http://p1.music.126.net/K_xxF_4b_BuvsIRR55gqIQ==/109951164305611287.jpg
-        lrc: /lrc/千里行走.lrc
       - name: 听书
         artist: 暗杠 / 寅子
         url: https://music.163.com/song/media/outer/url?id=1843986876.mp3
@@ -679,11 +609,6 @@ aplayer:
         url: https://music.163.com/song/media/outer/url?id=32431066.mp3
         cover: http://p2.music.126.net/DCxO3b9pfFQ8wkREgg16UQ==/109951163743139874.jpg
         lrc: /lrc/神のまにまに.lrc
-      - name: This Game
-        artist: ORZVK
-        url: https://music.163.com/song/media/outer/url?id=1295235928.mp3
-        cover: http://p1.music.126.net/pp37MDYGpDFkqZM3U6Aeww==/109951163174415073.jpg
-        lrc: /lrc/This Game.lrc
       - name: ふわふわ時間
         artist: 放課後ティータイム
         url: https://music.163.com/song/media/outer/url?id=26201899.mp3
@@ -724,14 +649,9 @@ aplayer:
         url: https://music.163.com/song/media/outer/url?id=1406885246.mp3
         cover: http://p1.music.126.net/ntaw2ZudfFxKzFFAPV0OKQ==/109951164985255855.jpg
         lrc: /lrc/4038.lrc
-      - name: I Don't Wanna Live Forever
-        artist: Kiso / Kayla Diamond
-        url: https://music.163.com/song/media/outer/url?id=446875978.mp3
-        cover: http://p1.music.126.net/45fNfzNyXv-kAgdrHFFQyg==/109951165983293996.jpg
-        lrc: /lrc/I Don't Wanna Live Forever.lrc
       - name: Outerspace
         artist: BEAUZ
-        url: https://music.163.com/song/media/outer/url?id=1478293828.mp3
+        url: /lrc/Outerspace.mp3
         cover: http://p1.music.126.net/nnhkuAvDHZI44e1xFLuLHQ==/109951165308881338.jpg
         lrc: /lrc/Outerspace.lrc
       - name: Bring Me Back
@@ -739,11 +659,6 @@ aplayer:
         url: https://music.163.com/song/media/outer/url?id=1488212875.mp3
         cover: http://p1.music.126.net/m8u6XqT7V8Db8sXdw7d3ow==/109951165400340890.jpg
         lrc: /lrc/Bring Me Back.lrc
-      - name: You & Me
-        artist: MrWhite
-        url: https://music.163.com/song/media/outer/url?id=1421548502.mp3
-        cover: http://p2.music.126.net/kpGXL_CtNoRjzHDTaQZNrw==/109951164684537350.jpg
-        lrc: /lrc/You & Me.lrc
       - name: Starry Skies
         artist: The Darkmaker / GY
         url: https://music.163.com/song/media/outer/url?id=1836533888.mp3
@@ -766,12 +681,12 @@ aplayer:
         lrc: /lrc/Every Day.lrc
       - name: PLANET
         artist: ラムジ
-        url: https://music.163.com/song/media/outer/url?id=812400.mp3
+        url: /lrc/PLANET.mp3
         cover: http://p2.music.126.net/cCyPSxi-BE2h-SmpLBztbA==/18635622580993683.jpg
         lrc: /lrc/PLANET.lrc
       - name: Hall of Fame
         artist: The Script / will.i.am
-        url: https://music.163.com/song/media/outer/url?id=436245291.mp3
+        url: /lrc/Hall of Fame.mp3
         cover: http://p2.music.126.net/y3NzeUWXbuHI9Mm5mghD6A==/109951165967126686.jpg
         lrc: /lrc/Hall of Fame.lrc
       - name: Stuttering
@@ -794,11 +709,6 @@ aplayer:
         url: https://music.163.com/song/media/outer/url?id=1872393298.mp3
         cover: http://p1.music.126.net/brRQMx-FhXwW1APZtmNeuw==/109951166317376612.jpg
         lrc: /lrc/Surges.lrc
-      - name: 云女孩
-        artist: 符白牙 / lunari.io
-        url: https://music.163.com/song/media/outer/url?id=1315295569.mp3
-        cover: http://p1.music.126.net/EMbVLgKgQs8bnyynSALqwA==/109951163585575834.jpg
-        lrc: /lrc/云女孩.lrc
       - name: 天ノ弱
         artist: 鹿乃
         url: https://music.163.com/song/media/outer/url?id=27602841.mp3
@@ -819,14 +729,9 @@ aplayer:
         url: /lrc/STAY.mp3
         cover: http://p2.music.126.net/e5cvcdgeosDKTDrkTfZXnQ==/109951166155165682.jpg
         lrc: /lrc/STAY.lrc
-      - name: Black Out
-        artist: \*Luna / GUMI
-        url: https://music.163.com/song/media/outer/url?id=1457526153.mp3
-        cover: http://p1.music.126.net/rzpljwOVoeBsH8ENzFvn2w==/109951165083293168.jpg
-        lrc: /lrc/Black Out.lrc
       - name: Million Days
         artist: Sabai / Hoang / Claire Ridgely
-        url: https://music.163.com/song/media/outer/url?id=1417055605.mp3
+        url: /lrc/Million Days.mp3
         cover: http://p1.music.126.net/OCXJq2VEytCN6xIuS7Raag==/109951164630509914.jpg
         lrc: /lrc/Million Days.lrc
       - name: Returns
@@ -839,21 +744,11 @@ aplayer:
         url: https://music.163.com/song/media/outer/url?id=1868711061.mp3
         cover: http://p1.music.126.net/-5kwASaP2-LcTr9VrmnmTg==/109951166273496994.jpg
         lrc: /lrc/她追逐着月光的尽头.lrc
-      - name: Cheers
-        artist: MAISONdes / Tani Yuuki / 菅原圭
-        url: https://music.163.com/song/media/outer/url?id=1937442721.mp3
-        cover: http://p2.music.126.net/KHhy-o9btd1Y7NL1p6TmUg==/109951167282324509.jpg
-        lrc: /lrc/Cheers.lrc
       - name: 帰路 - KaeriMichi -
         artist: Otokaze
         url: https://music.163.com/song/media/outer/url?id=493945.mp3
         cover: http://p1.music.126.net/tkQc2-C4KT1H8iRSrEyY9g==/858718581293350.jpg
         lrc: /lrc/帰路 - KaeriMichi -.lrc
-      - name: A Little Story
-        artist: Valentin
-        url: https://music.163.com/song/media/outer/url?id=857896.mp3
-        cover: http://p2.music.126.net/jcZqpzsX0s45AFihgX0_cg==/109951165319954699.jpg
-        lrc: /lrc/A Little Story.lrc
       - name: 儿时的夏日
         artist: 余日秋山
         url: https://music.163.com/song/media/outer/url?id=467744316.mp3
@@ -869,21 +764,11 @@ aplayer:
         url: https://music.163.com/song/media/outer/url?id=410042763.mp3
         cover: http://p2.music.126.net/pk-xo-6Nu5bwrA-ylVJFUA==/17885755649212510.jpg
         lrc: /lrc/夏夜.lrc
-      - name: 花间游
-        artist: 逆时针向 / 忘乡
-        url: https://music.163.com/song/media/outer/url?id=1335796886.mp3
-        cover: http://p2.music.126.net/VFLnxdipQGzwgoygYrQOSg==/109951163750950786.jpg
-        lrc: /lrc/花间游.lrc
       - name: 心动讯息
         artist: BlackDD
         url: https://music.163.com/song/media/outer/url?id=1458639005.mp3
         cover: http://p2.music.126.net/7inlikcI5GuMLcOl-Zj12w==/109951168185876251.jpg
         lrc: /lrc/心动讯息.lrc
-      - name: 溯（钢琴版）
-        artist: 柳轻颂
-        url: https://music.163.com/song/media/outer/url?id=1433584979.mp3
-        cover: http://p1.music.126.net/qX7knUIlpmbJ34UBzCCS6w==/109951164802366812.jpg
-        lrc: /lrc/溯（钢琴版）.lrc
       - name: Forever (Epic Edition)
         artist: PIKASONIC
         url: https://music.163.com/song/media/outer/url?id=1462341831.mp3
