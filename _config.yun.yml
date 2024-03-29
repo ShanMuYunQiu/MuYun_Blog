@@ -143,7 +143,7 @@ say:
 
 colors:
   primary: "	#ff8533"
-  bg: "#ffc299"
+  bg: "#ffe0cc"
   selection_bg: "	#ff8533"
   tag_start_color: "#ffc299"
   tag_end_color: "#ff8533"
@@ -239,7 +239,7 @@ post_meta:
 
 toc:
   list_number: true
-  max_depth: 6
+  max_depth: 4
   min_depth: 1
   placeholder: 很遗憾，这篇文章内容较短不需要目录或咱懒得写目录
   collapse: true
