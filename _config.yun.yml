@@ -155,8 +155,8 @@ bg_image:
   enable: true
   url: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/info/background.jpg
   dark: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/info/background_n.jpg
-  blur: 2px
-  opacity: 0.8
+  blur: 1px
+  opacity: 0.9
 
 fireworks:
   enable: true
