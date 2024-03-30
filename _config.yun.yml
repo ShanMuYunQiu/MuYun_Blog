@@ -141,7 +141,7 @@ say:
   # https://developer.hitokoto.cn/sentence/
   hitokoto:
     enable: true
-    api: https://v1.hitokoto.cn?c=a&c=d&c=e&c=f&c=i&c=j&c=k
+    api: /backend/?category=Original
 
 colors:
   primary: "	#ff8533"
