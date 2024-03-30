@@ -65,12 +65,12 @@ updated: 2022-07-19 00:00:00
 
   ```json
   {
-      "rewrites": [
-        {
-          "source": "/backend/(.*)", // 准备匹配的接口
-          "destination": "/api/proxy" // 配置路径
-        }
-      ]
+    "rewrites": [
+      {
+        "source": "/backend/(.*)", // 准备匹配的接口
+        "destination": "/api/proxy" // 配置路径
+      }
+    ]
   }
   ```
 
