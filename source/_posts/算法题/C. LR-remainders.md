@@ -1,8 +1,8 @@
 ---
 title: C. LR-remainders
 author: 山暮云秋
+description: 人一能之，己百之；人十能之，己千之。
 sticky: 0
-readmore: true
 tags:
   - 模拟
 categories:
@@ -11,9 +11,7 @@ abbrlink: 5c63dfdb
 date: 2024-02-19 00:00:00
 ---
 
-##### [C. LR-remainders](https://codeforces.com/contest/1932/problem/C)
-
-<!-- more -->
+##### 题目描述：[C. LR-remainders](https://codeforces.com/contest/1932/problem/C)
 
 ## 解题思路
 

@@ -1,8 +1,8 @@
 ---
 title: P10126 「Daily OI Round 3」Pigeon
 author: 山暮云秋
+description: 人一能之，己百之；人十能之，己千之。
 sticky: 0
-readmore: true
 tags:
   - 数学
 categories:
@@ -11,9 +11,7 @@ abbrlink: 21e58d4f
 date: 2024-02-08 00:00:00
 ---
 
-##### [P10126 「Daily OI Round 3」Pigeon](https://www.luogu.com.cn/problem/P10126)
-
-<!-- more -->
+##### 题目描述：[P10126 「Daily OI Round 3」Pigeon](https://www.luogu.com.cn/problem/P10126)
 
 ## 解题思路
 

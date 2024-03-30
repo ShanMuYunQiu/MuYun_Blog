@@ -1,8 +1,8 @@
 ---
 title: E. Final Countdown
 author: 山暮云秋
+description: 人一能之，己百之；人十能之，己千之。
 sticky: 0
-readmore: true
 tags:
   - 前缀和
   - 高精度
@@ -12,9 +12,7 @@ abbrlink: 8abc54c0
 date: 2024-02-19 00:00:00
 ---
 
-##### [E. Final Countdown](https://codeforces.com/contest/1932/problem/E)
-
-<!-- more -->
+##### 题目描述：[E. Final Countdown](https://codeforces.com/contest/1932/problem/E)
 
 ## 解题思路
 

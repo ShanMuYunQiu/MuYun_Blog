@@ -1,8 +1,8 @@
 ---
 title: D - Synchronized Players
 author: 山暮云秋
+description: 人一能之，己百之；人十能之，己千之。
 sticky: 0
-readmore: true
 tags:
   - BFS
 categories:
@@ -11,9 +11,7 @@ abbrlink: d9ea786c
 date: 2024-02-09 00:00:00
 ---
 
-##### [D - Synchronized Players](https://atcoder.jp/contests/abc339/tasks/abc339_d)
-
-<!-- more -->
+##### 题目描述：[D - Synchronized Players](https://atcoder.jp/contests/abc339/tasks/abc339_d)
 
 ## 解题思路
 

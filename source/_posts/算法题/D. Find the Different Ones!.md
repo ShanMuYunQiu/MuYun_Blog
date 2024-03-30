@@ -1,8 +1,8 @@
 ---
 title: D. Find the Different Ones!
 author: 山暮云秋
+description: 人一能之，己百之；人十能之，己千之。
 sticky: 0
-readmore: true
 tags:
   - 前缀和
   - 数学
@@ -12,9 +12,7 @@ abbrlink: 86fe45f1
 date: 2024-02-09 00:00:00
 ---
 
-##### [D. Find the Different Ones!](https://codeforces.com/contest/1927/problem/D)
-
-<!-- more -->
+##### 题目描述：[D. Find the Different Ones!](https://codeforces.com/contest/1927/problem/D)
 
 ## 解题思路
 
