@@ -86,6 +86,7 @@ updated: 2022-07-19 00:00:00
 > 2、在**部署记录**里的最新部署，找到右侧的**三个竖点**点击  
 > 3、点击**Promote to Production**(推广到生产)去处理跨域  
 > 4、返回项目，在**Functions**中选择`api/proxy.js`文件
+> 5、注意检查项目的`package.json`，其中的`dependencies`是否有`http-proxy-middleware`
 
 ---
 
