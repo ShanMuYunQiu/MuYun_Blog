@@ -5,7 +5,7 @@ favicon: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/info/user.jpg
 
 notice:
   enable: true
-  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：欧拉路径与哈密顿路径 | 更新时间：2024-03-29
+  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：欧拉路径与哈密顿路径 | 更新时间：2024-03-30
 # 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ
 # 山暮云秋的题库站
 
@@ -16,6 +16,7 @@ tags:
   基础语法: "#cc33ff"
   版本管理工具: "#00b300"
   Markdown: "#b35900"
+  KaTex: "#b35900"
   VScode: "#6699ff"
   Qt: "#00b300"
   PicGO: "#6699ff"
@@ -155,8 +156,8 @@ bg_image:
   enable: true
   url: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/info/background.jpg
   dark: https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/info/background_n.jpg
-  blur: 1px
-  opacity: 0.9
+  blur: 0px
+  opacity: 0.8
 
 fireworks:
   enable: true
