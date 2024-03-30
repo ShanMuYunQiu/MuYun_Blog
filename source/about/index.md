@@ -6,7 +6,7 @@ reward: true
 
 ---
 
-> #### _**有朋自远方来，不亦乐乎，愿与你相识，得闲饮茶**_
+> ### _**有朋自远方来，不亦乐乎，愿与你相识，得闲饮茶**_
 >
 > ---
 >
@@ -15,7 +15,7 @@ reward: true
 
 ---
 
-##### _**Chrome 浏览器请在 `Chrome://flags` 开启 `Windows Scrolling Personality` 选项以获得最佳体验**_
+#### _**Chrome 浏览器请在 `Chrome://flags` 开启 `Windows Scrolling Personality` 选项以获得最佳体验**_
 
 恭喜你能找到这个 ~~_不起眼_~~ **隐秘**的，但充斥着 ~~_黑历史_~~ **光辉历史**的介绍！
 
@@ -25,7 +25,7 @@ reward: true
 
 ---
 
-##### **关于我：**
+#### **关于我：**
 
 <div class="info">
 
@@ -42,7 +42,7 @@ reward: true
 
 ![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/info/sqbz.png)_一个笨蛋画渣竭尽所能所画的怪图_
 
-##### **关于这个站点：**
+#### **关于这个站点：**
 
 <div class="success">
 
@@ -181,7 +181,7 @@ reward: true
 
 ---
 
-##### **_站点维护更新日志_**
+#### **_站点维护更新日志_**
 
 <details><summary>2024年日志</summary>
 
