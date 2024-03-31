@@ -10,7 +10,7 @@ reward: false
 
 <div class="success">
 
-> ![](https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/social/allpay.jpg)
+> ![](https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/social/allpay.png)
 
 </div>
 

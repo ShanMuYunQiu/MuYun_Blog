@@ -5,7 +5,7 @@ favicon: https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/info/user.jpg
 
 notice:
   enable: true
-  content: 正在重构博客文章结构 | 最近更新：重构文章中。。。 | 更新时间：2024-03-31
+  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：重构文章 | 更新时间：2024-03-31
 # 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ
 # 山暮云秋的题库站
 
@@ -100,11 +100,11 @@ categories:
 
 social:
   - name: 微信(请扫描二维码添加)
-    link: https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/social/wechat.jpg
+    link: https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/social/wechat.png
     icon: ri:wechat-2-line
     color: "#1AAD19"
   - name: QQ(请扫描二维码添加)
-    link: https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/social/QQ.jpg
+    link: https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/social/QQ.png
     icon: ri:qq-line
     color: "#12B7F5"
   - name: Bilibili(点此跳转)
@@ -264,15 +264,15 @@ reward:
   comment: 手头阔绰?点这点这!money得斯!
   methods:
     - name: 微信支付
-      path: https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/social/wechatpay.jpg
+      path: https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/social/wechatpay.png
       color: "#2DC100"
       icon: ri:wechat-pay-line
     - name: 支付宝
-      path: https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/social/alipay.jpg
+      path: https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/social/alipay.png
       color: "#00A3EE"
       icon: ri:alipay-line
     - name: QQ 支付
-      path: https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/social/QQpay.jpg
+      path: https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/social/QQpay.png
       color: "#12B7F5"
       icon: ri:qq-line
 
@@ -293,7 +293,7 @@ footer:
 
 post_edit:
   enable: true
-  url: https://github.com/ShanMuYunQiu/shengqibaozao_blog/tree/hexo/source/
+  url: https://github.com/ShanMuYunQiu/MuYun_Blog/tree/hexo/source/
 
 girls:
   enable: true
