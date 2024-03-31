@@ -18,14 +18,14 @@ reward: true
 #### **本站站点友链信息**
 
 > 地址：www.muyun.space  
-> 图片：https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/info/user.jpg  
+> 图片：https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/info/user.jpg  
 > 名称：山暮云秋的空间  
 > 描述：有朋自远方来，不亦乐乎。愿与你相识，得闲饮茶
 
 #### **请在下方申请友链，欢迎各位来访！友链请按照以下要求填写申请，谢谢配合 φ(>ω<\*)**
 
 > 1、申请框**显示不出提示语**，四个框**按顺序**分别填写**站点名**、**站点描述**、**站点地址**、**站点图标**(四个框都是必填的)  
-> 2、如果站点**没有图标**，请在**站点图标**一栏填写`https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/info/akalin.jpg`，不然会**无法正常申请**  
+> 2、如果站点**没有图标**，请在**站点图标**一栏填写`https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/info/akalin.jpg`，不然会**无法正常申请**  
 > 3、看到后我会尽快处理并回复，如果长期未处理，可以通过 b 站私信或其他联系方式联系提醒我(･ω<)☆  
 > 4、如果有**修改已申请站点信息**的需求，请在下方评论区留言，**请勿再次通过申请框申请**
 

@@ -40,7 +40,7 @@ reward: true
 
 </div>
 
-![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/info/sqbz.png)_一个笨蛋画渣竭尽所能所画的怪图_
+![](https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/info/sqbz.png)_一个笨蛋画渣竭尽所能所画的怪图_
 
 #### **关于这个站点：**
 
@@ -166,10 +166,10 @@ reward: true
 <div class="yellow">
 
 > 虽然侧边栏有我的联系方式了，但这里也放一份吧！  
-> **微信**：[lty1099501402](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/wechat.jpg)(可能会更正式一些，如果想认识认识建议加 QQ 哦)  
-> **QQ**：[1099501402](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/QQ.jpg)(好友位极大空缺，欢迎来聊聊！如果不想 QQ，也可以 B 站私信聊聊哦!!)  
+> **微信**：[lty1099501402](https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/wechat.jpg)(可能会更正式一些，如果想认识认识建议加 QQ 哦)  
+> **QQ**：[1099501402](https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/QQ.jpg)(好友位极大空缺，欢迎来聊聊！如果不想 QQ，也可以 B 站私信聊聊哦!!)  
 > **E-mail**：[lty15376767691@gmail.com](mailto:lty15376767691@gmail.com)(可能看的更少，一般只用来注册账号和收验证码)  
-> **github**：[https://github.com/ShengQiBaoZao](https://github.com/ShengQiBaoZao)(现在可能没啥好看的，但指不定将来就有了呢(~~_诶嘿_~~))  
+> **github**：[https://github.com/ShanMuYunQiu](https://github.com/ShanMuYunQiu)(现在可能没啥好看的，但指不定将来就有了呢(~~_诶嘿_~~))  
 > **网易云音乐**：[https://music.163.com/#/user/home?id=509242587](https://music.163.com/#/user/home?id=509242587)(虽然你会看到我曾经编曲的黑历史，但强烈不建议去听!!)  
 > **bilibili**：[https://space.bilibili.com/347061710](https://space.bilibili.com/347061710)(B 站账号，可能会发一些视频，但大多数并不会有什么动静。但我在线频率很高哦，不想 QQ 认识的话，B 站私信聊聊也可以!!)
 
@@ -195,7 +195,7 @@ reward: true
 > **03-28** | 更改昵称，由圣奇宝枣更换为山暮云秋(暮云)  
 > **03-28** | 使用短链接优化博客文章链接长度，启用 Katex 数学公式  
 > **03-28** | 博客的域名`shengqibaozao.eu.org`被墙了，新买了`muyun.space`作为新域名投入使用  
-> **01-22** | 新增了副站 [山暮云秋的题库站](https://www.luogu.com.cn/blog/ShengQiBaoZao/)，使用洛谷博客，用于整理题目并记录解析  
+> **01-22** | 新增了副站 [山暮云秋的题库站](https://www.luogu.com.cn/blog/ShanMuYunQiu/)，使用洛谷博客，用于整理题目并记录解析  
 > **01-01** | Hello，2024
 
 </div>
@@ -281,7 +281,7 @@ reward: true
 > **05-20** | 正式更换`Hexo`框架，使用`Yun`主题，并投入运行(但误操作删库，导致 github 提交记录消失)  
 > **05-18** | 准备更换框架为`Hexo`，并使用`Yun`主题，将文档从`docsify`搬运并调整格式至`Hexo`  
 > **04-21** | 使用`jsdelivr`全球 CDN 加速博客  
-> **04-17** | 试运行成功，部署于`github pages`并稳定运行，地址为`https://ShengQiBaoZao/shengqibaozao.github.io`  
+> **04-17** | 试运行成功，部署于`github pages`并稳定运行，地址为`https://ShanMuYunQiu/shengqibaozao.github.io`  
 > **04-15** | 创建`docsify`框架博客，进入试运行
 
 </div>

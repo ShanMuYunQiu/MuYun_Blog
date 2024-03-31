@@ -470,7 +470,7 @@ print("over!")
 ```
 
 参考源代码：  
-![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/blog/Python3爬虫基础/参考1.png)
+![](https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/blog/Python3爬虫基础/参考1.png)
 
 #### **屠戮盗版天堂电影信息**
 
@@ -526,9 +526,9 @@ print("over!")
   ```
 
 - 参考源代码：
-  ![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/blog/Python3爬虫基础/参考2.png)
+  ![](https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/blog/Python3爬虫基础/参考2.png)
 
-![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/blog/Python3爬虫基础/参考3.png)
+![](https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/blog/Python3爬虫基础/参考3.png)
 
 ---
 
@@ -589,7 +589,7 @@ print("over!")
   ```
 
 - 参考源代码：  
-  ![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/blog/Python3爬虫基础/参考4.png)
+  ![](https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/blog/Python3爬虫基础/参考4.png)
 
 #### **抓取优美图库的图片**(已失效，仅可参考)
 
@@ -641,8 +641,8 @@ print("all over!")
 ```
 
 - 参考源代码：  
-  ![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/blog/Python3爬虫基础/参考5.png)  
-  ![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/blog/Python3爬虫基础/参考6.png)
+  ![](https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/blog/Python3爬虫基础/参考5.png)  
+  ![](https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/blog/Python3爬虫基础/参考6.png)
 
 ---
 

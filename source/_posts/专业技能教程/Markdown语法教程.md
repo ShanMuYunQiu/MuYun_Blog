@@ -181,17 +181,17 @@ print(a)
 链接可以由两种形式生成：**行内式**和**参考式**。  
 **行内式**：
 
-> \[山暮云秋的 Github 个人页\]\(https://github.com/ShengQiBaoZao)。
+> \[山暮云秋的 Github 个人页\]\(https://github.com/ShanMuYunQiu)。
 
 效果：
 
-> [山暮云秋的 Github 个人页](https://github.com/ShengQiBaoZao)。
+> [山暮云秋的 Github 个人页](https://github.com/ShanMuYunQiu)。
 
 **参考式**：
 
 > \[山暮云秋的 Github 个人页\]\[1\]  
 > \[山暮云秋的个人博客\]\[2\]  
-> \[1\]:https://github.com/ShengQiBaoZao  
+> \[1\]:https://github.com/ShanMuYunQiu  
 > \[2\]:blog.muyun.space
 
 效果：
@@ -199,7 +199,7 @@ print(a)
 > [山暮云秋的 Github 个人页][1]  
 > [山暮云秋的个人博客][2]
 
-[1]: https://github.com/ShengQiBaoZao
+[1]: https://github.com/ShanMuYunQiu
 [2]: blog.muyun.space
 
 ---

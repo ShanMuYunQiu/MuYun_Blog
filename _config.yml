@@ -128,7 +128,7 @@ theme: yun
 
 # deploy:
 # type: git
-# repo: https://github.com/ShengQiBaoZao/shengqibaozao_blog
+# repo: https://github.com/ShanMuYunQiu/shengqibaozao_blog
 # branch: master
 # message: 更新Hexo博客内容
 
@@ -173,9 +173,9 @@ encrypt: # hexo-blog-encrypt
 # hexo-github-canlendar
 # 贡献度热力图插件 https://github.com/Barry-Flynn/hexo-github-calendar
 githubcalendar:
-  enable: true        # 是否启用本插件
-  enable_page: /      # 要生效的页面，如 / 首页，/about/ 介绍页等
-  user: ShengQiBaoZao   # GitHub 用户名
+  enable: true # 是否启用本插件
+  enable_page: / # 要生效的页面，如 / 首页，/about/ 介绍页等
+  user: ShanMuYunQiu # GitHub 用户名
   layout:
     type: id
     name: recent-posts

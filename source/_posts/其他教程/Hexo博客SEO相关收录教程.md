@@ -159,7 +159,7 @@ updated: 2022-07-03 00:00:00
 
 - **提交 Sitemap**
 
-![](https://cdn.jsdelivr.net/gh/ShengQiBaoZao/Image/blog/专业技能/SEO站点地图.jpg)
+![](https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/blog/专业技能/SEO站点地图.jpg)
 
 - 推荐提交以下站点地图
 
