@@ -5,7 +5,7 @@ favicon: https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/info/user.jpg
 
 notice:
   enable: true
-  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：重构文章 | 更新时间：2024-04-01
+  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：重构文章 | 更新时间：2024-04-02
 # 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ
 # 山暮云秋的题库站
 
@@ -314,18 +314,30 @@ waline:
   visitor: false
   comment: true
   emoji:
-    - "https://unpkg.com/@waline/emojis@1.0.1/bilibili"
-    - "https://unpkg.com/@waline/emojis@1.0.1/weibo"
-    - "https://unpkg.com/@waline/emojis@1.0.1/qq"
+    - "https://emoji.shojo.cn/bili/webp/仓鼠"
+    - "https://emoji.shojo.cn/bili/webp/仓鼠松鼠"
+    - "https://emoji.shojo.cn/bili/webp/东爱璃Lovely"
+    - "https://emoji.shojo.cn/bili/webp/星汐seki"
+    - "https://emoji.shojo.cn/bili/webp/咩栗"
+    - "https://emoji.shojo.cn/bili/webp/呜米"
+    - "https://emoji.shojo.cn/bili/webp/枕边童话"
+    - "https://emoji.shojo.cn/bili/webp/美月もも"
+    - "https://emoji.shojo.cn/bili/webp/雫るる制服ver"
+    - "https://emoji.shojo.cn/bili/webp/雫るる"
+    - "https://emoji.shojo.cn/bili/webp/梦音茶糯"
+    - "https://unpkg.com/@waline/emojis@1.2.0/bilibili"
+    - "https://unpkg.com/@waline/emojis@1.2.0/bmoji"
+    - "https://unpkg.com/@waline/emojis@1.2.0/weibo"
+    - "https://unpkg.com/@waline/emojis@1.2.0/qq"
   locale:
     placeholder: 填写邮箱，可以收到回复通知哦～
   requiredMeta: [nick]
 
 busuanzi:
   enable: true
-  site_uv: true
+  site_uv: false
   site_uv_icon: ri:user-line
-  site_pv: true
+  site_pv: false
   site_pv_icon: ri:eye-line
   page_pv: true
   page_pv_icon: ri:eye-line

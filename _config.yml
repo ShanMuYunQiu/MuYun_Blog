@@ -143,7 +143,7 @@ live2d:
   debug: false
   model:
     # 推荐使用 CDN 来加载模型
-    use: https://cdn.jsdelivr.net/npm/live2d-widget-model-wanko@1.0.5/assets/wanko.model.json
+    use: https://cdn.jsdelivr.net/npm/live2d-widget-model-wanko@latest/assets/wanko.model.json
   display:
     superSample: 2
     width: 200
@@ -155,9 +155,9 @@ live2d:
     show: false
   dialog:
     # 是否开启对话框
-    enable: true
+    enable: false
     # 是否使用一言
-    hitokoto: true
+    hitokoto: false
 
 # Security
 encrypt: # hexo-blog-encrypt

@@ -2167,7 +2167,7 @@ hexo-generator-tag@^1.0.0:
   dependencies:
     hexo-pagination "1.0.0"
 
-hexo-helper-live2d@^3.1.0:
+hexo-helper-live2d@^3.1.1:
   version "3.1.1"
   resolved "https://registry.npmjs.org/hexo-helper-live2d/-/hexo-helper-live2d-3.1.1.tgz"
   integrity sha512-YqWAyCjB91kLBYJnmYJZtecKvfw+ph0cIZfycjZeJ4rYvF4d4Z+C5TVVW2SPstOEbNvwK0PpimUhi6r3hT5z7g==
