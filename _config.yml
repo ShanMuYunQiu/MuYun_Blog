@@ -186,7 +186,7 @@ githubcalendar:
   # 贡献统计的梯度色卡值，可自行调整
   color: "['#ebedf0', '#ffd1b3', '#ffb380', '#ffa366', '#ff9c59', '#ff944d', '#ff8c40', '	#ff8533', '#ff7d26', '#ff7519', '#ff6600']"
   # 推荐填写你自建的API接口，方法详见本插件配套Python后端 https://github.com/Barry-Flynn/python_github_calendar_api
-  api: https://github-calendar-api.meta-code.top/api
+  api: https://calendar.muyun.space/api/
   # 推荐下载后使用本地文件
   # calendar_js: https://cdn.jsdelivr.net/gh/barry-flynn/hexo-github-calendar/hexo_githubcalendar.js # 在线文件，容易加载失败
   calendar_js: https://cdn.jsdelivr.net/gh/barry-flynn/hexo-github-calendar/hexo_githubcalendar.js # 本地文件，请下载到主题文件夹的source目录下
