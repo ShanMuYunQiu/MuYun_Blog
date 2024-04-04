@@ -126,9 +126,9 @@ tip: 友链加载中～如失败请刷新重试～
 
 #### **本站站点友链信息**
 
-> 地址：blog.muyun.space  
+> 地址：muyun.space  
 > 图片：https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/info/user.jpg  
-> 名称：山暮云秋的空间  
+> 名称：山暮云秋  
 > 描述：有朋自远方来，不亦乐乎。愿与你相识，得闲饮茶
 
 #### **看到后我会尽快处理并回复，如果长期未处理，可以通过 b 站私信或其他联系方式联系提醒我(･ω<)☆**

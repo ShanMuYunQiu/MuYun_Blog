@@ -99,6 +99,10 @@ categories:
   其他: "#ff4d4d"
 
 social:
+  - name: 个人主页
+    link: https://muyun.space
+    icon: ri:links-line
+    color: "#ff8533"
   - name: 微信
     link: https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/social/wechat.png
     icon: ri:wechat-2-line
@@ -107,10 +111,6 @@ social:
     link: https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/social/QQ.png
     icon: ri:qq-line
     color: "#12B7F5"
-  - name: Bilibili
-    link: https://space.bilibili.com/347061710
-    icon: ri:bilibili-line
-    color: "#FF8EB3"
   - name: GitHub
     link: https://github.com/ShanMuYunQiu
     icon: ri:github-line
