@@ -461,6 +461,16 @@ aplayer:
         url: https://music.163.com/song/media/outer/url?id=1890756154.mp3
         cover: http://p2.music.126.net/vfArwmf4yUKmZhi-ZCwOXA==/109951166569406479.jpg
         lrc: /lrc/it's 6pm but I miss u already..lrc
+      - name: 下一个拥抱 (past times)
+        artist: 艾纳德 / Diorbin
+        url: https://music.163.com/song/media/outer/url?id=2049786420.mp3
+        cover: http://p1.music.126.net/fSCIbOxlbwHwON2cMaDbkA==/109951168633034946.jpg
+        lrc: /lrc/下一个拥抱 (past times).lrc
+      - name: 鲸歌（Cover 萨满乐队）
+        artist: 陈亮 宋依凡
+        url: https://music.163.com/song/media/outer/url?id=474667755.mp3
+        cover: http://p2.music.126.net/je0ZQVB8GAKscWQOXw0B7g==/109951162814733915.jpg
+        lrc: /lrc/鲸歌（Cover 萨满乐队）.lrc
       - name: 漫步
         artist: UnicornPhantom
         url: https://music.163.com/song/media/outer/url?id=1990251011.mp3
