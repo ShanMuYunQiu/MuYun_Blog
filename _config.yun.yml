@@ -5,7 +5,7 @@ favicon: https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/info/user.jpg
 
 notice:
   enable: true
-  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：重构文章 | 更新时间：2024-04-04
+  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：重构文章 | 更新时间：2024-04-05
 # 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ
 
 tags:
@@ -421,6 +421,46 @@ aplayer:
     listFolded: false
     listMaxHeight: 340px
     audio:
+      - name: 淋完这场雨就忘记你吧
+        artist: WOVOP / 洛天依
+        url: https://music.163.com/song/media/outer/url?id=2136164855.mp3
+        cover: http://p1.music.126.net/MTd6fmN9E_p4suM_VS3CqA==/109951169415944765.jpg
+        lrc: /lrc/淋完这场雨就忘记你吧.lrc
+      - name: 毕业通知
+        artist: WOVOP / 洛天依
+        url: https://music.163.com/song/media/outer/url?id=2062383170.mp3
+        cover: http://p2.music.126.net/D9gwojlQb3_gDXObT4PpMQ==/109951168725977276.jpg
+        lrc: /lrc/毕业通知.lrc
+      - name: 啥啊
+        artist: 星葵77 / 洛天依Official
+        url: https://music.163.com/song/media/outer/url?id=1963526955.mp3
+        cover: http://p1.music.126.net/-Mkgn-OfUd2Q-to55fvsHA==/109951167663201782.jpg
+        lrc: /lrc/啥啊.lrc
+      - name: 夏霞 (Acoustic ver.)
+        artist: あたらよ
+        url: /lrc/夏霞 (Acoustic ver.).mp3
+        cover: http://p1.music.126.net/HymDERNi6HQa0PHVxhvstQ==/109951167607871650.jpg
+        lrc: /lrc/夏霞 (Acoustic ver.).lrc
+      - name: DROP
+        artist: 美波
+        url: /lrc/DROP.mp3
+        cover: http://p1.music.126.net/tWZUuc87BMfRDayQIYXEew==/109951166189424848.jpg
+        lrc: /lrc/DROP.lrc
+      - name: アイスクリーム
+        artist: 花譜
+        url: /lrc/アイスクリーム.mp3
+        cover: http://p2.music.126.net/M6JINT-YzbR95liqI13oBw==/109951168551085464.jpg
+        lrc: /lrc/アイスクリーム.lrc
+      - name: それを世界と言うんだね
+        artist: 花譜
+        url: /lrc/それを世界と言うんだね.mp3
+        cover: http://p2.music.126.net/vlT1L_p5ExPSydDE8HUPpQ==/109951168436884742.jpg
+        lrc: /lrc/それを世界と言うんだね.lrc
+      - name: it's 6pm but I miss u already.
+        artist: bbbluelee / Furyl / Siren
+        url: https://music.163.com/song/media/outer/url?id=1890756154.mp3
+        cover: http://p2.music.126.net/vfArwmf4yUKmZhi-ZCwOXA==/109951166569406479.jpg
+        lrc: /lrc/it's 6pm but I miss u already..lrc
       - name: 漫步
         artist: UnicornPhantom
         url: https://music.163.com/song/media/outer/url?id=1990251011.mp3
@@ -851,6 +891,6 @@ font:
     family: "'Source Code Pro', 'Courier New', Courier, Consolas, Monaco, monospace"
 
 mourn:
-  enable: false
+  enable: true
   days:
     - 4-4
