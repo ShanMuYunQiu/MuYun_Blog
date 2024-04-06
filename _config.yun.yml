@@ -5,7 +5,7 @@ favicon: https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/info/user.jpg
 
 notice:
   enable: true
-  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：重构文章 | 更新时间：2024-04-05
+  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：重构文章 | 更新时间：2024-04-06
 # 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ
 
 tags:
@@ -883,7 +883,7 @@ katex:
 
 head:
   css:
-    custom: /styles/index.scss
+    custom: /styles/index.css
     fonts: https://fonts.font.im/css2?family=Noto+Serif+SC:wght@900&display=swap
 
 font:
