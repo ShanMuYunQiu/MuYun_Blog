@@ -189,6 +189,7 @@ reward: true
 
 <div class="warning">
 
+> **04-06** | 通过[自定义样式](https://yun.yunyoujun.cn/guide/config.html#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F)更改了`Markdown`引用的竖线颜色  
 > **04-04** | 新建了新的个人主页，将其链接到本站点。申请了`萌ICP`，得到`20248848`和`20245835`两个靓号  
 > **04-02** | 首页一言与`Live2D`的一言和不蒜子冲突，关闭后两者。添加了更多的`Waline`表情。修改了`calendar`的宽度适配  
 > **04-01** | 删除页脚`Moe Count`，启用不蒜子  

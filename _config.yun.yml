@@ -883,8 +883,10 @@ katex:
 
 head:
   css:
-    custom: /styles/index.css
     fonts: https://fonts.font.im/css2?family=Noto+Serif+SC:wght@900&display=swap
+
+custom:
+  style: source/_data/style/*
 
 font:
   cdn:
