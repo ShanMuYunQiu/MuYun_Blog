@@ -218,15 +218,15 @@ menu:
     icon: ri:chat-smile-3-line
 
 pages:
-  - name: 我的小伙伴们
+  - name: 《萤火虫小巷》——友情链接
     url: /links/
     icon: ri:genderless-line
     color: dodgerblue
-  - name: 可爱的女孩子
+  - name: 《泡沫之夏》——喜欢的角色
     url: /girls/
     icon: ri:women-line
     color: hotpink
-  - name: 给点给点~
+  - name: 《月亮与六便士》——打赏与鸣谢
     url: /donate/
     icon: ri:hand-coin-line
     color: "#ffa366"
