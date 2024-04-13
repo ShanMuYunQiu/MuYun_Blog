@@ -5,7 +5,7 @@ favicon: https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/info/user.jpg
 
 notice:
   enable: true
-  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：个人介绍页 | 更新时间：2024-04-09
+  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：个人介绍页 | 更新时间：2024-04-13
 # 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ
 
 tags:
@@ -421,6 +421,11 @@ aplayer:
     listFolded: false
     listMaxHeight: 340px
     audio:
+      - name: 听雨
+        artist: WOVOP / 洛天依
+        url: /lrc/听雨.mp3
+        cover: http://p2.music.126.net/Atb91zHjpmraNZE7BHdtMA==/109951167646461688.jpg
+        lrc: /lrc/听雨.lrc
       - name: 淋完这场雨就忘记你吧
         artist: WOVOP / 洛天依
         url: https://music.163.com/song/media/outer/url?id=2136164855.mp3
