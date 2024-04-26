@@ -5,7 +5,7 @@ favicon: https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/info/user.jpg
 
 notice:
   enable: true
-  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：个人介绍页 | 更新时间：2024-04-14
+  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：个人介绍页 | 更新时间：2024-04-26
 # 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ
 
 tags:
@@ -421,21 +421,26 @@ aplayer:
     listFolded: false
     listMaxHeight: 340px
     audio:
-      - name: 听雨
+      - name: 藏蓝-（绫）
+        artist: 残杨如血
+        url: /lrc/藏蓝-（绫）.mp3
+        cover: http://p2.music.126.net/qPt2fkD4DSYIgE2JfkoXdA==/109951166568711712.jpg
+        lrc: /lrc/藏蓝-（绫）.lrc
+      - name: 旧时约
+        artist: WOVOP / 乐正绫
+        url: https://music.163.com/song/media/outer/url?id=2037885601.mp3
+        cover: http://p1.music.126.net/X5-IU5fcCQbJFWZ67rfpEg==/109951168535887842.jpg
+        lrc: /lrc/旧时约.lrc
+      - name: 听雨（AI）
         artist: WOVOP / 洛天依
-        url: /lrc/听雨.mp3
+        url: https://music.163.com/song/media/outer/url?id=1962600810.mp3
         cover: http://p2.music.126.net/Atb91zHjpmraNZE7BHdtMA==/109951167646461688.jpg
-        lrc: /lrc/听雨.lrc
+        lrc: /lrc/听雨（AI）.lrc
       - name: 淋完这场雨就忘记你吧
         artist: WOVOP / 洛天依
         url: https://music.163.com/song/media/outer/url?id=2136164855.mp3
         cover: http://p1.music.126.net/MTd6fmN9E_p4suM_VS3CqA==/109951169415944765.jpg
         lrc: /lrc/淋完这场雨就忘记你吧.lrc
-      - name: 毕业通知
-        artist: WOVOP / 洛天依
-        url: https://music.163.com/song/media/outer/url?id=2062383170.mp3
-        cover: http://p2.music.126.net/D9gwojlQb3_gDXObT4PpMQ==/109951168725977276.jpg
-        lrc: /lrc/毕业通知.lrc
       - name: 啥啊
         artist: 星葵77 / 洛天依Official
         url: https://music.163.com/song/media/outer/url?id=1963526955.mp3
