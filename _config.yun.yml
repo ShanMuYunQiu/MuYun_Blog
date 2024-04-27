@@ -5,7 +5,7 @@ favicon: https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/info/user.jpg
 
 notice:
   enable: true
-  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：个人介绍页 | 更新时间：2024-04-26
+  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：个人介绍页 | 更新时间：2024-04-27
 # 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ
 
 tags:
@@ -421,6 +421,11 @@ aplayer:
     listFolded: false
     listMaxHeight: 340px
     audio:
+      - name: 东京不太热
+        artist: Z新豪 / 洛天依Official
+        url: /lrc/东京不太热.mp3
+        cover: http://p1.music.126.net/8Sk3EpucLC9e8KheMe_GcQ==/109951165315088091.jpg
+        lrc: /lrc/东京不太热.lrc
       - name: 藏蓝-（绫）
         artist: 残杨如血
         url: /lrc/藏蓝-（绫）.mp3
