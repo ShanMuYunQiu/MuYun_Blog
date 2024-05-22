@@ -5,7 +5,7 @@ favicon: https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/info/user.jpg
 
 notice:
   enable: true
-  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：个人介绍页 | 更新时间：2024-04-27
+  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：个人介绍页 | 更新时间：2024-05-22
 # 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ
 
 tags:
@@ -213,7 +213,7 @@ menu:
     #   icon: ri:cloud-line
     #   count: 你猜
   custom:
-    title: 说说
+    title: 《道是寻常》——我的说说
     path: /talks/
     icon: ri:chat-smile-3-line
 
@@ -431,6 +431,11 @@ aplayer:
         url: /lrc/藏蓝-（绫）.mp3
         cover: http://p2.music.126.net/qPt2fkD4DSYIgE2JfkoXdA==/109951166568711712.jpg
         lrc: /lrc/藏蓝-（绫）.lrc
+      - name: 碎梦（short ver.）
+        artist: COP / 乐正绫
+        url: https://music.163.com/song/media/outer/url?id=515964379.mp3
+        cover: http://p1.music.126.net/MBUOR-eADofn53ksY3takw==/109951163052186407.jpg
+        lrc: /lrc/碎梦（short ver.）.lrc
       - name: 旧时约
         artist: WOVOP / 乐正绫
         url: https://music.163.com/song/media/outer/url?id=2037885601.mp3
@@ -611,11 +616,6 @@ aplayer:
         url: https://music.163.com/song/media/outer/url?id=1392203256.mp3
         cover: http://p1.music.126.net/_6L3TL_r61aU9HcjnWeoFw==/109951164376305943.jpg
         lrc: /lrc/Freefall.lrc
-      - name: 碎梦（short ver.）
-        artist: COP / 乐正绫
-        url: https://music.163.com/song/media/outer/url?id=515964379.mp3
-        cover: http://p1.music.126.net/MBUOR-eADofn53ksY3takw==/109951163052186407.jpg
-        lrc: /lrc/碎梦（short ver.）.lrc
       - name: Carousel
         artist: DEAMN
         url: https://music.163.com/song/media/outer/url?id=1406443093.mp3

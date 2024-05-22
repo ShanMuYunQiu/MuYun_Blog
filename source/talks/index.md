@@ -1,5 +1,5 @@
 ---
-title: 我的说说(如加载失败请刷新)
+title: 《道是寻常》——我的说说
 date: 2023-05-09
 reward: true
 ---
@@ -17,7 +17,7 @@ reward: true
       el: "#qexoDaoDao",
       avatar: "https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/info/user.jpg",
       name: "山暮云秋",
-      title: "博主的碎碎念",
+      title: "《道是寻常》——我的说说",
       limit: 7,
       useLoadingImg: false,
       baseURL: "https://bk.muyun.space",
