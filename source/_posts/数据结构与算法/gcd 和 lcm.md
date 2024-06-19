@@ -233,7 +233,7 @@ updated: 2024-01-21 00:00:00
   {
       for (int i = 2; i <= n / i; i++)
       {
-          // 如果 n 能整除 i，说明 i 不是 n 的质因子
+          // 如果 n 不能整除 i，说明 i 不是 n 的质因子
           if (n % i)
               continue;
 
