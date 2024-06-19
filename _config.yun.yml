@@ -411,7 +411,7 @@ aplayer:
   # https://github.com/metowolf/MetingJS/tree/v1.2#option
   widget:
     enable: true
-    autoplay: true
+    autoplay: false
     loop: all
     order: random
     preload: auto
