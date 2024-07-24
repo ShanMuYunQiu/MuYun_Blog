@@ -421,6 +421,26 @@ aplayer:
     listFolded: false
     listMaxHeight: 340px
     audio:
+      - name: 夏天，再见
+        artist: 暮色 / 诗岸
+        url: https://music.163.com/song/media/outer/url?id=1861068892.mp3
+        cover: http://p2.music.126.net/65hyLjIBv5qFhSpQ3KlOiA==/109951166175266739.jpg
+        lrc: /lrc/夏天，再见.lrc
+      - name: 流霰(星尘Infinity Version)
+        artist: 旅行的蜗牛 / 星尘
+        url: https://music.163.com/song/media/outer/url?id=1925101032.mp3
+        cover: http://p1.music.126.net/O8s988XrtOxiN30TWyAyiQ==/109951167951585729.jpg
+        lrc: /lrc/流霰(星尘Infinity Version).lrc
+      - name: 巫山云(星尘Infinity Version)
+        artist: 旅行的蜗牛 / 星尘
+        url: https://music.163.com/song/media/outer/url?id=1921741824.mp3
+        cover: http://p2.music.126.net/pjre_OsOEZOglF57MKVArw==/109951167068514633.jpg
+        lrc: /lrc/巫山云(星尘Infinity Version).lrc
+      - name: 月巷
+        artist: 星葵77 / 乐正绫
+        url: https://music.163.com/song/media/outer/url?id=2123816639.mp3
+        cover: http://p2.music.126.net/gGlxMNxHKkCwJeD--vKvNQ==/109951169310962799.jpg
+        lrc: /lrc/月巷.lrc
       - name: 东京不太热
         artist: Z新豪 / 洛天依Official
         url: /lrc/东京不太热.mp3
