@@ -5,7 +5,7 @@ favicon: https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/info/user.jpg
 
 notice:
   enable: true
-  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：动态规划 | 更新时间：2024-08-04
+  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：线段树 | 更新时间：2024-08-05
 # 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ
 
 tags:
@@ -75,6 +75,7 @@ tags:
   哈密顿路径: "#9999ff"
   Fleury: "#9999ff"
   Hierholzer: "#9999ff"
+  线段树: "#9999ff"
   理论: "#ffc266"
   数学: "#4ddbff"
   排序: "#4ddbff"
