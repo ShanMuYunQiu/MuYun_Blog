@@ -1,7 +1,7 @@
 ---
 title: 01Trie
 author: 山暮云秋
-description: 学习01Trie字典树解决异或对问题，求最大异或对、第 k 小异或对
+description: 学习 01Trie 字典树解决异或对问题，求最大异或对、第 k 小异或对
 sticky: 0
 readmore: true
 tags:
