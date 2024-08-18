@@ -2,7 +2,7 @@
 title: Cpp基础教程
 author: 山暮云秋
 description: 有关于C++的基础教程，该教程建立在学习过C语言的基础上，进行对比学习，了解不同的特性和更多新内容，学习设计类和面向对象程序设计
-sticky: 1
+sticky: 0
 readmore: true
 tags:
   - C++
