@@ -1,11 +1,11 @@
 ---
-title: Git基础教程
+title: git基础教程
 author: 山暮云秋
-description: 版本管理工具Git的基本使用教程，内含常用本地命令，分支命令，远程命令以及一些优化
+description: 版本管理工具 git 的基本使用教程，内含常用本地命令，分支命令，远程命令及一些使用技巧
 sticky: 0
 readmore: true
 tags:
-  - Git
+  - git
   - 版本管理工具
 categories:
   - 专业技能教程
@@ -16,7 +16,7 @@ updated: 2022-09-08 00:00:00
 
 ---
 
-### **Git 的工作流程概述**
+### **git 的工作流程概述**
 
 ---
 
@@ -36,31 +36,31 @@ updated: 2022-09-08 00:00:00
 
 ---
 
-### **Git 安装与基础命令**
+### **git 安装与基础命令**
 
 ---
 
-- 在**Git Bash**中可以使用一些**Linux**的**基本命令**
+- 在**git Bash**中可以使用一些**Linux**的**基本命令**
 
   - `ls`/`ll`：查看当前目录文件，`ll`同 Linux 的`ls -l`查看隐藏文件
   - `cat`：查看文件内容
   - `touch`：创建文件
   - `vi`：使用 vi 编辑器
 
-- 安装 Git 后首先要进行**用户配置**
+- 安装 git 后首先要进行**用户配置**
 
-  - 打开**Git Bash**，执行`git config --global user.name "名称"`，设置用户名
+  - 打开**git Bash**，执行`git config --global user.name "名称"`，设置用户名
   - 执行`git config --global user.email "邮箱"`，设置邮箱
   - 不写后面修改的信息，则为查看当前设置的信息
 
 - 为**常用指令**配置**别名**(根据个人需求)
 
-  - 在用户目录下创建`.bashrc`文件，如果不允许使用点开头，则可以在**Git Bash**使用`touch ~/.bashrc`指令
+  - 在用户目录下创建`.bashrc`文件，如果不允许使用点开头，则可以在**git Bash**使用`touch ~/.bashrc`指令
   - 在`.bashrc`文件中按`alias 别名='被替换的指令'`格式写入
 
-- 解决 Git**乱码问题**
+- **解决 git 乱码问题**
 
-  - 在**Git Bash**中输入`git config --global core.quotepath false`
+  - 在**git Bash**中输入`git config --global core.quotepath false`
   - 然后在**根目录\etc\bash.bashrc**文件中加入下面两行：
 
   ```
@@ -115,6 +115,22 @@ updated: 2022-09-08 00:00:00
 - `git fetch`：使用`git fetch 仓库名 分支名`**抓取**到本地，**但不会进行合并**，不指定名称则为全部
 - `git pull`：使用`git pull 仓库名 分支名`**拉取**到本地，**会自动合并**，不指定名称则为全部
 - **处理冲突**：使用`git pull`来处理冲突
+
+---
+
+### **fork 的项目进行同步**
+
+---
+
+- 在 github 上 fork 他人的项目，更改了部分信息，需要**同步更新对方的后续改动**且**保留自身的修改**时
+
+  > 1、克隆**自己的仓库**到本地：`git clone <自己仓库>`  
+  > 2、**配置原始仓库**(上游仓库)：`git remote add upstream <原始仓库>`  
+  > 3、**获取**上游仓库的**更新**：`git fetch upstream`  
+  > 4、切换到要**自己仓库**要合并的**分支**(常为`main`或`master`)：`git checkout <分支名>`  
+  > 5、从**上游指定分支**合并到当前：`git merge upstream/<分支名>`  
+  > 6、**处理冲突**：如使用 VScode 处理冲突，在**源代码管理**找到**合并更改**，选择**冲突的文件**，在右侧对比窗口打钩选择需要保留的版本  
+  > 7、**提交合并**：按正常使用的流程执行`add`、`commit`、`push`即可
 
 ---
 

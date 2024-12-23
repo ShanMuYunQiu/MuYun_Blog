@@ -5,11 +5,11 @@ favicon: https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/info/user.jpg
 
 notice:
   enable: true
-  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：倍增LCA与Tarjan | 更新时间：2024-11-28
+  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：git基础教程 | 更新时间：2024-12-23
 # 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ
 
 tags:
-  Git: "#ff4d4d"
+  git: "#ff4d4d"
   Cmake: "#ff4d4d"
   网络爬虫: "#ff4d4d"
   基础语法: "#cc33ff"
