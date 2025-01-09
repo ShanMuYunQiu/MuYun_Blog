@@ -30,6 +30,21 @@ reward: true
 
 ##### **站点维护更新日志**
 
+<details><summary>2025年日志</summary>
+
+<p>
+
+<div class="warning">
+
+> **01-09** | `cdn.jsdelivr.net`被污染，更换为公益项目`Yize`镜像
+> **01-01** | Hello，2024
+
+</div>
+
+</p>
+
+</details>
+
 <details><summary>2024年日志</summary>
 
 <p>

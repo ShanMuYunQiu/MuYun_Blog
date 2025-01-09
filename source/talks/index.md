@@ -6,7 +6,7 @@ reward: true
 
 <head>
   <!-- ... -->
-  <script src="https://cdn.jsdelivr.net/gh/Uyoahz26/daodao@main/dist/qexo-dao.min.js"></script>
+  <script src="https://jsd.vxo.im/gh/Uyoahz26/daodao@main/dist/qexo-dao.min.js"></script>
   <!-- ... -->
 </head>
 <body>
@@ -15,7 +15,7 @@ reward: true
   <script>
     qexoDaodao?.init({
       el: "#qexoDaoDao",
-      avatar: "https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/info/user.jpg",
+      avatar: "https://jsd.vxo.im/gh/ShanMuYunQiu/Image/info/user.jpg",
       name: "山暮云秋",
       title: "《道是寻常》——我的说说",
       limit: 7,

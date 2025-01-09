@@ -1,11 +1,12 @@
-favicon: https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/info/user.jpg
+favicon: https://jsd.vxo.im/gh/ShanMuYunQiu/Image/info/user.jpg
 # https://jsd.cky.codes
 # https://jsdelivr.codeqihan.com
 # https://cdn.jsdelivr.net
+# https://jsd.vxo.im
 
 notice:
   enable: true
-  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：git基础教程 | 更新时间：2024-12-23
+  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：git基础教程 | 更新时间：2025-01-09
 # 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ
 
 tags:
@@ -109,11 +110,11 @@ social:
     icon: ri:links-line
     color: "#ff8533"
   - name: 微信
-    link: https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/social/wechat.png
+    link: https://jsd.vxo.im/gh/ShanMuYunQiu/Image/social/wechat.png
     icon: ri:wechat-2-line
     color: "#1AAD19"
   - name: QQ
-    link: https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/social/QQ.png
+    link: https://jsd.vxo.im/gh/ShanMuYunQiu/Image/social/QQ.png
     icon: ri:qq-line
     color: "#12B7F5"
   - name: GitHub
@@ -142,7 +143,7 @@ banner:
 
 say:
   enable: true
-  api: https://cdn.jsdelivr.net/gh/ElpsyCN/say@gh-pages/sentences.json
+  api: https://jsd.vxo.im/gh/ElpsyCN/say@gh-pages/sentences.json
   # https://developer.hitokoto.cn/sentence/
   hitokoto:
     enable: true
@@ -159,8 +160,8 @@ mode: time
 
 bg_image:
   enable: true
-  url: https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/info/background.jpg
-  dark: https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/info/background_n.jpg
+  url: https://jsd.vxo.im/gh/ShanMuYunQiu/Image/info/background.jpg
+  dark: https://jsd.vxo.im/gh/ShanMuYunQiu/Image/info/background_n.jpg
   blur: 0px
   opacity: 0.8
 
@@ -187,7 +188,7 @@ cursor:
   text: https://cdn.yunyoujun.cn/css/md-cursors/text.cur
 
 sidebar:
-  bg_image: https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/info/background_side.jpg
+  bg_image: https://jsd.vxo.im/gh/ShanMuYunQiu/Image/info/background_side.jpg
   bg_position: bottom 3rem center
   tagcloud:
     enable: true
@@ -195,7 +196,7 @@ sidebar:
 
 avatar:
   enable: true
-  url: https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/info/user.jpg
+  url: https://jsd.vxo.im/gh/ShanMuYunQiu/Image/info/user.jpg
   rounded: true
   opacity: 1
   mickey_mouse: false
@@ -269,15 +270,15 @@ reward:
   comment: 手头阔绰?点这点这!money得斯!
   methods:
     - name: 微信支付
-      path: https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/social/wechatpay.png
+      path: https://jsd.vxo.im/gh/ShanMuYunQiu/Image/social/wechatpay.png
       color: "#2DC100"
       icon: ri:wechat-pay-line
     - name: 支付宝
-      path: https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/social/alipay.png
+      path: https://jsd.vxo.im/gh/ShanMuYunQiu/Image/social/alipay.png
       color: "#00A3EE"
       icon: ri:alipay-line
     - name: QQ 支付
-      path: https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/social/QQpay.png
+      path: https://jsd.vxo.im/gh/ShanMuYunQiu/Image/social/QQpay.png
       color: "#12B7F5"
       icon: ri:qq-line
 
@@ -403,7 +404,7 @@ medium_zoom: true
 
 vendors:
   # 以 '/' 结尾
-  host: "https://cdn.jsdelivr.net/npm/"
+  host: "https://jsd.vxo.im/npm/"
   # 下方代表覆盖 waline CDN 为别的链接，默认不用修改
   # waline:
   #   css: '@waline/client@v2/dist/waline.css'
@@ -904,7 +905,7 @@ aplayer:
       type: playlist
 
 widget_tree:
-  cdn: true
+  cdn: https://jsd.vxo.im/npm/hexo-widget-tree
   hide: false
   layout: default
   # layout:

@@ -104,7 +104,7 @@ links:
     color: "#9966ff"
 
   - url:
-    avatar: https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/info/akalin.jpg
+    avatar: https://jsd.vxo.im/gh/ShanMuYunQiu/Image/info/akalin.jpg
     blog: 等待申请中。。。
     desc: 在下方评论区申请友链哦！
     color: "#c2c2d6"
@@ -127,7 +127,7 @@ tip: 友链加载中～如失败请刷新重试～
 #### **本站站点友链信息**
 
 > 地址：muyun.space  
-> 图片：https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/info/user.jpg  
+> 图片：https://jsd.vxo.im/gh/ShanMuYunQiu/Image/info/user.jpg  
 > 名称：山暮云秋  
 > 描述：千里关山边草暮，一星烽火朔云秋
 

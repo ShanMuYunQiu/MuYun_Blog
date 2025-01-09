@@ -29,7 +29,7 @@ updated: 2024-08-11 00:00:00
 
   <!-- more -->
 
-  ![](https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/blog/%E7%AE%97%E6%B3%95/01Trie.png)
+  ![](https://jsd.vxo.im/gh/ShanMuYunQiu/Image/blog/%E7%AE%97%E6%B3%95/01Trie.png)
 
 - **最大异或对**
 

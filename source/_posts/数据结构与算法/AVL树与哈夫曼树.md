@@ -32,8 +32,8 @@ updated: 2023-09-14 00:00:00
 
   <!-- more -->
 
-  ![](https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/blog/算法/二叉查找树.png)
-  ![](https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/blog/算法/二叉查找树删除.png)
+  ![](https://jsd.vxo.im/gh/ShanMuYunQiu/Image/blog/算法/二叉查找树.png)
+  ![](https://jsd.vxo.im/gh/ShanMuYunQiu/Image/blog/算法/二叉查找树删除.png)
 
   ```cpp
   #include <iostream>
@@ -235,7 +235,7 @@ updated: 2023-09-14 00:00:00
   > 2、**插入或删除元素**时，会**动态调整**树的结构，以便提高下次的**搜索效率**(解决了二叉查找树搜索次数不均衡，最极端情况下甚至会变为链表的问题)  
   > 3、其代码实现如下，**平衡因子**(值为 $-1$ / $0$ / $1$)为**左子树高度**减去**右子树高度**。其**插入和删除操作**需要调整**最小不平衡树**(即平衡因子的绝对值大于 $1$ 的子树)，平衡的方法便是进行**对应方案的旋转**
 
-  ![](https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/blog/算法/AVL树.png)
+  ![](https://jsd.vxo.im/gh/ShanMuYunQiu/Image/blog/算法/AVL树.png)
 
   ```cpp
   #include <iostream>
@@ -262,9 +262,9 @@ updated: 2023-09-14 00:00:00
   > 4、**先右后左双旋转**：**RL 平衡旋转**，第一个 $R$ 表示**当前节点**($15$)的**右子节点**($19$)，第二个 $L$ 表示**右子节点**($19$)的**左子树**($17$ - 左$16$/右$18$)不平衡。这种情况下进行**先右后左双旋转**(先向右旋转一次，再向左旋转一次)，如下图  
   > 5、**所旋转的节点**都是**第一个字母指代的节点**，即**当前节点**的**左/右子节点**，将其提升为**父节点**；**其余节点**如果能**跟随旋转**(且不影响大小关系)则**直接跟随**，否则**重新安排合适位置**
 
-  ![](https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/blog/算法/AVL树单旋转.png)
-  ![](https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/blog/算法/AVL树LR旋转.png)
-  ![](https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/blog/算法/AVL树RL旋转.png)
+  ![](https://jsd.vxo.im/gh/ShanMuYunQiu/Image/blog/算法/AVL树单旋转.png)
+  ![](https://jsd.vxo.im/gh/ShanMuYunQiu/Image/blog/算法/AVL树LR旋转.png)
+  ![](https://jsd.vxo.im/gh/ShanMuYunQiu/Image/blog/算法/AVL树RL旋转.png)
 
 ---
 
@@ -291,7 +291,7 @@ updated: 2023-09-14 00:00:00
   } Node;
   ```
 
-  ![](https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/blog/算法/哈夫曼树.png)
+  ![](https://jsd.vxo.im/gh/ShanMuYunQiu/Image/blog/算法/哈夫曼树.png)
 
 - **构造哈夫曼树**
 
@@ -300,7 +300,7 @@ updated: 2023-09-14 00:00:00
   > 3、将**构成的新树放回森林**中，重复上述步骤直到**只剩一棵树为止**  
   > 4、规律：**权值越大的节点越靠上**，这样**节点到根的路径更短**，因此**该节点带权路径长度也更短**
 
-  ![](https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/blog/算法/哈夫曼树构造.png)
+  ![](https://jsd.vxo.im/gh/ShanMuYunQiu/Image/blog/算法/哈夫曼树构造.png)
 
 - **哈夫曼编码**
 
@@ -311,7 +311,7 @@ updated: 2023-09-14 00:00:00
     > 3、但**可变长度编码**解析时，难以确定**前缀 $0$ 的个数**和**分组区别**，**解析十分困难**。其中的原因之一是：**压缩后的字符编码**可能是**另一编码中的一部分**(如 $48$ 压缩后的 $110000$ 是 $97$ 压缩后的 $1100001$ 的一部分)，这便**难以分组**  
     > 4、这时，需要一种**既能压缩也能解析**的**编码方式**，这便是**哈夫曼编码**(前缀编码)。其**任意两个字符的编码**，**不能是对方的前缀**。
 
-    ![](https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/blog/算法/哈夫曼编码1.png)
+    ![](https://jsd.vxo.im/gh/ShanMuYunQiu/Image/blog/算法/哈夫曼编码1.png)
 
   - **哈夫曼编码与哈夫曼树**
 
@@ -319,7 +319,7 @@ updated: 2023-09-14 00:00:00
     > 2、**根节点到叶节点的路径**代表了**编码的长度**，**节点的权值**即**字符**(在电文/数据/字符集中)**出现的次数**，这样，**电文的总长度**即为 WPL  
     > 3、由于**哈夫曼树**中**权值越大的节点越靠上**，所以**出现频率高**的字符，其**编码也更短**
 
-    ![](https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/blog/算法/哈夫曼编码2.png)
+    ![](https://jsd.vxo.im/gh/ShanMuYunQiu/Image/blog/算法/哈夫曼编码2.png)
 
 ---
 

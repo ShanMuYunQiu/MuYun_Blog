@@ -16,7 +16,7 @@ _—— 虽然一块钱在现实中买不到什么，但在这儿却可以买到
 
 <div class="success">
 
-> ![](https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/social/allpay.png)
+> ![](https://jsd.vxo.im/gh/ShanMuYunQiu/Image/social/allpay.png)
 
 </div>
 

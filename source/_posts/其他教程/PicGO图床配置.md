@@ -33,8 +33,8 @@ Token(示例)：ghp_6OWL9OSpzhW6LMsQc5WO5KnoT5quat459f3a
 
 存储路径：可不填
 
-自定义域名：https://cdn.jsdelivr.net/gh/用户名/仓库名  
-例如：https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image
+自定义域名：https://jsd.vxo.im/gh/用户名/仓库名  
+例如：https://jsd.vxo.im/gh/ShanMuYunQiu/Image
 
 4-KRFB
 4+Pco4

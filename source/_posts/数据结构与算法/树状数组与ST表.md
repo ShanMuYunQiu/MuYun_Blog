@@ -29,7 +29,7 @@ updated: 2024-08-17 00:00:00
 
   <!-- more -->
 
-  ![](https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/blog/算法/树状数组.png)
+  ![](https://jsd.vxo.im/gh/ShanMuYunQiu/Image/blog/算法/树状数组.png)
 
 - **区间查询**
 
@@ -86,7 +86,7 @@ updated: 2024-08-17 00:00:00
   > 2、**区间修改**的**公式推导**如下图，这样便做到了将**区间和**转换为**只需要维护差分**即可得到的形式，再令**树状数组** $t1[i]$ 维护 $d[i]$ ，$t2[i]$ 维护 $i * d[i]$  
   > 3、注意当前**维护的是差分**，所以修改时也要**按照差分的思想修改**。即 $[l, r] + 3$ 需要 $update(l, 3), update(r+1, -3)$
 
-  ![](https://cdn.jsdelivr.net/gh/ShanMuYunQiu/Image/blog/算法/树状数组区间修改.png)
+  ![](https://jsd.vxo.im/gh/ShanMuYunQiu/Image/blog/算法/树状数组区间修改.png)
 
   ```cpp
   const int N = 3e5 + 10;
