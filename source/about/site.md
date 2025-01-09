@@ -36,7 +36,8 @@ reward: true
 
 <div class="warning">
 
-> **01-09** | `cdn.jsdelivr.net`被污染，更换为公益项目`Yize`镜像
+> **01-09** | 博客建站 1000 天纪念日  
+> **01-09** | `cdn.jsdelivr.net`被污染，更换为公益项目`Yize`镜像  
 > **01-01** | Hello，2024
 
 </div>

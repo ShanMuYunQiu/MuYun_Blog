@@ -610,7 +610,7 @@ aplayer:
         lrc: /lrc/Welcome Home.lrc
       - name: What U Do
         artist: Wild Culture / Shel Bee
-        url: https://music.163.com/song/media/outer/url?id=1459697279.mp3
+        url: /lrc/What U Do.mp3
         cover: http://p2.music.126.net/oK9lZOiyKUlSSk7vBP7HpQ==/109951165104873935.jpg
         lrc: /lrc/What U Do.lrc
       - name: 花と水飴、最終電車
@@ -655,7 +655,7 @@ aplayer:
         lrc: /lrc/17さいのうた。.lrc
       - name: ただ声一つ
         artist: ロクデナシ
-        url: https://music.163.com/song/media/outer/url?id=1905586708.mp3
+        url: /lrc/ただ声一つ.mp3
         cover: http://p1.music.126.net/WMAHZRjSjackfXUmA5GVWw==/109951166778043030.jpg
         lrc: /lrc/ただ声一つ.lrc
       - name: 懒人
@@ -700,12 +700,12 @@ aplayer:
         lrc: /lrc/Feeling The Rain.lrc
       - name: 森林
         artist: 灰澈
-        url: https://music.163.com/song/media/outer/url?id=495562302.mp3
+        url: /lrc/森林.mp3
         cover: http://p1.music.126.net/gtnxIZw1IKVV6UoxYQoA5A==/109951163393955301.jpg
         lrc: /lrc/森林.lrc
       - name: Umbrella
         artist: Matte / Ember Island
-        url: https://music.163.com/song/media/outer/url?id=518904426.mp3
+        url: /lrc/Umbrella.mp3
         cover: http://p1.music.126.net/1LrtvH8EpKb5iHKR9qEU0Q==/109951163063843501.jpg
         lrc: /lrc/Umbrella.lrc
       - name: 说书人
@@ -770,7 +770,7 @@ aplayer:
         lrc: /lrc/Outerspace.lrc
       - name: Bring Me Back
         artist: Miles Away
-        url: https://music.163.com/song/media/outer/url?id=1488212875.mp3
+        url: /lrc/Bring Me Back.mp3
         cover: http://p1.music.126.net/m8u6XqT7V8Db8sXdw7d3ow==/109951165400340890.jpg
         lrc: /lrc/Bring Me Back.lrc
       - name: Starry Skies
@@ -803,11 +803,6 @@ aplayer:
         url: /lrc/Hall of Fame.mp3
         cover: http://p2.music.126.net/y3NzeUWXbuHI9Mm5mghD6A==/109951165967126686.jpg
         lrc: /lrc/Hall of Fame.lrc
-      - name: Stuttering
-        artist: Fefe Dobson
-        url: https://music.163.com/song/media/outer/url?id=2614003.mp3
-        cover: http://p1.music.126.net/5eUTVYHlJAO6TIQJDMr88A==/1755920069563420.jpg
-        lrc: /lrc/Stuttering.lrc
       - name: 回る空うさぎ
         artist: Orangestar / 初音ミク
         url: https://music.163.com/song/media/outer/url?id=458231455.mp3
