@@ -32,7 +32,7 @@ updated: 2024-08-19 00:00:00
 
 - **代码实现**
 
-  ```c++
+  ```cpp
   #include <bits/stdc++.h>
   using namespace std;
 
@@ -134,7 +134,7 @@ updated: 2024-08-19 00:00:00
 
 - **代码实现**
 
-  ```c++
+  ```cpp
   #include <bits/stdc++.h>
   using namespace std;
 
@@ -256,7 +256,7 @@ updated: 2024-08-19 00:00:00
 
 - **代码实现**
 
-  ```c++
+  ```cpp
   #include <bits/stdc++.h>
   using namespace std;
 

@@ -67,13 +67,10 @@ render_drafts: false
 post_asset_folder: false
 relative_link: false
 future: true
+# 关闭 highlight
 highlight:
   enable: false
-  line_number: true
-  auto_detect: false
-  tab_replace: ""
-  wrap: true
-  hljs: false
+# 启用 prism
 prismjs:
   enable: true
   preprocess: true
