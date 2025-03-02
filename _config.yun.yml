@@ -6,7 +6,7 @@ favicon: https://jsd.vxo.im/gh/ShanMuYunQiu/Image/info/user.jpg
 
 notice:
   enable: true
-  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：更改错误 | 更新时间：2025-03-01
+  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：最短路 | 更新时间：2025-03-02
 # 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ
 
 tags:
@@ -82,6 +82,9 @@ tags:
   LCA: "#9999ff"
   Tarjan: "#9999ff"
   ST表: "#9999ff"
+  Bellman_Ford: "#9999ff"
+  SPFA: "#9999ff"
+  Johnson: "#9999ff"
   理论: "#ffc266"
   数学: "#4ddbff"
   排序: "#4ddbff"
