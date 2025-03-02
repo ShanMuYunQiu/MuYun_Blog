@@ -82,7 +82,7 @@ tags:
   LCA: "#9999ff"
   Tarjan: "#9999ff"
   ST表: "#9999ff"
-  Bellman_Ford: "#9999ff"
+  Bellman-Ford: "#9999ff"
   SPFA: "#9999ff"
   Johnson: "#9999ff"
   理论: "#ffc266"
