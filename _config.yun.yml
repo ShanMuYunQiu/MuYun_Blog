@@ -6,7 +6,7 @@ favicon: https://jsd.vxo.im/gh/ShanMuYunQiu/Image/info/user.jpg
 
 notice:
   enable: true
-  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：最短路 | 更新时间：2025-03-02
+  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：查分约束与二分图 | 更新时间：2025-03-03
 # 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ
 
 tags:
@@ -85,6 +85,9 @@ tags:
   Bellman-Ford: "#9999ff"
   SPFA: "#9999ff"
   Johnson: "#9999ff"
+  差分约束: "#9999ff"
+  二分图染色: "#9999ff"
+  匈牙利算法: "#9999ff"
   理论: "#ffc266"
   数学: "#4ddbff"
   排序: "#4ddbff"

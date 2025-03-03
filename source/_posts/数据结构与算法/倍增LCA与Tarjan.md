@@ -7,6 +7,8 @@ readmore: true
 tags:
   - LCA
   - Tarjan
+  - 树
+  - 图
   - C++
 categories:
   - 数据结构与算法
