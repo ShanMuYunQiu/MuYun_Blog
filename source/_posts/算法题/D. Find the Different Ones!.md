@@ -1,7 +1,6 @@
 ---
 title: D. Find the Different Ones!
 author: 山暮云秋
-description: 人一能之，己百之；人十能之，己千之。
 sticky: 0
 tags:
   - 前缀和
