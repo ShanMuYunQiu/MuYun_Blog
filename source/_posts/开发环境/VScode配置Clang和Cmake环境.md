@@ -1,7 +1,7 @@
 ---
 title: VScode配置Clang和Cmake环境
 author: 山暮云秋
-description: Vscode进阶篇，学习.vscode配置文件和Clang+Cmake的配置与使用
+description: Vscode Cpp环境配置进阶篇，学习.vscode配置文件和Clang+Cmake的配置与使用
 sticky: 0
 readmore: true
 tags:
@@ -9,7 +9,7 @@ tags:
   - 环境配置
   - Cmake
 categories:
-  - 编辑器与IDE
+  - 开发环境
 abbrlink: e8dec52a
 date: 2023-01-05 00:00:00
 updated: 2023-01-07 00:00:00
@@ -67,9 +67,9 @@ updated: 2023-01-07 00:00:00
 
 - **环境配置**
 
-  > 1、安装**Clangd**：提供比默认 C++ 拓展更强更快的代码提示，**需要关闭微软的原 C++ 拓展**。配置方法：下载后**需要额外下载 Clangd**([github 下载地址](https://github.com/clangd/clangd))，解压配置`bin`目录为**Path 环境变量**，在**拓展设置**设置**路径为 clangd**  
+  > 1、安装**Clangd**：提供比默认 C++ 拓展更强更快的代码提示，**需要关闭微软的原先的 C/C++ 拓展**。配置方法：下载后**需要额外下载 Clangd**([github 下载地址](https://github.com/clangd/clangd))，解压配置`bin`目录为**Path 环境变量**，在**拓展设置**设置**路径为 clangd**  
   > 2、安装**CodeLLDB**：下载后会**默认下载一个文件**，如果下载失败，在右下角**手动下载**，下载后在 VScode 调出**命令台**(`F1`或`Ctrl+Shift+P`)，搜索**从 VSIX 安装**-**显示本地**-**选择下载的文件**，完成后重载  
-  > 3、配置**Code Runner**以便捷完成单文件编译运行：在拓展设置中找到**Executor Map**-**在 json 中编辑**，自行按照**编译器使用方法**配置编译选项。此外，由于微软**原 C++ 拓展**关闭，所以**code runner**的**自动调试**功能**不能使用**，需要自行在工作区**配置**`.vscode`**编译配置文件夹**，然后使用`F5`**启动调试**(或在**命令台**输入`debug`)
+  > 3、配置**Code Runner**以便捷完成单文件编译运行：在拓展设置中找到**Executor Map**-**在 json 中编辑**，自行按照**编译器使用方法**配置编译选项。此外，由于**微软原先 C/C++ 拓展**关闭，所以**自动调试**功能**不能使用**，需要自行在工作区**配置**`.vscode`**编译配置文件夹**，然后使用`F5`**启动调试**(或在**命令台**输入`debug`)
 
 - `.vscode`**配置文件夹内的配置**
 
@@ -350,8 +350,8 @@ updated: 2023-01-07 00:00:00
 
 - **插件推荐**
 
-  > 1、上述为**文件配置**，现在可以下载使用**clang-format 插件**，设置**Fallback Style**项为**继承模板名**(如`Microsoft`)，其余自定义设置请自行学习  
-  > 2、此外可以安装**clang-tidy 插件**来提供代码优化建议
+  > 1、上述为**文件配置**，现在可以下载使用 **clang-format 插件**，设置 **Fallback Style** 项为**继承模板名**(如`Microsoft`)，其余自定义设置请自行学习  
+  > 2、此外可以安装 **clang-tidy 插件**来提供代码优化建议
 
 ---
 

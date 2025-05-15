@@ -5,9 +5,9 @@ description: 所有有关于网站收录SEO的注意事项，以及网站SEO相�
 sticky: 0
 readmore: true
 tags:
-  - Hexo博客
-  - Sitemap地图
-  - SEO收录
+  - Hexo
+  - Sitemap
+  - SEO
 categories:
   - 其他教程
 abbrlink: 7fa36b92

@@ -6,9 +6,8 @@ sticky: 0
 readmore: true
 tags:
   - git
-  - 版本管理工具
 categories:
-  - 专业技能教程
+  - 开发技能
 abbrlink: c4eece1e
 date: 2022-05-20 00:00:00
 updated: 2022-09-08 00:00:00

@@ -5,9 +5,7 @@ url: 'https://yun.yunyoujun.cn/guide/'
 description: Hexo主题Yun的配置教程，链接至Yun主题作者云游君的教程文档
 sticky: 0
 tags:
-  - 配置项
-  - yun主题
-  - Hexo博客
+  - Hexo
 categories:
   - 其他教程
 abbrlink: e5a21006

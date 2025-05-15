@@ -8,7 +8,7 @@ tags:
   - C++
   - Cmake
 categories:
-  - 专业技能教程
+  - 开发技能
 abbrlink: c6c59c74
 date: 2023-01-07 00:00:00
 updated: 2023-01-07 00:00:00

@@ -6,37 +6,28 @@ favicon: https://jsd.vxo.im/gh/ShanMuYunQiu/Image/info/user.jpg
 
 notice:
   enable: true
-  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：重链剖分与启发式合并 | 更新时间：2025-03-29
+  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：重新确定文章标签和分类 | 更新时间：2025-05-15
 # 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ
 
 tags:
   git: "#ff4d4d"
   Cmake: "#ff4d4d"
-  网络爬虫: "#ff4d4d"
+  网页爬虫: "#ff4d4d"
   基础语法: "#cc33ff"
-  版本管理工具: "#00b300"
   Markdown: "#b35900"
   KaTex: "#b35900"
   VScode: "#6699ff"
   Qt: "#00b300"
-  PicGO: "#6699ff"
   环境配置: "#00b300"
   Python3: "#ffc266"
   C语言: "#6699ff"
   C++: "#6699ff"
-  图床: "#00b300"
-  标记语言: "#4ddbff"
-  yun主题: "#9999ff"
-  Hexo博客: "#ff4d4d"
-  Sitemap地图: "#b35900"
-  SEO收录: "#ffc266"
-  博客部署: "#ff99dd"
-  白嫖: "#4ddbff"
-  前置准备: "#ff3333"
-  配置项: "#4ddbff"
+  图床: "#6699ff"
+  Hexo: "#ff4d4d"
+  Sitemap: "#b35900"
+  SEO: "#ffc266"
   搜索引擎: "#ffc266"
   Linux: "#ffc266"
-  系统操作: "#ff3333"
   私密: "#808080"
   测试: "#9999ff"
   Vercel: "#ff944d"
@@ -104,11 +95,11 @@ tags:
   动态规划: "#4ddbff"
 
 categories:
-  编程语言入门: "#ff944d"
+  编程语言: "#ff944d"
   数据结构与算法: "#ff944d"
-  专业技能教程: "#cc33ff"
+  开发技能: "#cc33ff"
   其他教程: "#ffc266"
-  编辑器与IDE: "#9999ff"
+  开发环境: "#9999ff"
   算法题: "#66c2ff"
   其他: "#ff4d4d"
 

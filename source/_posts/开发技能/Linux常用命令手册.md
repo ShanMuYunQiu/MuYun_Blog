@@ -6,9 +6,8 @@ sticky: 0
 readmore: true
 tags:
   - Linux
-  - 系统操作
 categories:
-  - 专业技能教程
+  - 开发技能
 abbrlink: 6bc3d8a
 date: 2022-06-20 00:00:00
 updated: 2022-06-20 00:00:00

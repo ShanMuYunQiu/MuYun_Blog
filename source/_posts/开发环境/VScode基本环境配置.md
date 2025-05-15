@@ -1,15 +1,14 @@
 ---
-title: VScode基本环境配置
+title: VScode环境配置教程
 author: 山暮云秋
-description: 个人以及大众最爱的编辑器，新手时期被繁杂的配置劝退过，而本教程将带你渡过难关
+description: 宇宙最强编辑器，新手时期易被繁杂的配置劝退，而本教程将带你渡过难关
 sticky: 0
 readmore: true
 tags:
-  - 前置准备
   - VScode
   - 环境配置
 categories:
-  - 编辑器与IDE
+  - 开发环境
 abbrlink: 54ce768c
 date: 2022-04-27 00:00:00
 updated: 2023-07-03 00:00:00
@@ -25,7 +24,7 @@ updated: 2023-07-03 00:00:00
 
 ---
 
-### **基础配置**
+### **开始**
 
 ---
 
@@ -41,7 +40,7 @@ updated: 2023-07-03 00:00:00
 
 <!-- more -->
 
-### **其他基础设置**
+### **编辑器设置**
 
 ---
 
@@ -73,37 +72,37 @@ updated: 2023-07-03 00:00:00
 <div class="warning">
 
 > **xxx Extension Pack**：**xxx**改为需要的语言，此拓展为微软配置的开发环境支持拓展包  
-> **Live Server**：实时显示刷新页面，网页使用  
-> ----运行时右下角**Go Live**，或鼠标右键，选择**Open with Live Server**即可  
+> **Live Server**：网页开发实时刷新显示页面  
+> ----运行时右下角**Go Live**，或鼠标右键，选择**Open with Live Server**  
 > **indent-rainbow**：彩色缩进，缩进错误会报大红  
 > **Bracket Pair Colorizer**：彩色括号，方便读代码(已内置于 VScode 的**Bracket Pair Colorization**设置项)  
 > **Code Translate**(w88975)：划词翻译，且显示变量名定义类型与语法使用规则  
 > **Prettier**：格式化代码，自动排版  
 > ----设置：**Format On Save**，保存时自动排版  
 > ----代码格式化大括号不独立换行：**C_Cpp:Clang_format_style**设置为`{BasedOnStyle: Chromium, IndentWidth: 4}`  
-> **One Dark Pro**：黑灰色主题，好看  
+> **One Dark Pro**：外观主题，好看  
 > **vscode-icons**：图标主题，文件图标与类型更加易分辨  
 > **Github Copilot**：AI 自动补全写代码，需要 github 账号登录(已收费)  
-> ----下位替代：CodeGeex、Tabnine AI、Codeium、Fitten Code、Amazon CodeWhisperer、通义灵码  
+> ----替代：CodeGeex、Tabnine AI、Codeium、Fitten Code、Amazon CodeWhisperer、通义灵码  
 > **Power Mode**：打字炫酷特效，需要在设置里自行设定  
 > **Auto Close Tag**：自动闭合标签(已内置于 VScode 的**Auto Closing Tags**设置项)  
 > **Auto Rename Tag**：自动重命名相对应的闭合 HTML 标签(已内置于 VScode 的**Linked Editing**设置项)  
-> **Color Highlight**：显示色码(#000000)颜色，在设置中设置**Marker Type**设置显示样式，推荐**dot-before**  
+> **Color Highlight**：显示十六进制颜色(#000000)颜色，在设置中设置**Marker Type**设置显示样式，推荐**dot-before**  
 > **Markdown Preview Enhanced**：分屏 markdown 预览  
 > **Excel Viewer**：在 VScode 中打开 Excel 表格  
 > **Hex Editor**：在 VScode 中编辑二进制文件  
 > **exe Runner**：右键更方便的执行.exe 文件  
 > **Bookmarks**：书签跳转，使用右键在需要的行上设置书签以快速跳转  
-> **GitLens**：侧边栏显示光标所在位置的历史 git 提交并快速访问，拓展 VScode 自带 git 管理器的功能  
+> **GitLens**：更详细强大的 git 信息显示与管理  
 > **Git Graph**：将 git 提交记录转换为可视化图表  
 > **CodeSnap**：快速美观代码截图  
-> **Codelf**：变量命名插件(注意名字是 l 不是 i)  
-> **Project Manager**：更方便的管理文件夹和项目  
+> **Codelf**：变量起名插件(注意名字是 l 不是 i)  
+> **Project Manager**：更方便的管理文件夹和项目，分出工作区快速切换，且保留工作区窗口  
 > **Better Comments**：更好的注释，注释信息变色：包括`TODO`、`!`、`?`、`*`、`//`等注释高亮  
 > **Error Lens**：高亮显示错误和警告，行内显示错误信息  
 > **Todo Tree**：自动集合整理所有 TODO 待办事项  
 > **Draw.io Integration**：将**Draw.io**集成到 VScode 中，画流程图，文件后缀为`.drawio`  
-> **Path Intellisense**：路径提示与自动补全  
+> **Path Intellisense**：路径提示与自动补全，需要按插件说明页添加设置  
 > **Easy Snippet**：方便快速的代码片段管理(如果总是自动换行，可以修改插件的代码片段文件，右下角行尾序列的`CRLF`改为`LF`)  
 > **Competitive Programming Helper**(cph)：做算法题使用，可以在 VScode 实现类似 CP Editor 的多数据测试功能  
 > ----需要配合浏览器插件**Competitive Companion**，浏览器安装插件后，在洛谷、CodeForce、AtCoder 等 OJ 试题页面点击浏览器插件按钮，再回到 VScode 选择语言
@@ -116,7 +115,7 @@ updated: 2023-07-03 00:00:00
 
 ---
 
-- VScode 允许用户**配置**自己的**代码片段**，以快速完成**经常重复输入的代码**(但更推荐使用**Easy Snippet**插件管理代码片段)
+- VScode 允许用户配置自己的**代码片段**，以快速完成**经常重复输入的代码**(但更推荐使用**Easy Snippet**插件管理代码片段)
 
 - **进入配置文件**：**文件**-**首选项**-**配置用户代码片段**-**选择配置的语言**
 
@@ -149,7 +148,7 @@ updated: 2023-07-03 00:00:00
 
 ---
 
-- **下载编译器**(按需下载，不需要都下载，新手推荐使用下面第二个链接。如速度慢可自行搜索 github 下载加速)
+- **下载编译器**(按需下载，不需要都下载，本文以 MinGW-w64 为例。如速度慢可自行搜索 github 下载加速)
 
   [MinGW-w64 官方下载网站(已废弃下载，只提供其他集成支持下载地址)](https://www.mingw-w64.org/downloads/)
 
@@ -159,7 +158,7 @@ updated: 2023-07-03 00:00:00
 
   [winlibs.com 下载 WinLibs 套件(套件包含 GCC + LLVM/Clang/LLD/LLDB + MinGW-w64)](https://winlibs.com/)
 
-- **MinGW-w64 下载说明**(下载其他编译器可忽略)
+- **MinGW-w64 下载说明**
 
   > 1、下载时**向下翻**下载**压缩包**文件，不要使用在线安装，无法使用  
   > 2、**64 位系统**选择**x86_64**，**32 位系统**选择**i686**  
@@ -188,7 +187,7 @@ updated: 2023-07-03 00:00:00
 
 - **配置环境**
 
-  > 1、检查环境变量设置，查漏补缺添加环境变量(同 C/C++环境配置)，将 python**根目录**添加到环境变量中  
+  > 1、检查环境变量设置，查漏补缺添加环境变量(同 C/C++环境配置)，将 python **根目录**添加到环境变量中  
   > 2、**VScode**中安装**Python Extension Pack**插件包  
   > 3、重启，打开存代码的文件夹，新建文件为`.py`文件即可  
   > 4、代码运行点击右上角**Run** **Code**中**Run Python File**即可运行

@@ -6,9 +6,8 @@ sticky: 0
 readmore: true
 tags:
   - Markdown
-  - 标记语言
 categories:
-  - 专业技能教程
+  - 开发技能
 abbrlink: cf058d62
 date: 2022-04-24 00:00:00
 updated: 2022-06-15 00:00:00

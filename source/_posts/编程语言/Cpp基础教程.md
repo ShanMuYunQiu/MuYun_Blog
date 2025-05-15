@@ -8,7 +8,7 @@ tags:
   - C++
   - 基础语法
 categories:
-  - 编程语言入门
+  - 编程语言
 abbrlink: 46cf02c7
 date: 2022-12-03 00:00:00
 updated: 2023-07-25 00:00:00

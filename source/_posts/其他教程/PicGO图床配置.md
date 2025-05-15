@@ -5,8 +5,6 @@ description: 使用PicGO搭配各个平台做个人图床，简单易上手
 sticky: 0
 readmore: true
 tags:
-  - 白嫖
-  - PicGO
   - 图床
 categories:
   - 其他教程

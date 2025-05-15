@@ -7,7 +7,7 @@ sticky: 0
 tags:
   - KaTex
 categories:
-  - 专业技能教程
+  - 开发技能
 abbrlink: 941aaef3
 date: 2024-03-31 00:00:00
 updated: 2024-03-31 00:00:00
