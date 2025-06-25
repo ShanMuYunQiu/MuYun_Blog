@@ -1,5 +1,5 @@
 ---
-title: VScode环境配置教程
+title: VScode基本环境配置
 author: 山暮云秋
 description: 宇宙最强编辑器，新手时期易被繁杂的配置劝退，而本教程将带你渡过难关
 sticky: 0
