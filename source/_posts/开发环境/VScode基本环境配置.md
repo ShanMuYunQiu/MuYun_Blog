@@ -84,9 +84,10 @@ updated: 2025-06-28 00:00:00
 > **vscode-icons**：图标主题，文件图标与类型更加易分辨  
 > **Github Copilot**：AI 代码补全，需要 github 账号登录(已收费)  
 > ----替代：CodeGeex、Tabnine AI、Codeium、Fitten Code，目前个人最推荐 Fitten Code  
-> **Kilo Code**：AI 代码代理，在 VScode 获得类似 Cursor 的智能编程体验，需要自备 api 秘钥
-> ----是 Cline 与 Roo Code 这两个拓展的分支，结合了二者优点
-> ----MCP 服务器中安装 Context7，在对话中给出提示“use Context7”可以获取最新文档
+> **Kilo Code**：AI 代码代理，在 VScode 获得类似 Cursor 的智能编程体验，需要自备 api 秘钥  
+> ----是 Cline 与 Roo Code 这两个拓展的分支，结合了二者优点  
+> ----MCP 服务器中安装 Context7，在对话中给出提示“use Context7”(仅为了保险，实际也可能自动调用)可以获取最新文档  
+> ----更多 MCP 可以在[smithery](https://smithery.ai/)中查找，使用自带的商店一键安装或写配置文件手动安装。在配置文件中使用`"registryUrl": ""`字段，替换镜像站，可以解决安装包源无法访问的问题  
 > **Power Mode**：打字炫酷特效，需要在设置里自行设定  
 > **Auto Close Tag**：自动闭合标签(已内置于 VScode 的**Auto Closing Tags**设置项)  
 > **Auto Rename Tag**：自动重命名相对应的闭合 HTML 标签(已内置于 VScode 的**Linked Editing**设置项)  
