@@ -11,7 +11,7 @@ categories:
   - 开发环境
 abbrlink: 54ce768c
 date: 2022-04-27 00:00:00
-updated: 2023-07-03 00:00:00
+updated: 2025-06-28 00:00:00
 ---
 
 ---
@@ -82,8 +82,11 @@ updated: 2023-07-03 00:00:00
 > ----代码格式化大括号不独立换行：**C_Cpp:Clang_format_style**设置为`{BasedOnStyle: Chromium, IndentWidth: 4}`  
 > **One Dark Pro**：外观主题，好看  
 > **vscode-icons**：图标主题，文件图标与类型更加易分辨  
-> **Github Copilot**：AI 自动补全写代码，需要 github 账号登录(已收费)  
-> ----替代：CodeGeex、Tabnine AI、Codeium、Fitten Code、Amazon CodeWhisperer、通义灵码  
+> **Github Copilot**：AI 代码补全，需要 github 账号登录(已收费)  
+> ----替代：CodeGeex、Tabnine AI、Codeium、Fitten Code，目前个人最推荐 Fitten Code  
+> **Kilo Code**：AI 代码代理，在 VScode 获得类似 Cursor 的智能编程体验，需要自备 api 秘钥
+> ----是 Cline 与 Roo Code 这两个拓展的分支，结合了二者优点
+> ----MCP 服务器中安装 Context7，在对话中给出提示“use Context7”可以获取最新文档
 > **Power Mode**：打字炫酷特效，需要在设置里自行设定  
 > **Auto Close Tag**：自动闭合标签(已内置于 VScode 的**Auto Closing Tags**设置项)  
 > **Auto Rename Tag**：自动重命名相对应的闭合 HTML 标签(已内置于 VScode 的**Linked Editing**设置项)  
