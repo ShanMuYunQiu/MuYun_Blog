@@ -6,7 +6,7 @@ favicon: https://jsd.vxo.im/gh/ShanMuYunQiu/Image/info/user.jpg
 
 notice:
   enable: true
-  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：个人简介 | 更新时间：2025-06-25
+  content: 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ | 最近更新：侧边栏 | 更新时间：2025-06-28
 # 木有BUG！站点正常运行(ﾉﾟ▽ﾟ)ﾉ
 
 tags:
@@ -106,7 +106,7 @@ categories:
 social:
   - name: 个人主页
     link: https://muyun.space
-    icon: ri:links-line
+    icon: ri:account-circle-line
     color: "#ff8533"
   - name: 微信
     link: https://jsd.vxo.im/gh/ShanMuYunQiu/Image/social/wechat.png
@@ -120,13 +120,29 @@ social:
     link: https://github.com/ShanMuYunQiu
     icon: ri:github-line
     color: "#181717"
+  - name: Bilibili
+    link: https://space.bilibili.com/347061710
+    icon: ri:bilibili-line
+    color: "#FB7299"
+  - name: 网易云音乐
+    link: https://music.163.com/#/user/home?id=509242587
+    icon: ri:netease-cloud-music-line
+    color: "#E60026"
+  - name: 500px
+    link: https://500px.com.cn/ShanMuYunQiu
+    icon: ri:number-5
+    color: "#181717"
+  - name: 图虫
+    link: https://tuchong.com/28695963/
+    icon: ri:multi-image-line
+    color: "#E9357B"
   - name: 评论管理
     link: https://waline.muyun.space/ui
     icon: ri:chat-settings-line
     color: "#66b3ff"
-  - name: 仪表盘
+  - name: 后台管理
     link: https://bk.muyun.space/talks.html
-    icon: ri:line-chart-fill
+    icon: ri:terminal-line
     color: "#bb99ff"
 
 banner:
@@ -202,7 +218,7 @@ avatar:
   status:
     enable: true
     emoji: 😇
-    message: 加班升天中
+    message: 精神状态美丽
 
 menu:
   home:
@@ -235,7 +251,7 @@ pages:
   - name: 《月亮与六便士》——打赏与鸣谢
     url: /donate/
     icon: ri:hand-coin-line
-    color: "#ffa366"
+    color: "#ff8533"
 
 post_meta:
   item_text: true
