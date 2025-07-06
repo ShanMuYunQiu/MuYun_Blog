@@ -1,0 +1,544 @@
+<!DOCTYPE html><html lang="zh-CN"><head><!-- hexo injector head_begin start --><link href="https://cdn.jsdelivr.net/npm/hexo-widget-tree@0.2.2/css/index.css" rel="stylesheet"/><!-- hexo injector head_begin end --><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="	#ff8533"><meta name="author" content="山暮云秋"><meta name="copyright" content="山暮云秋"><meta name="generator" content="Hexo 6.3.0"><meta name="theme" content="hexo-theme-yun"><title>Cmake基础教程 | 山暮云秋 | Blog</title><link rel="stylesheet" href="https://jsd.vxo.im/npm/star-markdown-css@0.4.1/dist/yun/yun-markdown.min.css"><link rel="stylesheet" href="https://jsd.vxo.im/npm/prism-theme-vars/base.css"><script src="https://jsd.vxo.im/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>function initScrollReveal() {
+  [".post-card",".markdown-body img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+}
+document.addEventListener("DOMContentLoaded", initScrollReveal);
+document.addEventListener("pjax:success", initScrollReveal);
+</script><link rel="stylesheet" type="text/css" href="https://jsd.vxo.im/npm/katex@latest/dist/katex.min.css"><script defer src="https://jsd.vxo.im/npm/katex@latest/dist/katex.min.js"></script><link rel="stylesheet" type="text/css" href="https://jsd.vxo.im/npm/katex@latest/dist/contrib/copy-tex.min.css"><script defer src="https://jsd.vxo.im/npm/katex@latest/dist/contrib/copy-tex.min.js"></script><script defer src="https://jsd.vxo.im/npm/katex@latest/dist/contrib/auto-render.min.js"></script><script type="module">import { renderKatex } from '/js/utils.js'
+document.addEventListener("DOMContentLoaded", () => {
+  renderKatex({
+    ...{},
+    ...undefined?.options,
+  });
+});</script><link class="aplayer-style-marker" rel="stylesheet" type="text/css" href="https://jsd.vxo.im/npm/aplayer@latest/dist/APlayer.min.css"><script class="aplayer-script-marker" src="https://jsd.vxo.im/npm/aplayer@latest/dist/APlayer.min.js" defer></script><script src="https://jsd.vxo.im/npm/pjax@latest/pjax.min.js" defer></script><script src="/js/pjax.js" defer type="module"></script><script src="https://jsd.vxo.im/npm/vue@2.6.14"></script><link rel="icon" type="image/png" href="https://jsd.vxo.im/gh/ShanMuYunQiu/Image/info/user.jpg"><link rel="mask-icon" href="https://jsd.vxo.im/gh/ShanMuYunQiu/Image/info/user.jpg" color="	#ff8533"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><link rel="preconnect" href="https://jsd.vxo.im/npm/" crossorigin><script id="yun-config">
+    window.Yun = {}
+    window.CONFIG = {"hostname":"blog.muyun.space","root":"/","title":"山暮云秋的空间","version":"1.10.11","mode":"time","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）"},"anonymous_image":"https://cdn.yunyoujun.cn/img/avatar/none.jpg","say":{"api":"https://v1.hitokoto.cn?c=a&c=d&c=e&c=f&c=i&c=j&c=k","hitokoto":true},"local_search":{"path":"/search.xml"},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"fireworks":{"colors":["255, 117, 25","255, 163, 102","255, 209, 179"]},"waline":{"config":{"enable":true,"serverURL":"https://waline.muyun.space/","comment":true,"visitor":false,"emoji":["https://emoji.shojo.cn/bili/webp/仓鼠","https://emoji.shojo.cn/bili/webp/仓鼠松鼠","https://emoji.shojo.cn/bili/webp/东爱璃Lovely","https://emoji.shojo.cn/bili/webp/星汐seki","https://emoji.shojo.cn/bili/webp/咩栗","https://emoji.shojo.cn/bili/webp/呜米","https://emoji.shojo.cn/bili/webp/枕边童话","https://emoji.shojo.cn/bili/webp/美月もも","https://emoji.shojo.cn/bili/webp/雫るる制服ver","https://emoji.shojo.cn/bili/webp/雫るる","https://emoji.shojo.cn/bili/webp/梦音茶糯","https://unpkg.com/@waline/emojis@1.2.0/bilibili","https://unpkg.com/@waline/emojis@1.2.0/bmoji","https://unpkg.com/@waline/emojis@1.2.0/weibo","https://unpkg.com/@waline/emojis@1.2.0/qq"],"locale":{"placeholder":"填写邮箱，可以收到回复通知哦～"},"requiredMeta":["nick"],"el":"#waline","lang":"zh-CN"},"cdn":"https://jsd.vxo.im/npm/@waline/client@v2/dist/waline.js","dark":"html.dark"},"vendors":{"host":"https://jsd.vxo.im/npm/","darken":"https://jsd.vxo.im/npm/darken@1.5.0"}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/hexo-theme-yun.js" type="module"></script><link rel="stylesheet" href="https://fonts.font.im/css2?family=Noto+Serif+SC:wght@900&amp;display=swap"><script>(function(){
+  var bp = document.createElement('script');
+  var curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https') {
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else {
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();</script><meta name="description" content="学习有关Cmake构建的知识，学会使用Cmake进行编译">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cmake基础教程">
+<meta property="og:url" content="https://blog.muyun.space/posts/c6c59c74/index.html">
+<meta property="og:site_name" content="山暮云秋 | Blog">
+<meta property="og:description" content="学习有关Cmake构建的知识，学会使用Cmake进行编译">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-01-06T16:00:00.000Z">
+<meta property="article:modified_time" content="2023-01-06T16:00:00.000Z">
+<meta property="article:author" content="山暮云秋">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="Cmake">
+<meta name="twitter:card" content="summary"><script>(function() {
+  if (CONFIG.mode !== 'auto') return
+  const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+  const setting = localStorage.getItem('darken-mode') || 'auto'
+  if (setting === 'dark' || (prefersDark && setting !== 'light'))
+    document.documentElement.classList.toggle('dark', true)
+})()</script></head><body><script src="https://code.iconify.design/2/2.1.1/iconify.min.js"></script><script>// Define global variable
+IconifyProviders = {
+  // Empty prefix: overwrite default API provider configuration
+  '': {
+    // Use custom API first, use Iconify public API as backup
+    resources: [
+        'https://api.iconify.design',
+    ],
+    // Wait for 1 second before switching API hosts
+    rotate: 1000,
+  },
+};</script><script defer src="https://jsd.vxo.im/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js" type="module"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js" type="module"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="文章目录"><span class="icon iconify" data-icon="ri:list-ordered"></span></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="站点概览"><span class="icon iconify" data-icon="ri:passport-line"></span></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="山暮云秋"><img width="96" loading="lazy" src="https://jsd.vxo.im/gh/ShanMuYunQiu/Image/info/user.jpg" alt="山暮云秋"><span class="site-author-status" title="精神状态美丽">😇</span></a><div class="site-author-name"><a href="/about/">山暮云秋</a></div><a class="site-name" href="/about/site.html">山暮云秋 | Blog</a><sub class="site-subtitle">千里关山边草暮，一星烽火朔云秋</sub><div class="site-description">知识分享与生活记录</div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:home-4-line"></span></span></a><div class="site-state-item"><a href="/archives/" title="归档"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:archive-line"></span></span><span class="site-state-item-count">65</span></a></div><div class="site-state-item"><a href="/categories/" title="分类"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:folder-2-line"></span></span><span class="site-state-item-count">7</span></a></div><div class="site-state-item"><a href="/tags/" title="标签"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="site-state-item-count">83</span></a></div><a class="site-state-item hty-icon-button" href="/talks/" title="《道是寻常》——我的说说"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:chat-smile-3-line"></span></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://muyun.space" title="个人主页" target="_blank" style="color:#ff8533"><span class="icon iconify" data-icon="ri:account-circle-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://jsd.vxo.im/gh/ShanMuYunQiu/Image/social/wechat.png" title="微信" target="_blank" style="color:#1AAD19"><span class="icon iconify" data-icon="ri:wechat-2-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://jsd.vxo.im/gh/ShanMuYunQiu/Image/social/QQ.png" title="QQ" target="_blank" style="color:#12B7F5"><span class="icon iconify" data-icon="ri:qq-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/ShanMuYunQiu" title="GitHub" target="_blank" style="color:#181717"><span class="icon iconify" data-icon="ri:github-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://space.bilibili.com/347061710" title="Bilibili" target="_blank" style="color:#FB7299"><span class="icon iconify" data-icon="ri:bilibili-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://music.163.com/#/user/home?id=509242587" title="网易云音乐" target="_blank" style="color:#E60026"><span class="icon iconify" data-icon="ri:netease-cloud-music-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://500px.com.cn/ShanMuYunQiu" title="500px" target="_blank" style="color:#181717"><span class="icon iconify" data-icon="ri:number-5"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://tuchong.com/28695963/" title="图虫" target="_blank" style="color:#E9357B"><span class="icon iconify" data-icon="ri:multi-image-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://waline.muyun.space/ui" title="评论管理" target="_blank" style="color:#66b3ff"><span class="icon iconify" data-icon="ri:chat-settings-line"></span></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://bk.muyun.space/talks.html" title="后台管理" target="_blank" style="color:#bb99ff"><span class="icon iconify" data-icon="ri:terminal-line"></span></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links/" title="《萤火虫小巷》——友情链接" style="color:dodgerblue"><span class="icon iconify" data-icon="ri:genderless-line"></span></a><a class="links-item hty-icon-button" href="/girls/" title="《泡沫之夏》——喜欢的角色" style="color:hotpink"><span class="icon iconify" data-icon="ri:women-line"></span></a><a class="links-item hty-icon-button" href="/donate/" title="《月亮与六便士》——打赏与鸣谢" style="color:#ff8533"><span class="icon iconify" data-icon="ri:hand-coin-line"></span></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><span class="icon iconify" data-icon="ri:contrast-2-line"></span></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Cmake-%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">Cmake 简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%95%E5%85%A5%EF%BC%9ACmake-%E7%BC%96%E8%AF%91-hello-world-%E7%A8%8B%E5%BA%8F"><span class="toc-number">2.</span> <span class="toc-text">引入：Cmake 编译 hello_world 程序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cmake-%E8%AF%AD%E6%B3%95%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.</span> <span class="toc-text">Cmake 语法介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%85%E9%83%A8%E6%9E%84%E5%BB%BA%E4%B8%8E%E5%A4%96%E9%83%A8%E6%9E%84%E5%BB%BA"><span class="toc-number">4.</span> <span class="toc-text">内部构建与外部构建</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%B7%A5%E7%A8%8B%E7%9A%84%E8%A7%84%E5%88%99%E4%B8%8E%E6%93%8D%E4%BD%9C"><span class="toc-number">5.</span> <span class="toc-text">构建一个工程的规则与操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-CMake-%E6%9D%A5%E8%BF%9B%E8%A1%8C%E5%AE%89%E8%A3%85"><span class="toc-number">6.</span> <span class="toc-text">使用 CMake 来进行安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cmake-%E6%9E%84%E5%BB%BA%E5%8A%A8%E6%80%81%E5%BA%93"><span class="toc-number">7.</span> <span class="toc-text">Cmake 构建动态库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%8D%E5%91%BD%E5%90%8D%E5%92%8C%E5%AE%89%E8%A3%85%E5%8A%A8%E6%80%81%E5%BA%93%E5%8F%8A%E4%BD%BF%E7%94%A8"><span class="toc-number">8.</span> <span class="toc-text">重命名和安装动态库及使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A1%A5%E5%85%85"><span class="toc-number">9.</span> <span class="toc-text">补充</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%B5%E5%BA%95%E8%AF%84%E8%AE%BA"><span class="toc-number">10.</span> <span class="toc-text">页底评论</span></a></li></ol></div></div></div><div class="tag-cloud"><div class="tag-cloud-tags"><a href="/tags/01Trie/" style="font-size: 12px; color: #ffc299">01Trie</a> <a href="/tags/AVL%E6%A0%91/" style="font-size: 12px; color: #ffc299">AVL树</a> <a href="/tags/BFS/" style="font-size: 21px; color: #ffa466">BFS</a> <a href="/tags/Bellman-Ford/" style="font-size: 12px; color: #ffc299">Bellman-Ford</a> <a href="/tags/C/" style="font-size: 30px; color: #ff8533">C++</a> <a href="/tags/Cmake/" style="font-size: 16.5px; color: #ffb380">Cmake</a> <a href="/tags/C%E8%AF%AD%E8%A8%80/" style="font-size: 25.5px; color: #ff944d">C语言</a> <a href="/tags/DFS/" style="font-size: 21px; color: #ffa466">DFS</a> <a href="/tags/DP/" style="font-size: 12px; color: #ffc299">DP</a> <a href="/tags/Dijkstra/" style="font-size: 12px; color: #ffc299">Dijkstra</a> <a href="/tags/Fleury/" style="font-size: 12px; color: #ffc299">Fleury</a> <a href="/tags/Floyd/" style="font-size: 12px; color: #ffc299">Floyd</a> <a href="/tags/Hexo/" style="font-size: 25.5px; color: #ff944d">Hexo</a> <a href="/tags/Hexo%E5%8D%9A%E5%AE%A2/" style="font-size: 12px; color: #ffc299">Hexo博客</a> <a href="/tags/Hierholzer/" style="font-size: 12px; color: #ffc299">Hierholzer</a></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article" style="--smc-primary:	#ff8533;"><link itemprop="mainEntityOfPage" href="https://blog.muyun.space/posts/c6c59c74/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="山暮云秋"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="山暮云秋 | Blog"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">Cmake基础教程<a class="post-edit-link" href="https://github.com/ShanMuYunQiu/MuYun_Blog/tree/hexo/source/_posts/开发技能/Cmake基础教程.md" target="_blank" title="编辑" rel="noopener"><span class="icon iconify" data-icon="ri:edit-line"></span></a></h1><div class="post-meta"><div class="post-time" style="display:block"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:calendar-line"></span></span> <span class="post-meta-icon-text">发表于</span> <time title="创建时间：2023-01-07 00:00:00" itemprop="dateCreated datePublished" datetime="2023-01-07T00:00:00+08:00">2023-01-07</time></div><span class="post-count"><span class="post-symbolcount"><span class="post-meta-item-icon" title="本文字数"><span class="icon iconify" data-icon="ri:file-word-line"></span></span> <span title="本文字数">3.1k</span><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="阅读时长"><span class="icon iconify" data-icon="ri:timer-line"></span></span> <span title="阅读时长">12m</span></span></span><span class="post-busuanzi"><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="阅读次数"><span class="icon iconify" data-icon="ri:eye-line"></span> <span id="busuanzi_value_page_pv"></span></span></span><span class="post-meta-divider">-</span><a href="#comment"><span class="post-meta-item-icon" title="评论数"><span class="icon iconify" data-icon="ri:chat-3-line"></span> <span class="waline-comment-count" id="/posts/c6c59c74/"></span></span></a><div class="post-classify"><span class="post-category"> <span class="post-meta-item-icon" style="margin-right:3px;"><span class="icon iconify" data-icon="ri:folder-line"></span></span><span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category-item" href="/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E8%83%BD/" style="--text-color:#cc33ff" itemprop="url" rel="index"><span itemprop="text">开发技能</span></a></span></span><span class="post-tag"><span class="post-meta-divider">-</span><a class="tag-item" href="/tags/C/" style="--text-color:#6699ff"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="tag-name">C++</span></a><a class="tag-item" href="/tags/Cmake/" style="--text-color:#ff4d4d"><span class="post-meta-item-icon"><span class="icon iconify" data-icon="ri:price-tag-3-line"></span></span><span class="tag-name">Cmake</span></a></span></div><div class="post-author"><span class="author-name">山暮云秋</span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body"><hr>
+<h3 id="Cmake-简介"><a href="#Cmake-简介" class="headerlink" title="Cmake 简介"></a><strong>Cmake 简介</strong></h3><hr>
+<ul>
+<li><p><strong>Cmake 是什么</strong></p>
+<blockquote>
+<p>1、<strong>Cmake</strong>是<strong>高级编译配置工具</strong>。当多个人要用<strong>不同的语言</strong>或者<strong>编译器</strong>开发一个项目，最终要输出一个<strong>可执行文件</strong>或<strong>共享库</strong>，这时候<strong>Cmake 的作用</strong>就凸显出来了<br>2、<strong>Cmake</strong>的<strong>所有操作</strong>都是通过<strong>编译</strong><code>CMakeLists.txt</code><strong>所写内容</strong>来完成的<br>3、学习<strong>Cmake</strong>的目的，是为了将来<strong>处理大型 C&#x2F;C++&#x2F;Java 项目</strong>做准备，其也是一种<strong>生成 Makefile 的工具</strong></p>
+</blockquote>
+</li>
+</ul>
+<span id="more"></span>
+
+<ul>
+<li><p><strong>Cmake 的安装</strong></p>
+<ul>
+<li>之前的<a href="../e8dec52a/">VScode 配置 Clang 和 Cmake 环境</a>文章中写过 Cmake 的安装与环境变量配置，请参考此文章</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="引入：Cmake-编译-hello-world-程序"><a href="#引入：Cmake-编译-hello-world-程序" class="headerlink" title="引入：Cmake 编译 hello_world 程序"></a><strong>引入：Cmake 编译 hello_world 程序</strong></h3><hr>
+<ul>
+<li><p>首先<strong>项目文件夹</strong>内中写一个名为<code>main.cpp</code>的<strong>hello_world</strong>源码</p>
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// main.cpp</span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+<span class="token keyword">using</span> <span class="token keyword">namespace</span> std<span class="token punctuation">;</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    cout <span class="token operator">&lt;&lt;</span> <span class="token string">"hello world"</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+</li>
+<li><p>使用<strong>Cmake</strong>编译，需要在<strong>项目文件夹</strong>创建<code>CMakeLists.txt</code>文件(注意区分大小写)</p>
+<pre class="language-cmake" data-language="cmake"><code class="language-cmake"><span class="token comment"># CMakeLists.txt</span>
+
+<span class="token keyword">project</span><span class="token punctuation">(</span>HELLO CXX<span class="token punctuation">)</span>
+
+<span class="token keyword">set</span><span class="token punctuation">(</span>SRC_LIST test.cpp<span class="token punctuation">)</span>
+
+<span class="token keyword">message</span><span class="token punctuation">(</span>STATUS <span class="token string">"This is BINARY_DIR "</span> <span class="token punctuation">$&#123;</span><span class="token variable">PROJECT_BINARY_DIR</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+
+<span class="token keyword">message</span><span class="token punctuation">(</span>STATUS <span class="token string">"This is SOURCE_DIR "</span> <span class="token punctuation">$&#123;</span><span class="token variable">PROJECT_SOURCE_DIR</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+
+<span class="token keyword">add_executable</span><span class="token punctuation">(</span>hello <span class="token punctuation">$&#123;</span>SRC_LIST<span class="token punctuation">&#125;</span><span class="token punctuation">)</span></code></pre>
+</li>
+<li><p>在<strong>当前目录</strong>打开终端，输入<code>cmake .</code>，使用 Cmake 进行编译，如果没有报错，会<strong>生成很多文件</strong>，再使用<code>make</code><strong>编译生成可执行文件</strong></p>
+</li>
+</ul>
+<hr>
+<h3 id="Cmake-语法介绍"><a href="#Cmake-语法介绍" class="headerlink" title="Cmake 语法介绍"></a><strong>Cmake 语法介绍</strong></h3><hr>
+<ul>
+<li><p><code>project</code><strong>命令</strong></p>
+<ul>
+<li><p><strong>说明</strong></p>
+<blockquote>
+<p>1、<code>project</code>可以用来<strong>指定工程的名字</strong>和<strong>支持的语言</strong>，默认<strong>支持所有语言</strong><br>2、<code>project(HELLO)</code>：指定<strong>工程名</strong>为<strong>HELLO</strong>，并<strong>支持所有语言</strong><br>3、<code>project(HELLO CXX)</code>：指定<strong>工程名</strong>为<strong>HELLO</strong>,并<strong>指定语言为 C++</strong><br>4、<code>project(HELLO C CXX)</code>：指定<strong>工程名</strong>为<strong>HELLO</strong>,并<strong>指定语言为 C 和 C++</strong></p>
+</blockquote>
+</li>
+<li><p><strong>两个隐式变量</strong></p>
+<blockquote>
+<p>1、该指定<strong>隐式声明</strong>了<strong>两个 Cmake 变量</strong><br>2、<code>&lt;projectname&gt;_BINARY_DIR</code>，上例中为<code>HELLO_BINARY_DIR</code><br>3、<code>&lt;projectname&gt;_SOURCE_DIR</code>，上例中为<code>HELLO_SOURCE_DIR</code><br>4、当前该项目这<strong>两个变量</strong>都指向<strong>当前工作目录</strong>，后续会讲<strong>外部编译</strong><br>5、如果<strong>更改了工程名</strong>，这两个<strong>变量名也会更改</strong>。为了<strong>解决这个问题</strong>，可以使用<strong>Cmake 预定义</strong>的<strong>两个变量</strong>：<code>PROJECT_BINARY_DIR</code>和<code>PROJECT_SOURCE_DIR</code></p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p><code>set</code><strong>命令</strong></p>
+<blockquote>
+<p>1、<code>set</code>可以用来<strong>显式指定变量</strong><br>2、<code>set(SRC_LIST main.cpp)</code>：指定<strong>SRC_LIST</strong>变量包含<code>main.cpp</code><br>3、<code>set(SRC_LIST main.cpp t1.cpp t2.cpp)</code>：指定<strong>SRC_LIST</strong>变量包含后面的所有内容<br>4、<code>set(SRC_LIST &quot;main.cpp&quot;)</code>：可以在<strong>文件名外</strong>加<code>&quot;&quot;</code>，如果<strong>源文件名包含空格</strong>，则必须用<code>&quot;&quot;</code>包括</p>
+</blockquote>
+</li>
+<li><p><code>message</code><strong>命令</strong></p>
+<blockquote>
+<p>1、<code>message</code>用于<strong>向终端输出用户自定义的信息</strong>，主要包含<strong>三种信息</strong><br>2、<strong>SEND_ERROR</strong>：产生错误，生成过程被跳过<br>3、<strong>STATUS</strong>：输出前缀为<code>--</code>的信息<br>4、<strong>FATAL_ERROR</strong>：立即终止所有 Cmake 过程</p>
+</blockquote>
+</li>
+<li><p><code>ADD_EXECUTABLE</code><strong>命令</strong></p>
+<blockquote>
+<p>1、<code>ADD_EXECUTABLE</code>用于<strong>生成可执行文件</strong><br>2、<code>ADD_EXECUTABLE(hello $&#123;SRC_LIST&#125;)</code>：生成的<strong>可执行文件名</strong>为<strong>hello</strong>，<strong>源文件</strong>来自读取<strong>SRC_LIST</strong>变量中的内容</p>
+</blockquote>
+</li>
+<li><p><strong>语法的基本原则</strong></p>
+<blockquote>
+<p>1、<strong>变量</strong>使用<code>$&#123;变量名&#125;</code>方式<strong>取值</strong>，但在<strong>IF 控制语句</strong>中是<strong>直接使用变量名</strong><br>2、<strong>命令</strong>的<strong>参数</strong>使用<code>()</code>括起，<strong>参数之间</strong>使用<strong>空格或分号</strong>隔开<br>3、<strong>命令</strong>不区分大小写，但<strong>参数和变量</strong>区分大小写</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h3 id="内部构建与外部构建"><a href="#内部构建与外部构建" class="headerlink" title="内部构建与外部构建"></a><strong>内部构建与外部构建</strong></h3><hr>
+<ul>
+<li><p><strong>上面的例子</strong>实际上就是<strong>内部构建</strong>，其产生的<strong>临时文件特别多</strong>，<strong>不方便清理</strong></p>
+</li>
+<li><p><strong>外部构建</strong>，就会把生成的<strong>临时文件</strong>放在<strong>build 文件夹</strong>，强烈推荐使用<strong>外部构建</strong></p>
+</li>
+<li><p><strong>使用外部构建</strong></p>
+<blockquote>
+<p>1、建立一个<strong>build 目录</strong>，可以在<strong>任何地方</strong>，推荐在<strong>项目当前目录下</strong><br>2、进入<strong>build 目录</strong>，运行<code>cmake ..</code>(<code>..</code>表示上级目录，仅适用于 build 在当前目录下的情况)，当然也可以写<code>CMakeLists.txt</code>所在的<strong>绝对路径</strong><br>3、现在，生成的文件都在<strong>build 目录</strong>下了，在<strong>build 目录</strong>中使用<code>make</code>来构建工程</p>
+</blockquote>
+</li>
+<li><p><strong>注意外部构建的两个变量</strong></p>
+<blockquote>
+<p>1、<code>HELLO_BINARY_DIR</code>：是<strong>编译路经</strong>，即编译时<strong>build 文件夹的路径</strong><br>2、<code>HELLO_SOURCE_DIR</code>：是<strong>工程路径</strong>，仍然是之前的<strong>工程路径</strong></p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h3 id="构建一个工程的规则与操作"><a href="#构建一个工程的规则与操作" class="headerlink" title="构建一个工程的规则与操作"></a><strong>构建一个工程的规则与操作</strong></h3><hr>
+<ul>
+<li><p>一个工程的<strong>开发和管理</strong>通常有以下规则：</p>
+<blockquote>
+<p>1、为工程添加一个<strong>子目录 src</strong>，用于存放<strong>工程源码</strong><br>2、添加一个<strong>子目录 doc</strong>，用来放置这个<strong>工程的文档</strong><code>hello.txt</code><br>3、在工程目录<strong>添加文本文件</strong>：<code>COPYRIGHT</code><strong>版权文件</strong>、<code>README</code><strong>用户说明</strong><br>4、在工程目录<strong>添加</strong><code>runhello.sh</code><strong>脚本</strong>，用来<strong>调用 hello 二进制文件</strong><br>5、将<strong>构建后的目标文件</strong>放入<strong>构建目录</strong>的<strong>bin 子目录</strong><br>6、将<strong>doc 目录的内容</strong>以及<code>COPYRIGHT</code>、<code>README</code>安装(拷贝)到<code>/usr/share/doc/cmake</code>(此为 linux 路径)</p>
+</blockquote>
+</li>
+<li><p><strong>将目标文件放入构建目录的 bin 子目录</strong></p>
+<ul>
+<li><p>创建一个<strong>src 目录</strong>，将源码移入<strong>src</strong>。注意工程的<strong>每个目录下</strong>都有要<code>CMakeLists.txt</code>，所以<strong>src</strong>下也需要</p>
+</li>
+<li><p><strong>重写</strong><code>CMakelists.txt</code></p>
+<pre class="language-none"><code class="language-none">目录树结构：
+
+.
+|---build
+|---CMakeLists.txt
+|---src
+    |---CMakeLists.txt
+    |---main.cpp</code></pre>
+
+<pre class="language-cmake" data-language="cmake"><code class="language-cmake"><span class="token comment"># 根目录CMakeLists.txt</span>
+
+<span class="token keyword">project</span><span class="token punctuation">(</span>HELLO<span class="token punctuation">)</span>
+
+<span class="token keyword">add_subdirectory</span><span class="token punctuation">(</span>src ./bin<span class="token punctuation">)</span></code></pre>
+
+<pre class="language-cmake" data-language="cmake"><code class="language-cmake"><span class="token comment"># src目录CMakelists.txt</span>
+
+<span class="token keyword">add_executable</span><span class="token punctuation">(</span>hello main.cpp<span class="token punctuation">)</span></code></pre>
+</li>
+<li><p><code>add_subdirectory</code><strong>命令</strong></p>
+<blockquote>
+<p>1、<strong>完整参数</strong>：<code>add_subdirectory(source_dir [binary_dir] [EXCLUDE_FROM_ALL])</code><br>2、该命令用于<strong>向当前工程添加存放源文件的子目录</strong>，并可以<strong>指定中间二进制和目标二进制存放的位置</strong>，写在<strong>最外层的</strong><code>CMakeLists.txt</code>来<strong>首先告知</strong><br>3、<code>EXCLUDE_FROM_ALL</code>函数是<strong>将写的目录从编译中排除</strong>，如程序中的 example<br>4、<code>add_subdirectory(src bin)</code>：将<strong>src 目录加入工程</strong>并指定<strong>编译输出的路径为 bin 目录</strong>。如果不指定 bin 目录，则所有编译结果都会存放在 src 目录中</p>
+</blockquote>
+</li>
+<li><p><strong>更改二进制的保存路径</strong></p>
+<blockquote>
+<p>1、可以使用<code>set</code><strong>命令</strong>重新定义<code>EXECUTABlE_OUTPUT_PATH</code>和<code>LIBRARY_OUTPUT_PATH</code>变量，来指定最终的<strong>目标二进制</strong>的位置<br>2、<code>set(EXECUTABLE_OUTPUT_PATH $&#123;PROJECT_BINARY_DIR&#125;/bin)</code><br>3、<code>set(LIBRARY_OUTPUT_PATH $&#123;PROJECT_BINARY_DIR&#125;/lib)</code></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="使用-CMake-来进行安装"><a href="#使用-CMake-来进行安装" class="headerlink" title="使用 CMake 来进行安装"></a><strong>使用 CMake 来进行安装</strong></h3><hr>
+<ul>
+<li><p><strong>安装的命令</strong></p>
+<blockquote>
+<p>1、一种是从<strong>代码编译后</strong>直接<code>make install</code>安装<br>2、一种是<strong>打包时</strong>的<strong>指定目录安装</strong>。两种指定目录的方法，<code>make install DESTDIR=/tmp/test</code>或<code>./configure -prefix=/usr</code></p>
+</blockquote>
+</li>
+<li><p><strong>如何安装 hello world</strong></p>
+<blockquote>
+<p>1、使用 Cmake 一个<strong>新的命令</strong>：<code>install</code>，<code>install</code>的安装可以包括<strong>二进制</strong>、<strong>动态库</strong>、<strong>静态库</strong>以及<strong>文件</strong>、<strong>目录</strong>、<strong>脚本</strong>等<br>2、使用 Cmake 一个<strong>新的变量</strong>：<code>CMAKE_INSTALL_PREFIX</code>，该变量用于指定<strong>安装的路径</strong></p>
+</blockquote>
+<pre class="language-none"><code class="language-none">目录树结构：
+
+.
+|---build
+|---CMakeLists.txt
+|---COPYRIGHT
+|---README
+|---doc
+    |---hello.txt
+|---runhello.sh
+|---src
+    |---CMakeLists.txt
+    |---main.cpp</code></pre>
+</li>
+<li><p><strong>安装文件</strong><code>COPYRIGHT</code>和<code>README</code></p>
+<blockquote>
+<p>1、在<strong>根目录</strong><code>CMakeLists.txt</code>中添加：<code>install(FILES COPYRIGHT README DESTINATION share/doc/cmake)</code><br>2、<code>FILES</code>：安装的是<strong>文件</strong><br>3、<code>DESTINATION</code>：写<strong>绝对路径</strong>。也可以写<strong>相对路径</strong>，但相对路径的<strong>实际路径</strong>是<code>$&#123;CMAKE_INSTALL_PREFIX&#125;/&lt;DESTINATION定义的路径&gt;</code><br>4、<code>CMAKE_INSTALL_PREFIX</code>默认是在<code>/usr/local/</code>(此为 linux 路径，windows 默认<code>C:\Program Files (x86)\</code>)，在<strong>cmake</strong>时使用<code>cmake -DCMAKE_INSTALL_PREFIX=/usr</code>可以<strong>指定该变量的路径</strong>，也可以使用<code>set</code>命令更改变量地址</p>
+</blockquote>
+</li>
+<li><p><strong>安装脚本</strong><code>runhello.sh</code></p>
+<blockquote>
+<p>1、在<strong>根目录</strong><code>CMakeLists.txt</code>中添加：<code>install(PROGRAMS runhello.sh DESTINATION bin)</code><br>2、<code>PROGRAMS</code>：<strong>非目标文件的可执行程序的安装</strong>(比如脚本)</p>
+</blockquote>
+</li>
+<li><p><strong>安装目录 doc</strong></p>
+<blockquote>
+<p>1、可以通过<strong>在 doc 目录下</strong>创建<code>CMakeLists.txt</code>，在其中<strong>安装目录下的文件</strong><br>2、也可以在<strong>根目录</strong><code>CMakeLists.txt</code>中添加：<code>install(DIRECTORY doc/ DESTINATION share/doc/cmake)</code><br>3、<code>DIRECTORY</code>：安装的是<strong>目录</strong>。后面连接的是<strong>所在目录的相对路径</strong><br>4、注意，<code>doc</code>和<code>doc/</code><strong>差别很大</strong>。目录<strong>以</strong><code>/</code><strong>结尾</strong>，将这个<strong>目录中的内容</strong>安装到指定目录；目录<strong>不以</strong><code>/</code><strong>结尾</strong>，则会将<strong>这个目录</strong>安装到指定目录</p>
+</blockquote>
+</li>
+<li><p>补充：<strong>安装二进制</strong>、<strong>动态库</strong>、<strong>静态库</strong></p>
+<blockquote>
+<p>1、安装上述都使用<code>TARGETS</code>说明，如<code>install(TARGETS test.exe DESTINATION bin)</code><br>2、可以用<code>ARCHIVE</code><strong>特指静态库</strong>、<code>LIBRARY</code><strong>特指动态库</strong>、<code>RUNTIME</code><strong>特指二进制</strong><br>3、可以<strong>通过特指分别指定安装路径</strong>，如<code>install(TARGETS test.so test.exe LIBRARY DESTINATION lib RUNTIME DESTINATION bin)</code></p>
+</blockquote>
+</li>
+<li><p><strong>安装过程</strong></p>
+<pre class="language-bash" data-language="bash"><code class="language-bash">cmake
+<span class="token function">make</span>
+<span class="token function">make</span> <span class="token function">install</span></code></pre></li>
+</ul>
+<hr>
+<h3 id="Cmake-构建动态库"><a href="#Cmake-构建动态库" class="headerlink" title="Cmake 构建动态库"></a><strong>Cmake 构建动态库</strong></h3><hr>
+<ul>
+<li><p><strong>静态库与动态库的区别</strong></p>
+<blockquote>
+<p>1、<strong>静态库</strong>的<strong>拓展名</strong>一般为<code>.a</code>或<code>.lib</code>，<strong>动态库</strong>的<strong>拓展名</strong>一般为<code>.so</code>或<code>.dll</code><br>2、<strong>静态库</strong>在编译时会<strong>直接整合</strong>到目标程序中，编译成功的<strong>可执行文件可独立运行</strong><br>3、<strong>动态库</strong>在编译时<strong>不会链接到目标程序</strong>中，即<strong>可执行文件无法单独运行</strong></p>
+</blockquote>
+</li>
+<li><p><strong>构建实例</strong></p>
+<ul>
+<li><p><strong>目前目录中的内容</strong></p>
+<pre class="language-none"><code class="language-none">目录树结构：
+
+·
+|---build
+|---CMakeLists.txt
+|---lib
+    |---CMakeLists.txt
+    |---hello.hpp
+    |---hello.cpp</code></pre>
+
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// hello.hpp</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifndef</span> <span class="token expression">HELLO_HPP</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">HELLO_HPP</span></span>
+
+<span class="token keyword">void</span> <span class="token function">hellofunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span></code></pre>
+
+<pre class="language-cpp" data-language="cpp"><code class="language-cpp"><span class="token comment">// hello.cpp</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">"hello.hpp"</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;iostream></span></span>
+
+<span class="token keyword">void</span> <span class="token function">hellofunc</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">&#123;</span>
+    std<span class="token double-colon punctuation">::</span>cout <span class="token operator">&lt;&lt;</span> <span class="token string">"hello world"</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+
+<pre class="language-cmake" data-language="cmake"><code class="language-cmake"><span class="token comment"># 根目录CMakeLists.txt</span>
+
+<span class="token keyword">project</span><span class="token punctuation">(</span>HELLO<span class="token punctuation">)</span>
+
+<span class="token keyword">add_subdirectory</span><span class="token punctuation">(</span>lib ./bin<span class="token punctuation">)</span></code></pre>
+
+<pre class="language-cmake" data-language="cmake"><code class="language-cmake"><span class="token comment"># lib中的CMakeLists.txt</span>
+
+<span class="token keyword">set</span><span class="token punctuation">(</span>LIBHELLO_SRC hello.cpp<span class="token punctuation">)</span>
+
+<span class="token keyword">add_library</span><span class="token punctuation">(</span>hello <span class="token namespace">SHARED</span> <span class="token punctuation">$&#123;</span>LIBHELLO_SRC<span class="token punctuation">&#125;</span><span class="token punctuation">)</span></code></pre>
+</li>
+<li><p><code>add_library</code><strong>命令</strong></p>
+<blockquote>
+<p>1、<code>add_library(hello SHARED $&#123;LIBHELLO_SRC&#125;)</code><br>2、<code>hello</code>：就是正常的<strong>库名</strong>，生成的<strong>名字前会加上 lib</strong>，最终产生的文件是<code>libhello.so</code>(linux 下为<code>.so</code>)<br>3、<code>SHARED</code>：表示<strong>生成动态库</strong>，此外<code>STATIC</code>表示<strong>生成静态库</strong><br>4、<code>$&#123;LIBHELLO_SRC&#125;</code>：<strong>源文件</strong></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="重命名和安装动态库及使用"><a href="#重命名和安装动态库及使用" class="headerlink" title="重命名和安装动态库及使用"></a><strong>重命名和安装动态库及使用</strong></h3><hr>
+<ul>
+<li><p><strong>同时构建静态和动态库</strong></p>
+<ul>
+<li><p><strong>错误理解</strong></p>
+<pre class="language-cmake" data-language="cmake"><code class="language-cmake"><span class="token comment"># 如果用这种方式，两种库名字是一样的，只会构建一个动态库，不会构建出静态库，尽管静态库后缀是.a</span>
+<span class="token keyword">add_library</span><span class="token punctuation">(</span>hello <span class="token namespace">SHARED</span> <span class="token punctuation">$&#123;</span>LIBHELLO_SRC<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token keyword">add_library</span><span class="token punctuation">(</span>hello <span class="token namespace">STATIC</span> <span class="token punctuation">$&#123;</span>LIBHELLO_SRC<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 修改静态库的名字，这样是可以的，但往往我们希望两种库名字相同</span>
+<span class="token keyword">add_library</span><span class="token punctuation">(</span>hello <span class="token namespace">SHARED</span> <span class="token punctuation">$&#123;</span>LIBHELLO_SRC<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+<span class="token keyword">add_library</span><span class="token punctuation">(</span>hello_static <span class="token namespace">STATIC</span> <span class="token punctuation">$&#123;</span>LIBHELLO_SRC<span class="token punctuation">&#125;</span><span class="token punctuation">)</span></code></pre>
+</li>
+<li><p><code>set_target_properties</code><strong>命令</strong></p>
+<blockquote>
+<p>1、<code>set_target_properties</code>可以<strong>用来设置输出的名称</strong><br>2、对于<strong>动态库</strong>，还可以用来<strong>指定动态库版本</strong>和<strong>API 版本</strong><br>3、注意命令<strong>只是更改了输出的名称</strong>，在<strong>Cmake</strong>里<strong>操作仍然使用原始名称</strong></p>
+</blockquote>
+<pre class="language-cmake" data-language="cmake"><code class="language-cmake"><span class="token comment"># lib中的CMakeLists.txt</span>
+
+<span class="token keyword">set</span><span class="token punctuation">(</span>LIBHELLO_SRC hello.cpp<span class="token punctuation">)</span>
+
+<span class="token comment"># 创建静态库名为 hello_static</span>
+<span class="token keyword">add_library</span><span class="token punctuation">(</span>hello_static <span class="token namespace">STATIC</span> <span class="token punctuation">$&#123;</span>LIBHELLO_SRC<span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 重命名静态库名称为 hello</span>
+<span class="token keyword">set_target_properties</span><span class="token punctuation">(</span>hello_static <span class="token namespace">PROPERTIES</span> <span class="token property">OUTPUT_NAME</span> <span class="token string">"hello"</span><span class="token punctuation">)</span>
+<span class="token comment"># Cmake 在构建一个新的 target 时，会尝试清理掉其他使用这个名字的库，因此在下面构建动态库 libhello.so 时，就会清理掉 libhello.a，所以需要添加该设置(较新版本的 CMake 可以不用)</span>
+<span class="token keyword">set_target_properties</span><span class="token punctuation">(</span>hello_static <span class="token namespace">PROPERTIES</span> CLEAN_DIRECT_OUTPUTS true<span class="token punctuation">)</span>
+
+<span class="token keyword">add_library</span><span class="token punctuation">(</span>hello <span class="token namespace">SHARED</span> <span class="token punctuation">$&#123;</span>LIBHELLO_SRC<span class="token punctuation">&#125;</span><span class="token punctuation">)</span></code></pre></li>
+</ul>
+</li>
+<li><p><strong>安装共享库和头文件</strong></p>
+<ul>
+<li><p>本例我们要将<code>hello.so</code><strong>动态库</strong>安装到<code>/lib</code>目录，将<code>hello.hpp</code><strong>头文件</strong>安装到<code>/include/hello</code>目录(下方内容继续写入<code>lib</code>中的<code>CMakeLists.txt</code>中)</p>
+<pre class="language-cmake" data-language="cmake"><code class="language-cmake"><span class="token comment"># 文件放到该目录下</span>
+<span class="token keyword">install</span><span class="token punctuation">(</span>FILES hello.hpp DESTINATION include/hello<span class="token punctuation">)</span>
+
+<span class="token comment"># 二进制、静态库、动态库安装都使用 TARGETS</span>
+<span class="token comment"># ARCHIVE 特指静态库，LIBRARY 特指动态库，RUNTIME 特指二进制</span>
+<span class="token keyword">install</span><span class="token punctuation">(</span>TARGETS hello hello_static LIBRARY DESTINATION lib ARCHIVE DESTINATION lib<span class="token punctuation">)</span></code></pre></li>
+</ul>
+</li>
+<li><p><strong>使用头文件即动态链接库</strong></p>
+<ul>
+<li><p><strong>找不到头文件</strong></p>
+<blockquote>
+<p>1、使用<code>include_directories</code><strong>命令</strong>可以<strong>向工程添加</strong>多个特定的<strong>头文件搜索路径</strong>，路径之间<strong>用空格隔开</strong><br>2、在<code>CMakeLists.txt</code>中写入：<code>include_directories(路径1 路径2)</code></p>
+</blockquote>
+</li>
+<li><p><strong>找不到引用函数</strong></p>
+<blockquote>
+<p>1、方法一：使用<code>link_directories</code><strong>命令</strong>可以<strong>添加非标准的动态库搜索路径</strong><br>2、指定<strong>第三方库所在的路径</strong>：<code>link_directories(路径1 路径2)</code><br>3、方法二：使用<code>target_link_libraries</code><strong>命令</strong>可以<strong>添加需要链接的动态库</strong><br>4、用这种方法只要给出<strong>动态库的名字</strong>就行(这种方法对<strong>静态库也通用</strong>)<br>5、注意要<strong>写在</strong><code>executable</code><strong>命令生成可执行文件后</strong>：<code>target_link_libraries(可执行文件名 动态库名)</code></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a><strong>补充</strong></h3><hr>
+<ul>
+<li><p><code>cmake_minimum_required</code><strong>命令</strong></p>
+<blockquote>
+<p>1、<code>cmake_minimum_required(VERSION 2.7)</code><br>2、<strong>指定 Cmake 最低版本</strong>，如上指定 Cmake 不能低于 2.7 版本</p>
+</blockquote>
+</li>
+<li><p><code>find_package</code><strong>命令</strong></p>
+<blockquote>
+<p>1、<code>find_package(imgui [REQUIRED])</code><br>2、在计算机中<strong>查找第三方库</strong>，首先应确保<strong>安装好了对应的库</strong><br>3、<code>REQUIRED</code>表示<strong>这个库是必须的</strong>，没有则会报错</p>
+</blockquote>
+</li>
+<li><p><code>file(GLOB)</code><strong>命令</strong></p>
+<blockquote>
+<p>1、<code>file(GLOB SRC_FILES &quot;$&#123;PROJECT_SOURCE_DIR&#125;/src/*.cpp&quot; &quot;$&#123;PROJECT_SOURCE_DIR&#125;/src/*.hpp&quot;)</code><br>2、通过<strong>通配符</strong>可以<strong>便捷引入源码文件</strong>，注意<strong>双引号</strong></p>
+</blockquote>
+</li>
+<li><p><code>$&#123;CMAKE_PROJECT_NAME&#125;</code><strong>关键字</strong>：替换为<code>project()</code>指定的<strong>工程名</strong></p>
+</li>
+<li><p><code>target_compile_features</code><strong>命令</strong></p>
+<blockquote>
+<p>1、<code>target_compile_features($&#123;CMAKE_PROJECT_NAME&#125; xcc_std_17)</code><br>2、打开对<strong>C++17 标准</strong>的支持</p>
+</blockquote>
+</li>
+<li><p><strong>C++第三方库的安装</strong></p>
+<blockquote>
+<p>1、可以<strong>直接下载源码</strong>，然后<strong>手动构建并指定 Cmake 库的路径</strong><br>2、对于 Linux 和 Mac，可以直接使用<strong>包管理工具安装</strong><br>3、使用<strong>微软开源工具 Vcpkg 安装</strong>，类似于 python 的 pip，<a target="_blank" rel="noopener" href="https://github.com/microsoft/vcpkg">github 地址</a>。只需要<strong>调用 vcpkg 安装第三方库</strong>，然后在 Cmake 构建时<strong>指定 vcpkg 工具链</strong>即可。<strong>命令行</strong>只需要<strong>额外传递一个参数</strong>：<code>-DCMAKE_TOOLCHAIN_FILE=&lt;vcpkg安装路径&gt;/scripts/buildsystems/vcpkg.cmake</code>，如果用的是<strong>VScode 插件</strong>，只需要在设置<strong>Configure Settings</strong>中添加：<code>&quot;CMAKE_TOOLCHAIN_FILE&quot;: &quot;路径&quot;</code>即可</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h3 id="页底评论"><a href="#页底评论" class="headerlink" title="页底评论"></a><strong>页底评论</strong></h3><hr>
+</div></section><div id="reward-container"><span class="hty-icon-button button-glow" id="reward-button" title="打赏" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === &quot;none&quot;) ? &quot;block&quot; : &quot;none&quot;;"><span class="icon iconify" data-icon="ri:hand-coin-line"></span></span><div id="reward-comment">手头阔绰?点这点这!money得斯!</div><div id="qr" style="display:none;"><div style="display:inline-block"><a target="_blank" rel="noopener" href="https://jsd.vxo.im/gh/ShanMuYunQiu/Image/social/wechatpay.png"><img loading="lazy" src="https://jsd.vxo.im/gh/ShanMuYunQiu/Image/social/wechatpay.png" alt="微信支付" title="微信支付"></a><div><span style="color:#2DC100"><span class="icon iconify" data-icon="ri:wechat-pay-line"></span></span></div></div><div style="display:inline-block"><a target="_blank" rel="noopener" href="https://jsd.vxo.im/gh/ShanMuYunQiu/Image/social/alipay.png"><img loading="lazy" src="https://jsd.vxo.im/gh/ShanMuYunQiu/Image/social/alipay.png" alt="支付宝" title="支付宝"></a><div><span style="color:#00A3EE"><span class="icon iconify" data-icon="ri:alipay-line"></span></span></div></div><div style="display:inline-block"><a target="_blank" rel="noopener" href="https://jsd.vxo.im/gh/ShanMuYunQiu/Image/social/QQpay.png"><img loading="lazy" src="https://jsd.vxo.im/gh/ShanMuYunQiu/Image/social/QQpay.png" alt="QQ 支付" title="QQ 支付"></a><div><span style="color:#12B7F5"><span class="icon iconify" data-icon="ri:qq-line"></span></span></div></div></div></div><ul class="post-copyright"><li class="post-copyright-author"><strong>本文作者：</strong>山暮云秋</li><li class="post-copyright-link"><strong>本文链接：</strong><a href="https://blog.muyun.space/posts/c6c59c74/" title="Cmake基础教程">https://blog.muyun.space/posts/c6c59c74/</a></li><li class="post-copyright-license"><strong>版权声明：</strong>本博客所有文章除特别声明外，均默认采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><span class="icon iconify" data-icon="ri:creative-commons-line"></span><span class="icon iconify" data-icon="ri:creative-commons-by-line"></span><span class="icon iconify" data-icon="ri:creative-commons-nc-line"></span><span class="icon iconify" data-icon="ri:creative-commons-sa-line"></span></a> 许可协议。</li></ul></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/posts/735e5788/" rel="prev" title="排序算法"><span class="icon iconify" data-icon="ri:arrow-left-s-line"></span><span class="post-nav-text">排序算法</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/posts/e8dec52a/" rel="next" title="VScode配置Clang和Cmake环境"><span class="post-nav-text">VScode配置Clang和Cmake环境</span><span class="icon iconify" data-icon="ri:arrow-right-s-line"></span></a></div></div></div><div class="hty-card" id="comment"><div class="comment-tooltip text-center"><span>若您想及时得到回复提醒，也可以去B站私信我哦</span><br><span>如果较为紧急，建议添加微信或QQ，并注明来意</span><br><span>评论系统可能加载较慢，请耐心等待或刷新重试</span><br></div><div id="waline"></div><link rel="stylesheet" href="https://jsd.vxo.im/npm/@waline/client@v2/dist/waline.css"><script>window.CONFIG.waline.config.path = "/posts/c6c59c74/"</script><div class="js-Pjax"><script src="/js/comments/waline.js" type="module" defer></script></div></div></main><footer class="sidebar-translate" id="footer"><div class="copyright"><span>&copy; 2022 – 2025 </span><span class="with-love" id="animate"><span class="icon iconify" data-icon="ri:cloud-line"></span></span><span class="author"> 山暮云秋</span></div><div class="live-time"><span>本博客已历经风霜坚持了</span><span id="display_live_time"></span><span class="moe-text">(￣▽￣)／</span><script>function blog_live_time() {
+  setTimeout(blog_live_time, 1000);
+  const start = new Date('2022-04-15T00:00:00');
+  const now = new Date();
+  const timeDiff = (now.getTime() - start.getTime());
+  const msPerMinute = 60 * 1000;
+  const msPerHour = 60 * msPerMinute;
+  const msPerDay = 24 * msPerHour;
+  const passDay = Math.floor(timeDiff / msPerDay);
+  const passHour = Math.floor((timeDiff % msPerDay) / 60 / 60 / 1000);
+  const passMinute = Math.floor((timeDiff % msPerHour) / 60 / 1000);
+  const passSecond = Math.floor((timeDiff % msPerMinute) / 1000);
+  display_live_time.innerHTML = ` ${passDay} 天 ${passHour} 小时 ${passMinute} 分 ${passSecond} 秒`;
+}
+blog_live_time();
+</script></div><div id="busuanzi"><script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><div class="footer-custom-text"><span>Powered by <a href="https://hexo.io" target="_blank" rel="noopener"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="18px" height="18px" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve" style="vertical-align: middle;margin-right: 4px"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z" data-darkreader-inline-fill="" style="--darkreader-inline-fill:#4cc3ff;"></path></svg>Hexo</a> v6.3.0</span><span class="footer-separator">|</span><span>Theme - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="yun-logo" stroke="#000" width="18px" height="18px" viewBox="40 40 320 320" stroke-width="16" style="vertical-align: middle; margin-right: 4px; --darkreader-inline-stroke:#fffffe;" data-darkreader-inline-stroke=""> <defs> <line id="eye" x1="0" y1="-35" x2="0" y2="35" stroke-linecap="round"> <animateTransform attributeName="transform" additive="sum" attributeType="XML" type="scale" from="1 1" to="1 0" dur="0.15s" repeatCount="2"></animateTransform> </line> </defs> <polygon stroke-linejoin="round" fill="none" points="50,250 50,150 100,150 100,100 300,100 300,150 350,150 350,250 300,250 300,300 100,300 100,250 50,250"></polygon> <use xlink:href="#eye" transform="translate(150,200)"></use> <use xlink:href="#eye" transform="translate(250,200)"></use></svg><span>Yun</span></a> v1.10.11</span><span class="footer-separator">|</span>Deploys by<a href="https://vercel.com" target="_blank" rel="noopener noreferrer"><svg width="66.33" height="15" viewBox="0 0 283 64" id="vercel-logo" fill="#000" xmlns="http://www.w3.org/2000/svg" style="vertical-align: middle; --darkreader-inline-fill:#060606;" data-darkreader-inline-fill=""><path d="M141.04 16c-11.04 0-19 7.2-19 18s8.96 18 20 18c6.67 0 12.55-2.64 16.19-7.09l-7.65-4.42c-2.02 2.21-5.09 3.5-8.54 3.5-4.79 0-8.86-2.5-10.37-6.5h28.02c.22-1.12.35-2.28.35-3.5 0-10.79-7.96-17.99-19-17.99zm-9.46 14.5c1.25-3.99 4.67-6.5 9.45-6.5 4.79 0 8.21 2.51 9.45 6.5h-18.9zM248.72 16c-11.04 0-19 7.2-19 18s8.96 18 20 18c6.67 0 12.55-2.64 16.19-7.09l-7.65-4.42c-2.02 2.21-5.09 3.5-8.54 3.5-4.79 0-8.86-2.5-10.37-6.5h28.02c.22-1.12.35-2.28.35-3.5 0-10.79-7.96-17.99-19-17.99zm-9.45 14.5c1.25-3.99 4.67-6.5 9.45-6.5 4.79 0 8.21 2.51 9.45 6.5h-18.9zM200.24 34c0 6 3.92 10 10 10 4.12 0 7.21-1.87 8.8-4.92l7.68 4.43c-3.18 5.3-9.14 8.49-16.48 8.49-11.05 0-19-7.2-19-18s7.96-18 19-18c7.34 0 13.29 3.19 16.48 8.49l-7.68 4.43c-1.59-3.05-4.68-4.92-8.8-4.92-6.07 0-10 4-10 10zm82.48-29v46h-9V5h9zM36.95 0L73.9 64H0L36.95 0zm92.38 5l-27.71 48L73.91 5H84.3l17.32 30 17.32-30h10.39zm58.91 12v9.69c-1-.29-2.06-.49-3.2-.49-5.81 0-10 4-10 10V51h-9V17h9v9.2c0-5.08 5.91-9.2 13.2-9.2z"><br> <!-- 萌ICP备案 --><font style="font-size:14px"><img style="width:24px;height:24px;margin-bottom:-8px" src="https://moe.blog/content/uploadfile/Links/icp.gov.moe.png" /><a href="https://icp.gov.moe/?keyword=20245835" target="_blank"><span style="color:#ff3333">萌</span><span style="color:#ff8533">I</span><span style="color:#1f991f">C</span><span style="color:#3385ff">P</span><span style="color:#8533ff">备</span> </a><a href="https://icp.gov.moe/?keyword=20245835" target="_blank"> <span style="color:#ff3333">20</span><span style="color:#ff8533">24</span><span style="color:#1f991f">58</span><span style="color:#3385ff">35</span><span style="color:#ff3333">号</span></a></font></div></footer></div><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><span class="icon iconify" data-icon="ri:arrow-up-s-line"></span><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="	#ff8533" stroke-width="2" stroke-linecap="round"></circle></svg></a><a class="popup-trigger hty-icon-button icon-search" id="search" href="javascript:;" title="搜索"><span class="site-state-item-icon"><span class="icon iconify" data-icon="ri:search-line"></span></span></a><script>window.addEventListener("DOMContentLoaded", () => {
+  // Handle and trigger popup window
+  document.querySelector(".popup-trigger").addEventListener("click", () => {
+    document.querySelector(".popup").classList.add("show");
+    setTimeout(() => {
+      document.querySelector(".search-input").focus();
+    }, 100);
+  });
+
+  // Monitor main search box
+  const onPopupClose = () => {
+    document.querySelector(".popup").classList.remove("show");
+  };
+
+  document.querySelector(".popup-btn-close").addEventListener("click", () => {
+    onPopupClose();
+  });
+
+  window.addEventListener("keyup", event => {
+    if (event.key === "Escape") {
+      onPopupClose();
+    }
+  });
+});
+</script><script src="https://jsd.vxo.im/npm/hexo-generator-searchdb@1.4.0/dist/search.js"></script><script src="/js/search/local-search.js" defer type="module"></script><div class="popup search-popup"><div class="search-header"><span class="popup-btn-close close-icon hty-icon-button"><span class="icon iconify" data-icon="ri:close-line"></span></span></div><div class="search-input-container"><input class="search-input" id="local-search-input" type="text" placeholder="搜索..." value=""></div><div class="search-result-container"></div></div><script>function initMourn() {
+  const date = new Date();
+  const today = (date.getMonth() + 1) + "-" + date.getDate()
+  const mourn_days = ["4-4","9-18"]
+  if (mourn_days.includes(today)) {
+    document.documentElement.style.filter = "grayscale(1)";
+  }
+}
+initMourn();</script><div id="aplayer"></div><script>function initAplayer() {
+  const ap = new APlayer({
+    container: document.getElementById('aplayer'),
+    fixed: true,
+    autoplay: true,
+    theme: "	#ff8533",
+    loop: "all",
+    order: "random",
+    preload: "auto",
+    audio: [{"name":"夏天，再见","artist":"暮色 / 诗岸","url":"https://music.163.com/song/media/outer/url?id=1861068892.mp3","cover":"http://p2.music.126.net/65hyLjIBv5qFhSpQ3KlOiA==/109951166175266739.jpg","lrc":"/lrc/夏天，再见.lrc"},{"name":"流霰(星尘Infinity Version)","artist":"旅行的蜗牛 / 星尘","url":"https://music.163.com/song/media/outer/url?id=1925101032.mp3","cover":"http://p1.music.126.net/O8s988XrtOxiN30TWyAyiQ==/109951167951585729.jpg","lrc":"/lrc/流霰(星尘Infinity Version).lrc"},{"name":"巫山云(星尘Infinity Version)","artist":"旅行的蜗牛 / 星尘","url":"https://music.163.com/song/media/outer/url?id=1921741824.mp3","cover":"http://p2.music.126.net/pjre_OsOEZOglF57MKVArw==/109951167068514633.jpg","lrc":"/lrc/巫山云(星尘Infinity Version).lrc"},{"name":"月巷","artist":"星葵77 / 乐正绫","url":"https://music.163.com/song/media/outer/url?id=2123816639.mp3","cover":"http://p2.music.126.net/gGlxMNxHKkCwJeD--vKvNQ==/109951169310962799.jpg","lrc":"/lrc/月巷.lrc"},{"name":"东京不太热","artist":"Z新豪 / 洛天依Official","url":"/lrc/东京不太热.mp3","cover":"http://p1.music.126.net/8Sk3EpucLC9e8KheMe_GcQ==/109951165315088091.jpg","lrc":"/lrc/东京不太热.lrc"},{"name":"藏蓝-（绫）","artist":"残杨如血","url":"/lrc/藏蓝-（绫）.mp3","cover":"http://p2.music.126.net/qPt2fkD4DSYIgE2JfkoXdA==/109951166568711712.jpg","lrc":"/lrc/藏蓝-（绫）.lrc"},{"name":"碎梦（short ver.）","artist":"COP / 乐正绫","url":"https://music.163.com/song/media/outer/url?id=515964379.mp3","cover":"http://p1.music.126.net/MBUOR-eADofn53ksY3takw==/109951163052186407.jpg","lrc":"/lrc/碎梦（short ver.）.lrc"},{"name":"旧时约","artist":"WOVOP / 乐正绫","url":"https://music.163.com/song/media/outer/url?id=2037885601.mp3","cover":"http://p1.music.126.net/X5-IU5fcCQbJFWZ67rfpEg==/109951168535887842.jpg","lrc":"/lrc/旧时约.lrc"},{"name":"听雨（AI）","artist":"WOVOP / 洛天依","url":"https://music.163.com/song/media/outer/url?id=1962600810.mp3","cover":"http://p2.music.126.net/Atb91zHjpmraNZE7BHdtMA==/109951167646461688.jpg","lrc":"/lrc/听雨（AI）.lrc"},{"name":"淋完这场雨就忘记你吧","artist":"WOVOP / 洛天依","url":"https://music.163.com/song/media/outer/url?id=2136164855.mp3","cover":"http://p1.music.126.net/MTd6fmN9E_p4suM_VS3CqA==/109951169415944765.jpg","lrc":"/lrc/淋完这场雨就忘记你吧.lrc"},{"name":"啥啊","artist":"星葵77 / 洛天依Official","url":"https://music.163.com/song/media/outer/url?id=1963526955.mp3","cover":"http://p1.music.126.net/-Mkgn-OfUd2Q-to55fvsHA==/109951167663201782.jpg","lrc":"/lrc/啥啊.lrc"},{"name":"夏霞 (Acoustic ver.)","artist":"あたらよ","url":"/lrc/夏霞 (Acoustic ver.).mp3","cover":"http://p1.music.126.net/HymDERNi6HQa0PHVxhvstQ==/109951167607871650.jpg","lrc":"/lrc/夏霞 (Acoustic ver.).lrc"},{"name":"DROP","artist":"美波","url":"/lrc/DROP.mp3","cover":"http://p1.music.126.net/tWZUuc87BMfRDayQIYXEew==/109951166189424848.jpg","lrc":"/lrc/DROP.lrc"},{"name":"アイスクリーム","artist":"花譜","url":"/lrc/アイスクリーム.mp3","cover":"http://p2.music.126.net/M6JINT-YzbR95liqI13oBw==/109951168551085464.jpg","lrc":"/lrc/アイスクリーム.lrc"},{"name":"それを世界と言うんだね","artist":"花譜","url":"/lrc/それを世界と言うんだね.mp3","cover":"http://p2.music.126.net/vlT1L_p5ExPSydDE8HUPpQ==/109951168436884742.jpg","lrc":"/lrc/それを世界と言うんだね.lrc"},{"name":"it's 6pm but I miss u already.","artist":"bbbluelee / Furyl / Siren","url":"https://music.163.com/song/media/outer/url?id=1890756154.mp3","cover":"http://p2.music.126.net/vfArwmf4yUKmZhi-ZCwOXA==/109951166569406479.jpg","lrc":"/lrc/it's 6pm but I miss u already..lrc"},{"name":"下一个拥抱 (past times)","artist":"艾纳德 / Diorbin","url":"https://music.163.com/song/media/outer/url?id=2049786420.mp3","cover":"http://p1.music.126.net/fSCIbOxlbwHwON2cMaDbkA==/109951168633034946.jpg","lrc":"/lrc/下一个拥抱 (past times).lrc"},{"name":"鲸歌（Cover 萨满乐队）","artist":"陈亮 宋依凡","url":"https://music.163.com/song/media/outer/url?id=474667755.mp3","cover":"http://p2.music.126.net/je0ZQVB8GAKscWQOXw0B7g==/109951162814733915.jpg","lrc":"/lrc/鲸歌（Cover 萨满乐队）.lrc"},{"name":"漫步","artist":"UnicornPhantom","url":"https://music.163.com/song/media/outer/url?id=1990251011.mp3","cover":"http://p2.music.126.net/tpSYVkCGmQxbmlkJYfRrvA==/109951167975764401.jpg","lrc":"/lrc/漫步.lrc"},{"name":"独角","artist":"UnicornPhantom","url":"https://music.163.com/song/media/outer/url?id=1934213146.mp3","cover":"http://p1.music.126.net/1HOpmf61G-QHQmm5xIv9rg==/109951167230524234.jpg","lrc":"/lrc/独角.lrc"},{"name":"青空","artist":"THE ROLLING GIRLS","url":"https://music.163.com/song/media/outer/url?id=474567081.mp3","cover":"http://p1.music.126.net/_lMvCfJvymqXqI5d6R9esQ==/109951163597998554.jpg","lrc":"/lrc/青空.lrc"},{"name":"夕暮れ(カバー)","artist":"THE ROLLING GIRLS","url":"/lrc/夕暮れ(カバー).mp3","cover":"http://p1.music.126.net/3K3K5wWj3v9IjOn5TkTyPw==/109951163597992477.jpg","lrc":"/lrc/夕暮れ(カバー).lrc"},{"name":"Polaris","artist":"Asia D / JAMMERC","url":"https://music.163.com/song/media/outer/url?id=1824513851.mp3","cover":"http://p1.music.126.net/34x_GGDI47WYG-sZobR8dw==/109951165775251579.jpg","lrc":"/lrc/Polaris.lrc"},{"name":"Seasons","artist":"Rival / Cadmium / Harley Bird","url":"https://music.163.com/song/media/outer/url?id=1313014216.mp3","cover":"http://p1.music.126.net/Aeh-xCT2sl-i0tF8K5qU7w==/109951163571120456.jpg","lrc":"/lrc/Seasons.lrc"},{"name":"Miracle","artist":"Tiborg","url":"/lrc/Miracle.mp3","cover":"http://p1.music.126.net/Yr28yJDbF_Pi5Mr108Od3A==/109951164548560768.jpg","lrc":"/lrc/Miracle.lrc"},{"name":"Dirty Paws - 电影《白日梦想家》插曲","artist":"Of Monsters And Men","url":"/lrc/Dirty Paws.mp3","cover":"http://p2.music.126.net/yU_pXqN1KAjjNdKa_fXveQ==/2534374302309080.jpg","lrc":"/lrc/Dirty Paws.lrc"},{"name":"Stay Alive - 电影《白日梦想家》插曲","artist":"José González","url":"/lrc/Stay Alive.mp3","cover":"http://p2.music.126.net/yU_pXqN1KAjjNdKa_fXveQ==/2534374302309080.jpg","lrc":"/lrc/Stay Alive.lrc"},{"name":"Can We Kiss Forever?","artist":"Kina / Adriana Proenza","url":"/lrc/Can We Kiss Forever？.mp3","cover":"http://p1.music.126.net/BgsCl01scHEbWJG0ijOS4A==/109951165687403090.jpg","lrc":"/lrc/Can We Kiss Forever？.lrc"},{"name":"小孩小孩","artist":"刷牙 / ilem","url":"/lrc/小孩小孩.mp3","cover":"http://p1.music.126.net/2l6NtMgh9saAaPe3W11PdA==/109951168268946674.jpg","lrc":"/lrc/小孩小孩.lrc"},{"name":"白鸟过河滩","artist":"洛天依 / ilem","url":"/lrc/白鸟过河滩.mp3","cover":"http://p2.music.126.net/jIrh3oXTi5Yu7Xx4gKXtlw==/109951167486432220.jpg","lrc":"/lrc/白鸟过河滩.lrc"},{"name":"Wings of Piano","artist":"V.K克","url":"/lrc/Wings of Piano.mp3","cover":"https://p2.music.126.net/nxVZ033DIAM7JNHvT-DRMA==/109951163598059944.jpg","lrc":"/lrc/Wings of Piano.lrc"},{"name":"Daylight","artist":"Seredris","url":"https://music.163.com/song/media/outer/url?id=1372188635.mp3","cover":"http://p1.music.126.net/OjiWGpbpC80EbQgkxEayiA==/109951164152228527.jpg","lrc":"/lrc/Daylight.lrc"},{"name":"第105天","artist":"Pianoboy高至豪","url":"https://music.163.com/song/media/outer/url?id=139737.mp3","cover":"http://p1.music.126.net/3HT3AxHq8uXHPbFbH7Qoyw==/109951167208222169.jpg","lrc":"/lrc/第105天.lrc"},{"name":"De Ortu Solis","artist":"Charun","url":"https://music.163.com/song/media/outer/url?id=4015520.mp3","cover":"http://p1.music.126.net/qSZds9TgolZf51XpcYsciw==/703687441819461.jpg","lrc":"/lrc/De Ortu Solis.lrc"},{"name":"Long Journey","artist":"JINBAO","url":"https://music.163.com/song/media/outer/url?id=1857012588.mp3","cover":"http://p1.music.126.net/nVyoxD5yriYaDJPzhaN8Eg==/109951166129162887.jpg","lrc":"/lrc/Long Journey.lrc"},{"name":"Welcome Home","artist":"Radical Face","url":"/lrc/Welcome Home.mp3","cover":"http://p1.music.126.net/TRW7_0KbJXHsb5t3sqZsaw==/6659741930385748.jpg","lrc":"/lrc/Welcome Home.lrc"},{"name":"What U Do","artist":"Wild Culture / Shel Bee","url":"/lrc/What U Do.mp3","cover":"http://p2.music.126.net/oK9lZOiyKUlSSk7vBP7HpQ==/109951165104873935.jpg","lrc":"/lrc/What U Do.lrc"},{"name":"花と水飴、最終電車","artist":"n-buna / 初音ミク","url":"https://music.163.com/song/media/outer/url?id=33367346.mp3","cover":"http://p2.music.126.net/MLoChdXEUHXrpZSwsFPqYw==/7814229139683634.jpg","lrc":"/lrc/花と水飴、最終電車.lrc"},{"name":"ハレハレヤ-朗朗晴天","artist":"鹿小丸","url":"https://music.163.com/song/media/outer/url?id=1346946492.mp3","cover":"http://p1.music.126.net/JRZD6Yb5AVtIcTX7ocyF5w==/109951163872790053.jpg","lrc":"/lrc/ハレハレヤ-朗朗晴天.lrc"},{"name":"飞","artist":"大神慧 / 十七草","url":"https://music.163.com/song/media/outer/url?id=1412030522.mp3","cover":"http://p1.music.126.net/moCls2ann4OX8aAoffXEyg==/109951164579487317.jpg","lrc":"/lrc/飞.lrc"},{"name":"Antisocial","artist":"BEAUZ / Heather Sommer","url":"https://music.163.com/song/media/outer/url?id=550124208.mp3","cover":"http://p2.music.126.net/An4OF_5qGdI0t5MDDSNNwQ==/109951168223377068.jpg","lrc":"/lrc/Antisocial.lrc"},{"name":"Void","artist":"Kirara Magic","url":"https://music.163.com/song/media/outer/url?id=1465790878.mp3","cover":"http://p2.music.126.net/nc5H97uZ-OXgjGW45XtiJA==/109951165172063291.jpg","lrc":"/lrc/Void.lrc"},{"name":"Freefall","artist":"暴君de","url":"https://music.163.com/song/media/outer/url?id=1392203256.mp3","cover":"http://p1.music.126.net/_6L3TL_r61aU9HcjnWeoFw==/109951164376305943.jpg","lrc":"/lrc/Freefall.lrc"},{"name":"Carousel","artist":"DEAMN","url":"https://music.163.com/song/media/outer/url?id=1406443093.mp3","cover":"http://p2.music.126.net/JiQHxzcKFEJ6s8Ge_QHp5Q==/109951164515259189.jpg","lrc":"/lrc/Carousel.lrc"},{"name":"17さいのうた。","artist":"『ユイカ』","url":"https://music.163.com/song/media/outer/url?id=1951665069.mp3","cover":"http://p1.music.126.net/1bcwLzrrKPWcs137biKbpw==/109951167488734005.jpg","lrc":"/lrc/17さいのうた。.lrc"},{"name":"ただ声一つ","artist":"ロクデナシ","url":"/lrc/ただ声一つ.mp3","cover":"http://p1.music.126.net/WMAHZRjSjackfXUmA5GVWw==/109951166778043030.jpg","lrc":"/lrc/ただ声一つ.lrc"},{"name":"懒人","artist":"三无MarBlue","url":"https://music.163.com/song/media/outer/url?id=1462427219.mp3","cover":"http://p2.music.126.net/ExC40_fFwxUgydQINzjqAQ==/109951164669111492.jpg","lrc":"/lrc/懒人.lrc"},{"name":"An Old Song","artist":"MoreanP","url":"https://music.163.com/song/media/outer/url?id=462177081.mp3","cover":"http://p2.music.126.net/JoPwp8la7lf2bFi0UQKn_g==/109951162866713272.jpg","lrc":"/lrc/An Old Song.lrc"},{"name":"雨道","artist":"Otokaze","url":"https://music.163.com/song/media/outer/url?id=493903.mp3","cover":"http://p2.music.126.net/fEvTj3iuLsIcoFWBNFTC4w==/4447524534356140.jpg","lrc":"/lrc/雨道.lrc"},{"name":"夏恋","artist":"Otokaze","url":"https://music.163.com/song/media/outer/url?id=493911.mp3","cover":"http://p2.music.126.net/5gNt0nW6l-2hSAtJAnaNCw==/4450823069239492.jpg","lrc":"/lrc/夏恋.lrc"},{"name":"Cold Winter","artist":"July","url":"/lrc/Cold Winter.mp3","cover":"http://p2.music.126.net/-VVoBbON0-XHXnTg-PVXSw==/7946170535465788.jpg","lrc":"/lrc/Cold Winter.lrc"},{"name":"Where are you","artist":"AniFace","url":"https://music.163.com/song/media/outer/url?id=453843751.mp3","cover":"http://p1.music.126.net/AUfXMljLBgB3PBV731IzRg==/109951162857118370.jpg","lrc":"/lrc/Where are you.lrc"},{"name":"青空","artist":"Candy_Wind","url":"https://music.163.com/song/media/outer/url?id=32717172.mp3","cover":"http://p1.music.126.net/1uWLxBVZ5MLunwuVo5hrzg==/8002245627462629.jpg","lrc":"/lrc/青空1.lrc"},{"name":"Feeling The Rain","artist":"MoreanP","url":"https://music.163.com/song/media/outer/url?id=496774187.mp3","cover":"http://p1.music.126.net/p9Frozdg_luAkO6ENOtTXg==/109951162997219545.jpg","lrc":"/lrc/Feeling The Rain.lrc"},{"name":"森林","artist":"灰澈","url":"/lrc/森林.mp3","cover":"http://p1.music.126.net/gtnxIZw1IKVV6UoxYQoA5A==/109951163393955301.jpg","lrc":"/lrc/森林.lrc"},{"name":"Umbrella","artist":"Matte / Ember Island","url":"/lrc/Umbrella.mp3","cover":"http://p1.music.126.net/1LrtvH8EpKb5iHKR9qEU0Q==/109951163063843501.jpg","lrc":"/lrc/Umbrella.lrc"},{"name":"说书人","artist":"暗杠 / 寅子","url":"https://music.163.com/song/media/outer/url?id=1303019637.mp3","cover":"http://p1.music.126.net/JHXgLgO7SIaVYacrW_wJuw==/109951165246765187.jpg","lrc":"/lrc/说书人.lrc"},{"name":"听书","artist":"暗杠 / 寅子","url":"https://music.163.com/song/media/outer/url?id=1843986876.mp3","cover":"http://p2.music.126.net/djVhMQ8TgaI517Lrg4Fm9w==/109951165968113069.jpg","lrc":"/lrc/听书.lrc"},{"name":"神のまにまに","artist":"初音ミク / 鏡音リン / GUMI / れるりり","url":"https://music.163.com/song/media/outer/url?id=32431066.mp3","cover":"http://p2.music.126.net/DCxO3b9pfFQ8wkREgg16UQ==/109951163743139874.jpg","lrc":"/lrc/神のまにまに.lrc"},{"name":"ふわふわ時間","artist":"放課後ティータイム","url":"https://music.163.com/song/media/outer/url?id=26201899.mp3","cover":"http://p1.music.126.net/B_sCLXthAHgoVEMIRNU1hw==/109951163559682176.jpg","lrc":"/lrc/ふわふわ時間.lrc"},{"name":"朝焼けのスターマイン","artist":"今井麻美","url":"https://music.163.com/song/media/outer/url?id=35345760.mp3","cover":"http://p2.music.126.net/UrHFbNNr1e96Z9EWTQPX7w==/2912606303912879.jpg","lrc":"/lrc/朝焼けのスターマイン.lrc"},{"name":"鼓動","artist":"カグラナナ","url":"https://music.163.com/song/media/outer/url?id=1872078983.mp3","cover":"http://p1.music.126.net/D-3JSGUU_pdOn6c91Wkb6w==/109951166313861666.jpg","lrc":"/lrc/鼓動.lrc"},{"name":"In Your Eyes","artist":"DG812","url":"https://music.163.com/song/media/outer/url?id=1397502846.mp3","cover":"http://p2.music.126.net/anSN1ptUo10Jj2tltSrqew==/109951164432466046.jpg","lrc":"/lrc/In Your Eyes.lrc"},{"name":"YUMEND","artist":"MYUKKE.","url":"https://music.163.com/song/media/outer/url?id=1474404251.mp3","cover":"http://p1.music.126.net/TjCQkgXcQ7WgyYPgb1FquA==/109951166330371133.jpg","lrc":"/lrc/YUMEND.lrc"},{"name":"RyAL-All I know","artist":"Champer","url":"https://music.163.com/song/media/outer/url?id=1824058027.mp3","cover":"http://p2.music.126.net/5gerzS_NGUn3TPbgha5rbQ==/109951165770952681.jpg","lrc":"/lrc/RyAL-All I know.lrc"},{"name":"“Fall Silent”","artist":"Game Tape","url":"https://music.163.com/song/media/outer/url?id=1498957758.mp3","cover":"http://p1.music.126.net/fFUKQs4fLeBNWZA-jAhTgg==/109951165505365193.jpg","lrc":"/lrc/“Fall Silent”.lrc"},{"name":4038,"artist":"JuggShots_RADI8 / 夏璃夜 / Reggie Yang / RADI8","url":"https://music.163.com/song/media/outer/url?id=1406885246.mp3","cover":"http://p1.music.126.net/ntaw2ZudfFxKzFFAPV0OKQ==/109951164985255855.jpg","lrc":"/lrc/4038.lrc"},{"name":"Outerspace","artist":"BEAUZ","url":"/lrc/Outerspace.mp3","cover":"http://p1.music.126.net/nnhkuAvDHZI44e1xFLuLHQ==/109951165308881338.jpg","lrc":"/lrc/Outerspace.lrc"},{"name":"Bring Me Back","artist":"Miles Away","url":"/lrc/Bring Me Back.mp3","cover":"http://p1.music.126.net/m8u6XqT7V8Db8sXdw7d3ow==/109951165400340890.jpg","lrc":"/lrc/Bring Me Back.lrc"},{"name":"Starry Skies","artist":"The Darkmaker / GY","url":"https://music.163.com/song/media/outer/url?id=1836533888.mp3","cover":"http://p2.music.126.net/EOiPbTxVJJCwtj-ftKePhQ==/109951165881650817.jpg","lrc":"/lrc/Starry Skies.lrc"},{"name":"Way To You","artist":"Gareth Emery","url":"https://music.163.com/song/media/outer/url?id=1430240225.mp3","cover":"http://p2.music.126.net/MolpIGnZNmfLSxE0a4A0kg==/109951164795136845.jpg","lrc":"/lrc/Way To You.lrc"},{"name":1984,"artist":"Forwe兰斯 / WERECORDS","url":"https://music.163.com/song/media/outer/url?id=1823013624.mp3","cover":"http://p1.music.126.net/DfhuVKpiFwtzjsC6N-IUmQ==/109951165759178585.jpg","lrc":"/lrc/1984.lrc"},{"name":"Every Day","artist":"VESRIX / The Darkmaker / 赵曼伊mï","url":"https://music.163.com/song/media/outer/url?id=1804141508.mp3","cover":"http://p2.music.126.net/_ARlb95O7dWCnpmMUwpUtQ==/109951165539401727.jpg","lrc":"/lrc/Every Day.lrc"},{"name":"PLANET","artist":"ラムジ","url":"/lrc/PLANET.mp3","cover":"http://p2.music.126.net/cCyPSxi-BE2h-SmpLBztbA==/18635622580993683.jpg","lrc":"/lrc/PLANET.lrc"},{"name":"Hall of Fame","artist":"The Script / will.i.am","url":"/lrc/Hall of Fame.mp3","cover":"http://p2.music.126.net/y3NzeUWXbuHI9Mm5mghD6A==/109951165967126686.jpg","lrc":"/lrc/Hall of Fame.lrc"},{"name":"回る空うさぎ","artist":"Orangestar / 初音ミク","url":"https://music.163.com/song/media/outer/url?id=458231455.mp3","cover":"http://p2.music.126.net/WT3eISFoAum31NVAIKgKWg==/109951165868174091.jpg","lrc":"/lrc/回る空うさぎ.lrc"},{"name":"雨き声残響","artist":"Orangestar / IA","url":"https://music.163.com/song/media/outer/url?id=31830625.mp3","cover":"http://p1.music.126.net/FGYCo9ZtZd-vcOBZXeu-Cg==/109951165868160762.jpg","lrc":"/lrc/雨き声残響.lrc"},{"name":"Surges","artist":"Orangestar / IA","url":"https://music.163.com/song/media/outer/url?id=1872393298.mp3","cover":"http://p1.music.126.net/brRQMx-FhXwW1APZtmNeuw==/109951166317376612.jpg","lrc":"/lrc/Surges.lrc"},{"name":"天ノ弱","artist":"鹿乃","url":"https://music.163.com/song/media/outer/url?id=27602841.mp3","cover":"http://p1.music.126.net/ZvUIE8dl3iM15BXurWgqAg==/5507453743618637.jpg","lrc":"/lrc/天ノ弱.lrc"},{"name":"天ノ弱（Piano ver.）","artist":"Akie秋绘","url":"/lrc/天ノ弱（Piano ver.）.mp3","cover":"http://p1.music.126.net/z68-4CoPo6UQVSPPUKQjeQ==/109951167762964914.jpg","lrc":"/lrc/天ノ弱（Piano ver.）.lrc"},{"name":"アイロニ","artist":"H△G","url":"/lrc/アイロニ.mp3","cover":"http://p1.music.126.net/knuZxQIl0tWXn8bHjnyq_w==/17770306928531115.jpg","lrc":"/lrc/アイロニ.lrc"},{"name":"STAY","artist":"The Kid LAROI / Justin Bieber","url":"/lrc/STAY.mp3","cover":"http://p2.music.126.net/e5cvcdgeosDKTDrkTfZXnQ==/109951166155165682.jpg","lrc":"/lrc/STAY.lrc"},{"name":"Million Days","artist":"Sabai / Hoang / Claire Ridgely","url":"/lrc/Million Days.mp3","cover":"http://p1.music.126.net/OCXJq2VEytCN6xIuS7Raag==/109951164630509914.jpg","lrc":"/lrc/Million Days.lrc"},{"name":"Returns","artist":"Poppin'Party","url":"https://music.163.com/song/media/outer/url?id=1365428127.mp3","cover":"http://p2.music.126.net/fh55GPh3tXUS9Wt0rFNhbw==/109951164971293108.jpg","lrc":"/lrc/Returns.lrc"},{"name":"她追逐着月光的尽头","artist":"warma","url":"https://music.163.com/song/media/outer/url?id=1868711061.mp3","cover":"http://p1.music.126.net/-5kwASaP2-LcTr9VrmnmTg==/109951166273496994.jpg","lrc":"/lrc/她追逐着月光的尽头.lrc"},{"name":"帰路 - KaeriMichi -","artist":"Otokaze","url":"https://music.163.com/song/media/outer/url?id=493945.mp3","cover":"http://p1.music.126.net/tkQc2-C4KT1H8iRSrEyY9g==/858718581293350.jpg","lrc":"/lrc/帰路 - KaeriMichi -.lrc"},{"name":"儿时的夏日","artist":"余日秋山","url":"https://music.163.com/song/media/outer/url?id=467744316.mp3","cover":"http://p1.music.126.net/AoxdNp812wLheBzLBm-zXw==/109951163871163517.jpg","lrc":"/lrc/儿时的夏日.lrc"},{"name":"春日","artist":"四季音色","url":"https://music.163.com/song/media/outer/url?id=409649183.mp3","cover":"http://p2.music.126.net/IzwWL-ULrEKH9FK3pEFLFA==/17857168346938270.jpg","lrc":"/lrc/春日.lrc"},{"name":"夏夜","artist":"四季音色","url":"https://music.163.com/song/media/outer/url?id=410042763.mp3","cover":"http://p2.music.126.net/pk-xo-6Nu5bwrA-ylVJFUA==/17885755649212510.jpg","lrc":"/lrc/夏夜.lrc"},{"name":"心动讯息","artist":"BlackDD","url":"https://music.163.com/song/media/outer/url?id=1458639005.mp3","cover":"http://p2.music.126.net/7inlikcI5GuMLcOl-Zj12w==/109951168185876251.jpg","lrc":"/lrc/心动讯息.lrc"},{"name":"Forever (Epic Edition)","artist":"PIKASONIC","url":"https://music.163.com/song/media/outer/url?id=1462341831.mp3","cover":"http://p2.music.126.net/4eciQbmCZ6AH1GB39SlIfQ==/109951165133997929.jpg","lrc":"/lrc/Forever (Epic Edition).lrc"},{"name":"Never Gonna Give You Up (Piano Version)","artist":"LittleTranscriber","url":"https://music.163.com/song/media/outer/url?id=1870402236.mp3","cover":"http://p1.music.126.net/QkBjOd1aM5aw4GnRmcOUqw==/109951166294709668.jpg","lrc":"/lrc/Never Gonna Give You Up (Piano Version).lrc"},{"name":"Revolution","artist":"高仕超","url":"https://music.163.com/song/media/outer/url?id=1426163928.mp3","cover":"http://p1.music.126.net/qw1ycZSYlBv2CBh4U1H4PQ==/109951164883021091.jpg","lrc":"/lrc/Revolution.lrc"}],
+    volume: 0.7,
+    mutex: true,
+    lrcType: 3,
+    listFolded: false,
+    listMaxHeight: "340px",
+    storageName: "aplayer-setting"
+  });
+}
+document.addEventListener("DOMContentLoaded", initAplayer);
+document.addEventListener("pjax:success", initAplayer);</script><script src="https://jsd.vxo.im/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js"></script><script>const images = [...document.querySelectorAll('.markdown-body img')]
+mediumZoom(images)</script><style>.medium-zoom-image {
+  z-index: 99;
+}</style><!-- hexo injector body_end start --><script src="https://cdn.jsdelivr.net/npm/hexo-widget-tree@0.2.2/js/index.js"></script><div id="widget-tree">
+      <ul>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/%E5%85%B6%E4%BB%96/">
+          其他
+        </a>
+      <span class="tree-list-count">1</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/c794d1e9/" title="hexo-encrypt密码插件测试"><i class="post-icon gg-file-document"></i>hexo-encrypt密码插件测试</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/%E5%85%B6%E4%BB%96%E6%95%99%E7%A8%8B/">
+          其他教程
+        </a>
+      <span class="tree-list-count">7</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/33de6690/" title="Github Calendar教程文档"><i class="post-icon gg-file-document"></i>Github Calendar教程文档</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/7fa36b92/" title="Hexo博客SEO相关收录教程"><i class="post-icon gg-file-document"></i>Hexo博客SEO相关收录教程</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/b010393c/" title="PicGO图床配置"><i class="post-icon gg-file-document"></i>PicGO图床配置</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/5df1183b/" title="云游君Hexo部署教程"><i class="post-icon gg-file-document"></i>云游君Hexo部署教程</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/e5a21006/" title="云游君yun主题配置教程"><i class="post-icon gg-file-document"></i>云游君yun主题配置教程</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/d5012c8c/" title="搜索引擎搜索技巧"><i class="post-icon gg-file-document"></i>搜索引擎搜索技巧</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/f6c193b6/" title="解决Vercel CORS跨域问题"><i class="post-icon gg-file-document"></i>解决Vercel CORS跨域问题</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/%E5%BC%80%E5%8F%91%E6%8A%80%E8%83%BD/">
+          开发技能
+        </a>
+      <span class="tree-list-count">6</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/941aaef3/" title="$\KaTeX$ 公式大全"><i class="post-icon gg-file-document"></i>$\KaTeX$ 公式大全</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/c6c59c74/" title="Cmake基础教程"><i class="post-icon gg-file-document"></i>Cmake基础教程</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/249d705/" title="$\KaTeX$ 速查手册"><i class="post-icon gg-file-document"></i>$\KaTeX$ 速查手册</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/6bc3d8a/" title="Linux常用命令手册"><i class="post-icon gg-file-document"></i>Linux常用命令手册</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/cf058d62/" title="Markdown语法教程"><i class="post-icon gg-file-document"></i>Markdown语法教程</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/c4eece1e/" title="git基础教程"><i class="post-icon gg-file-document"></i>git基础教程</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/">
+          开发环境
+        </a>
+      <span class="tree-list-count">3</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/f9bb8de7/" title="Qt 开发环境配置"><i class="post-icon gg-file-document"></i>Qt 开发环境配置</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/54ce768c/" title="VScode基本环境配置"><i class="post-icon gg-file-document"></i>VScode基本环境配置</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/e8dec52a/" title="VScode配置Clang和Cmake环境"><i class="post-icon gg-file-document"></i>VScode配置Clang和Cmake环境</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/">
+          数据结构与算法
+        </a>
+      <span class="tree-list-count">30</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/b30456ca/" title="01Trie"><i class="post-icon gg-file-document"></i>01Trie</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/1d03a887/" title="AVL树与哈夫曼树"><i class="post-icon gg-file-document"></i>AVL树与哈夫曼树</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/394de44a/" title="gcd 和 lcm"><i class="post-icon gg-file-document"></i>gcd 和 lcm</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/bfaab9bd/" title="乘法逆元"><i class="post-icon gg-file-document"></i>乘法逆元</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/b81a161a/" title="二分枚举"><i class="post-icon gg-file-document"></i>二分枚举</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/8b3a7218/" title="倍增LCA与Tarjan"><i class="post-icon gg-file-document"></i>倍增LCA与Tarjan</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/77a88a6b/" title="前缀和与差分"><i class="post-icon gg-file-document"></i>前缀和与差分</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/a80d0031/" title="动态规划"><i class="post-icon gg-file-document"></i>动态规划</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/a6add1c4/" title="单调栈与单调队列"><i class="post-icon gg-file-document"></i>单调栈与单调队列</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/33e6ada9/" title="图与回溯"><i class="post-icon gg-file-document"></i>图与回溯</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/91a7e4d1/" title="双指针"><i class="post-icon gg-file-document"></i>双指针</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/e8bacb09/" title="差分约束与二分图"><i class="post-icon gg-file-document"></i>差分约束与二分图</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/c517589e/" title="并查集"><i class="post-icon gg-file-document"></i>并查集</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/735e5788/" title="排序算法"><i class="post-icon gg-file-document"></i>排序算法</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/9acb5cb3/" title="最小生成树"><i class="post-icon gg-file-document"></i>最小生成树</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/f216fabe/" title="最短路"><i class="post-icon gg-file-document"></i>最短路</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/6d73f605/" title="权值线段树和主席树"><i class="post-icon gg-file-document"></i>权值线段树和主席树</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/263f4c38/" title="树与二叉树"><i class="post-icon gg-file-document"></i>树与二叉树</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/20c47d09/" title="快速幂"><i class="post-icon gg-file-document"></i>快速幂</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/59a0de58/" title="树状数组与ST表"><i class="post-icon gg-file-document"></i>树状数组与ST表</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/89c44d72/" title="欧拉路径与哈密顿路径"><i class="post-icon gg-file-document"></i>欧拉路径与哈密顿路径</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/515818b4/" title="离散化"><i class="post-icon gg-file-document"></i>离散化</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/f3215fef/" title="算法复杂度分析"><i class="post-icon gg-file-document"></i>算法复杂度分析</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/8893d943/" title="线段树"><i class="post-icon gg-file-document"></i>线段树</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/9ac1aea8/" title="组合数"><i class="post-icon gg-file-document"></i>组合数</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/b2626942/" title="背包问题"><i class="post-icon gg-file-document"></i>背包问题</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/554f2221/" title="质数筛"><i class="post-icon gg-file-document"></i>质数筛</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/a4ce31d2/" title="贪心算法"><i class="post-icon gg-file-document"></i>贪心算法</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/5499b3ee/" title="重链剖分与启发式合并"><i class="post-icon gg-file-document"></i>重链剖分与启发式合并</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/5c43c6e5/" title="高精度算法"><i class="post-icon gg-file-document"></i>高精度算法</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98/">
+          算法题
+        </a>
+      <span class="tree-list-count">13</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/5c63dfdb/" title="C. LR-remainders"><i class="post-icon gg-file-document"></i>C. LR-remainders</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/8e48091a/" title="D - K-th Nearest"><i class="post-icon gg-file-document"></i>D - K-th Nearest</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/d9ea786c/" title="D - Synchronized Players"><i class="post-icon gg-file-document"></i>D - Synchronized Players</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/86fe45f1/" title="D. Find the Different Ones!"><i class="post-icon gg-file-document"></i>D. Find the Different Ones!</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/8abc54c0/" title="E. Final Countdown"><i class="post-icon gg-file-document"></i>E. Final Countdown</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/21e58d4f/" title="P10126 「Daily OI Round 3」Pigeon"><i class="post-icon gg-file-document"></i>P10126 「Daily OI Round 3」Pigeon</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/9120d4e8/" title="P1031 [NOIP2002 提高组] 均分纸牌"><i class="post-icon gg-file-document"></i>P1031 [NOIP2002 提高组] 均分纸牌</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/cdc4662f/" title="P1036 [NOIP2002 普及组] 选数"><i class="post-icon gg-file-document"></i>P1036 [NOIP2002 普及组] 选数</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/8cb1d9bf/" title="P1037 [NOIP2002 普及组] 产生数"><i class="post-icon gg-file-document"></i>P1037 [NOIP2002 普及组] 产生数</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/6cd8f33d/" title="P1060 [NOIP2006 普及组] 开心的金明"><i class="post-icon gg-file-document"></i>P1060 [NOIP2006 普及组] 开心的金明</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/59ee5a77/" title="P1090 [NOIP2004 提高组] 合并果子"><i class="post-icon gg-file-document"></i>P1090 [NOIP2004 提高组] 合并果子</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/2ad6a038/" title="P1147 连续自然数和"><i class="post-icon gg-file-document"></i>P1147 连续自然数和</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/d3586754/" title="P1364 医院设置"><i class="post-icon gg-file-document"></i>P1364 医院设置</a></li></ul></li>
+      <li class="tree-list-item">
+        <i class="toggle-post-icon gg-folder-add"></i>
+        <a class="tree-list-link" href="/categories/%E7%BC%96%E7%A8%8B%E8%AF%AD%E8%A8%80/">
+          编程语言
+        </a>
+      <span class="tree-list-count">5</span><ul class="tree-list-children"><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/6981023b/" title="C语言类型声明黄金法则"><i class="post-icon gg-file-document"></i>C语言类型声明黄金法则</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/245b3756/" title="Python3爬虫基础"><i class="post-icon gg-file-document"></i>Python3爬虫基础</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/19856b4f/" title="Python3基础教程"><i class="post-icon gg-file-document"></i>Python3基础教程</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/46cf02c7/" title="Cpp基础教程"><i class="post-icon gg-file-document"></i>Cpp基础教程</a></li><li class="tree-list-item"><a class="tree-list-post-link" href="/posts/7e973705/" title="C语言基础教程"><i class="post-icon gg-file-document"></i>C语言基础教程</a></li></ul></li></ul>
+        <div id="widget-tree-button">
+          <i class="gg-chevron-right"></i>
+        </div>
+      </div>
+  <script data-pjax src="https://jsd.vxo.im/gh/barry-flynn/hexo-github-calendar/hexo_githubcalendar.js"></script>
+  <script data-pjax>
+        function GithubCalendarConfig(){
+            var git_githubapiurl ="https://calendar.muyun.space/api/?user=ShanMuYunQiu";
+            var git_color =['#ebedf0', '#ffd1b3', '#ffb380', '#ffa366', '#ff9c59', '#ff944d', '#ff8c40', '	#ff8533', '#ff7d26', '#ff7519', '#ff6600'];
+            var git_user ="ShanMuYunQiu";
+            var parent_div_git = document.getElementById('recent-posts');
+            var git_div_html = '<head><style type="text/css">@media (max-width: 1000px){.recent-post-item{width:90% !important;}}@media (min-width: 1000px){.recent-post-item{max-width:940px;width:100%;margin:0 auto;}}@media (max-width: 480px){.recent-post-item{padding:10px;}}</style><link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml,sitemap.txt"></head><div class="recent-post-item" style="width:100%;height:auto;padding:20px;"><div id="github_loading" style="text-align:center;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" style="width:50px;height:50px;margin:0 auto;"><path fill="#d0d0d0" d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z" transform="rotate(275.098 25 25)"><animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25" to="360 25 25" dur="0.6s" repeatCount="indefinite"></animateTransform></path></svg></div><div id="github_container"></div></div>';
+            if(parent_div_git && location.pathname =='/'){
+                console.log("已挂载hexo-github-calendar https://github.com/Barry-Flynn/hexo-github-calendar");
+                // parent_div_git.innerHTML=git_div_html+parent_div_git.innerHTML // 无报错，但不影响使用(支持pjax跳转)
+                parent_div_git.insertAdjacentHTML("afterbegin",git_div_html) // 有报错，但不影响使用(支持pjax跳转)
+            };
+            GithubCalendar(git_githubapiurl,git_color,git_user)
+        }
+        if(document.getElementById('recent-posts')){
+            GithubCalendarConfig()
+        }
+    </script>
+    <style>#github_container{min-height:280px}@media screen and (max-width:650px) {#github_container{background-image:;min-height:0px}}</style>
+    <style></style><!-- hexo injector body_end end --><script src="https://jsd.vxo.im/npm/live2d-widget@3.x/lib/L2Dwidget.min.js"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"https://jsd.vxo.im/npm/live2d-widget-model-wanko@latest/assets/wanko.model.json"},"display":{"superSample":2,"width":200,"height":400,"position":"right","hOffset":0,"vOffset":-100},"mobile":{"show":false},"dialog":{"enable":false,"hitokoto":false},"log":false});</script></body></html>
